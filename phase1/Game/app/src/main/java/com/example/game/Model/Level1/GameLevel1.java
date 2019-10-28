@@ -1,7 +1,7 @@
-package Model.Level1;
+package com.example.game.Model.Level1;
 
-import Contract.ILevel1;
-import Model.GameLevel;
+import com.example.game.Contract.ILevel1;
+import com.example.game.Model.GameLevel;
 
 public class GameLevel1 extends GameLevel {
     private ILevel1.ILevel1Presenter presenter;

@@ -1,8 +1,8 @@
-package Presenter;
+package com.example.game.Presenter;
 
-import Contract.ICustomization;
-import Model.CustomizationManager;
-import Model.GameManager;
+import com.example.game.Contract.ICustomization;
+import com.example.game.Model.CustomizationManager;
+import com.example.game.Model.GameManager;
 
 public class CustomizationPresenter implements ICustomization.ICustomizationPresenter {
     private ICustomization.ICustomizationView view;

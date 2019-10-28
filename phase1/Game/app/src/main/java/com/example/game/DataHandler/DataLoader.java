@@ -1,4 +1,7 @@
-package com.example.gamedraft;
+package com.example.game.DataHandler;
+
+import com.example.game.Model.Campus;
+import com.example.game.Model.Student;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

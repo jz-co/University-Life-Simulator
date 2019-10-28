@@ -1,4 +1,4 @@
-package Contract;
+package com.example.game.Contract;
 
 public interface ILevel {
     interface ILevelView{

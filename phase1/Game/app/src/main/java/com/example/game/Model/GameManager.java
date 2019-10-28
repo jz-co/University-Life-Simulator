@@ -1,6 +1,5 @@
-package Model;
+package com.example.game.Model;
 
-import Model.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
