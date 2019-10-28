@@ -19,7 +19,7 @@ public class GameManager {
      * Resumes game for the current player.
      */
     void resumeGame(){
-        currentStudent.resumeGame();
+        //TODO: implement this!
     }
 
     /**
@@ -61,7 +61,7 @@ public class GameManager {
     }
 
     public GameLevel getCurrentGameLevel(){
-        int currCampus = currentStudent.getCampus();
+        int currCampus = currentStudent.getCampusNumber();
         Campus campus = campuses.get(currCampus);
         int currLevel = currentStudent.getCurrentLevel();
         return campus.getLevel(currLevel);

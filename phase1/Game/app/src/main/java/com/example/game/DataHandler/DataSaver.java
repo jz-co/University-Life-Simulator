@@ -40,7 +40,7 @@ public class DataSaver {
                 writer.append(Double.toString(student.getHp()));
                 writer.append(",");
                 // get campus name of the student
-                writer.append(student.getCampusName());
+                writer.append(Integer.toString(student.getCampusNumber()));
                 writer.append(",");
                 //get customized name of the student
                 writer.append(student.getName());

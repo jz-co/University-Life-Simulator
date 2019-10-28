@@ -1,7 +1,7 @@
 package com.example.game.Model;
 
 public class CustomizationManager {
-    private int numberOfPictures; // where do we get this? idk yet
+    private int numberOfPictures; // TODO: where do we get this? idk yet
     private Student currentStudent;
 
     public CustomizationManager(Student curr){
@@ -20,7 +20,7 @@ public class CustomizationManager {
      */
     public void customize(int picIndex, String name, String lang){
         currentStudent.setLanguage(lang);
-        currentStudent.setProfilePic(picIndex);
-        currentStudent.setPreferredName(name);
+        currentStudent.setAppearance(picIndex);
+        currentStudent.setName(name);
     }
 }

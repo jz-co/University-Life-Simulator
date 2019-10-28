@@ -28,4 +28,12 @@ fixed.
 #########
 Step 6 (Grace)
 Code Affected: DataLoader.java DataSaver.java StGeorge.java Student.java
-Changes: Changed the signature of Student constructor (the one for 1st time users).
+Changes: Changed the signature of Student constructor (the one for 1st time users). Student no longer
+keeps track of a Campus object, instead it store a campusNumber.
+
+#########
+Step 7 (Grace)
+Code Affected: DataSaver, the GameLevels, Campus, CustomizationManager, GameLevel, GameManager,
+StGeorge, Student
+Changes: fixed some more package / import problems. Modified Campus class and subclass. Campus
+no longer has methods to play level, no longer stores currentLevel. Commented out add level etc.

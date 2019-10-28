@@ -1,9 +1,9 @@
 package com.example.game.Model;
 
 public class Student {
-    private int credit, appearance, currentLevel;
+    private int credit, appearance, currentLevel, campusNumber;
     private double gpa, hp;
-    private String username, password, campusName, name, language;
+    private String username, password, name, language;
 
     /** create a new Student
      *
@@ -18,14 +18,14 @@ public class Student {
     }
 
     public Student(String username, String password, String level, String credits, String gpa,
-            String hp,String campusName, String name, String appearence, String language){
+            String hp, int campusNumber, String name, String appearence, String language){
         this.username = username;
         this.password = password;
         this.currentLevel = Integer.parseInt(level);
         this.credit = Integer.parseInt(credits);
         this.gpa = Double.parseDouble(gpa);
         this.hp = Double.parseDouble(hp);
-        this.campusName = campusName;
+        this.campusNumber = campusNumber;
         this.name = name;
         this.appearance = Integer.parseInt(appearence);
         this.language = language;
@@ -156,8 +156,8 @@ public class Student {
     }
 
     /** get campus name **/
-    public String getCampusName(){
-        return campusName;
+    public int getCampusNumber(){
+        return campusNumber;
     }
 
 
