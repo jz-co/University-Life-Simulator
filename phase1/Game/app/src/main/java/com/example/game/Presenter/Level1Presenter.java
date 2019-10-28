@@ -1,10 +1,10 @@
-package Presenter;
+package com.example.game.Presenter;
 
-import Contract.ILevel1;
-import Model.GameManager;
-import Model.Level1.GameLevel1;
+import com.example.game.Contract.ILevel1;
+import com.example.game.Model.GameManager;
+import com.example.game.Model.Level1.GameLevel1;
 
-public class Level1Presenter extends LevelPresenter {
+public class Level1Presenter extends com.example.game.Presenter.LevelPresenter {
     private ILevel1.ILevel1View view;
     private GameLevel1 gameLevel;
     private GameManager gameManager; // need to pass this in somehow..!!!!!

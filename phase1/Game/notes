@@ -18,3 +18,9 @@ Code Affected: none
 Changes: Added 5 new activities - Activity Classes added to com.example.game/View folder and
 corresponding xml layout files to layout folder
 Updated AndroidManifest.xml to reflect additional activities.
+
+#########
+Step 5 (Parinita)
+Code Affected: Presenter Package
+Changes: Added com.example.game ahead all of imports. There are still some errors but the imports are
+fixed.

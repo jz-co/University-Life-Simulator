@@ -1,4 +1,4 @@
-package Presenter;
+package com.example.game.Presenter;
 
 import Contract.IResult;
 

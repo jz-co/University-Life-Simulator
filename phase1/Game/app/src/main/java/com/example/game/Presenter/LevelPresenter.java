@@ -1,8 +1,8 @@
-package Presenter;
+package com.example.game.Presenter;
 
-import Contract.ILevel;
-import Model.GameManager;
-import Model.Student;
+import com.example.game.Contract.ILevel;
+import com.example.game.Model.GameManager;
+import com.example.game.Model.Student;
 
 public abstract class LevelPresenter {
     GameManager gameManager; // this has to be passed in somehow or made static!
