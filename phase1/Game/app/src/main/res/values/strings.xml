@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Game</string>
+    <string name="welcome_message">Welcome!</string>
+    <string name="login_button">Log In</string>
+    <string name="signup_button">Sign Up</string>
+    <string name="password_hint">Password</string>
+    <string name="username_hint">Username</string>
+
+
+    <string name="customization_message">Customize Your Character</string>
+    <string name="customization_message2">Give your character a cool name!</string>
+    <string name="confirm_button">Confirm</string>
 </resources>
