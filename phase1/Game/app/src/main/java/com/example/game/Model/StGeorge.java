@@ -36,7 +36,6 @@ class StGeorge extends Campus {
      */
     void playCurrentLevel(){
         GameLevel currentGame = gameLevels.get(this.getCurrentLevel()).makeCopy();
-        currentGame.play();
     }
 
 }

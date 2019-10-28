@@ -2,13 +2,8 @@ package com.example.game.DataHandler;
 
 import com.example.game.Model.Student;
 
-import android.content.Context;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 public class DataSaver {
@@ -33,7 +28,7 @@ public class DataSaver {
                 writer.append(student.getPassword());
                 writer.append(",");
                 //get current level of the student
-                writer.append(Integer.toString(student.getLevel()));
+                writer.append(Integer.toString(student.getCurrentLevel()));
                 writer.append(",");
                 // get credit of the student
                 writer.append(Integer.toString(student.getCredit()));
@@ -51,7 +46,7 @@ public class DataSaver {
                 writer.append(student.getName());
                 writer.append(",");
                 // get the id of the customized appearence
-                writer.append(Integer.toString(student.getAppearence()));
+                writer.append(Integer.toString(student.getAppearance()));
                 writer.append(",");
                 // get the language of the customized langugae
                 writer.append(student.getLanguage());

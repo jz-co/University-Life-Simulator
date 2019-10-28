@@ -1,9 +1,8 @@
 package com.example.game.Model;
 
 public class Student {
-    private int credit, appearence, level;
+    private int credit, appearance, currentLevel;
     private double gpa, hp;
-    private Campus campus;
     private String username, password, campusName, name, language;
 
     /** create a new Student
@@ -19,17 +18,16 @@ public class Student {
     }
 
     public Student(String username, String password, String level, String credits, String gpa,
-            String hp, Campus campus, String name, String appearence, String language){
+            String hp,String campusName, String name, String appearence, String language){
         this.username = username;
         this.password = password;
-        this.level = Integer.parseInt(level);
+        this.currentLevel = Integer.parseInt(level);
         this.credit = Integer.parseInt(credits);
         this.gpa = Double.parseDouble(gpa);
         this.hp = Double.parseDouble(hp);
-        this.campus = campus;
-        this.campusName = campus.getName();
+        this.campusName = campusName;
         this.name = name;
-        this.appearence = Integer.parseInt(appearence);
+        this.appearance = Integer.parseInt(appearence);
         this.language = language;
     }
 
@@ -69,9 +67,9 @@ public class Student {
         this.hp = hp;
     }
 
-    /** get the current level of this student **/
-    public int getLevel(){
-        return level;
+    /** get the current currentLevel of this student **/
+    public int getCurrentLevel(){
+        return currentLevel;
     }
 
     /** increase the credit of this student
@@ -152,9 +150,9 @@ public class Student {
         return language;
     }
 
-    /** get the id of the customized appearence of this student **/
-    public int getAppearence(){
-        return appearence;
+    /** get the id of the customized appearance of this student **/
+    public int getAppearance(){
+        return appearance;
     }
 
     /** get campus name **/
@@ -162,27 +160,21 @@ public class Student {
         return campusName;
     }
 
-    /** resume the game that you were previously playing **/
-    public void resumeGame(){
-        // the campus hold the current level
-        this.campus.playCurrentLevel();
+
+    /** set appearance of this student
+     *
+     * @param appearance: the id of the customized appearance
+     */
+    public void setAppearance(int appearance) {
+        this.appearance = appearance;
     }
 
-
-    /** set appearence of this student
+    /** set the currentLevel of this student
      *
-     * @param appearence: the id of the customized appearence
+     * @param currentLevel: the current currentLevel that this student is playing
      */
-    public void setAppearence(int appearence) {
-        this.appearence = appearence;
-    }
-
-    /** set the level of this student
-     *
-     * @param level: the current level that this student is playing
-     */
-    public void setLevel(int level) {
-        this.level = level;
+    public void setCurrentLevel(int currentLevel) {
+        this.currentLevel = currentLevel;
     }
 
 
@@ -203,21 +195,5 @@ public class Student {
     }
 
 
-    /** get the campus of this student
-     *
-     * @return campus
-     */
-    public Campus getCampus() {
-        return campus;
-    }
-
-
-    /** set the campus of this student
-     *
-     * @param campus: a new campus
-     */
-    public void setCampus(Campus campus) {
-        this.campus = campus;
-    }
 
 }

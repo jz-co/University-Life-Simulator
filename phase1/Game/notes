@@ -24,3 +24,8 @@ Step 5 (Parinita)
 Code Affected: Presenter Package
 Changes: Added com.example.game ahead all of imports. There are still some errors but the imports are
 fixed.
+
+#########
+Step 6 (Grace)
+Code Affected: DataLoader.java DataSaver.java StGeorge.java Student.java
+Changes: Changed the signature of Student constructor (the one for 1st time users).
