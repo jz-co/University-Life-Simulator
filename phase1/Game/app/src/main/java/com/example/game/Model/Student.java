@@ -8,29 +8,17 @@ public class Student {
 
     /** create a new Student
      *
-     * @param campus: the campus of the student
-     * @param name: the customized name of the student
-     * @param Language: the customized language of the student
-     * @param Appearence: the customized appearence of the student
      * @param username: the username of the student
      * @param password: the password of the student
      */
-    Student(Campus campus, String name, String Language, int Appearence,
-            String username, String password){
-        this.credit = 0;
-        this.gpa = 0;
-        this.hp = 0;
-        this.campus = campus;
+    public Student (String username, String password){
+
         this.username = username;
         this.password = password;
-        this.name = name;
-        this.language = Language;
-        this.appearence  = Appearence;
-        this.campusName = campus.getName();
-        this.level = campus.getCurrentLevel();
+
     }
 
-    Student(String username, String password, String level, String credits, String gpa,
+    public Student(String username, String password, String level, String credits, String gpa,
             String hp, Campus campus, String name, String appearence, String language){
         this.username = username;
         this.password = password;
@@ -46,43 +34,43 @@ public class Student {
     }
 
     /** get the credits of this student**/
-    int getCredit(){
+    public int getCredit(){
         return credit;
     }
 
     /** get the gpa of this student**/
-    double getGpa() {
+    public double getGpa() {
         return gpa;
     }
 
     /** get the hp of this student**/
-    double getHp(){
+    public double getHp(){
         return hp;
     }
 
     /** set the credit of this student
      * @param credit: set the credit number of this student to be credit
      * **/
-    void setCredit(int credit) {
+    public void setCredit(int credit) {
         this.credit = credit;
     }
 
     /** set the credit of this student
      * @param gpa: set the gpa of this student to be gpa
      * **/
-    void setGpa(double gpa) {
+    public void setGpa(double gpa) {
         this.gpa = gpa;
     }
 
     /** set the credit of this student
      * @param hp: set the hp of this student to be hp
      * **/
-    void setHp(double hp) {
+    public void setHp(double hp) {
         this.hp = hp;
     }
 
     /** get the current level of this student **/
-    int getLevel(){
+    public int getLevel(){
         return level;
     }
 
@@ -90,7 +78,7 @@ public class Student {
      *
      * @param amount_to_add: the amount to be added to the credit of the student
      */
-    void incrementCredit(int amount_to_add){
+    public void incrementCredit(int amount_to_add){
         this.credit += amount_to_add;
     }
 
@@ -98,7 +86,7 @@ public class Student {
      *
      * @param amount_to_add: the amount to be added to the hp of the student
      */
-    void incrementHp(int amount_to_add){
+    public void incrementHp(int amount_to_add){
         this.hp += amount_to_add;
     }
 
@@ -106,7 +94,7 @@ public class Student {
      *
      * @param amount_to_add: the amount to be added to the gpa of the student
      */
-    void incrementGpa(int amount_to_add){
+    public void incrementGpa(int amount_to_add){
         this.gpa += amount_to_add;
     }
 
@@ -114,7 +102,7 @@ public class Student {
      *
      * @param amount_to_delete: the amount to be deleted to the credit of the student
      */
-    void decrementCredit(int amount_to_delete){
+    public void decrementCredit(int amount_to_delete){
         this.credit -= amount_to_delete;
     }
 
@@ -122,7 +110,7 @@ public class Student {
      *
      * @param amount_to_delete: the amount to be deleted to the gpa of the student
      */
-    void decrementGpa(int amount_to_delete){
+    public void decrementGpa(int amount_to_delete){
         this.gpa -= amount_to_delete;
     }
 
@@ -130,7 +118,7 @@ public class Student {
      *
      * @param amount_to_delete: the amoun to be deleted to the hp of the student
      */
-    void decrementHp(int amount_to_delete){
+    public void decrementHp(int amount_to_delete){
         this.hp -= amount_to_delete;
     }
 
@@ -140,42 +128,42 @@ public class Student {
     }
 
     /** get the password in the login page for this student**/
-    String getPassword(){
+    public String getPassword(){
         return this.password;
     }
 
     /** set the username of this student **/
-    void setUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
     /** set the password of this student **/
-    void setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
     /** get customized name of this student **/
-    String getName(){
+    public String getName(){
         return name;
     }
 
     /** get customized language of this student **/
-    String getLanguage(){
+    public String getLanguage(){
         return language;
     }
 
     /** get the id of the customized appearence of this student **/
-    int getAppearence(){
+    public int getAppearence(){
         return appearence;
     }
 
     /** get campus name **/
-    String getCampusName(){
+    public String getCampusName(){
         return campusName;
     }
 
     /** resume the game that you were previously playing **/
-    void resumeGame(){
+    public void resumeGame(){
         // the campus hold the current level
         this.campus.playCurrentLevel();
     }
@@ -185,7 +173,7 @@ public class Student {
      *
      * @param appearence: the id of the customized appearence
      */
-    void setAppearence(int appearence) {
+    public void setAppearence(int appearence) {
         this.appearence = appearence;
     }
 
@@ -193,7 +181,7 @@ public class Student {
      *
      * @param level: the current level that this student is playing
      */
-    void setLevel(int level) {
+    public void setLevel(int level) {
         this.level = level;
     }
 
@@ -202,7 +190,7 @@ public class Student {
      *
      * @param name: the preferred name of the student
      */
-    void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -210,7 +198,7 @@ public class Student {
      *
      * @param language: the preferred language of the student
      */
-    void setLanguage(String language) {
+    public void setLanguage(String language) {
         this.language = language;
     }
 
@@ -228,7 +216,7 @@ public class Student {
      *
      * @param campus: a new campus
      */
-    void setCampus(Campus campus) {
+    public void setCampus(Campus campus) {
         this.campus = campus;
     }
 

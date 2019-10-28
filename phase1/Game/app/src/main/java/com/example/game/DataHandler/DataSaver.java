@@ -9,7 +9,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
+import java.util.List;
 
 public class DataSaver {
     // responsible for adding, updating, and deleting data from the csv file
@@ -21,7 +21,7 @@ public class DataSaver {
      * @param students
      * @return Boolean : true --> save successfully; false --> failed to save
      */
-    boolean saveAll(ArrayList<Student> students){
+    public boolean saveAll(List<Student> students){
         FileWriter writer = null;
         try {
             writer = new FileWriter("studentData.csv");
