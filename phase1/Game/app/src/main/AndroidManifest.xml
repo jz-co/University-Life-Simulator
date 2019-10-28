@@ -9,12 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfileActivity"></activity>
-        <activity android:name=".GameCompletionActivity" />
-        <activity android:name=".FirstGameActivity" />
-        <activity android:name=".CourseSelectorActivity" />
-        <activity android:name=".CustomizationActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="View.ProfileActivity"></activity>
+        <activity android:name="View.GameCompletionActivity" />
+        <activity android:name="View.FirstGameActivity" />
+        <activity android:name="View.CourseSelectorActivity" />
+        <activity android:name="View.CustomizationActivity" />
+        <activity android:name="View.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

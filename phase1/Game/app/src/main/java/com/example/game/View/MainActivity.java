@@ -1,9 +1,11 @@
-package com.example.game;
+package com.example.game.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.game.R;
 
 public class MainActivity extends AppCompatActivity {
 
