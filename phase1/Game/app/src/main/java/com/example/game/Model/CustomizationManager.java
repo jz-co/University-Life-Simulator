@@ -1,4 +1,4 @@
-package Model;
+package com.example.game.Model;
 
 public class CustomizationManager {
     private int numberOfPictures; // where do we get this? idk yet

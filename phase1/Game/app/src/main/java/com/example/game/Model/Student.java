@@ -1,6 +1,6 @@
-package com.example.gamedraft;
+package com.example.game.Model;
 
-class Student {
+public class Student {
     private int credit, appearence, level;
     private double gpa, hp;
     private Campus campus;
@@ -135,7 +135,7 @@ class Student {
     }
 
     /** get the username in the login page for this student**/
-    String getUsername(){
+    public String getUsername(){
         return this.username;
     }
 

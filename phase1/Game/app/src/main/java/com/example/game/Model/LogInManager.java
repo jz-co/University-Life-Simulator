@@ -1,4 +1,4 @@
-package Model;
+package com.example.game.Model;
 
 public class LogInManager {
     private GameManager gameManager;

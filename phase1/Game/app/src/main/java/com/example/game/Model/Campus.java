@@ -1,8 +1,8 @@
-package com.example.gamedraft;
+package com.example.game.Model;
 
 import java.util.ArrayList;
 
-abstract class Campus {
+public abstract class Campus {
     private int currentLevel;
     private String name;
 

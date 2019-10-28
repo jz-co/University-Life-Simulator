@@ -1,4 +1,6 @@
-package com.example.gamedraft;
+package com.example.game.DataHandler;
+
+import com.example.game.Model.Student;
 
 import android.content.Context;
 
@@ -9,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-class DataSaver {
+public class DataSaver {
     // responsible for adding, updating, and deleting data from the csv file
     // the csv should contain 11 columns
     // userid, username, password, level, credits, gpa, hp, campus, name. appearence, language
