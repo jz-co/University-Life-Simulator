@@ -16,7 +16,7 @@ public class DataLoader {
      *
      * @return Arraylist of student
      */
-    ArrayList<Student> loadAll(){
+    public ArrayList<Student> loadAll(){
         ArrayList<Student> students = new ArrayList<>();
         BufferedReader reader = null;
         String row;

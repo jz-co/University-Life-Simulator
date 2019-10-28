@@ -1,0 +1,13 @@
+#########
+Step 1
+Code Affected: EVERYTHING
+Initial commit & Push
+#########
+Step 2
+Code Affected: EVERYTHING
+Added some missing files, fixed package and import at the top of each file
+#########
+Step 3
+Code Affected: DataLoader.java DataSaver.java Student.java
+Flaw: interfaces don't match (because class designs have been changed)
+Fix: changed some methods to public, fixed some mismatching signatures etc & Added notes.txt
