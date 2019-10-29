@@ -16,8 +16,8 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customization);
-        //TODO: get gameManager from intent
-        //this.presenter = new CustomizationPresenter(this);
+        String username = (String) getIntent().getSerializableExtra("UserName");
+        // TODO: create presenter.
     }
 
     @Override
@@ -46,7 +46,7 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
     }
 
     @Override
-    public void goToLevel1(IGameManager gameManager) {
+    public void goToLevel1(String username) {
         //TODO: send gameManager to the next page with intent
     }
 }

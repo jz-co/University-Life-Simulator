@@ -75,3 +75,12 @@ Added layout activity_main_lvl_3 for the start page of the game.
 These are the two activities required for running the main menu of the level 3 game and the game
 view, respectively. Lvl3GameView creates the surface view for the game. MainThread class is
 responsible for the game loop.
+
+#########
+Step 13 (Grace)
+Code Affected: IData, ICustomization, ILogin, DataHandler, GameManager, Student, StudentManager,
+CustomizationPresenter, LoginPresenter, CustomizationActivity, MainActivity
+Changes: added IData interface. Now only View has access to DataHandler, others need to use the IData
+interface to access them. Changed the way information is passed between activities. Now instead of
+passing IGameManager, we pass the current student's username, and construct a new GameManager. (Save
+before leaving the page.)

@@ -1,7 +1,7 @@
 package com.example.game.Model;
 
-public class Student {
-    private int credit, appearance, currentLevel, campusNumber;
+public class Student{
+    private int credit, appearance, currentLevel;
     private double gpa, hp;
     private String username, password, name, language;
 
@@ -26,22 +26,20 @@ public class Student {
      * @param credits: the number of credits the student has earned
      * @param gpa: the student's gpa
      * @param hp: the student's health point
-     * @param campusNumber: the index of the student's campus. 1 for St George.
      * @param name: the student's preferred name
      * @param appearance: the student's profile picture index
      * @param language: the student's preferred language
      */
-    public Student(String username, String password, String level, String credits, String gpa,
-            String hp, String campusNumber, String name, String appearance, String language){
+    public Student(String username, String password, int level, int credits, double gpa,
+            double hp, String name, int appearance, String language){
         this.username = username;
         this.password = password;
-        this.currentLevel = Integer.parseInt(level);
-        this.credit = Integer.parseInt(credits);
-        this.gpa = Double.parseDouble(gpa);
-        this.hp = Double.parseDouble(hp);
-        this.campusNumber = Integer.parseInt(campusNumber);
+        this.currentLevel = level;
+        this.credit = credits;
+        this.gpa = gpa;
+        this.hp = hp;
         this.name = name;
-        this.appearance = Integer.parseInt(appearance);
+        this.appearance = appearance;
         this.language = language;
     }
 
@@ -49,6 +47,7 @@ public class Student {
     public int getCredit(){
         return credit;
     }
+
 
     /** get the gpa of this student**/
     public double getGpa() {
@@ -167,11 +166,6 @@ public class Student {
     /** get the id of the customized appearance of this student **/
     public int getAppearance(){
         return appearance;
-    }
-
-    /** get campus name **/
-    public int getCampusNumber(){
-        return campusNumber;
     }
 
 

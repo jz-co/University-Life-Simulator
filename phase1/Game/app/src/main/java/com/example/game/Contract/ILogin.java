@@ -8,25 +8,13 @@ public interface ILogin {
          */
         public void displayWarning(String message);
 
-//        /**
-//         * Return the username from the "username" text box.
-//         * @return
-//         */
-//        public String getUsername();
-
-//        /**
-//         * Return the password from the "password" text box.
-//         * @return
-//         */
-//        public String getPassword();
-
         /**
          * Go to the customization activity, and pass the IGameManager to the next page. (via intent)
          */
-        public void navigateToCustomization();
+        public void navigateToCustomization(String username);
 
 
-        public void navigateToCourseSelector();
+        public void navigateToCourseSelector(String username);
 //        /**
 //         * Go to the Level 1 page, and pass the IGameManager to the next page. (via intent)
 //         * @param gameManager
@@ -47,8 +35,6 @@ public interface ILogin {
     }
 
     interface ILoginPresenter {
-//        public void signUpBtnClicked();
-//        public void logInBtnClicked();
         public void validateSignUp(String username, String password);
         public void validateLogin(String username, String password);
     }

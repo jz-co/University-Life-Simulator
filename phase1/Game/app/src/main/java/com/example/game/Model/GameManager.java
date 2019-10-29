@@ -1,35 +1,29 @@
 package com.example.game.Model;
 
 
+import com.example.game.Contract.IData;
 import com.example.game.Contract.IGameManager;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class GameManager implements IGameManager {
-    private StudentManager studentManager = new StudentManager();
+    private StudentManager studentManager;
     private Student currentStudent;
 
+    public GameManager(IData.IDataSaver dataSaver, IData.IDataLoader dataLoader){
+        studentManager = new StudentManager(dataSaver, dataLoader);
+    }
 
     public Student getCurrentStudent() {
         return currentStudent;
     }
-
-
-    private List<Campus> campuses = new ArrayList<Campus>(Arrays.asList(new StGeorge()));
-
-    /**
-     * Resumes game for the current player.
-     */
-    void resumeGame(){
-        //TODO: implement this!
+    public String getCurrentUsername(){
+        return currentStudent.getUsername();
     }
 
     /**
      * Saves the students' data before the app is closed.
      */
-    void saveBeforeExit(){
+    public void saveBeforeExit(){
         studentManager.saveStudentData();
     }
 
@@ -42,10 +36,9 @@ public class GameManager implements IGameManager {
      * @param username The student's username
      * @param password The student's password
      */
-    public void setCurrentStudent(String username, String password){
+    void setCurrentStudent(String username, String password){
         currentStudent = studentManager.getNewStudent(username, password);
     }
-
 
 
     /**
@@ -54,11 +47,11 @@ public class GameManager implements IGameManager {
      *
      * @param username The student's username.
      */
-    public void setCurrentStudent(String username){
+    void setCurrentStudent(String username){
         currentStudent = studentManager.getStudentByUsername(username);
     }
 
-    public StudentManager getStudentManager(){
+    StudentManager getStudentManager(){
         return studentManager;
     }
 
@@ -66,10 +59,4 @@ public class GameManager implements IGameManager {
         return this.currentStudent.getCurrentLevel();
     }
 
-    public GameLevel getCurrentGameLevel(){
-        int currCampus = currentStudent.getCampusNumber();
-        Campus campus = campuses.get(currCampus);
-        int currLevel = currentStudent.getCurrentLevel();
-        return campus.getLevel(currLevel);
-    }
 }

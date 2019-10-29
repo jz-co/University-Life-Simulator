@@ -1,18 +1,16 @@
 package com.example.game.Model;
 
-import com.example.game.DataHandler.DataLoader;
-import com.example.game.DataHandler.DataSaver;
+import com.example.game.Contract.IData;
 
 import java.util.List;
 
 class StudentManager {
     private List<Student> students;
-    private DataSaver saver;
+    private IData.IDataSaver saver;
 
 
-    StudentManager(){
-        saver = new DataSaver();
-        DataLoader loader = new DataLoader();
+    StudentManager(IData.IDataSaver saver, IData.IDataLoader loader){
+        this.saver = saver;
         students = loader.loadAll();
     }
 

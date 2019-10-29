@@ -1,12 +1,13 @@
 package com.example.game.DataHandler;
 
+import com.example.game.Contract.IData;
 import com.example.game.Model.Student;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class DataSaver {
+public class DataSaver implements IData.IDataSaver {
     // responsible for adding, updating, and deleting data from the csv file
     // the csv should contain 11 columns
     // userid, username, password, level, credits, gpa, hp, campus, name. appearence, language
@@ -19,7 +20,7 @@ public class DataSaver {
     public boolean saveAll(List<Student> students){
         FileWriter writer = null;
         try {
-            writer = new FileWriter("studentData.csv");
+            writer = new FileWriter("studentData.csv", false);
             for (Student student: students){
                 // username of the student
                 writer.append(student.getUsername());
@@ -39,10 +40,7 @@ public class DataSaver {
                 // get hp of the student
                 writer.append(Double.toString(student.getHp()));
                 writer.append(",");
-                // get campus name of the student
-                writer.append(Integer.toString(student.getCampusNumber()));
-                writer.append(",");
-                //get customized name of the student
+
                 writer.append(student.getName());
                 writer.append(",");
                 // get the id of the customized appearence

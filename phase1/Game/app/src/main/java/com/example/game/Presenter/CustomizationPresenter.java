@@ -10,7 +10,7 @@ public class CustomizationPresenter implements ICustomization.ICustomizationPres
     private CustomizationManager manager;
     private GameManager gameManager;
 
-    public CustomizationPresenter(ICustomization.ICustomizationView view, IGameManager gameManager){
+    public CustomizationPresenter(ICustomization.ICustomizationView view, String username){
         this.view = view;
         this.gameManager = (GameManager) gameManager;
         this.manager = new CustomizationManager(this.gameManager.getCurrentStudent());
@@ -53,6 +53,6 @@ public class CustomizationPresenter implements ICustomization.ICustomizationPres
             lang = "English";
         }
         manager.customize(picIndex, name, lang);
-        view.goToLevel1(this.gameManager);
+        view.goToLevel1(gameManager.getCurrentUsername());
     }
 }

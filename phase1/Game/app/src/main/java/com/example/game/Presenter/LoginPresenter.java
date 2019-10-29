@@ -1,5 +1,6 @@
 package com.example.game.Presenter;
 
+import com.example.game.Contract.IData;
 import com.example.game.Contract.ILogin;
 import com.example.game.Model.GameManager;
 import com.example.game.Model.LogInManager;
@@ -9,9 +10,9 @@ public class LoginPresenter implements ILogin.ILoginPresenter {
     private GameManager gameManager;
     private LogInManager logInManager;
 
-    public LoginPresenter(ILogin.ILoginView view){
+    public LoginPresenter(ILogin.ILoginView view, IData.IDataSaver saver, IData.IDataLoader loader){
         this.view = view;
-        this.gameManager = new GameManager();
+        this.gameManager = new GameManager(saver, loader);
         this.logInManager = new LogInManager(gameManager);
     }
 
@@ -28,7 +29,7 @@ public class LoginPresenter implements ILogin.ILoginPresenter {
         }
         boolean success = logInManager.signUp(username, password);
         if (success){
-            view.navigateToCustomization();
+            view.navigateToCustomization(username);
         } else{
             sendWarning("Username already exists!");
         }
@@ -51,7 +52,7 @@ public class LoginPresenter implements ILogin.ILoginPresenter {
         if (success) {
 //            int currLevel = gameManager.getCurrentLevel();
 //            goToLevel(currLevel);
-            view.navigateToCourseSelector();
+            view.navigateToCourseSelector(username);
         } else{
             sendWarning("Username doesn't exist or doesn't match password.");
         }
@@ -61,14 +62,7 @@ public class LoginPresenter implements ILogin.ILoginPresenter {
         view.displayWarning(message);
     }
 
-//    private void goToLevel(int level){
-//        if (level == 1){
-//            view.goToLevel1();
-//        } else if (level == 2){
-//            view.goToLevel2();
-//        } else if (level == 3){
-//            view.goToLevel3();
-//        }
-//    }
-
+    public void prepareToLeavePage(){
+        gameManager.saveBeforeExit();
+    }
 }
