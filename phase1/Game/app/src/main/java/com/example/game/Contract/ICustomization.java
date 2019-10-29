@@ -7,7 +7,7 @@ public interface ICustomization {
         int getPictureIndex();
         String getName();
         String getLang();
-        void goToLevel1();
+        void goToLevel1(IGameManager gameManager);
     }
     interface ICustomizationPresenter{
         void leftBtnClicked();

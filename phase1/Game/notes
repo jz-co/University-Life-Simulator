@@ -37,3 +37,10 @@ Code Affected: DataSaver, the GameLevels, Campus, CustomizationManager, GameLeve
 StGeorge, Student
 Changes: fixed some more package / import problems. Modified Campus class and subclass. Campus
 no longer has methods to play level, no longer stores currentLevel. Commented out add level etc.
+
+#########
+Step 8 (Grace)
+Code Affected: IMain, ICustomization, CustomizationPresenter, MainPresenter, MainActivity,
+CustomizationActivity, CustomizationManager, GameManager
+Changes: Made MainActivity implement IMain.IMainView, CustomizationActivity implement
+ICustomization.ICustomizationView. The @ Override methods are created, but not yet implemented.

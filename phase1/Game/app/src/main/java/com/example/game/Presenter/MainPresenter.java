@@ -1,8 +1,8 @@
 package com.example.game.Presenter;
 
-import Contract.IMain;
-import Model.GameManager;
-import Model.LogInManager;
+import com.example.game.Contract.IMain;
+import com.example.game.Model.GameManager;
+import com.example.game.Model.LogInManager;
 
 public class MainPresenter implements IMain.IMainPresenter {
     private IMain.IMainView view;
@@ -29,7 +29,7 @@ public class MainPresenter implements IMain.IMainPresenter {
         }
         boolean success = logInManager.signUp(username, password);
         if (success){
-            view.goToCustomization();
+            view.goToCustomization(this.gameManager);
         } else{
             sendWarning("Username already exists!");
         }
@@ -62,11 +62,11 @@ public class MainPresenter implements IMain.IMainPresenter {
 
     private void goToLevel(int level){
         if (level == 1){
-            view.goToLevel1();
+            view.goToLevel1(this.gameManager);
         } else if (level == 2){
-            view.goToLevel2();
+            view.goToLevel2(this.gameManager);
         } else if (level == 3){
-            view.goToLevel3();
+            view.goToLevel3(this.gameManager);
         }
     }
 

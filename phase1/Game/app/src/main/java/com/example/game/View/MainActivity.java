@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.game.Contract.IGameManager;
+import com.example.game.Contract.IMain;
 import com.example.game.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements IMain.IMainView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,5 +39,40 @@ public class MainActivity extends AppCompatActivity {
         //      b. Otherwise, feed username and password entries in to Presenter to have them create new user
         //      If username and password entries are empty,
         // 2. Move to customization page
+    }
+
+    @Override
+    public void displayWarning(String message) {
+
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return null;
+    }
+
+    @Override
+    public void goToCustomization(IGameManager gameManager) {
+
+    }
+
+    @Override
+    public void goToLevel1(IGameManager gameManager) {
+
+    }
+
+    @Override
+    public void goToLevel2(IGameManager gameManager) {
+
+    }
+
+    @Override
+    public void goToLevel3(IGameManager gameManager) {
+
     }
 }
