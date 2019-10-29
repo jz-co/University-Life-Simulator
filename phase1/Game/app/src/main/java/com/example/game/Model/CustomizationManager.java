@@ -23,4 +23,5 @@ public class CustomizationManager {
         currentStudent.setAppearance(picIndex);
         currentStudent.setName(name);
     }
+
 }

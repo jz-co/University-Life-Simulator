@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements ILogin.ILoginView
         // Pass information to LoginPresenter to validate whether it is a valid sign up
         loginPresenter.validateSignUp(usernameText.getText().toString(), passwordText.getText().toString());
     }
-
 //    @Override
 //    public String getUsername() {
 //        EditText usernameText = (EditText) findViewById(R.id.usernameText);

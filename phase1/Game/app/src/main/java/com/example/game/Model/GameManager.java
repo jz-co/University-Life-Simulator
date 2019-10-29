@@ -1,18 +1,22 @@
 package com.example.game.Model;
 
 
+import com.example.game.Contract.IGameManager;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class GameManager {
+public class GameManager implements IGameManager {
     private StudentManager studentManager = new StudentManager();
+    private Student currentStudent;
+
 
     public Student getCurrentStudent() {
         return currentStudent;
     }
 
-    private Student currentStudent;
+
     private List<Campus> campuses = new ArrayList<Campus>(Arrays.asList(new StGeorge()));
 
     /**
@@ -41,6 +45,8 @@ public class GameManager {
     public void setCurrentStudent(String username, String password){
         currentStudent = studentManager.getNewStudent(username, password);
     }
+
+
 
     /**
      * Sets the current student to the student with the given username.

@@ -1,7 +1,8 @@
 package com.example.game.Presenter;
 
-import com.example.game.Contract.*;
-import com.example.game.Model.*;
+import com.example.game.Contract.ILogin;
+import com.example.game.Model.GameManager;
+import com.example.game.Model.LogInManager;
 
 public class LoginPresenter implements ILogin.ILoginPresenter {
     private ILogin.ILoginView view;

@@ -1,16 +1,22 @@
 package com.example.game.Presenter;
 
+import com.example.game.Contract.IGameManager;
 import com.example.game.Contract.ILevel;
 import com.example.game.Model.GameManager;
 import com.example.game.Model.Student;
 
 public abstract class LevelPresenter {
-    GameManager gameManager; // this has to be passed in somehow or made static!
+    GameManager gameManager;
+
+    public LevelPresenter(IGameManager gameManager){
+        this.gameManager = (GameManager) gameManager;
+    }
+
 
     public void initDisplay(ILevel.ILevelView view){
         Student currStudent = gameManager.getCurrentStudent();
-        view.displayName(currStudent.getPreferredName());
-        view.displayProfilePic(currStudent.getProfilePic());
+        view.displayName(currStudent.getName());
+        view.displayProfilePic(currStudent.getAppearance());
         updateDisplay(view);
     }
 

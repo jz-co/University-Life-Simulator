@@ -5,7 +5,8 @@ public class Student {
     private double gpa, hp;
     private String username, password, name, language;
 
-    /** create a new Student
+    /** Create a new Student. This student did not exist before and other attributes need to be
+     * set separately.
      *
      * @param username: the username of the student
      * @param password: the password of the student
@@ -17,17 +18,30 @@ public class Student {
 
     }
 
+    /**
+     * Create a new student. This student already exists and is being created from existing data.
+     * @param username: the student's username
+     * @param password: the student's password
+     * @param level: the student's current level
+     * @param credits: the number of credits the student has earned
+     * @param gpa: the student's gpa
+     * @param hp: the student's health point
+     * @param campusNumber: the index of the student's campus. 1 for St George.
+     * @param name: the student's preferred name
+     * @param appearance: the student's profile picture index
+     * @param language: the student's preferred language
+     */
     public Student(String username, String password, String level, String credits, String gpa,
-            String hp, int campusNumber, String name, String appearence, String language){
+            String hp, String campusNumber, String name, String appearance, String language){
         this.username = username;
         this.password = password;
         this.currentLevel = Integer.parseInt(level);
         this.credit = Integer.parseInt(credits);
         this.gpa = Double.parseDouble(gpa);
         this.hp = Double.parseDouble(hp);
-        this.campusNumber = campusNumber;
+        this.campusNumber = Integer.parseInt(campusNumber);
         this.name = name;
-        this.appearance = Integer.parseInt(appearence);
+        this.appearance = Integer.parseInt(appearance);
         this.language = language;
     }
 

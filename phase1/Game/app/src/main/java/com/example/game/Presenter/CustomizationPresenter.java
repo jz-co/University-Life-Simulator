@@ -1,17 +1,19 @@
 package com.example.game.Presenter;
 
 import com.example.game.Contract.ICustomization;
+import com.example.game.Contract.IGameManager;
 import com.example.game.Model.CustomizationManager;
 import com.example.game.Model.GameManager;
 
 public class CustomizationPresenter implements ICustomization.ICustomizationPresenter {
     private ICustomization.ICustomizationView view;
     private CustomizationManager manager;
-    private GameManager gameManager; // This needs to be initialized somehow. Or GM must be made static.
+    private GameManager gameManager;
 
-    CustomizationPresenter(ICustomization.ICustomizationView view){
+    public CustomizationPresenter(ICustomization.ICustomizationView view, IGameManager gameManager){
         this.view = view;
-        this.manager = new CustomizationManager(gameManager.getCurrentStudent());
+        this.gameManager = (GameManager) gameManager;
+        this.manager = new CustomizationManager(this.gameManager.getCurrentStudent());
     }
 
 
@@ -51,6 +53,6 @@ public class CustomizationPresenter implements ICustomization.ICustomizationPres
             lang = "English";
         }
         manager.customize(picIndex, name, lang);
-        view.goToLevel1();
+        view.goToLevel1(this.gameManager);
     }
 }

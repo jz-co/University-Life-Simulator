@@ -38,9 +38,26 @@ StGeorge, Student
 Changes: fixed some more package / import problems. Modified Campus class and subclass. Campus
 no longer has methods to play level, no longer stores currentLevel. Commented out add level etc.
 
+#########
+Step 8 (Grace)
+Code Affected: IMain, ICustomization, CustomizationPresenter, MainPresenter, MainActivity,
+CustomizationActivity, CustomizationManager, GameManager
+Changes: Made MainActivity implement IMain.IMainView, CustomizationActivity implement
+ICustomization.ICustomizationView. The @ Override methods are created, but not yet implemented.
+
+#########
+Step 9 (Grace)
+Code Affected: MVP contracts, presenters, MainActivity, CustomizationActivity, GameLevel, Student
+Changes: slightly modified the MVP contract, added comments, modified access modifiers. Temporarily
+bypassed Campus class and StGeorge class. The necessity of these classes will be further discussed.
+
+#########
+Step 10 (Koby)
+Code Affected: GameLevel.progressResult()
+Changes: Deleted the method because it is not necessary
 
 ########
-Step 9 (Jenny)
+Step 11 (Jenny)
 Code Affected: IMain.java, MainPresenter.java, MainActivity.java
 Changes: 1) Renamed interface: IMain -> ILogin, IMainView - ILoginView, IMainPresenter - ILoginPresenter
 2) Renamed MainPresenter -> LoginPresenter
