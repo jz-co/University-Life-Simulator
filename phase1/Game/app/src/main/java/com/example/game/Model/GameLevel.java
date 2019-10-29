@@ -7,11 +7,6 @@ public abstract class GameLevel {
 
     public abstract void init();
 
-    /**
-     * progress the game result, measure how good the player plays
-     */
-    public abstract void progressGameResults();
-
     public abstract GameLevel makeCopy();
 
     public void setStudent(Student s){
