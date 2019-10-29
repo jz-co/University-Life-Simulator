@@ -37,3 +37,16 @@ Code Affected: DataSaver, the GameLevels, Campus, CustomizationManager, GameLeve
 StGeorge, Student
 Changes: fixed some more package / import problems. Modified Campus class and subclass. Campus
 no longer has methods to play level, no longer stores currentLevel. Commented out add level etc.
+
+
+########
+Step 9 (Jenny)
+Code Affected: IMain.java, MainPresenter.java, MainActivity.java
+Changes: 1) Renamed interface: IMain -> ILogin, IMainView - ILoginView, IMainPresenter - ILoginPresenter
+2) Renamed MainPresenter -> LoginPresenter
+3) Made MainActivity implement ILoginView, and implemented interface abstract methods
+4) Removed methods getUsername() and getPassword() in ILoginView, instead directly pass username
+and password into the instance methods, validateLogin() and validateSignUp of the LoginPresenter object,
+which replace the LoginBtnClicked() and SignUpBtnClicked() methods.
+5) In LoginPresenter, in the .validateLogin(), if login is successful, should navigate to course
+selector activity. Changes made to accommodate.
