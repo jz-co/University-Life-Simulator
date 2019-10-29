@@ -5,19 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.game.Contract.ICustomization;
-import com.example.game.Contract.IGameManager;
+import com.example.game.DataHandler.DataLoader;
+import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.CustomizationPresenter;
 import com.example.game.R;
 
 public class CustomizationActivity extends AppCompatActivity implements ICustomization.ICustomizationView {
-    private ICustomization.ICustomizationPresenter presenter;
+    private CustomizationPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customization);
         String username = (String) getIntent().getSerializableExtra("UserName");
-        // TODO: create presenter.
+        presenter = new CustomizationPresenter(this, new DataSaver(), new DataLoader(), username);
     }
 
     @Override

@@ -84,3 +84,9 @@ Changes: added IData interface. Now only View has access to DataHandler, others 
 interface to access them. Changed the way information is passed between activities. Now instead of
 passing IGameManager, we pass the current student's username, and construct a new GameManager. (Save
 before leaving the page.)
+
+#########
+Step 14 (Grace)
+Code Affected: ICourseSelector, CourseSelectorPresenter
+Changes: added interface ICourseSelector. Implemented CourseSelectorPresenter. Added another constructor
+in GameManager, changed statements where GameManager is created in presenters accordingly.

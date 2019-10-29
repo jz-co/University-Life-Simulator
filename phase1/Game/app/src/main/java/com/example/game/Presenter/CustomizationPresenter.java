@@ -1,7 +1,7 @@
 package com.example.game.Presenter;
 
 import com.example.game.Contract.ICustomization;
-import com.example.game.Contract.IGameManager;
+import com.example.game.Contract.IData;
 import com.example.game.Model.CustomizationManager;
 import com.example.game.Model.GameManager;
 
@@ -10,9 +10,10 @@ public class CustomizationPresenter implements ICustomization.ICustomizationPres
     private CustomizationManager manager;
     private GameManager gameManager;
 
-    public CustomizationPresenter(ICustomization.ICustomizationView view, String username){
+    public CustomizationPresenter(ICustomization.ICustomizationView view, IData.IDataSaver saver,
+                                  IData.IDataLoader loader, String username){
         this.view = view;
-        this.gameManager = (GameManager) gameManager;
+        this.gameManager = new GameManager(saver, loader, username);
         this.manager = new CustomizationManager(this.gameManager.getCurrentStudent());
     }
 
