@@ -9,7 +9,7 @@ public class MainPresenter implements IMain.IMainPresenter {
     private GameManager gameManager;
     private LogInManager logInManager;
 
-    MainPresenter(IMain.IMainView view){
+    public MainPresenter(IMain.IMainView view){
         this.view = view;
         this.gameManager = new GameManager();
         this.logInManager = new LogInManager(gameManager);

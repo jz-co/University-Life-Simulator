@@ -10,7 +10,7 @@ public class CustomizationPresenter implements ICustomization.ICustomizationPres
     private CustomizationManager manager;
     private GameManager gameManager;
 
-    CustomizationPresenter(ICustomization.ICustomizationView view, IGameManager gameManager){
+    public CustomizationPresenter(ICustomization.ICustomizationView view, IGameManager gameManager){
         this.view = view;
         this.gameManager = (GameManager) gameManager;
         this.manager = new CustomizationManager(this.gameManager.getCurrentStudent());

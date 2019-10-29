@@ -7,14 +7,17 @@ import android.view.View;
 
 import com.example.game.Contract.IGameManager;
 import com.example.game.Contract.IMain;
+import com.example.game.Presenter.MainPresenter;
 import com.example.game.R;
 
 public class MainActivity extends AppCompatActivity implements IMain.IMainView {
+    private IMain.IMainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.presenter = new MainPresenter(this);
 
         // Create an instance of the Presenter for this Activity
     }
@@ -58,21 +61,21 @@ public class MainActivity extends AppCompatActivity implements IMain.IMainView {
 
     @Override
     public void goToCustomization(IGameManager gameManager) {
-
+        //TODO: send gameManager to the next page with intent
     }
 
     @Override
     public void goToLevel1(IGameManager gameManager) {
-
+        //TODO: send gameManager to the next page with intent
     }
 
     @Override
     public void goToLevel2(IGameManager gameManager) {
-
+        //TODO: send gameManager to the next page with intent
     }
 
     @Override
     public void goToLevel3(IGameManager gameManager) {
-
+        //TODO: send gameManager to the next page with intent
     }
 }
