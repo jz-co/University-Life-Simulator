@@ -10,4 +10,5 @@
     <string name="customization_message">Customize Your Character</string>
     <string name="customization_message2">Give your character a cool name!</string>
     <string name="confirm_button">Confirm</string>
+    <string name="start">Start</string>
 </resources>

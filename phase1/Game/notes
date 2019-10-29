@@ -67,3 +67,11 @@ and password into the instance methods, validateLogin() and validateSignUp of th
 which replace the LoginBtnClicked() and SignUpBtnClicked() methods.
 5) In LoginPresenter, in the .validateLogin(), if login is successful, should navigate to course
 selector activity. Changes made to accommodate.
+
+#######
+Step 12 (Trisha)
+Created Lvl3StartActivity, Lvl3GameActivity, Lvl3GameView and MainThread in Model.Level3 folder.
+Added layout activity_main_lvl_3 for the start page of the game.
+These are the two activities required for running the main menu of the level 3 game and the game
+view, respectively. Lvl3GameView creates the surface view for the game. MainThread class is
+responsible for the game loop.
