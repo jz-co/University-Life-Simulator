@@ -13,6 +13,11 @@ public class GameManager implements IGameManager {
         studentManager = new StudentManager(dataSaver, dataLoader);
     }
 
+    public GameManager(IData.IDataSaver dataSaver, IData.IDataLoader dataLoader, String username){
+        studentManager = new StudentManager(dataSaver, dataLoader);
+        currentStudent = studentManager.getStudentByUsername(username);
+    }
+
     public Student getCurrentStudent() {
         return currentStudent;
     }

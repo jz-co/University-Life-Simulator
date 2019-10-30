@@ -85,8 +85,14 @@ interface to access them. Changed the way information is passed between activiti
 passing IGameManager, we pass the current student's username, and construct a new GameManager. (Save
 before leaving the page.)
 
+#########
+Step 14 (Grace)
+Code Affected: ICourseSelector, CourseSelectorPresenter
+Changes: added interface ICourseSelector. Implemented CourseSelectorPresenter. Added another constructor
+in GameManager, changed statements where GameManager is created in presenters accordingly.
+
 ########
-Step 14 (Jenny)
+Step 15 (Jenny)
 Code Affected: CustomizationPresenter and CustomizationActivity
 Changes: Modified/added some methods to better facilitate a smooth path of communication between the
 Presenter and View

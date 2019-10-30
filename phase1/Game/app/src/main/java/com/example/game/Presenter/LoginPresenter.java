@@ -17,7 +17,6 @@ public class LoginPresenter implements ILogin.ILoginPresenter {
     }
 
     @Override
-//    public void signUpBtnClicked() {
     public void validateSignUp(String username, String password) {
         if (username.length()==0){
             sendWarning("Please enter a username");
@@ -36,22 +35,17 @@ public class LoginPresenter implements ILogin.ILoginPresenter {
     }
 
     @Override
-//    public void logInBtnClicked() {
     public void validateLogin(String username, String password) {
-//        String username = view.getUsername();
         if (username.length()==0){
             sendWarning("Please enter a username");
             return;
         }
-//        String password = view.getPassword();
         if (password.length()==0){
             sendWarning("Please enter a password");
             return;
         }
         boolean success = logInManager.logIn(username,password);
         if (success) {
-//            int currLevel = gameManager.getCurrentLevel();
-//            goToLevel(currLevel);
             view.navigateToCourseSelector(username);
         } else{
             sendWarning("Username doesn't exist or doesn't match password.");

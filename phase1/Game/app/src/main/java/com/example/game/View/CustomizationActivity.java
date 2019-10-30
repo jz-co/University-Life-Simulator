@@ -1,7 +1,5 @@
 package com.example.game.View;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,7 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.game.Contract.ICustomization.*;
-import com.example.game.Contract.IGameManager;
+import com.example.game.DataHandler.DataLoader;
+import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.CustomizationPresenter;
 import com.example.game.R;
 
@@ -30,6 +29,7 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
         setContentView(R.layout.activity_customization);
         String username = (String) getIntent().getSerializableExtra("UserName");
 
+        presenter = new CustomizationPresenter(this, new DataSaver(), new DataLoader(), username);
         presenter = new CustomizationPresenter(this, username);
         characterIcons = new ArrayList();
 
