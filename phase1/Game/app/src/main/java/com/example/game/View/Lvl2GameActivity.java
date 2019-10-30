@@ -110,14 +110,14 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @Override
     public void setScore() {
         TextView textView = findViewById(R.id.score);
-        textView.setText(Integer.toString(level2Presenter.getScore()));
+        textView.setText("Score:"+ level2Presenter.getScore());
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void setSecondRemaining() {
         TextView seconds = findViewById(R.id.secondRemaining);
-        seconds.setText(Long.toString(level2Presenter.getSecondsRemaining()));
+        seconds.setText("Secs Left:"+ level2Presenter.getSecondsRemaining());
     }
 
     @Override
@@ -209,6 +209,14 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
             level2Presenter.pauseGame();
         }
         pauseGame = !pauseGame;
+    }
+
+    /** proceed to next level button
+     *
+     * @param view: the next level button
+     */
+    public void proceedNext(View view){
+        goToLevel3();
     }
 
 }

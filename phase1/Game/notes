@@ -169,3 +169,9 @@ Step 27 (Koby)
 Code Affected: GameLevel2.java, Level2Presenter
 Changes: add init_view and update_view, and add codes so that the final score will be added to the
 hp of the game when the method quitGame runs
+
+#########
+Step 28 (Koby)
+Code Affected: Lvl2GameActivity, activity_main_lvl_2.xml, Level2Presenter.java, GameLevel2.java
+Changes: (1) Modify invalid methods, basically making the methods work
+(2) add a proceed to next level method 

@@ -41,7 +41,6 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
         fallingObjects.add(yellowObject);
         Basket basket = new Basket(R.id.character, 0, basketInt);
         this.gameLevel = new GameLevel2(this.gameManager.getCurrentStudent(), basket, frameWidth, frameHeight, fallingObjects, this);
-        this.initDisplay(view);
     }
 
     /** proceed to the next level
@@ -99,7 +98,7 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
      *
      */
     public void move_left(){
-        gameLevel.getBasket().move_left(20, frameWidth);
+        gameLevel.getBasket().move_left(20, 0);
     }
 
     /** Move the basket to the right by 20 units

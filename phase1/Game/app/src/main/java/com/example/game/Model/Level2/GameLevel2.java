@@ -32,10 +32,7 @@ public class GameLevel2 extends GameLevel {
         framewidth = FrameWidth;
         this.fallingObjects = fallingObjects;
         this.presenter = presenter;
-        for (FallingObject o: fallingObjects){
-            this.presenter.updateViewPosById(o.getFrontEndImageID());
-        }
-        this.presenter.updateViewPosById(basket.getImageId());
+        this.student = student;
     }
 
 
@@ -44,6 +41,12 @@ public class GameLevel2 extends GameLevel {
      */
     @Override
     public void play() {
+        for (FallingObject o: fallingObjects){
+            o.setX_coordinate((int)(Math.random()*framewidth));
+            o.setY_coordinate(-100);
+            this.presenter.updateViewPosById(o.getFrontEndImageID());
+        }
+        this.presenter.updateViewPosById(basket.getImageId());
         timer = new Timer();
         score = 0;
         timer.schedule(new TimerTask() {
