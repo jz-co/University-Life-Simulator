@@ -42,17 +42,18 @@ public class CustomizationPresenter implements ICustomization.ICustomizationPres
      * Customize the student, then go to the next page.
      */
     @Override
-    public void confirmBtnClicked() {
-        int picIndex = view.getPictureIndex();
-        String name = view.getName();
-        if (name.length()==0){
-            name = gameManager.getCurrentStudent().getUsername();
+//    public void confirmBtnClicked()
+    public void setCustomizations(String customName, int picIndex, String lang) {
+//        int picIndex = view.getPictureIndex();
+//        String name = view.getName();
+        if (customName.length()==0){
+            customName = gameManager.getCurrentStudent().getUsername();
         }
-        String lang = view.getLang();
+//        String lang = view.getLang();
         if (lang.length()==0){
             lang = "English";
         }
-        manager.customize(picIndex, name, lang);
-        view.goToLevel1(gameManager.getCurrentUsername());
+        manager.customize(picIndex, customName, lang);
+        view.navigateToCourseSelector(gameManager.getCurrentUsername());
     }
 }
