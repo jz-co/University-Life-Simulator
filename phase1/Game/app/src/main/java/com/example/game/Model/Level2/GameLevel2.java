@@ -89,13 +89,14 @@ public class GameLevel2 extends GameLevel {
         int result;
         FallingObject item = fallingObjects.get(element);
         item.fall(frameHeight, framewidth);
+        presenter.updateViewPosById(item.getFrontEndImageID());
         boolean eat = basket.eatBall(item, frameHeight, framewidth);
         if (eat) {
             result = item.getScore_worth();
+            presenter.updateViewPosById(item.getFrontEndImageID());
         }else{
             result = 0;
         }
-        presenter.updateViewPosById(item.getFrontEndImageID());
         return result;
     }
 

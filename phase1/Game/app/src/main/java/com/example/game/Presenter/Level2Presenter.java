@@ -29,6 +29,7 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
 
     public Level2Presenter(ILevel2.ILevel2View view, IData.IDataSaver saver,
                            IData.IDataLoader loader, String username){
+        super(saver, loader, username);
         this.view = view;
         this.gameManager = new GameManager(saver, loader, username);
         ArrayList<FallingObject> fallingObjects = new ArrayList<>();
@@ -40,6 +41,7 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
         fallingObjects.add(yellowObject);
         Basket basket = new Basket(R.id.character, 0, basketInt);
         this.gameLevel = new GameLevel2(this.gameManager.getCurrentStudent(), basket, frameWidth, frameHeight, fallingObjects, this);
+        this.initDisplay(view);
     }
 
     /** proceed to the next level
@@ -58,6 +60,9 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
     @Override
     public void quitGame() {
         view.quitGame();
+        // adding the score of the player to their hp
+        gameLevel.getStudent().incrementHp(gameLevel.getScore());
+        this.updateDisplay(view);
     }
 
     /** start the catching ball game

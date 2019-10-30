@@ -1,5 +1,6 @@
 package com.example.game.Presenter;
 
+import com.example.game.Contract.IData;
 import com.example.game.Contract.IGameManager;
 import com.example.game.Contract.ILevel;
 import com.example.game.Model.GameManager;
@@ -8,8 +9,9 @@ import com.example.game.Model.Student;
 public abstract class LevelPresenter {
     GameManager gameManager;
 
-    public LevelPresenter(IGameManager gameManager){
-        this.gameManager = (GameManager) gameManager;
+    public LevelPresenter(IData.IDataSaver saver,
+                          IData.IDataLoader loader, String username){
+        this.gameManager = new GameManager(saver, loader, username);
     }
 
 

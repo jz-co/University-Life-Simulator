@@ -157,3 +157,15 @@ Code Affected: CourseSelectorPresenter.java, CourseSelectorActivity.java
 Changes (1) Implemented the abstract methods from ICourseSelectorView interface in CourseSelectorActivity
 (2) Modified some method names in CourseSelectorPresenter.
 Note however that some methods are incomplete, will update.
+
+#########
+Step 26 (Koby)
+Code Affected: Level2Presenter, LevelPresenter
+Changes: Add dataloader and datasaver codes into the constructor of level2Presenter and the
+levelPresenter
+
+#########
+Step 27 (Koby)
+Code Affected: GameLevel2.java, Level2Presenter
+Changes: add init_view and update_view, and add codes so that the final score will be added to the
+hp of the game when the method quitGame runs
