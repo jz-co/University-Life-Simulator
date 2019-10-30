@@ -145,3 +145,8 @@ Added image bow to res folder.
 Step 23 (Vishnu)
 Created a arrow class for Lvl3 Game which is a child class of GameContents
 Added image arrow to res folder.
+
+#########
+Step 24 (Vishnu)
+Created a wheel class for Lvl3 Game which is a child class of GameContents
+Added image circle to res folder.
