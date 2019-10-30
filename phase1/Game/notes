@@ -140,3 +140,8 @@ Added all the necessary methods - along with essential getters and setters
 Step 22 (Vishnu)
 Created a bow class for Lvl3 Game which is a child class of GameContents
 Added image bow to res folder.
+
+#########
+Step 23 (Vishnu)
+Created a arrow class for Lvl3 Game which is a child class of GameContents
+Added image arrow to res folder.
