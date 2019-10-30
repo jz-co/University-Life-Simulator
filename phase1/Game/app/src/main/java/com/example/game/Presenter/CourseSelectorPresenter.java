@@ -14,19 +14,19 @@ public class CourseSelectorPresenter {
         gameManager = new GameManager(saver, loader, username);
     }
 
-    public void level1Clicked(){
+    public void validateLevel1(){
         view.goToLevel1(gameManager.getCurrentUsername());
     }
 
-    public void level2Clicked(){
+    public void validateLevel2(){
         if (gameManager.getCurrentLevel() >= 2){
             view.goToLevel2(gameManager.getCurrentUsername());
-        } else{
+        } else {
             warning();
         }
     }
 
-    public void level3Clicked(){
+    public void validateLevel3(){
         if (gameManager.getCurrentLevel() >= 3){
             view.goToLevel3(gameManager.getCurrentUsername());
         } else{

@@ -150,3 +150,10 @@ Added image arrow to res folder.
 Step 24 (Vishnu)
 Created a wheel class for Lvl3 Game which is a child class of GameContents
 Added image circle to res folder.
+
+########
+Step 25 (Jenny)
+Code Affected: CourseSelectorPresenter.java, CourseSelectorActivity.java
+Changes (1) Implemented the abstract methods from ICourseSelectorView interface in CourseSelectorActivity
+(2) Modified some method names in CourseSelectorPresenter.
+Note however that some methods are incomplete, will update.
