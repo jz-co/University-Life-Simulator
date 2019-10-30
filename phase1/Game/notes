@@ -135,3 +135,8 @@ Changes: (1) Implement abstract methods from Ilevel2.Ilevel2Presenter
 Step 21 (Vishnu)
 Created a abstract super class for Lvl3 Game Objects - GameContents
 Added all the necessary methods - along with essential getters and setters
+
+#########
+Step 22 (Vishnu)
+Created a bow class for Lvl3 Game which is a child class of GameContents
+Added image bow to res folder.
