@@ -98,3 +98,36 @@ Changes: (1) Modified/added some methods to better facilitate a smooth path of c
 Presenter and View.
 (2) Added the image files that users can select from to customize their avatar. Created method to
 create a list of references to these files, and updated nextPicture() to display images on the ImageView object.
+
+#########
+Step 16 (Koby)
+Code Affected: ILevel2.java, Level2Presenter.java
+Changes: Add required methods to the interface in both the view interface and the presenter interface
+
+#########
+Step 17 (Koby)
+Code Affected: GameLevel.java
+Changes: Modify the methods in GameLevel.java, delete unnecessary methods, kept only play() (i.e: there's only
+one play mehthod in the game level class.
+
+#########
+Step 18 (Koby)
+Code Affected: View.Lvl2GameActivity, AndroidManifest.xml
+Changes: (1)Add a new Activity for the level2 game, and add the activity in the android manifest
+(2) Implement methods need to be overide in Ilevel2.Ilevel2View
+(3) Implement additional methods for buttons onClick methods in xml file
+
+#########
+Step 19 (Koby)
+Code Affected: Drawable folder, FallingObject.java, redObject.java, blueObject.java, yellowObject.java
+Changes: (1) Add FallingObject, redObject, yellowObject and blueObject classes to the Model.Level2 folder
+(2) Add red ball, blue ball, yellow ball drawable png file into the folder
+(3) Add xml file of Lvl2_main
+
+#########
+Step 20 (Koby)
+Code Affected: Level2Presenter.java
+Changes: (1) Implement abstract methods from Ilevel2.Ilevel2Presenter
+(2) Add getters to obtain data from the game
+(3) Add setters so that there will be an update of position in the frontend view
+
