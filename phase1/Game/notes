@@ -174,4 +174,10 @@ hp of the game when the method quitGame runs
 Step 28 (Koby)
 Code Affected: Lvl2GameActivity, activity_main_lvl_2.xml, Level2Presenter.java, GameLevel2.java
 Changes: (1) Modify invalid methods, basically making the methods work
-(2) add a proceed to next level method 
+(2) add a proceed to next level method
+
+#########
+Step 29 (Trisha)
+Created Lvl3GameItemManager for accessing all the contents of the game from the game activity.
+Code Affected: Arrow, Bow and GameContents in Model.Level3.
+Changes: Made the access public for method update for the above classes.

@@ -30,7 +30,7 @@ public abstract class GameContents {
 
     abstract void draw(Canvas canvas);
 
-    abstract void update();
+    public abstract void update();
 
     public int getX() {
         return this.x;

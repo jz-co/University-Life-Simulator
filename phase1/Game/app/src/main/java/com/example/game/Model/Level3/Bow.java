@@ -18,6 +18,6 @@ public class Bow extends GameContents {
         canvas.drawBitmap(image, getX(), getY(), null);
     }
 
-    void update() {
+    public void update() {
     }
 }

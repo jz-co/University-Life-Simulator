@@ -18,7 +18,7 @@ public class Arrow extends GameContents {
         canvas.drawBitmap(this.image, getX(), getY(), null);
     }
 
-    void update() {
+    public void update() {
         y -= 10;
 
     }
