@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.game.Contract.ICustomization.*;
 import com.example.game.DataHandler.DataLoader;
@@ -17,8 +19,9 @@ import java.util.ArrayList;
 
 public class CustomizationActivity extends AppCompatActivity implements ICustomizationView {
     private CustomizationPresenter presenter;
-    private ArrayList characterIcons;
+    private ArrayList<Integer> characterIcons;
     private EditText customName;
+    private ImageView characterIconView;
 
     private int currPicIndex;
 
@@ -30,21 +33,36 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
         String username = (String) getIntent().getSerializableExtra("UserName");
 
         presenter = new CustomizationPresenter(this, new DataSaver(), new DataLoader(), username);
-        presenter = new CustomizationPresenter(this, username);
-        characterIcons = new ArrayList();
+
+        characterIcons = new ArrayList<Integer>();
+        populateCharacterIcons();
 
         customName = (EditText) findViewById(R.id.customNameText);
+        characterIconView = (ImageView) findViewById(R.id.characterIconView);
     }
 
-    @Override
-    public void nextPicture() {
-
+    void populateCharacterIcons() {
+        characterIcons.add(getResources().getIdentifier("@drawable/pikachu", null, this.getPackageName()));
+        characterIcons.add(getResources().getIdentifier("@drawable/cactus", null, this.getPackageName()));
     }
 
-    @Override
-    public void previousPicture() {
+    /**
+     * Executes when the switch avatar button is clicked.
+     * @param view
+     */
+    public void nextPicture(View view) {
+        currPicIndex += 1;
+        if (currPicIndex == characterIcons.size()) {
+            currPicIndex = 0;
+        }
 
+        characterIconView.setImageResource(characterIcons.get(currPicIndex));
     }
+
+//    @Override
+//    public void previousPicture() {
+//
+//    }
 
 //    @Override
 //    public int getPictureIndex() {
@@ -67,7 +85,7 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
     }
 
     @Override
-    public void navigateToCourseSelector(String username) {  // username need not be pa
+    public void navigateToCourseSelector(String username) {
         Intent intent = new Intent(this, CourseSelectorActivity.class);
         intent.putExtra("UserName", username);
         startActivity(intent);

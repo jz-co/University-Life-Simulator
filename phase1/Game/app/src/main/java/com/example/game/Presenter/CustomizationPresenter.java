@@ -18,26 +18,26 @@ public class CustomizationPresenter implements ICustomization.ICustomizationPres
     }
 
 
-    /**
-     * Go to the previous picture, if there is a previous picture.
-     */
-    @Override
-    public void leftBtnClicked() {
-        if (view.getPictureIndex() > 1){
-            view.previousPicture();
-        }
-    }
-
-
-    /**
-     * Go to the next picture, if there is a next picture.
-     */
-    @Override
-    public void rightBtnClicked() {
-        if (view.getPictureIndex() < manager.getNumberOfPictures()){
-            view.nextPicture();
-        }
-    }
+//    /**
+//     * Go to the previous picture, if there is a previous picture.
+//     */
+//    @Override
+//    public void leftBtnClicked() {
+//        if (view.getPictureIndex() > 1){
+//            view.previousPicture();
+//        }
+//    }
+//
+//
+//    /**
+//     * Go to the next picture, if there is a next picture.
+//     */
+//    @Override
+//    public void rightBtnClicked() {
+//        if (view.getPictureIndex() < manager.getNumberOfPictures()){
+//            view.nextPicture();
+//        }
+//    }
 
     /**
      * Customize the student, then go to the next page.

@@ -94,5 +94,7 @@ in GameManager, changed statements where GameManager is created in presenters ac
 ########
 Step 15 (Jenny)
 Code Affected: CustomizationPresenter and CustomizationActivity
-Changes: Modified/added some methods to better facilitate a smooth path of communication between the
-Presenter and View
+Changes: (1) Modified/added some methods to better facilitate a smooth path of communication between the
+Presenter and View.
+(2) Added the image files that users can select from to customize their avatar. Created method to
+create a list of references to these files, and updated nextPicture() to display images on the ImageView object.
