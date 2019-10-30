@@ -131,3 +131,7 @@ Changes: (1) Implement abstract methods from Ilevel2.Ilevel2Presenter
 (2) Add getters to obtain data from the game
 (3) Add setters so that there will be an update of position in the frontend view
 
+#########
+Step 21 (Vishnu)
+Created a abstract super class for Lvl3 Game Objects - GameContents
+Added all the necessary methods - along with essential getters and setters
