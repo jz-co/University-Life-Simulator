@@ -9,10 +9,9 @@ public class ResultPresenter {
     private IResult.IResultView view;
     private GameManager gameManager;
 
-    public ResultPresenter(IResult.IResultView view, IData.IDataSaver saver,
-                           IData.IDataLoader loader, String username) {
+    public ResultPresenter(IResult.IResultView view, IData dataHandler, String username) {
         this.view = view;
-        this.gameManager = new GameManager(saver, loader, username);
+        this.gameManager = new GameManager(dataHandler, username);
     }
 
 }

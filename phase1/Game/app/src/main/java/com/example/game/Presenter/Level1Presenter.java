@@ -13,11 +13,10 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
     private GameLevel1 gameLevel;
     private GameManager gameManager;
 
-    public Level1Presenter(ILevel1.ILevel1View view, IData.IDataSaver saver,
-                           IData.IDataLoader loader, String username) {
-        super(saver, loader, username);
+    public Level1Presenter(ILevel1.ILevel1View view, IData dataHandler, String username) {
+        super(dataHandler, username);
         this.view = view;
-        this.gameManager = new GameManager(saver, loader, username);
+        this.gameManager = new GameManager(dataHandler, username);
         this.gameLevel = new GameLevel1(this.gameManager.getCurrentStudent(), this);
     }
 

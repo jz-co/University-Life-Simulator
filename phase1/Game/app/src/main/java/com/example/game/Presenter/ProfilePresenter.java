@@ -12,11 +12,10 @@ public class ProfilePresenter implements IProfilePresenter {
     /**
      * Constructor for ProfilePresenter.
      */
-    public ProfilePresenter(IProfileView view, IData.IDataSaver saver,
-                            IData.IDataLoader loader, String username) {
+    public ProfilePresenter(IProfileView view, IData dataHandler, String username) {
 
         this.view = view;
-        gameManager = new GameManager(saver, loader, username);
+        gameManager = new GameManager(dataHandler, username);
 
     }
 

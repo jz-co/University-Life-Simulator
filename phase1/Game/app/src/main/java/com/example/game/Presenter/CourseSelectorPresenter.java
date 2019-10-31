@@ -8,10 +8,9 @@ public class CourseSelectorPresenter {
     private ICourseSelector.ICourseSelectorView view;
     private GameManager gameManager;
 
-    public CourseSelectorPresenter(ICourseSelector.ICourseSelectorView view, IData.IDataSaver saver,
-                                   IData.IDataLoader loader, String username){
+    public CourseSelectorPresenter(ICourseSelector.ICourseSelectorView view, IData dataHandler, String username){
         this.view = view;
-        gameManager = new GameManager(saver, loader, username);
+        gameManager = new GameManager(dataHandler, username);
     }
 
     public void validateLevel1(){

@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.game.Contract.ICourseSelector.*;
+import com.example.game.Contract.IData;
+import com.example.game.DataHandler.DataHandler;
 import com.example.game.DataHandler.DataLoader;
 import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.CourseSelectorPresenter;
@@ -36,7 +38,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
         populateCharacterIcons();
 
         // Create an instance of the CourseSelectorPresenter
-        presenter = new CourseSelectorPresenter(this, new DataSaver(), new DataLoader(), username);
+        presenter = new CourseSelectorPresenter(this, new DataHandler(this), username);
 
         // Set reference to the profileButton in layout
         // Set its image to the user's character icon
@@ -45,6 +47,9 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
     }
 
 
+    /**
+     * Add identifiers for all character icon files to the characterIcons list.
+     */
     private void populateCharacterIcons() {
         characterIcons.add(getResources().getIdentifier("@drawable/boy1", null, this.getPackageName()));
         characterIcons.add(getResources().getIdentifier("@drawable/gir1", null, this.getPackageName()));
@@ -58,7 +63,6 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
 
     /**
      * Executes when levelButton1 is clicked.
-     * @param view
      */
     public void onLevel1Click (View view) {
         presenter.validateLevel1();
@@ -66,7 +70,6 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
 
     /**
      * Executes when levelButton2 is clicked.
-     * @param view
      */
     public void onLevel2Click (View view) {
         presenter.validateLevel2();
@@ -74,30 +77,41 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
 
     /**
      * Executes when levelButton3 is clicked.
-     * @param view
      */
     public void onLevel3Click (View view) {
         presenter.validateLevel3();
 
     }
 
+    /**
+     * Executes when the profile button is clicked.
+     */
     public void onProfileClick (View view) {
         navigateToProfile(presenter.getUsername());
     }
 
 
+    /**
+     * Navigate to the profile page of the user (with username "username")
+     */
     public void navigateToProfile (String username) {
         Intent intent = new Intent(this, ProfileActivity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }
 
+    /**
+     * Display "message" as a toast.
+     */
     @Override
     public void displayWarning(String message) {
         Toast warning = Toast.makeText(this, message, Toast.LENGTH_LONG);
         warning.show();
     }
 
+    /**
+     * Navigate to Level 1 activity for user with "username".
+     */
     @Override
     public void goToLevel1(String username) {
         Intent intent = new Intent(this, FirstGameActivity.class);
@@ -105,6 +119,9 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
         startActivity(intent);
     }
 
+    /**
+     * Navigate to Level 2 activity for user with "username".
+     */
     @Override
     public void goToLevel2(String username) {
         Intent intent = new Intent(this, Lvl2GameActivity.class);
@@ -112,6 +129,9 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
         startActivity(intent);
     }
 
+    /**
+     * Navigate to Level 3 activity for user with "username".
+     */
     @Override
     public void goToLevel3(String username) {
         Intent intent = new Intent(this, Lvl3StartActivity.class);

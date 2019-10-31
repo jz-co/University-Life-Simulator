@@ -30,6 +30,8 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customization);
+
+        //
         String username = (String) getIntent().getSerializableExtra("Username");
 
         presenter = new CustomizationPresenter(this, new DataSaver(), new DataLoader(), username);
@@ -86,11 +88,16 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
 //        return null;
 //    }
 
+    /**
+     * Method executes when confirm button clicked.
+     */
     public void onConfirmClick(View view) {
         presenter.setCustomizations(customName.getText().toString(), currPicIndex, "English");
     }
 
-    @Override
+    /**
+     * Navigate to course selection activity.
+     */ @Override
     public void navigateToCourseSelector(String username) {
         Intent intent = new Intent(this, CourseSelectorActivity.class);
         intent.putExtra("Username", username);
