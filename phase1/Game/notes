@@ -232,3 +232,11 @@ Step 36 (Koby)
 Code affected : Lvl2GameActivity.java, Level2Presenter.java
 Changes: Add helper methods in Level2Presenter so as to prevent returning a falling object in
 the view class
+
+
+#########
+Step 37 (Parinita)
+Code affected : Level1Presenter.java, ILevel1.java, FirstGameActivity.java
+Changes: Added methods to Level1Presenter such as getters and setters for the Correct adn Incorrect scores.
+Modified ILevel1.java to get more interface methods
+Added displayCorrectScore, and displayIncorrectScore to FirstGameActivity.java

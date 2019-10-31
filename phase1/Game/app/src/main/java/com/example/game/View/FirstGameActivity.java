@@ -2,6 +2,7 @@ package com.example.game.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +22,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     private Level1Presenter level1Presenter;
     private TextView questionTV, correctTV, incorrectTV, hpTV, creditTV, gpaTV;
     private EditText answerTV;
-    private Button start
+    private Button start;
     private boolean nextLevelUnlocked = false;
     private boolean pauseGame = false;
     private String username;
@@ -75,5 +76,15 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
             this.level1Presenter.pauseGame();
         }
         this.pauseGame = !this.pauseGame;
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void displayCorrectScore(){
+        this.correctTV.setText("Correct: " + level1Presenter.getCorrectScore());
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void displayIncorrectScore(){
+        this.incorrectTV.setText("Incorrect: " + level1Presenter.getIncorrectScore());
     }
 }
