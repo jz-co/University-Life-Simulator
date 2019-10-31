@@ -186,3 +186,12 @@ Changes: Made the access public for method update for the above classes.
 Step 30 (Koby)
 Code Affected: studentData.csv
 Changes: Add studentData.csv into the game folder
+
+#########
+Step 31
+Code Affected: Lvl3GameView.update, Lvl3GameView.draw, Lvl3GameView.surfaceDestroyed, in
+Model.Level3, Arrow.draw, GameContents.draw, Wheel.draw and
+Presenter.Lvl3GameItemManager.getGameItems.
+Created methods update, draw and surfaceDestroyed in the Lvl3GameView class. Changed access
+modifiers for the constructors and methods draw in Arrow, Wheel and GameContents. Changed the return
+type for Lvl3GameItemManager.getGameItems.

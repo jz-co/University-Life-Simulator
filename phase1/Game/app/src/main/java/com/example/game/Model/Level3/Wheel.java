@@ -9,7 +9,7 @@ public class Wheel extends GameContents {
     private String direction = "->";
     private int speed;
 
-    Wheel(Bitmap image, int width, int height) {
+    public Wheel(Bitmap image, int width, int height) {
         super(image, width, height);
         this.image = image;
         super.setX((25 * width) / 100);

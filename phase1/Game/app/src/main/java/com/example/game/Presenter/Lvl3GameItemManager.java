@@ -71,7 +71,7 @@ public class Lvl3GameItemManager {
      *
      * @return gameItems
      */
-    public List getGameItems() {
+    public List<GameContents> getGameItems() {
         return gameItems;
     }
 

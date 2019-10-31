@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 public class Arrow extends GameContents {
     Bitmap image;
 
-    Arrow(Bitmap image, int width, int height) {
+    public Arrow(Bitmap image, int width, int height) {
         super(image, width, height);
         this.image = image;
         super.setX(width - 570);
@@ -14,7 +14,7 @@ public class Arrow extends GameContents {
     }
 
 
-    void draw(Canvas canvas) {
+    public void draw(Canvas canvas) {
         canvas.drawBitmap(this.image, getX(), getY(), null);
     }
 
