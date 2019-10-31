@@ -8,18 +8,32 @@ public class ResultPresenter implements IResult.IResultPresenter {
     private IResult.IResultView view;
     private GameManager gameManager;
 
-    public ResultPresenter(IResult.IResultView view, IGameManager gameManager){
+    public ResultPresenter(IResult.IResultView view, String username){
         this.view = view;
-        this.gameManager = (GameManager) gameManager;
+        this.gameManager = new GameManager(username);
     }
 
-    @Override
-    public void againBtnClicked() {
+    public void validateLevelCompletion() {
+        // TODO!
+        // (1) Get current level
+        // (2) Display current level:
+        view.displayLevel(level);
+        // (3) Get and display grade:
+        view.displayGrade(grade);
+        // if completed:
+        //      view.displayCompletionMessage("Congrats")
+        // else:
+        //      view.displayCompletionMessage("Sorry")
 
     }
 
-    @Override
-    public void nextBtnClicked() {
-
-    }
+//    @Override
+//    public void againBtnClicked() {
+//
+//    }
+//
+//    @Override
+//    public void nextBtnClicked() {
+//
+//    }
 }

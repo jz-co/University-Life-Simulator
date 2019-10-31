@@ -6,8 +6,9 @@ import com.example.game.Contract.ILevel1;
 import com.example.game.Model.GameManager;
 import com.example.game.Model.Level1.GameLevel1;
 import com.example.game.Model.Student;
+import com.example.game.Presenter.LevelPresenter;
 
-public class Level1Presenter extends com.example.game.Presenter.LevelPresenter implements ILevel1.ILevel1Presenter {
+public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Presenter {
     private ILevel1.ILevel1View view;
     private GameLevel1 gameLevel;
     private GameManager gameManager;
@@ -28,13 +29,18 @@ public class Level1Presenter extends com.example.game.Presenter.LevelPresenter i
         return gameLevel.getSecondsRemaining();
     }
 
-    public void startGame(){ this.gameLevel.play();}
+    public void startGame(){
+        this.gameLevel.play();}
 
-    public void resumeGame(){this.gameLevel.resumeGame();}
+    public void resumeGame(){
+        this.gameLevel.resumeGame();}
 
-    public void pauseGame(){this.gameLevel.pauseGame();}
+    public void pauseGame(){
+        this.gameLevel.pauseGame();}
 
-    Student getStudent(){return this.gameLevel.getStudent();}
+    Student getStudent(){
+        return this.gameLevel.getStudent();
+    }
 
     public int getCorrectScore(){return this.gameLevel.getCorrectAnswers();}
     public void setCorrectScore(){this.view.displayCorrectScore();}

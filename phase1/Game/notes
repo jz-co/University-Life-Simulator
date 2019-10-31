@@ -268,3 +268,10 @@ ProfileActivity implements the IProfileView interface.
 Step (Jenny)
 Code Affected: FirstGameActivity
 Fixed bugs and errors.
+
+
+#########
+Step (Jenny)
+Updated GameResultActivity to implement the IResultView interface, and added new methods (or
+overrode abstract methods from interface). Also updated ResultPresenter and activity_game_result.xml.
+This is all to display of the results page shown at the completion of a game/level.

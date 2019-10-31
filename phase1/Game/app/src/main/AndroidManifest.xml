@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".View.Lvl2GameActivity"></activity>
         <activity android:name="View.ProfileActivity"></activity>
-        <activity android:name="View.GameCompletionActivity" />
+        <activity android:name=".View.GameResultActivity" />
         <activity android:name="View.FirstGameActivity" />
         <activity android:name=".View.CourseSelectorActivity" />
         <activity android:name="View.CustomizationActivity" />

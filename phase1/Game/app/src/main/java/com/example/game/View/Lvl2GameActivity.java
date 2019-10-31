@@ -32,7 +32,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_lvl_2);
-        username = (String) getIntent().getSerializableExtra("UserName");
+        username = (String) getIntent().getSerializableExtra("Username");
         // finding textviews, imageviews and buttons in from the xml file
         credit_tv = findViewById(R.id.credit);
         gpa_tv = findViewById(R.id.gpa);
@@ -70,7 +70,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
                     "Sorry, the current level has not been unlocked", Toast.LENGTH_SHORT).show();
         }else{
             Intent intent = new Intent(this, Lvl3StartActivity.class);
-            intent.putExtra("UserName", username);
+            intent.putExtra("Username", username);
             startActivity(intent);
         }
     }
