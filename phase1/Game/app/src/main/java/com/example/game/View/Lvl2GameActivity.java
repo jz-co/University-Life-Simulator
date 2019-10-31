@@ -27,6 +27,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     private boolean pauseGame = false;
     private int clearingScore = 20;
     private String username;
+    private boolean start = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -209,12 +210,16 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
      * @param view: the pause button in the xml file
      */
     public void pauseOrResume_game(View view) {
-        if (pauseGame) {
-            level2Presenter.resumeGame();
-        } else {
-            level2Presenter.pauseGame();
+        if (start) {
+            if (pauseGame) {
+                level2Presenter.resumeGame();
+            } else {
+                level2Presenter.pauseGame();
+            }
+            pauseGame = !pauseGame;
+        } else{
+            Toast.makeText(this, "Please press the start button to start the game", Toast.LENGTH_SHORT).show();
         }
-        pauseGame = !pauseGame;
     }
 
     /** proceed to next level button
