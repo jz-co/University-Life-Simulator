@@ -333,3 +333,8 @@ Changes: added functionality for quit game and next level in the above files.
 #########
 Step 52 (Jenny)
 Updated GameResultActivity and ResultPresenter.
+
+#########
+Step 53 (Parinita)
+Code Affected: FirstGameActivity.java, Level1Presenter.java
+Changes: added code for displaying the credit, gpa and hp of a student on the screen.
