@@ -37,7 +37,7 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
     }
 
     public void play() {
-        //60 seconds countdown timer
+        //60 seconds countdown timer TODO: move to front end
         countDownTimer = new CountDownTimer(600000, 1000) {
             @Override
             //on every tick, display the seconds remaining
@@ -64,6 +64,7 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
 
     public void resumeGame() {
         long seconds = secondsRemaining * 1000;
+        //TODO: duplicate code... also, move to activity
         countDownTimer = new CountDownTimer(seconds, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {

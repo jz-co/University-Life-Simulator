@@ -82,5 +82,6 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
     }
 
     public void quitGame() {
+        //TODO
     }
 }
