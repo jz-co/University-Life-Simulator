@@ -201,3 +201,9 @@ Step 32 (Koby)
 Code Affected: Level2Presenter, Lvl2GameActivity
 Changes: (1) Add a saveBeforeExit method in tht quitGame method
 (2) add putExtra for intent to pass the intent to the next Lvl3StartActivity
+
+#########
+Step 33 (Grace)
+Code Affected: ILevel, Lvl2GameActivity
+Changes: deleted method displayProfile() from the game level view contract. Added suggested changes
+in comments in Lvl2GameActivity.

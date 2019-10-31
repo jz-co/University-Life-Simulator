@@ -52,6 +52,9 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
      *
      */
     private void initiateImageView() {
+        //TODO: instead of letting presenter return the object and calling its getAppearance()
+        // method, maybe add a method in presenter called getRedAppearence(), which only
+        // returns the appearance of the object? Same for the other objects. : )
         red.setImageResource(level2Presenter.getRedObj().getAppearence());
         blue.setImageResource(level2Presenter.getBlueObj().getAppearence());
         yellow.setImageResource(level2Presenter.getYellowObj().getAppearence());
@@ -75,6 +78,8 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @Override
     public void updateViewPosById(int id) {
         ImageView image = findViewById(id);
+        //TODO: similarly, instead of asking presenter for the object, consider adding a method
+        // getRedCoordinate() in presenter that returns a list of two integers?
         switch (id) {
             case R.id.red:
                 image.setX(level2Presenter.getRedObj().getX_coordinate());
@@ -122,14 +127,10 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         seconds.setText("Secs Left:"+ level2Presenter.getSecondsRemaining());
     }
 
-    @Override
-    public void displayProfilePic(int num) {
-
-    }
 
     @Override
     public void displayName(String name) {
-
+//TODO: display the user's preferred name?
     }
 
     /**
