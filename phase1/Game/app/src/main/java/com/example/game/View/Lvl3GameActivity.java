@@ -18,11 +18,11 @@ public class Lvl3GameActivity extends Activity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-
         // Set No Title
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        Lvl3GameView game = new Lvl3GameView(this);
+        String username;
+        username = (String) getIntent().getSerializableExtra("Username");
+        Lvl3GameView game = new Lvl3GameView(this, username);
         setContentView(game);
     }
 }

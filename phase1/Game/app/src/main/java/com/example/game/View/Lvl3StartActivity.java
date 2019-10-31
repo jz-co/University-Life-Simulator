@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.game.Contract.ILevel3;
+import com.example.game.DataHandler.DataHandler;
 import com.example.game.DataHandler.DataLoader;
 import com.example.game.DataHandler.DataSaver;
 import com.example.game.Model.Level3.Lvl3GameItemManager;
@@ -61,12 +62,13 @@ public class Lvl3StartActivity extends AppCompatActivity implements ILevel3.ILev
 
         username = (String) getIntent().getSerializableExtra("Username");
 
-        presenter = new Level3Presenter(this, new DataSaver(), new DataLoader(), username);
+        presenter = new Level3Presenter(this, new DataHandler(this), username);
     }
 
     public void startGame(View view) {
         Intent intent;
         intent = new Intent(this, Lvl3GameActivity.class);
+        intent.putExtra("Username", username);
         startActivity(intent);
     }
 
