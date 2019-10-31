@@ -195,3 +195,9 @@ Presenter.Lvl3GameItemManager.getGameItems.
 Created methods update, draw and surfaceDestroyed in the Lvl3GameView class. Changed access
 modifiers for the constructors and methods draw in Arrow, Wheel and GameContents. Changed the return
 type for Lvl3GameItemManager.getGameItems.
+
+#########
+Step 32 (Koby)
+Code Affected: Level2Presenter, Lvl2GameActivity
+Changes: (1) Add a saveBeforeExit method in tht quitGame method
+(2) add putExtra for intent to pass the intent to the next Lvl3StartActivity

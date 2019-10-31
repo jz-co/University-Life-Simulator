@@ -62,6 +62,7 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
         // adding the score of the player to their hp
         gameLevel.getStudent().incrementHp(gameLevel.getScore());
         this.updateDisplay(view);
+        gameManager.saveBeforeExit();
     }
 
     /** start the catching ball game
