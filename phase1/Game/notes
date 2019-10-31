@@ -338,3 +338,8 @@ Updated GameResultActivity and ResultPresenter.
 Step 53 (Parinita)
 Code Affected: FirstGameActivity.java, Level1Presenter.java
 Changes: added code for displaying the credit, gpa and hp of a student on the screen.
+
+#########
+Step 54 (Grace)
+Code Affected: LevelPresenter.java
+Changes: deleted method displayProfilePic()

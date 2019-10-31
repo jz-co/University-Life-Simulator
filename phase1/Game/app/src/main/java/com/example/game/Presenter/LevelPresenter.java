@@ -18,7 +18,6 @@ public abstract class LevelPresenter {
     public void initDisplay(ILevel.ILevelView view){
         Student currStudent = gameManager.getCurrentStudent();
         view.displayName(currStudent.getName());
-        view.displayProfilePic(currStudent.getAppearance());
         updateDisplay(view);
     }
 
