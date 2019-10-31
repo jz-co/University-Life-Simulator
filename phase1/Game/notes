@@ -265,13 +265,19 @@ ProfileActivity implements the IProfileView interface.
 (3) updated method in CourseSelecterActivity to be able to navigate to profile page from the imageButton.
 
 #########
-Step (Jenny)
+Step 41 (Parinita)
+Code affected : activity_first_game.xml, FirstGameActivity.java
+Changes: Added a timer widget to the view and changed some of the colours of the text views. Modified method startGame
+in FirstGameActivity.java to include a view parameter.
+
+#########
+Step 42 (Jenny)
 Code Affected: FirstGameActivity
 Fixed bugs and errors.
 
 
 #########
-Step (Jenny)
+Step 43 (Jenny)
 Updated GameResultActivity to implement the IResultView interface, and added new methods (or
 overrode abstract methods from interface). Also updated ResultPresenter and activity_game_result.xml.
 This is all to display of the results page shown at the completion of a game/level.
