@@ -17,7 +17,7 @@ import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.Level1Presenter;
 import com.example.game.R;
 
-public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILevel1View{
+public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILevel1View {
 
     private Level1Presenter level1Presenter;
     private TextView questionTV, correctTV, incorrectTV, hpTV, creditTV, gpaTV;
@@ -50,7 +50,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     }
 
     public void goToLevel2() {
-        if (!this.nextLevelUnlocked){
+        if (!this.nextLevelUnlocked) {
             Toast.makeText(this,
                     "Sorry, the current level has not been unlocked", Toast.LENGTH_SHORT).show();
         } else {
@@ -60,7 +60,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         }
     }
 
-    public void startGame(View view){
+    public void startGame(View view) {
         this.start.setVisibility(View.INVISIBLE);
 
         this.questionTV.setVisibility(View.VISIBLE);
@@ -70,7 +70,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         this.level1Presenter.startGame();
     }
 
-    public void pauseOrResume_game(View view) {
+    public void pauseOrResumeGame(View view) {
         if (pauseGame) {
             this.level1Presenter.resumeGame();
         } else {
@@ -83,35 +83,36 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     @Override
     public void setSecondsRemaining() {
         TextView seconds = findViewById(R.id.countdown);
-        seconds.setText("Secs Left:"+ level1Presenter.getSecondsRemaining());
+        seconds.setText("Secs Left:" + level1Presenter.getSecondsRemaining());
     }
 
     @SuppressLint("SetTextI18n")
-    public void displayCorrectScore(){
+    public void displayCorrectScore() {
         this.correctTV.setText("Correct: " + level1Presenter.getCorrectScore());
     }
 
     @SuppressLint("SetTextI18n")
-    public void displayIncorrectScore(){
+    public void displayIncorrectScore() {
         this.incorrectTV.setText("Incorrect: " + level1Presenter.getIncorrectScore());
         Toast toast = Toast.makeText(this, "Wrong answer", Toast.LENGTH_SHORT);
         toast.show();
     }
 
-    public void displayQuestion(){
+    public void displayQuestion() {
         this.questionTV.setText(level1Presenter.getCreatedQuestion());
     }
 
-    public void displayInvalidInputMessage(){
+    public void displayInvalidInputMessage() {
         System.out.println("Wrong");
         Toast toast = Toast.makeText(this, "Invalid entry, please enter a new answer", Toast.LENGTH_SHORT);
         toast.show();
     }
 
-    public void evaluateAnswer(View view){
+    public void evaluateAnswer(View view) {
         String answerReceived = this.answerTV.getText().toString();
         level1Presenter.evaluateAnswer(answerReceived);
     }
+
     @Override
     public void displayName(String name) {
 

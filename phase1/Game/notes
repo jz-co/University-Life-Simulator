@@ -313,3 +313,8 @@ method in Lvl2GameActivity
 Step 48 (Koby)
 Code Affected: Lvl2GameActivity.java
 Changes: Add a start boolean so as to avoid user resuming or pausing game before the game begins
+
+#########
+Step 49 (Parinita)
+Code Affected: activity_first_game.xml, FirstGameActivity.java, Level1Presenter.java
+Changes: Changed the pause button and refactored all the files LOL.

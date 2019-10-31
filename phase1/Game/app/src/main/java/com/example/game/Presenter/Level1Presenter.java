@@ -13,15 +13,15 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
     private GameLevel1 gameLevel;
     private GameManager gameManager;
 
-    public Level1Presenter(ILevel1.ILevel1View view, IData .IDataSaver saver,
-                           IData.IDataLoader loader, String username){
+    public Level1Presenter(ILevel1.ILevel1View view, IData.IDataSaver saver,
+                           IData.IDataLoader loader, String username) {
         super(saver, loader, username);
         this.view = view;
         this.gameManager = new GameManager(saver, loader, username);
         this.gameLevel = new GameLevel1(this.gameManager.getCurrentStudent(), this);
     }
 
-    public void goToNextLevel(){
+    public void goToNextLevel() {
         this.view.goToLevel2();
     }
 
@@ -29,36 +29,58 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
         view.setSecondsRemaining();
     }
 
-    public long getSecondsRemaining(){
+    public long getSecondsRemaining() {
         return gameLevel.getSecondsRemaining();
     }
 
-    public void startGame(){
-        this.gameLevel.play();}
+    public void startGame() {
+        this.gameLevel.play();
+    }
 
-    public void resumeGame(){
-        this.gameLevel.resumeGame();}
+    public void resumeGame() {
+        this.gameLevel.resumeGame();
+    }
 
-    public void pauseGame(){
-        this.gameLevel.pauseGame();}
+    public void pauseGame() {
+        this.gameLevel.pauseGame();
+    }
 
-    Student getStudent(){
+    Student getStudent() {
         return this.gameLevel.getStudent();
     }
 
-    public int getCorrectScore(){return this.gameLevel.getCorrectAnswers();}
-    public void setCorrectScore(){this.view.displayCorrectScore();}
+    public int getCorrectScore() {
+        return this.gameLevel.getCorrectAnswers();
+    }
 
-    public int getIncorrectScore(){return this.gameLevel.getIncorrectAnswers();}
-    public void setIncorrectScore(){this.view.displayIncorrectScore();}
+    public void setCorrectScore() {
+        this.view.displayCorrectScore();
+    }
 
-    public String getCreatedQuestion(){ return this.gameLevel.createQuestion();}
-    public void setQuestion(){this.view.displayQuestion();}
+    public int getIncorrectScore() {
+        return this.gameLevel.getIncorrectAnswers();
+    }
 
-    public void setInvalidInputMessage(){ this.view.displayInvalidInputMessage();}
+    public void setIncorrectScore() {
+        this.view.displayIncorrectScore();
+    }
 
-    public void evaluateAnswer(String answerReceived){
+    public String getCreatedQuestion() {
+        return this.gameLevel.createQuestion();
+    }
+
+    public void setQuestion() {
+        this.view.displayQuestion();
+    }
+
+    public void setInvalidInputMessage() {
+        this.view.displayInvalidInputMessage();
+    }
+
+    public void evaluateAnswer(String answerReceived) {
         this.gameLevel.evaluateAnswer(answerReceived);
     }
-    public void quitGame(){}
+
+    public void quitGame() {
+    }
 }
