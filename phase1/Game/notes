@@ -240,3 +240,9 @@ Code affected : Level1Presenter.java, ILevel1.java, FirstGameActivity.java
 Changes: Added methods to Level1Presenter such as getters and setters for the Correct adn Incorrect scores.
 Modified ILevel1.java to get more interface methods
 Added displayCorrectScore, and displayIncorrectScore to FirstGameActivity.java
+
+#########
+Step 38 (Parinita)
+Code affected : GameLevel1.java, Level1Presenter.java
+Changes: Added pauseGame, resumeGame, getStudent, getCorrectAnswers, getIncorrectAnswers to GameLevel1.java
+Modified method names in Level1Presenter.java

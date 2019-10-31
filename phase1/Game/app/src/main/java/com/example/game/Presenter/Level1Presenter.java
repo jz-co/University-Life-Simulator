@@ -17,7 +17,7 @@ public class Level1Presenter extends com.example.game.Presenter.LevelPresenter i
         super(saver, loader, username);
         this.view = view;
         this.gameManager = new GameManager(saver, loader, username);
-        this.gameLevel = new GameLevel1(this.gameManager.getCurrentStudent());
+        this.gameLevel = new GameLevel1(this.gameManager.getCurrentStudent(), this);
     }
 
     public void goToNextLevel(){
@@ -35,6 +35,6 @@ public class Level1Presenter extends com.example.game.Presenter.LevelPresenter i
     public int getCorrectScore(){return this.gameLevel.getCorrectAnswers();}
     public void setCorrectScore(){this.view.displayCorrectScore();}
 
-    public int getIncorrectScore(){return this.gameLevel.getIncorrectScore();}
+    public int getIncorrectScore(){return this.gameLevel.getIncorrectAnswers();}
     public void setIncorrectScore(){this.view.displayIncorrectScore();}
 }
