@@ -13,7 +13,7 @@
         <activity android:name="View.ProfileActivity"></activity>
         <activity android:name="View.GameCompletionActivity" />
         <activity android:name="View.FirstGameActivity" />
-        <activity android:name="View.CourseSelectorActivity" />
+        <activity android:name=".View.CourseSelectorActivity" />
         <activity android:name="View.CustomizationActivity" />
         <activity android:name="View.MainActivity">
             <intent-filter>

@@ -6,27 +6,42 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.game.Contract.ICourseSelector.*;
+import com.example.game.DataHandler.DataLoader;
+import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.CourseSelectorPresenter;
 import com.example.game.R;
 
+import java.util.ArrayList;
 
 
 public class CourseSelectorActivity extends AppCompatActivity implements ICourseSelectorView {
 
     private CourseSelectorPresenter presenter;
+    private ArrayList<Integer> characterIcons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_selector);
 
-        // presenter = new CourseSelectorPresenter() TODO: what arguments to pass into constructor?
+        String username = (String) getIntent().getSerializableExtra("Username");
+
+        characterIcons = new ArrayList<Integer>();
+        populateCharacterIcons();
+
+        presenter = new CourseSelectorPresenter(this, new DataSaver(), new DataLoader(), username);
 
         ImageButton profileButton = (ImageButton) findViewById(R.id.profileButton);
-        profileButton.setImageResource(getResources().getIdentifier("@drawable/pikachu", null, this.getPackageName())); // TODO
+        profileButton.setImageResource(characterIcons.get(presenter.getPicIndex()));
+    }
+
+    private void populateCharacterIcons() {
+        characterIcons.add(getResources().getIdentifier("@drawable/pikachu", null, this.getPackageName()));
+        characterIcons.add(getResources().getIdentifier("@drawable/cactus", null, this.getPackageName()));
     }
 
     /**
@@ -55,12 +70,13 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
     }
 
     public void onProfileClick (View view) {
-        navigateToProfile();  // TODO: somehow get the username?
+        navigateToProfile(presenter.getUsername());
     }
 
 
-    public void navigateToProfile () {
+    public void navigateToProfile (String username) {
         Intent intent = new Intent(this, ProfileActivity.class);
+        intent.putExtra("Username", username);
         startActivity(intent);
     }
 
@@ -72,7 +88,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
 
     @Override
     public void goToLevel1(String username) {
-        Intent intent = new Intent(this, ); // TODO: insert level 1 Activity class
+        Intent intent = new Intent(this, FirstGameActivity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }

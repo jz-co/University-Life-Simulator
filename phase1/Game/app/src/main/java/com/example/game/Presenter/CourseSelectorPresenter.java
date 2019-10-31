@@ -8,8 +8,8 @@ public class CourseSelectorPresenter {
     private ICourseSelector.ICourseSelectorView view;
     private GameManager gameManager;
 
-    CourseSelectorPresenter(ICourseSelector.ICourseSelectorView view, IData.IDataSaver saver,
-                            IData.IDataLoader loader, String username){
+    public CourseSelectorPresenter(ICourseSelector.ICourseSelectorView view, IData.IDataSaver saver,
+                                   IData.IDataLoader loader, String username){
         this.view = view;
         gameManager = new GameManager(saver, loader, username);
     }
@@ -34,8 +34,16 @@ public class CourseSelectorPresenter {
         }
     }
 
+    public int getPicIndex () {
+        return gameManager.getCurrentStudent().getAppearance();
+    }
+
     private void warning(){
         view.displayWarning("You have not unlocked this level!");
+    }
+
+    public String getUsername() {
+        return gameManager.getCurrentUsername();
     }
 
 }

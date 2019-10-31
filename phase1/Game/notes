@@ -252,3 +252,14 @@ Step 39 (Parinita)
 Code affected : GameLevel1.java, Level1Presenter.java, ILevel1.java
 Changes: Added a play method in GameLevel1.java. Due to this, I introduced a timer object into Level1Presenter.java and
 also added an interface method in ILevel1.java.
+
+
+#########
+Step 40 (Jenny)
+Code Affected: CourseSelectorActivity, CourseSelectorPresenter, ProfileActivity
+Code Added: IProfile Interface, ProfilePresenter
+Changes: (1) updated methods in CourseSelectorActivity, now we can navigate to individual game levels
+(2) Implemented the ProfileActivity (and necessary ProfilePresenter) which displays the user's profile
+(name, character icon, gpa and credits), as well as ability to Log out and customize their characters.
+ProfileActivity implements the IProfileView interface.
+(3) updated method in CourseSelecterActivity to be able to navigate to profile page from the imageButton.

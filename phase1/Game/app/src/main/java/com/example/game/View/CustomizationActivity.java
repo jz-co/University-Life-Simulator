@@ -87,7 +87,7 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
     @Override
     public void navigateToCourseSelector(String username) {
         Intent intent = new Intent(this, CourseSelectorActivity.class);
-        intent.putExtra("UserName", username);
+        intent.putExtra("Username", username);
         startActivity(intent);
     }
 }
