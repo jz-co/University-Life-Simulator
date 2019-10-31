@@ -9,9 +9,10 @@ public interface ILevel1 extends ILevel{
         void setSecondsRemaining();
         void displayQuestion();
         void displayInvalidInputMessage();
+        void quitGame();
     }
     interface ILevel1Presenter{
-        //void goToNextLevel();
+        void goToNextLevel();
         void setCorrectScore();
         void setIncorrectScore();
         void setSecondsRemaining();

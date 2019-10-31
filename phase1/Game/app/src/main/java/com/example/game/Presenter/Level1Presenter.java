@@ -82,6 +82,9 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
     }
 
     public void quitGame() {
-        //TODO
+        this.view.quitGame();
+        // adding the score of the player to their hp
+        this.gameLevel.getStudent().incrementHp(gameLevel.getCorrectAnswers());
+        this.gameManager.saveBeforeExit();
     }
 }

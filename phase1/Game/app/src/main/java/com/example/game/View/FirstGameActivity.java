@@ -20,12 +20,13 @@ import com.example.game.R;
 public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILevel1View {
 
     private Level1Presenter level1Presenter;
-    private TextView questionTV, correctTV, incorrectTV, hpTV, creditTV, gpaTV;
+    private TextView questionTV, correctTV, incorrectTV, hpTV, creditTV, gpaTV, resultTV;
     private EditText answerTV;
-    private Button start;
+    private Button start, nextLevel;
     private boolean nextLevelUnlocked = false;
     private boolean pauseGame = false;
     private String username;
+    private int clearingScore = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +40,15 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         this.creditTV = findViewById(R.id.creditLvl1);
         this.gpaTV = findViewById(R.id.gpaLvl1);
         this.answerTV = findViewById(R.id.answer);
+        this.resultTV = findViewById(R.id.resultLvl1);
         this.start = findViewById(R.id.startLv1);
+        this.nextLevel = findViewById(R.id.nextLevelLvl1);
 
         this.questionTV.setVisibility(View.INVISIBLE);
         this.correctTV.setVisibility(View.INVISIBLE);
         this.incorrectTV.setVisibility(View.INVISIBLE);
         this.answerTV.setVisibility(View.INVISIBLE);
+        this.resultTV.setVisibility(View.INVISIBLE);
 
         this.level1Presenter = new Level1Presenter(this, new DataSaver(), new DataLoader(), username);
     }
@@ -62,6 +66,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
 
     public void startGame(View view) {
         this.start.setVisibility(View.INVISIBLE);
+        this.nextLevel.setVisibility(View.INVISIBLE);
 
         this.questionTV.setVisibility(View.VISIBLE);
         this.correctTV.setVisibility(View.VISIBLE);
@@ -131,5 +136,21 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     @Override
     public void displayCredit(int credit) {
 
+    }
+
+    public void quitGame() {
+        this.resultTV.setText(level1Presenter.getCorrectScore());
+        this.resultTV.setVisibility(View.VISIBLE);
+        this.nextLevel.setVisibility(View.VISIBLE);
+        if (level1Presenter.getCorrectScore() >= clearingScore) {
+            Toast.makeText(this, "Congratulations, you have cleared this level!",
+                    Toast.LENGTH_SHORT).show();
+            nextLevelUnlocked = true;
+
+        }else{Toast.makeText(this, "Play again to unlock the next level!",
+                Toast.LENGTH_SHORT).show();}
+    }
+    public void proceedNext(View view){
+        goToLevel2();
     }
 }

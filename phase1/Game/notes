@@ -324,3 +324,8 @@ Step 50 (Grace)
 Code Affected: Level1Presenter.java, GameLevel1.java
 Changes: suggested changes. Countdown should be moved to View, and accessed via ILevel1View and
 LLevel1Presenter.
+
+#########
+Step 51 (Parinita)
+Code Affected: activity_first_game.xml, FirstGameActivity.java, Level1Presenter.java, ILevel1.java
+Changes: added functionality for quit game and next level in the above files.
