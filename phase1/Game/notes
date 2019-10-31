@@ -360,7 +360,7 @@ Step 527(Jenny)
 Updated GameResultActivity to display completion message, score and level.
 Important Note: At the end of each game level, make sure to create intent that passes from
 the game to GameResultActivity.class. Include the following extras in the intent to be passed:
-(1) String -- A completion message that will be displayed to user
-(2) int -- the level number (i.e. 1, 2, or 3)
-(3) int -- the score
-(4) String -- username of the user
+(1) String -- A completion message that will be displayed to user -- Name: "Completion"
+(2) int -- the level number (i.e. 1, 2, or 3) -- Name: "Level"
+(3) int -- the score -- Name: "Score"
+(4) String -- username of the user --- Name: "Username"
