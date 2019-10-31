@@ -25,6 +25,10 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
         this.view.goToLevel2();
     }
 
+    public void setSecondsRemaining() {
+        view.setSecondsRemaining();
+    }
+
     public long getSecondsRemaining(){
         return gameLevel.getSecondsRemaining();
     }
@@ -47,4 +51,10 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
 
     public int getIncorrectScore(){return this.gameLevel.getIncorrectAnswers();}
     public void setIncorrectScore(){this.view.displayIncorrectScore();}
+
+    public String getCreatedQuestion(){ return this.gameLevel.createQuestion();}
+    public void setQuestion(){this.view.displayQuestion();}
+
+    public void setInvalidInputMessage(){ this.view.displayInvalidInputMessage();};
+    public void quitGame(){}
 }

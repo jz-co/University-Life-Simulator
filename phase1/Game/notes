@@ -281,3 +281,12 @@ Step 43 (Jenny)
 Updated GameResultActivity to implement the IResultView interface, and added new methods (or
 overrode abstract methods from interface). Also updated ResultPresenter and activity_game_result.xml.
 This is all to display of the results page shown at the completion of a game/level.
+
+
+#########
+Step 44 (Parinita)
+Code Affected: FirstGameActivity.java, Level1Presenter.java, GameLevel1.java, ILevel1.java
+Changes: 1) FirstGameActivity.java: modified displayIncorrectScore, displayQuestion and added displayInvalidInputMessage
+2) Level1Presenter.java: added getCreatedQuestion, setQuestion, setInvalidInputMessage
+3) GameLevel1: added createQuestion and evaluateAnswer
+4) ILevel1: added some interface methods

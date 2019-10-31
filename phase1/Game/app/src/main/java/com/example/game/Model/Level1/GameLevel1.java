@@ -1,49 +1,46 @@
 package com.example.game.Model.Level1;
 
 import android.os.CountDownTimer;
-import android.os.Handler;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.game.Contract.ILevel1;
 import com.example.game.Model.GameLevel;
 import com.example.game.Model.Student;
+import com.example.game.R;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class GameLevel1 extends com.example.game.Model.GameLevel {
     private Student student;
     private int correctAnswers, incorrectAnswers;
+
+    //seconds left in the game
     private long secondsRemaining;
-    private Handler handler;
-    private Timer timer;
-    private CountDownTimer countDownTimer;
+    CountDownTimer countDownTimer;
+
+    private String question;
+    private int correctAnswer;
+    private List<String> operators = new ArrayList<>(Arrays.asList("+", "-", "*"));
     private ILevel1.ILevel1Presenter presenter;
 
+    //initialize the game
     public GameLevel1(Student student, ILevel1.ILevel1Presenter presenter){
         this.student = student;
         this.correctAnswers = 0;
         this.incorrectAnswers = 0;
         this.presenter = presenter;
-
     }
 
     public void play(){
-        timer = new Timer();
-        this.correctAnswers = 0;
-        timer.schedule(new TimerTask() {
+        //60 seconds countdown timer
+        CountDownTimer countDownTimer = new CountDownTimer(600000, 1000) {
             @Override
-            public void run() {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        //TODO THIS
-                    }
-                });
-            }
-        }, 0, 5);
-
-        countDownTimer = new CountDownTimer(120000, 1000) {
-            @Override
+            //on every tick, display the seconds remaining
             public void onTick(long millisUntilFinished) {
                 secondsRemaining = millisUntilFinished / 1000;
                 // setting the seconds remaining in the frontend
@@ -51,24 +48,35 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
             }
 
             @Override
+            //when time is up, quit game in the view
             public void onFinish() {
-                quitGame();
-                // setting the final score in the end and make the start layout box visible
                 presenter.quitGame();
             }
-
 
         }.start();
 
     }
 
-    private void quitGame(){
-        timer.cancel();
-        timer = null;
-        presenter.quitGame();
+
+    public void pauseGame(){countDownTimer.cancel();}
+    public void resumeGame(){
+        long seconds = secondsRemaining * 1000;
+        countDownTimer = new CountDownTimer(seconds, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                secondsRemaining = millisUntilFinished / 1000;
+                presenter.setSecondsRemaining();
+            }
+
+            @Override
+            public void onFinish() {
+                presenter.quitGame();
+            }
+
+        }.start();
     }
-    public void pauseGame(){}
-    public void resumeGame(){}
+
+
     public Student getStudent(){return this.student;}
     public int getCorrectAnswers(){return this.correctAnswers;}
     public int getIncorrectAnswers(){return this.incorrectAnswers;}
@@ -81,14 +89,52 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
     public void setPresenter(ILevel1.ILevel1Presenter presenter){
         this.presenter = presenter;
     }
-    @Override
-    public void progressGameResults() {
+
+
+    public String createQuestion() {
+        int a = (int) (Math.random() * 100);
+        int b = (int) (Math.random() * 100);
+
+        int randomNum = (int) (Math.random() * (operators.size() - 1));
+        String operation = operators.get(randomNum);
+
+        switch (operation) {
+
+            case "+":
+                correctAnswer = a + b;
+                break;
+            case "-":
+                correctAnswer = a - b;
+                break;
+            case "*":
+                correctAnswer = a * b;
+                break;
+        }
+
+        question = a + operation + b;
+        return question;
 
     }
 
-    @Override
-    public GameLevel makeCopy() {
-        return null;
-    }
-    // NOT IMPLEMENTED
+    public void evaluateAnswer(String answer) {
+        try {
+            Integer.parseInt(answer);
+            boolean rightAnswer = Integer.parseInt(answer) == correctAnswer;
+            System.out.println(rightAnswer);
+
+            if (rightAnswer) {
+                presenter.setCorrectScore();
+            } else {
+                presenter.setIncorrectScore();
+            }
+
+            presenter.setQuestion();
+        } catch (NumberFormatException e) {
+            System.out.println("Wrong");
+            Toast toast = Toast.makeText(this, "Invalid entry", Toast.LENGTH_SHORT);
+            toast.show();
+
+        }
+
+
 }

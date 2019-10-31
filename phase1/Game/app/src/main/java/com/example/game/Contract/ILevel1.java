@@ -6,12 +6,17 @@ public interface ILevel1 extends ILevel{
 
         void displayCorrectScore();
         void displayIncorrectScore();
+        void setSecondsRemaining();
+        void displayQuestion();
+        void displayInvalidInputMessage();
     }
     interface ILevel1Presenter{
-        void goToNextLevel();
+        //void goToNextLevel();
         void setCorrectScore();
         void setIncorrectScore();
         void setSecondsRemaining();
         void quitGame();
+        void setQuestion();
+        void setInvalidInputMessage();
     }
 }

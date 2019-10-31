@@ -80,6 +80,13 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     }
 
     @SuppressLint("SetTextI18n")
+    @Override
+    public void setSecondsRemaining() {
+        TextView seconds = findViewById(R.id.countdown);
+        seconds.setText("Secs Left:"+ level1Presenter.getSecondsRemaining());
+    }
+
+    @SuppressLint("SetTextI18n")
     public void displayCorrectScore(){
         this.correctTV.setText("Correct: " + level1Presenter.getCorrectScore());
     }
@@ -87,8 +94,15 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     @SuppressLint("SetTextI18n")
     public void displayIncorrectScore(){
         this.incorrectTV.setText("Incorrect: " + level1Presenter.getIncorrectScore());
+        Toast toast = Toast.makeText(this, "Wrong answer", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
+    public void displayQuestion(){
+        this.questionTV.setText(level1Presenter.getCreatedQuestion());
+    }
+
+    public void displayInvalidInputMessage(){}
     @Override
     public void displayName(String name) {
 
