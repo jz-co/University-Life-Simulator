@@ -1,7 +1,6 @@
 package com.example.game.View;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -15,7 +14,8 @@ import com.example.game.Model.Level3.Arrow;
 import com.example.game.Model.Level3.Bow;
 import com.example.game.Model.Level3.GameContents;
 import com.example.game.Model.Level3.Wheel;
-import com.example.game.Presenter.Lvl3GameItemManager;
+import com.example.game.Model.Level3.Lvl3GameItemManager;
+import com.example.game.Presenter.MainThread;
 import com.example.game.R;
 
 /**
@@ -39,12 +39,12 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback 
      */
     int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
 
-    private com.example.game.Model.Level3.MainThread thread;
+    private com.example.game.Presenter.MainThread thread;
 
     public Lvl3GameView(Context context) {
         super(context);
         getHolder().addCallback(this);
-        thread = new com.example.game.Model.Level3.MainThread(getHolder(), this);
+        thread = new MainThread(getHolder(), this);
         setFocusable(true);
     }
 
@@ -93,6 +93,7 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback 
      * Updates the game
      */
     public void update() {
+        gameManager.update();
     }
 
     /**
@@ -136,5 +137,4 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback 
         invalidate();
         return true;
     }
-
 }

@@ -1,17 +1,18 @@
 package com.example.game.Presenter;
 
+import com.example.game.Contract.IData;
 import com.example.game.Contract.IGameManager;
 import com.example.game.Contract.ILevel3;
-import com.example.game.Model.Level3.GameLevel3;
-import com.example.game.Model.GameManager;
+import com.example.game.Model.Level3.Lvl3GameItemManager;
 
 public class Level3Presenter extends com.example.game.Presenter.LevelPresenter implements ILevel3.ILevel3Presenter {
     private ILevel3.ILevel3View view;
-    private GameLevel3 gameLevel;
 
-    public Level3Presenter(ILevel3.ILevel3View view, IGameManager gameManager){
-        super(gameManager);
+    public Level3Presenter(ILevel3.ILevel3View view, IData.IDataSaver saver,
+                           IData.IDataLoader loader, String username) {
+        super(saver, loader, username);
         this.view = view;
-        this.gameLevel = new GameLevel3();
+
     }
+
 }
