@@ -11,5 +11,7 @@ public interface ILevel1 extends ILevel{
         void goToNextLevel();
         void setCorrectScore();
         void setIncorrectScore();
+        void setSecondsRemaining();
+        void quitGame();
     }
 }

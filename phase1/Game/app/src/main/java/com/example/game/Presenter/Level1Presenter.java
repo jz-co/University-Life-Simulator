@@ -24,6 +24,10 @@ public class Level1Presenter extends com.example.game.Presenter.LevelPresenter i
         this.view.goToLevel2();
     }
 
+    public long getSecondsRemaining(){
+        return gameLevel.getSecondsRemaining();
+    }
+
     public void startGame(){ this.gameLevel.play();}
 
     public void resumeGame(){this.gameLevel.resumeGame();}
