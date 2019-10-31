@@ -81,7 +81,20 @@ public class Lvl3GameItemManager {
     void update() {
         gameWheel.update();
         Arrow moving_arrow = (Arrow) gameItems.get(2);
-        moving_arrow.update();
+        if (moving_arrow.getTouch()) {
+            moving_arrow.update();
+            if ((gameWheel.getX() <= moving_arrow.getX() & moving_arrow.getX() <= gameWheel.getX() + gameWheel.getWidth()) &
+                    (gameWheel.getY() <= moving_arrow.getY() & moving_arrow.getY() <= gameWheel.getY() + gameWheel.getHeight())) {
+                highScore += 1;
+                gameWheel.setSpeed();
+                gameItems.remove(2);
+            }
+            if (moving_arrow.getReach()) {
+                gameItems.remove(2);
+                lives -= 1;
+            }
+
+        }
     }
 
     /**

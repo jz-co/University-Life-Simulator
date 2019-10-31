@@ -1,9 +1,13 @@
 package com.example.game.View;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -102,6 +106,35 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback 
                 item.draw(canvas);
             }
         }
+        String score = "High Score: " + (gameManager.getHighScore());
+        Paint paint = new Paint();
+        paint.setColor(Color.MAGENTA);
+        paint.setTextSize(60);
+        canvas.drawText(score, screenWidth - 500, 100, paint);
+
+        String life = "Lives: " + (gameManager.getLives());
+        canvas.drawText(life, 100, 100, paint);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int action = event.getAction();
+        if (action == MotionEvent.ACTION_DOWN) {
+            Arrow moving_arrow = (Arrow) gameManager.getGameItems().get(2);
+            moving_arrow.setTouch(true);
+            if (gameManager.getGameItems().size() - 2 <= 1) {
+                gameManager.getGameItems().add(new Arrow(BitmapFactory.decodeResource(getResources(), R.drawable.arrow),
+                        screenWidth, screenHeight));
+            }
+        }
+
+//        if(gameManager.getLives() == 0){
+//            super.getContext().startActivity(new Intent(super.getContext(), EndActivity.class));
+//        }
+
+
+        invalidate();
+        return true;
     }
 
 }

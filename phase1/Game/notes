@@ -188,7 +188,7 @@ Code Affected: studentData.csv
 Changes: Add studentData.csv into the game folder
 
 #########
-Step 31
+Step 31 (Trisha)
 Code Affected: Lvl3GameView.update, Lvl3GameView.draw, Lvl3GameView.surfaceDestroyed, in
 Model.Level3, Arrow.draw, GameContents.draw, Wheel.draw and
 Presenter.Lvl3GameItemManager.getGameItems.
@@ -207,3 +207,11 @@ Step 33 (Grace)
 Code Affected: ILevel, Lvl2GameActivity
 Changes: deleted method displayProfile() from the game level view contract. Added suggested changes
 in comments in Lvl2GameActivity.
+
+#########
+Step 33 (Vishnu)
+Created a new interface TouchEvent.
+Code affected : Modified Arrow class update(), and made getters and setters for touch.
+Modified Lvl3GameItemManagers update().
+Modified Lvl3GameView draw() by adding text for high score and lives and added new method
+TouchEvent to do a task when screen is touched.
