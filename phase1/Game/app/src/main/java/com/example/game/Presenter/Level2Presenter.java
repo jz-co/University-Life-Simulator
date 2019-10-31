@@ -117,28 +117,6 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
         return gameLevel.getStudent();
     }
 
-    /** returns the red ball of the catching ball game
-     *
-     * @return redObject
-     */
-    public redObject getRedObj(){
-        return redObject;
-    }
-    /** returns the blue ball of the catching ball game
-     *
-     * @return blueObject
-     */
-    public blueObject getBlueObj(){
-        return blueObject;
-    }
-    /** returns the yellow ball of the catching ball game
-     *
-     * @return yellowObject
-     */
-    public yellowObject getYellowObj(){
-        return yellowObject;
-    }
-
     /** return the basket of the game
      *
      * @return Basket
@@ -170,4 +148,101 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
     public void setSecondsRemaining() {
         view.setSecondRemaining();
     }
+
+    /** get the id of the image for the red ball
+     *
+     * @return int redObject appearence
+     */
+    public int getRedAppearence(){
+        return redObject.getAppearence();
+    }
+
+    /** get the id of the image for the blue ball
+     *
+     * @return int blueObject appearence
+     */
+    public int getBlueAppearence(){
+        return blueObject.getAppearence();
+    }
+
+    /**  get te id of the image for the yellow ball
+     *
+     * @return int yellowObject appearence
+     */
+    public int getYellowAppearence(){
+        return yellowObject.getAppearence();
+    }
+
+    /** get the id of the image for the basket
+     *
+     * @return int basket appearance
+     */
+    public int getBasketAppearence(){
+        return getBasket().getAppearence();
+    }
+
+    /** get the x coordinate of the red object
+     *
+     * @return the x coordinate of the red object
+     */
+    public int getRedX(){
+        return redObject.getX_coordinate();
+    }
+
+    /** get the y coordinate of the red object
+     *
+     * @return the y coordinate of the red object
+     */
+    public int getRedY(){
+        return redObject.getY_coordinate();
+    }
+
+    /** get the x coordinate of the blue object
+     *
+     * @return the x coordinate of the blue object
+     */
+    public int getBlueX(){
+        return blueObject.getX_coordinate();
+    }
+
+    /** get the y coordinate of the blue object
+     *
+     * @return the y coordinate of the blue object
+     */
+    public int getBlueY(){
+        return blueObject.getY_coordinate();
+    }
+
+    /** get the x coordinate of the yellow object
+     *
+     * @return the x coordinate of the yellow object
+     */
+    public int getYellowX(){
+        return yellowObject.getX_coordinate();
+    }
+
+    /** get the y coordinate of the yellow object
+     *
+     * @return the y coordinate of the yellow object
+     */
+    public int getYellowY(){
+        return yellowObject.getY_coordinate();
+    }
+
+    /** get the x coordinate of the basket object
+     *
+     * @return the x coordinate of the basket object
+     */
+    public int getBasketX(){
+        return gameLevel.getBasket().getX();
+    }
+
+    /** get the y coordinate of the basket object
+     *
+     * @return the y coordinate of the bakset object
+     */
+    public int getBasketY(){
+        return gameLevel.getBasket().getY();
+    }
+
 }

@@ -55,11 +55,11 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         //TODO: instead of letting presenter return the object and calling its getAppearance()
         // method, maybe add a method in presenter called getRedAppearence(), which only
         // returns the appearance of the object? Same for the other objects. : )
-        red.setImageResource(level2Presenter.getRedObj().getAppearence());
-        blue.setImageResource(level2Presenter.getBlueObj().getAppearence());
-        yellow.setImageResource(level2Presenter.getYellowObj().getAppearence());
+        red.setImageResource(level2Presenter.getRedAppearence());
+        blue.setImageResource(level2Presenter.getBlueAppearence());
+        yellow.setImageResource(level2Presenter.getYellowAppearence());
         ImageView basket = findViewById(R.id.character);
-        basket.setImageResource(level2Presenter.getBasket().getAppearence());
+        basket.setImageResource(level2Presenter.getBasketAppearence());
     }
 
 
@@ -82,20 +82,20 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         // getRedCoordinate() in presenter that returns a list of two integers?
         switch (id) {
             case R.id.red:
-                image.setX(level2Presenter.getRedObj().getX_coordinate());
-                image.setY(level2Presenter.getRedObj().getY_coordinate());
+                image.setX(level2Presenter.getRedX());
+                image.setY(level2Presenter.getRedY());
                 break;
             case R.id.blue:
-                image.setX(level2Presenter.getBlueObj().getX_coordinate());
-                image.setY(level2Presenter.getBlueObj().getY_coordinate());
+                image.setX(level2Presenter.getBlueX());
+                image.setY(level2Presenter.getBlueY());
                 break;
             case R.id.yellow:
-                image.setX(level2Presenter.getYellowObj().getX_coordinate());
-                image.setY(level2Presenter.getYellowObj().getY_coordinate());
+                image.setX(level2Presenter.getYellowX());
+                image.setY(level2Presenter.getYellowY());
                 break;
             case R.id.character:
-                image.setX(level2Presenter.getBasket().getX());
-                image.setY(level2Presenter.getBasket().getY());
+                image.setX(level2Presenter.getBasketX());
+                image.setY(level2Presenter.getBasketY());
         }
     }
 

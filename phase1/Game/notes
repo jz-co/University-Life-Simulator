@@ -226,3 +226,9 @@ Step 35 (Parinita)
 Code affected : FirstGameActivity.java, activity_first_game.xml
 Added private attributes and startGame method to this View class.
 Also added statistics to the xml file.
+
+#########
+Step 36 (Koby)
+Code affected : Lvl2GameActivity.java, Level2Presenter.java
+Changes: Add helper methods in Level2Presenter so as to prevent returning a falling object in
+the view class
