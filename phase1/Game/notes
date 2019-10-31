@@ -356,7 +356,7 @@ Code Affected: Drawable folder
 Changes: Add pictures of more characters :))
 
 #########
-Step 527(Jenny)
+Step 57(Jenny)
 Updated GameResultActivity to display completion message, score and level.
 Important Note: At the end of each game level, make sure to create intent that passes from
 the game to GameResultActivity.class. Include the following extras in the intent to be passed:
@@ -364,3 +364,8 @@ the game to GameResultActivity.class. Include the following extras in the intent
 (2) int -- the level number (i.e. 1, 2, or 3) -- Name: "Level"
 (3) int -- the score -- Name: "Score"
 (4) String -- username of the user --- Name: "Username"
+
+#########
+Step 57(Jenny)
+Code Affected: CourseSelectorActivity, ProfileActivity, CustomizationActivity
+Changes: Added new character icons images to the populateCharacterIcons() method.

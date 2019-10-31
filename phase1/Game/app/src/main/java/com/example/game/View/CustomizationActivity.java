@@ -42,6 +42,12 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
     }
 
     void populateCharacterIcons() {
+        characterIcons.add(getResources().getIdentifier("@drawable/boy1", null, this.getPackageName()));
+        characterIcons.add(getResources().getIdentifier("@drawable/gir1", null, this.getPackageName()));
+        characterIcons.add(getResources().getIdentifier("@drawable/boy2", null, this.getPackageName()));
+        characterIcons.add(getResources().getIdentifier("@drawable/girl2", null, this.getPackageName()));
+        characterIcons.add(getResources().getIdentifier("@drawable/boy3", null, this.getPackageName()));
+        characterIcons.add(getResources().getIdentifier("@drawable/girl3", null, this.getPackageName()));
         characterIcons.add(getResources().getIdentifier("@drawable/pikachu", null, this.getPackageName()));
         characterIcons.add(getResources().getIdentifier("@drawable/cactus", null, this.getPackageName()));
     }
