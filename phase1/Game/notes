@@ -329,3 +329,7 @@ LLevel1Presenter.
 Step 51 (Parinita)
 Code Affected: activity_first_game.xml, FirstGameActivity.java, Level1Presenter.java, ILevel1.java
 Changes: added functionality for quit game and next level in the above files.
+
+#########
+Step 52 (Jenny)
+Updated GameResultActivity and ResultPresenter.

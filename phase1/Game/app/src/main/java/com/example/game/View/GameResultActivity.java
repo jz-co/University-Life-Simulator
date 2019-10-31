@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.game.Contract.IResult;
+import com.example.game.DataHandler.DataLoader;
+import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.CourseSelectorPresenter;
 import com.example.game.Presenter.ResultPresenter;
 import com.example.game.R;
@@ -31,7 +33,7 @@ public class GameResultActivity extends AppCompatActivity implements IResult.IRe
 
         String username = (String) getIntent().getSerializableExtra("Username");
 
-        presenter = new ResultPresenter(this, username) // TODO
+        presenter = new ResultPresenter(this, new DataSaver(), new DataLoader(), username); // TODO
         presenter.validateLevelCompletion();
 
     }
@@ -56,11 +58,12 @@ public class GameResultActivity extends AppCompatActivity implements IResult.IRe
     }
 
     public void onClickPlayAgain(View view) {
-
+        finish(); // TODO
     }
 
     public void onClickSelectAnother(View view) {
         Intent intent = new Intent(this, CourseSelectorActivity.class);
-        startActivity(intent);
+        startActivity(intent);  // TODO
     }
+
 }
