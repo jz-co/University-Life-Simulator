@@ -58,17 +58,16 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
 
     @Override
     public void quitGame() {
-        view.quitGame();
         // adding the score of the player to their hp
         gameLevel.getStudent().incrementHp(gameLevel.getScore());
         this.updateDisplay(view);
         gameManager.saveBeforeExit();
     }
 
-    /** start the catching ball game
+    /** play the catching ball game
      *
      */
-    public void startGame(){
+    public void play(){
         gameLevel.play();
     }
 
@@ -78,20 +77,6 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
      */
     public int getScore(){
         return gameLevel.getScore();
-    }
-
-    /** resume playing the game after pausing the game
-     *
-     */
-    public void resumeGame(){
-        gameLevel.resumeGame();
-    }
-
-    /** Pause the game
-     *
-     */
-    public void pauseGame(){
-        gameLevel.pauseGame();
     }
 
 
@@ -133,13 +118,6 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
         view.setScore();
     }
 
-    /** return the amount of seconds left before the game ends from the game
-     *
-     * @return long secondsRemaining
-     */
-    public long getSecondsRemaining(){
-        return gameLevel.getSecondsRemaining();
-    }
 
     /** set the amounts of seconds left in the frontend
      *
@@ -243,6 +221,13 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
      */
     public int getBasketY(){
         return gameLevel.getBasket().getY();
+    }
+
+    /** initialize the position of objects at the start of the game
+     *
+     */
+    public void initializeGame(){
+        gameLevel.initializeGame();
     }
 
 }

@@ -343,3 +343,9 @@ Changes: added code for displaying the credit, gpa and hp of a student on the sc
 Step 54 (Grace)
 Code Affected: LevelPresenter.java
 Changes: deleted method displayProfilePic()
+
+#########
+Step 55 (Koby)
+Code Affected: Level2Presenter.java, GameLevel2.java, Lvl2GameActivity
+Changes: Move the CountDownTimer, Timer, Handler and TimerTask to the Lvl2GameActivity (to the frontend)
+cuz the backend shouldnt have access to any package from android

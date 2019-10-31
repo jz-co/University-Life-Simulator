@@ -3,6 +3,8 @@ package com.example.game.View;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,6 +20,9 @@ import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.Level2Presenter;
 import com.example.game.R;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILevel2View {
     private Level2Presenter level2Presenter;
     private TextView credit_tv, gpa_tv, hp_tv;
@@ -28,6 +33,10 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     private int clearingScore = 20;
     private String username;
     private boolean start = false;
+    private Handler handler;
+    private long secondsRemaining;
+    private Timer timer;
+    private CountDownTimer countDownTimer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,6 +55,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         red.setVisibility(View.INVISIBLE);
         blue.setVisibility(View.INVISIBLE);
         yellow.setVisibility(View.INVISIBLE);
+        this.handler = new Handler();
         level2Presenter = new Level2Presenter(this, new DataSaver(), new DataLoader(), username);
         level2Presenter.initDisplay(this);
     }
@@ -69,7 +79,8 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     public void goToLevel3() {
         if (!nextLevelUnlocked){
             Toast.makeText(this,
-                    "Sorry, the current level has not been unlocked", Toast.LENGTH_SHORT).show();
+                    "Sorry, the current level has not been unlocked. You need to score at least 20 points to " +
+                            "clear the level.", Toast.LENGTH_SHORT).show();
         }else{
             Intent intent = new Intent(this, Lvl3StartActivity.class);
             intent.putExtra("Username", username);
@@ -104,6 +115,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @SuppressLint("SetTextI18n")
     @Override
     public void quitGame() {
+        start = false;
         setScore();
         TextView textView = findViewById(R.id.final_score);
         textView.setText(Integer.toString(level2Presenter.getScore()));
@@ -113,6 +125,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
                     Toast.LENGTH_SHORT).show();
             nextLevelUnlocked = true;
         }
+        level2Presenter.quitGame();
     }
 
     @SuppressLint("SetTextI18n")
@@ -126,7 +139,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @Override
     public void setSecondRemaining() {
         TextView seconds = findViewById(R.id.secondRemaining);
-        seconds.setText("Secs Left:"+ level2Presenter.getSecondsRemaining());
+        seconds.setText("Secs Left:"+ secondsRemaining);
     }
 
 
@@ -197,11 +210,41 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
      * @param view the start button in the linear layout
      */
     public void start_game(View view) {
+        start = true;
         resultBox.setVisibility(View.INVISIBLE);
         red.setVisibility(View.VISIBLE);
         blue.setVisibility(View.VISIBLE);
         yellow.setVisibility(View.VISIBLE);
-        level2Presenter.startGame();
+        level2Presenter.initializeGame();
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        level2Presenter.play();
+                    }
+                });
+            }
+        }, 0 , 5);
+        countDownTimer = new CountDownTimer(60000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                secondsRemaining = millisUntilFinished / 1000;
+                // setting the seconds remaining in the frontend
+                setSecondRemaining();
+            }
+
+            @Override
+            public void onFinish() {
+                timer.cancel();
+                timer = null;
+                quitGame();
+            }
+
+
+        }.start();
     }
 
     /**
@@ -212,9 +255,38 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     public void pauseOrResume_game(View view) {
         if (start) {
             if (pauseGame) {
-                level2Presenter.resumeGame();
+                this.timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                level2Presenter.play();
+                            }
+                        });
+                    }
+                }, 0, 5);
+                long seconds = secondsRemaining * 1000;
+                countDownTimer = new CountDownTimer(seconds, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        secondsRemaining = millisUntilFinished / 1000;
+                        setSecondRemaining();
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        timer.cancel();
+                        timer = null;
+                        quitGame();
+                    }
+
+                }.start();
+                ;
             } else {
-                level2Presenter.pauseGame();
+                timer.cancel();
+                countDownTimer.cancel();
             }
             pauseGame = !pauseGame;
         } else{
