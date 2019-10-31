@@ -263,3 +263,8 @@ Changes: (1) updated methods in CourseSelectorActivity, now we can navigate to i
 (name, character icon, gpa and credits), as well as ability to Log out and customize their characters.
 ProfileActivity implements the IProfileView interface.
 (3) updated method in CourseSelecterActivity to be able to navigate to profile page from the imageButton.
+
+#########
+Step (Jenny)
+Code Affected: FirstGameActivity
+Fixed bugs and errors.

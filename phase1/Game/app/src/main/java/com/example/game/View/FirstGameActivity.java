@@ -53,14 +53,14 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         if (!this.nextLevelUnlocked){
             Toast.makeText(this,
                     "Sorry, the current level has not been unlocked", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             Intent intent = new Intent(this, Lvl2GameActivity.class);
             intent.putExtra("UserName", this.username);
             startActivity(intent);
         }
     }
 
-    public void startGame{
+    public void startGame() {
         this.start.setVisibility(View.INVISIBLE);
         this.questionTV.setVisibility(View.VISIBLE);
         this.correctTV.setVisibility(View.VISIBLE);
@@ -86,5 +86,25 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     @SuppressLint("SetTextI18n")
     public void displayIncorrectScore(){
         this.incorrectTV.setText("Incorrect: " + level1Presenter.getIncorrectScore());
+    }
+
+    @Override
+    public void displayName(String name) {
+
+    }
+
+    @Override
+    public void displayGPA(double gpa) {
+
+    }
+
+    @Override
+    public void displayHP(double hp) {
+
+    }
+
+    @Override
+    public void displayCredit(int credit) {
+
     }
 }
