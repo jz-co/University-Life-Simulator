@@ -63,6 +63,7 @@ public class Lvl3StartActivity extends AppCompatActivity implements ILevel3.ILev
         username = (String) getIntent().getSerializableExtra("Username");
 
         presenter = new Level3Presenter(this, new DataHandler(this), username);
+        presenter.initDisplay(this);
     }
 
     public void startGame(View view) {

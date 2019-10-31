@@ -51,13 +51,13 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         red = findViewById(R.id.red);
         blue = findViewById(R.id.blue);
         yellow = findViewById(R.id.yellow);
+        level2Presenter = new Level2Presenter(this, new DataHandler(this), username);
         initiateImageView();
         resultBox = findViewById(R.id.resultBox);
         red.setVisibility(View.INVISIBLE);
         blue.setVisibility(View.INVISIBLE);
         yellow.setVisibility(View.INVISIBLE);
         this.handler = new Handler();
-        level2Presenter = new Level2Presenter(this, new DataHandler(this), username);
         level2Presenter.initDisplay(this);
     }
 
