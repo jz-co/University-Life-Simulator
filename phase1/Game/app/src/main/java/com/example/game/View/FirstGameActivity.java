@@ -102,7 +102,16 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         this.questionTV.setText(level1Presenter.getCreatedQuestion());
     }
 
-    public void displayInvalidInputMessage(){}
+    public void displayInvalidInputMessage(){
+        System.out.println("Wrong");
+        Toast toast = Toast.makeText(this, "Invalid entry, please enter a new answer", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    public void evaluateAnswer(View view){
+        String answerReceived = this.answerTV.getText().toString();
+        level1Presenter.evaluateAnswer(answerReceived);
+    }
     @Override
     public void displayName(String name) {
 

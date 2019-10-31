@@ -295,3 +295,10 @@ Changes: 1) FirstGameActivity.java: modified displayIncorrectScore, displayQuest
 Step 45 (Koby)
 Code Affected: GameLevel2.java
 Changes: Change time limit from 2 mins to 1 min
+
+#########
+Step 46 (Parinita)
+Code Affected: FirstGameActivity.java, Level1Presenter.java, GameLevel1.java
+Changes: 1) FirstGameActivity.java: added evaluateAnswer method
+2) Level1Presenter.java: added evaluateAnswer method
+3) GameLevel1: modified evaluateAnswer method

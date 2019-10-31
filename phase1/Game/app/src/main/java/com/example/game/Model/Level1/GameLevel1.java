@@ -29,16 +29,16 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
     private ILevel1.ILevel1Presenter presenter;
 
     //initialize the game
-    public GameLevel1(Student student, ILevel1.ILevel1Presenter presenter){
+    public GameLevel1(Student student, ILevel1.ILevel1Presenter presenter) {
         this.student = student;
         this.correctAnswers = 0;
         this.incorrectAnswers = 0;
         this.presenter = presenter;
     }
 
-    public void play(){
+    public void play() {
         //60 seconds countdown timer
-        CountDownTimer countDownTimer = new CountDownTimer(600000, 1000) {
+        countDownTimer = new CountDownTimer(600000, 1000) {
             @Override
             //on every tick, display the seconds remaining
             public void onTick(long millisUntilFinished) {
@@ -58,8 +58,11 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
     }
 
 
-    public void pauseGame(){countDownTimer.cancel();}
-    public void resumeGame(){
+    public void pauseGame() {
+        countDownTimer.cancel();
+    }
+
+    public void resumeGame() {
         long seconds = secondsRemaining * 1000;
         countDownTimer = new CountDownTimer(seconds, 1000) {
             @Override
@@ -77,16 +80,24 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
     }
 
 
-    public Student getStudent(){return this.student;}
-    public int getCorrectAnswers(){return this.correctAnswers;}
-    public int getIncorrectAnswers(){return this.incorrectAnswers;}
+    public Student getStudent() {
+        return this.student;
+    }
+
+    public int getCorrectAnswers() {
+        return this.correctAnswers;
+    }
+
+    public int getIncorrectAnswers() {
+        return this.incorrectAnswers;
+    }
 
     public long getSecondsRemaining() {
         return secondsRemaining;
     }
 
 
-    public void setPresenter(ILevel1.ILevel1Presenter presenter){
+    public void setPresenter(ILevel1.ILevel1Presenter presenter) {
         this.presenter = presenter;
     }
 
@@ -130,11 +141,10 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
 
             presenter.setQuestion();
         } catch (NumberFormatException e) {
-            System.out.println("Wrong");
-            Toast toast = Toast.makeText(this, "Invalid entry", Toast.LENGTH_SHORT);
-            toast.show();
+            presenter.setInvalidInputMessage();
 
         }
 
 
+    }
 }

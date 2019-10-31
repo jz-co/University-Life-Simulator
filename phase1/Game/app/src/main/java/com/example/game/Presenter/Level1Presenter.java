@@ -55,6 +55,10 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
     public String getCreatedQuestion(){ return this.gameLevel.createQuestion();}
     public void setQuestion(){this.view.displayQuestion();}
 
-    public void setInvalidInputMessage(){ this.view.displayInvalidInputMessage();};
+    public void setInvalidInputMessage(){ this.view.displayInvalidInputMessage();}
+
+    public void evaluateAnswer(String answerReceived){
+        this.gameLevel.evaluateAnswer(answerReceived);
+    }
     public void quitGame(){}
 }
