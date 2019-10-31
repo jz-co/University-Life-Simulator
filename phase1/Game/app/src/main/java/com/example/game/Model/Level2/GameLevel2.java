@@ -63,7 +63,7 @@ public class GameLevel2 extends GameLevel {
                 });
             }
         }, 0, 5);
-        countDownTimer = new CountDownTimer(120000, 1000) {
+        countDownTimer = new CountDownTimer(60000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 secondsRemaining = millisUntilFinished / 1000;

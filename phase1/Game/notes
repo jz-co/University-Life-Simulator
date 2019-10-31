@@ -290,3 +290,8 @@ Changes: 1) FirstGameActivity.java: modified displayIncorrectScore, displayQuest
 2) Level1Presenter.java: added getCreatedQuestion, setQuestion, setInvalidInputMessage
 3) GameLevel1: added createQuestion and evaluateAnswer
 4) ILevel1: added some interface methods
+
+#########
+Step 45 (Koby)
+Code Affected: GameLevel2.java
+Changes: Change time limit from 2 mins to 1 min
