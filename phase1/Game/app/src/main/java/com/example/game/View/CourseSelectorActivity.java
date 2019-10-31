@@ -28,16 +28,22 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_selector);
 
+        // Get the username passed through from the last Activity
         String username = (String) getIntent().getSerializableExtra("Username");
 
+        // Create the list of character icons
         characterIcons = new ArrayList<Integer>();
         populateCharacterIcons();
 
+        // Create an instance of the CourseSelectorPresenter
         presenter = new CourseSelectorPresenter(this, new DataSaver(), new DataLoader(), username);
 
+        // Set reference to the profileButton in layout
+        // Set its image to the user's character icon
         ImageButton profileButton = (ImageButton) findViewById(R.id.profileButton);
         profileButton.setImageResource(characterIcons.get(presenter.getPicIndex()));
     }
+
 
     private void populateCharacterIcons() {
         characterIcons.add(getResources().getIdentifier("@drawable/boy1", null, this.getPackageName()));

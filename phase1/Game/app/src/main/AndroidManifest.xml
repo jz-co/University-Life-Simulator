@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".View.Lvl2GameActivity"></activity>
-        <activity android:name="View.ProfileActivity"></activity>
+        <activity android:name=".View.ProfileActivity"></activity>
         <activity android:name=".View.GameResultActivity" />
-        <activity android:name="View.FirstGameActivity" />
+        <activity android:name=".View.FirstGameActivity" />
         <activity android:name=".View.CourseSelectorActivity" />
-        <activity android:name="View.CustomizationActivity" />
-        <activity android:name="View.MainActivity">
+        <activity android:name=".View.CustomizationActivity" />
+        <activity android:name=".View.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
