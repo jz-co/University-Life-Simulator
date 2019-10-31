@@ -9,9 +9,8 @@ import com.example.game.Model.Student;
 public abstract class LevelPresenter {
     GameManager gameManager;
 
-    public LevelPresenter(IData.IDataSaver saver,
-                          IData.IDataLoader loader, String username){
-        this.gameManager = new GameManager(saver, loader, username);
+    public LevelPresenter(IData dataHandler ,String username){
+        this.gameManager = new GameManager(dataHandler, username);
     }
 
 

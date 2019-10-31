@@ -9,12 +9,12 @@ public class GameManager implements IGameManager {
     private StudentManager studentManager;
     private Student currentStudent;
 
-    public GameManager(IData.IDataSaver dataSaver, IData.IDataLoader dataLoader){
-        studentManager = new StudentManager(dataSaver, dataLoader);
+    public GameManager(IData dataHandler){
+        studentManager = new StudentManager(dataHandler);
     }
 
-    public GameManager(IData.IDataSaver dataSaver, IData.IDataLoader dataLoader, String username){
-        studentManager = new StudentManager(dataSaver, dataLoader);
+    public GameManager(IData dataHandler, String username){
+        studentManager = new StudentManager(dataHandler);
         currentStudent = studentManager.getStudentByUsername(username);
     }
 
@@ -29,7 +29,7 @@ public class GameManager implements IGameManager {
      * Saves the students' data before the app is closed.
      */
     public void saveBeforeExit(){
-        studentManager.saveStudentData();
+        studentManager.saveStudentData(currentStudent.getUsername());
     }
 
 

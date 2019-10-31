@@ -27,11 +27,10 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
     private int basketInt = 1455;
     private GameManager gameManager;
 
-    public Level2Presenter(ILevel2.ILevel2View view, IData.IDataSaver saver,
-                           IData.IDataLoader loader, String username){
-        super(saver, loader, username);
+    public Level2Presenter(ILevel2.ILevel2View view, IData datahandler, String username){
+        super(datahandler, username);
         this.view = view;
-        this.gameManager = new GameManager(saver, loader, username);
+        this.gameManager = new GameManager(datahandler, username);
         ArrayList<FallingObject> fallingObjects = new ArrayList<>();
         redObject = new redObject((int)(Math.random()*frameWidth), -100);
         yellowObject = new yellowObject(((int)(Math.random()*frameWidth)) , -100);
