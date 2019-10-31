@@ -369,3 +369,11 @@ the game to GameResultActivity.class. Include the following extras in the intent
 Step 57(Jenny)
 Code Affected: CourseSelectorActivity, ProfileActivity, CustomizationActivity
 Changes: Added new character icons images to the populateCharacterIcons() method.
+
+#########
+Step 58 (Trisha)
+Code Affected: Lvl3GameManager, MainThread, Lvl3StartActivity, Lvl3GameItemManager.update,
+Lvl3GameView and Level3Presenter.
+Lvl3GameManager moved to Model package. MainThread for level 3 added to the Presenter module.
+Modified Lvl3StartActivity to implement ILevel3.ILevel3View.Changed access modifier for
+Lvl3GameItemManager.update. Also updated class Level3Presenter and Lvl3GameView.

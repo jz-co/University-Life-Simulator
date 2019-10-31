@@ -42,7 +42,7 @@ public class CustomizationPresenter implements ICustomization.ICustomizationPres
     /**
      * Customize the student, then go to the next page.
      */
-    @Override
+
 //    public void confirmBtnClicked()
     public void setCustomizations(String customName, int picIndex, String lang) {
 //        int picIndex = view.getPictureIndex();

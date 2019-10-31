@@ -1,4 +1,4 @@
-package com.example.game.Presenter;
+package com.example.game.Model.Level3;
 
 import com.example.game.Model.Level3.Arrow;
 import com.example.game.Model.Level3.GameContents;
@@ -78,7 +78,7 @@ public class Lvl3GameItemManager {
     /**
      * Updating items in the game.
      */
-    void update() {
+    public void update() {
         gameWheel.update();
         Arrow moving_arrow = (Arrow) gameItems.get(2);
         if (moving_arrow.getTouch()) {
