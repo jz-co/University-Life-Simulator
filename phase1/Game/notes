@@ -215,3 +215,8 @@ Code affected : Modified Arrow class update(), and made getters and setters for 
 Modified Lvl3GameItemManagers update().
 Modified Lvl3GameView draw() by adding text for high score and lives and added new method
 TouchEvent to do a task when screen is touched.
+
+#########
+Step 34 (Parinita)
+Code affected : activity_first_game.xml
+Added additional text widgets on level 1 game screen.
