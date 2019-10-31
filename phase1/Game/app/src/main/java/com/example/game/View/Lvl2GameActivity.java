@@ -46,6 +46,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         blue.setVisibility(View.INVISIBLE);
         yellow.setVisibility(View.INVISIBLE);
         level2Presenter = new Level2Presenter(this, new DataSaver(), new DataLoader(), username);
+        level2Presenter.initDisplay(this);
     }
 
     /** set image resources for all the imageview in the xml file
@@ -131,6 +132,8 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @Override
     public void displayName(String name) {
 //TODO: display the user's preferred name?
+        TextView tv_userName = findViewById(R.id.userName);
+        tv_userName.setText(name);
     }
 
     /**

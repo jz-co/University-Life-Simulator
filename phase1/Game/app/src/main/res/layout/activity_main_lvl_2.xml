@@ -107,6 +107,11 @@
                 android:text="Catching Ball Game"
                 android:textAlignment="center"
                 android:textSize="24sp" />
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"/>
 
             <TextView
                 android:id="@+id/highest_score"

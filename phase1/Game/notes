@@ -302,3 +302,9 @@ Code Affected: FirstGameActivity.java, Level1Presenter.java, GameLevel1.java
 Changes: 1) FirstGameActivity.java: added evaluateAnswer method
 2) Level1Presenter.java: added evaluateAnswer method
 3) GameLevel1: modified evaluateAnswer method
+
+#########
+Step 47 (Koby)
+Code Affected: activity_main_lvl_2.xml, Lvl2GameActivity.java
+Changes: Add a textview to hold the player's preferred name and add method body for the displayName
+method in Lvl2GameActivity
