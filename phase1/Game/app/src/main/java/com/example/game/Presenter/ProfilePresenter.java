@@ -13,7 +13,7 @@ public class ProfilePresenter implements IProfilePresenter {
      * Constructor for ProfilePresenter.
      */
     public ProfilePresenter(IProfileView view, IData.IDataSaver saver,
-                     IData.IDataLoader loader, String username) {
+                            IData.IDataLoader loader, String username) {
 
         this.view = view;
         gameManager = new GameManager(saver, loader, username);
@@ -35,8 +35,8 @@ public class ProfilePresenter implements IProfilePresenter {
         return String.valueOf(gameManager.getCurrentStudent().getCredit());
     }
 
-    public void saveData() {
-        // TODO
-        view.logOut();
+    public int getPicIndex() {
+        return gameManager.getCurrentStudent().getAppearance();
     }
+
 }

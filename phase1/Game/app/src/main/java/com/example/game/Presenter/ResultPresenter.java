@@ -5,7 +5,7 @@ import com.example.game.Contract.IGameManager;
 import com.example.game.Contract.IResult;
 import com.example.game.Model.GameManager;
 
-public class ResultPresenter implements IResult.IResultPresenter {
+public class ResultPresenter {
     private IResult.IResultView view;
     private GameManager gameManager;
 
@@ -15,27 +15,4 @@ public class ResultPresenter implements IResult.IResultPresenter {
         this.gameManager = new GameManager(saver, loader, username);
     }
 
-    public void validateLevelCompletion() {
-        // TODO!
-        // (1) Get current level
-        // (2) Display current level:
-        view.displayLevel(level);
-        // (3) Get and display grade:
-        view.displayGrade(grade);
-        // if completed:
-        //      view.displayCompletionMessage("Congrats")
-        // else:
-        //      view.displayCompletionMessage("Sorry")
-
-    }
-
-//    @Override
-//    public void againBtnClicked() {
-//
-//    }
-//
-//    @Override
-//    public void nextBtnClicked() {
-//
-//    }
 }

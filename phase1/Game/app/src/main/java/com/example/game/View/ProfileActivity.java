@@ -14,12 +14,17 @@ import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.ProfilePresenter;
 import com.example.game.R;
 
+import java.util.ArrayList;
+
 public class ProfileActivity extends AppCompatActivity implements IProfile.IProfileView {
 
     private TextView nameView;
     private TextView gpaView;
     private TextView creditsView;
     private ImageView userIcon;
+    private ArrayList<Integer> characterIcons;
+
+    private String username;
 
     private ProfilePresenter presenter;
 
@@ -28,32 +33,45 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        String username = (String) getIntent().getSerializableExtra("Username");
+        username = (String) getIntent().getSerializableExtra("Username");
 
         nameView = (TextView) findViewById(R.id.nameView);
         gpaView = (TextView) findViewById(R.id.gpaView);
         creditsView = (TextView) findViewById(R.id.creditsView);
         userIcon = (ImageView) findViewById(R.id.characterIconView);
 
+        characterIcons = new ArrayList<Integer>();
+        populateCharacterIcons();
+
         presenter = new ProfilePresenter(this, new DataSaver(), new DataLoader(), username);
         nameView.setText(presenter.getName());
         gpaView.setText(presenter.getGPA());
         creditsView.setText(presenter.getCredits());
+        userIcon.setImageResource(characterIcons.get(presenter.getPicIndex()));
 
+    }
+
+    private void populateCharacterIcons() {
+        characterIcons.add(getResources().getIdentifier("@drawable/pikachu", null, this.getPackageName()));
+        characterIcons.add(getResources().getIdentifier("@drawable/cactus", null, this.getPackageName()));
     }
 
     public void onClickCustomize (View view) {
         Intent intent = new Intent(this, CustomizationActivity.class);
+        intent.putExtra("Username", username);
         startActivity(intent);
     }
 
     public void onClickLogOut(View view) {
-        presenter.saveData();
-
+        logOut();
     }
 
     public void logOut() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void onBackClick(View view) {
+        finish();
     }
 }

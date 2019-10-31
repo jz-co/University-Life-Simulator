@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements ILogin.ILoginView
     public void navigateToCustomization(String username) {
         loginPresenter.prepareToLeavePage();
         Intent intent = new Intent(this, CustomizationActivity.class);
-        intent.putExtra("UserName", username);
+        intent.putExtra("Username", username);
         startActivity(intent);
     }
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements ILogin.ILoginView
     public void navigateToCourseSelector(String username) {
         loginPresenter.prepareToLeavePage();
         Intent intent = new Intent(this, CourseSelectorActivity.class);
-        intent.putExtra("UserName", username);
+        intent.putExtra("Username", username);
         startActivity(intent);
     }
 

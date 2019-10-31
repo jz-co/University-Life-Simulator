@@ -30,7 +30,7 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customization);
-        String username = (String) getIntent().getSerializableExtra("UserName");
+        String username = (String) getIntent().getSerializableExtra("Username");
 
         presenter = new CustomizationPresenter(this, new DataSaver(), new DataLoader(), username);
 
