@@ -60,8 +60,9 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         }
     }
 
-    public void startGame{
+    public void startGame(View view){
         this.start.setVisibility(View.INVISIBLE);
+
         this.questionTV.setVisibility(View.VISIBLE);
         this.correctTV.setVisibility(View.VISIBLE);
         this.incorrectTV.setVisibility(View.VISIBLE);
