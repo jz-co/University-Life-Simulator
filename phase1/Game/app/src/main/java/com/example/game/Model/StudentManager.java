@@ -1,24 +1,26 @@
 package com.example.game.Model;
 
 import com.example.game.Contract.IData;
+import com.example.game.DataHandler.DataHandler;
 
 import java.util.List;
 
 class StudentManager {
-    private List<Student> students;
-    private IData.IDataSaver saver;
+    public List<Student> students;
+    private IData dataHandler;
 
 
-    StudentManager(IData.IDataSaver saver, IData.IDataLoader loader){
-        this.saver = saver;
-        students = loader.loadAll();
+    StudentManager(IData dataHandler){
+        this.dataHandler = dataHandler;
+        students = dataHandler.listStudents();
     }
 
     /**
      * Saves data for all students.
      */
-    void saveStudentData() {
-        saver.saveAll(students);
+    void saveStudentData(String username) {
+        Student student = dataHandler.getStudentByUserName(username);
+        dataHandler.updateStudentData(student);
     }
 
 
@@ -58,8 +60,9 @@ class StudentManager {
      *
      * @param s A student to add to the list.
      */
-    private void addStudent(Student s){
+    public void addStudent(Student s){
         students.add(s);
+        dataHandler.addStudentData(s);
     }
 
 

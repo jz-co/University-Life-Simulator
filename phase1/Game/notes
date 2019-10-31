@@ -383,3 +383,9 @@ Step 59 (Jenny)
 Code Affected: navigate methods in MainActivity and LoginPresenter
 Changes: removed calls to presenter.prepareToLeavePage() and moved that to methods within the
 LoginPresenter class to handle instead.
+
+#########
+Step 60 (Koby)
+Code Affected: IData.java, StudentManager.java, DataHandler, studentData.csv
+Changes: Add a DataHandler class, and change our data saving strategy. Instead of saving data into a
+csv file, we are using SQLite database, delete the studentData.csv
