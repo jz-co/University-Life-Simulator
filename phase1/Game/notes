@@ -369,3 +369,9 @@ the game to GameResultActivity.class. Include the following extras in the intent
 Step 57(Jenny)
 Code Affected: CourseSelectorActivity, ProfileActivity, CustomizationActivity
 Changes: Added new character icons images to the populateCharacterIcons() method.
+
+#########
+Step 58 (Jenny)
+Code Affected: navigate methods in MainActivity and LoginPresenter
+Changes: removed calls to presenter.prepareToLeavePage() and moved that to methods within the
+LoginPresenter class to handle instead.

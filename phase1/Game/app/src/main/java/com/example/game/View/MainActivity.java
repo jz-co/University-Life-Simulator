@@ -8,14 +8,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.game.Contract.IGameManager;
 import com.example.game.Contract.ILogin;
 import com.example.game.DataHandler.DataLoader;
 import com.example.game.DataHandler.DataSaver;
 import com.example.game.R;
 import com.example.game.Presenter.LoginPresenter;
 
-import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity implements ILogin.ILoginView {
 
@@ -32,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements ILogin.ILoginView
         // Create an instance of the LoginPresenter for this Activity
         loginPresenter = new LoginPresenter(this, new DataSaver(), new DataLoader());
 
+        // Set references to the editTexts and TextViews in the layout
         usernameText = (EditText) findViewById(R.id.usernameText);
         passwordText = (EditText) findViewById(R.id.passwordText);
 
@@ -39,8 +38,10 @@ public class MainActivity extends AppCompatActivity implements ILogin.ILoginView
 
     }
 
-    // Method for when the LoginButton is clicked
 
+    /**
+     *  Method is called when the user clicks the LoginButton.
+     */
     public void onLoginClick (View view){
         // Get user's input for username and password
         // Pass information to LoginPresenter to validate whether it is a valid login
@@ -48,29 +49,36 @@ public class MainActivity extends AppCompatActivity implements ILogin.ILoginView
 
     }
 
+    /**
+     * Method is called when the user clicks the SignUpButton.
+     */
     public void onSignUpClick (View view) {
         // Get user's input for username and password
         // Pass information to LoginPresenter to validate whether it is a valid sign up
         loginPresenter.validateSignUp(usernameText.getText().toString(), passwordText.getText().toString());
     }
 
-    @Override
+    /**
+     * Navigate to the customization page for a user with "username".
+     */ @Override
     public void navigateToCustomization(String username) {
-        loginPresenter.prepareToLeavePage();
         Intent intent = new Intent(this, CustomizationActivity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }
 
-    @Override
+    /**
+     * Navigate to the course selection page for a user with "username".
+     */ @Override
     public void navigateToCourseSelector(String username) {
-        loginPresenter.prepareToLeavePage();
         Intent intent = new Intent(this, CourseSelectorActivity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }
 
-    @Override
+    /**
+     * Displays "message" to user.
+     */ @Override
     public void displayWarning(String message) {
         messageView.setText(message);
     }
