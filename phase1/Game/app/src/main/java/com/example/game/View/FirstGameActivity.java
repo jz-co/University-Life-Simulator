@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.game.Contract.ILevel1;
+import com.example.game.DataHandler.DataHandler;
 import com.example.game.DataHandler.DataLoader;
 import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.Level1Presenter;
@@ -57,7 +58,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         displayGPA(level1Presenter.getGameManager().getCurrentStudent().getGpa());
         displayHP(level1Presenter.getGameManager().getCurrentStudent().getHp());
 
-        this.level1Presenter = new Level1Presenter(this, new DataSaver(), new DataLoader(), username);
+        this.level1Presenter = new Level1Presenter(this, new DataHandler(this), username);
     }
 
     public void goToLevel2() {

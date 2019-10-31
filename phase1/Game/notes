@@ -404,3 +404,8 @@ Changes: updated the methods to update student data.
 Step 63 (Grace)
 Code Affected: MainActivity, LoginPresenter, ProfileActivity, CustomizationActivity
 Changes: updated how we instantiate presenters and game managers.
+
+#########
+Step 64 (Koby)
+Code Affected: Lvl2GameActivity, FirstGameActivity
+Changes: update on instantiating gamemanager

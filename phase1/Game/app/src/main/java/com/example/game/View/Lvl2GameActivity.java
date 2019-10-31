@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.game.Contract.ILevel2;
+import com.example.game.DataHandler.DataHandler;
 import com.example.game.DataHandler.DataLoader;
 import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.Level2Presenter;
@@ -56,7 +57,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         blue.setVisibility(View.INVISIBLE);
         yellow.setVisibility(View.INVISIBLE);
         this.handler = new Handler();
-        level2Presenter = new Level2Presenter(this, new DataSaver(), new DataLoader(), username);
+        level2Presenter = new Level2Presenter(this, new DataHandler(this), username);
         level2Presenter.initDisplay(this);
     }
 
