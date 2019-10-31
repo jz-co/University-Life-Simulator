@@ -349,3 +349,8 @@ Step 55 (Koby)
 Code Affected: Level2Presenter.java, GameLevel2.java, Lvl2GameActivity
 Changes: Move the CountDownTimer, Timer, Handler and TimerTask to the Lvl2GameActivity (to the frontend)
 cuz the backend shouldnt have access to any package from android
+
+#########
+Step 56 (Koby)
+Code Affected: Drawable folder
+Changes: Add pictures of more characters :))
