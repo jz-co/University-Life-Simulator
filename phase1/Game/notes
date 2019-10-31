@@ -389,3 +389,8 @@ Step 60 (Koby)
 Code Affected: IData.java, StudentManager.java, DataHandler, studentData.csv
 Changes: Add a DataHandler class, and change our data saving strategy. Instead of saving data into a
 csv file, we are using SQLite database, delete the studentData.csv
+
+#########
+Step 61 (Koby)
+Code Affected: Level2Presenter.java, LevelPresenter,, GameManager
+Changes: Change constructor parameters
