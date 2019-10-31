@@ -399,3 +399,8 @@ Changes: Change constructor parameters
 Step 62 (Trisha)
 Code Affected: Level3Presenter, Lvl3GameActivity, Lvl3GameView, Lvl3StartActivity
 Changes: updated the methods to update student data.
+
+#########
+Step 63 (Grace)
+Code Affected: MainActivity, LoginPresenter, ProfileActivity, CustomizationActivity
+Changes: updated how we instantiate presenters and game managers.

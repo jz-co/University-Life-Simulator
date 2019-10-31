@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.game.Contract.IProfile;
+import com.example.game.DataHandler.DataHandler;
 import com.example.game.DataHandler.DataLoader;
 import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.ProfilePresenter;
@@ -43,7 +44,7 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
         characterIcons = new ArrayList<Integer>();
         populateCharacterIcons();
 
-        presenter = new ProfilePresenter(this, new DataSaver(), new DataLoader(), username);
+        presenter = new ProfilePresenter(this, new DataHandler(this), username);
         nameView.setText(presenter.getName());
         gpaView.setText(presenter.getGPA());
         creditsView.setText(presenter.getCredits());

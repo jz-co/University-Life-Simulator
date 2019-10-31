@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.game.Contract.ILogin;
+import com.example.game.DataHandler.DataHandler;
 import com.example.game.DataHandler.DataLoader;
 import com.example.game.DataHandler.DataSaver;
 import com.example.game.R;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements ILogin.ILoginView
         setContentView(R.layout.activity_main);
 
         // Create an instance of the LoginPresenter for this Activity
-        loginPresenter = new LoginPresenter(this, new DataSaver(), new DataLoader());
+        loginPresenter = new LoginPresenter(this, new DataHandler(this));
 
         // Set references to the editTexts and TextViews in the layout
         usernameText = (EditText) findViewById(R.id.usernameText);

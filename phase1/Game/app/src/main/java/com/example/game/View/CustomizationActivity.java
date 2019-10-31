@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.game.Contract.ICustomization.*;
+import com.example.game.DataHandler.DataHandler;
 import com.example.game.DataHandler.DataLoader;
 import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.CustomizationPresenter;
@@ -34,7 +35,7 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
         //
         String username = (String) getIntent().getSerializableExtra("Username");
 
-        presenter = new CustomizationPresenter(this, new DataSaver(), new DataLoader(), username);
+        presenter = new CustomizationPresenter(this, new DataHandler(this), username);
 
         characterIcons = new ArrayList<Integer>();
         populateCharacterIcons();
