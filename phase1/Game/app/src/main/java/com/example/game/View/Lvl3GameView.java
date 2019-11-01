@@ -12,8 +12,6 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import com.example.game.DataHandler.DataHandler;
-import com.example.game.DataHandler.DataLoader;
-import com.example.game.DataHandler.DataSaver;
 import com.example.game.Model.GameManager;
 import com.example.game.Model.Level3.Arrow;
 import com.example.game.Model.Level3.Bow;

@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import com.example.game.Contract.ILevel1;
 import com.example.game.DataHandler.DataHandler;
-import com.example.game.DataHandler.DataLoader;
-import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.Level1Presenter;
 import com.example.game.R;
 

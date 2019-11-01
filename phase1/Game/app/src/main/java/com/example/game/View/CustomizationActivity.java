@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import com.example.game.Contract.ICustomization.*;
 import com.example.game.DataHandler.DataHandler;
-import com.example.game.DataHandler.DataLoader;
-import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.CustomizationPresenter;
 import com.example.game.R;
 

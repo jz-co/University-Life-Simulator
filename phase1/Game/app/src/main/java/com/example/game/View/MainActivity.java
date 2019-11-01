@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import com.example.game.Contract.ILogin;
 import com.example.game.DataHandler.DataHandler;
-import com.example.game.DataHandler.DataLoader;
-import com.example.game.DataHandler.DataSaver;
 import com.example.game.R;
 import com.example.game.Presenter.LoginPresenter;
 

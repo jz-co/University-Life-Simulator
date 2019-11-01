@@ -420,3 +420,8 @@ Step 66 (Grace)
 Code Affected: DataHandler.java
 Changes: fixed method getStudentByUserName() (was always returning the first student
 in the database.)
+
+#########
+Step 67 (Koby)
+Code Affected: All Activity classes (all files in view directory)
+Changes: deleted the import statements for datasaver and dataloader

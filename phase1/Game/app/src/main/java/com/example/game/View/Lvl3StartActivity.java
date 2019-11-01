@@ -13,8 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.game.Contract.ILevel3;
 import com.example.game.DataHandler.DataHandler;
-import com.example.game.DataHandler.DataLoader;
-import com.example.game.DataHandler.DataSaver;
 import com.example.game.Model.Level3.Lvl3GameItemManager;
 import com.example.game.Presenter.Level3Presenter;
 import com.example.game.R;
