@@ -12,6 +12,7 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
     private ILevel1.ILevel1View view;
     private GameLevel1 gameLevel;
     private GameManager gameManager;
+    private long secondsRemaining;
 
     public Level1Presenter(ILevel1.ILevel1View view, IData dataHandler, String username) {
         super(dataHandler, username);
@@ -24,79 +25,50 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
         this.view.goToLevel2();
     }
 
-    public void setSecondsRemaining() {
-        view.setSecondsRemaining();
-    }
-
-    public long getSecondsRemaining() {
-        return gameLevel.getSecondsRemaining();
-    }
 
     public void startGame() {
-        this.gameLevel.play();
+        this.view.startTimer(6000);
+        newQuestion();
     }
 
     public void resumeGame() {
-        this.gameLevel.resumeGame();
-    }
-
-    public void pauseGame() {
-        this.gameLevel.pauseGame();
-    }
-
-    Student getStudent() {
-        return this.gameLevel.getStudent();
+        view.startTimer(secondsRemaining*6000);
     }
 
     public int getCorrectScore() {
         return this.gameLevel.getCorrectAnswers();
     }
+    //TODO remove
 
-    public void setCorrectScore() {
-        this.view.displayCorrectScore();
-    }
-
-    public int getIncorrectScore() {
-        return this.gameLevel.getIncorrectAnswers();
-    }
-
-    public void setIncorrectScore() {
-        this.view.displayIncorrectScore();
-    }
-
-    public String getCreatedQuestion() {
-        return this.gameLevel.createQuestion();
-    }
-
-    public void setQuestion() {
-        this.view.displayQuestion();
+    public void newQuestion() {
+        this.view.displayQuestion(gameLevel.createQuestion());
     }
 
     public void setInvalidInputMessage() {
         this.view.displayInvalidInputMessage();
     }
 
-    public void evaluateAnswer(String answerReceived) {
-        int value = this.gameLevel.evaluateAnswer(answerReceived);
-        if (value != 0) {
-            if (value == 1) {
-                setCorrectScore();
-            } else if (value == -1) {
-                setIncorrectScore();
-            }
-            setQuestion();
-        }
 
+    public void evaluateAnswer(String answerReceived) {
+        int i = this.gameLevel.evaluateAnswer(answerReceived);
+        if (i==-1){
+            view.displayWarning("Invalid");
+        } else if (i==0){
+            view.displayWarning("Wrong Answer!");
+        }
+        view.displayCorrectScore(gameLevel.getCorrectAnswers());
+        view.displayIncorrectScore(gameLevel.getIncorrectAnswers());
+        newQuestion();
     }
 
     public void quitGame() {
-        this.view.quitGame();
         // adding the score of the player to their hp
         this.gameLevel.getStudent().incrementHp(gameLevel.getCorrectAnswers());
         gameLevel.getStudent().incrementCredit(5);
         gameLevel.getStudent().incrementGpa(1);
         this.updateDisplay(view);
         this.gameManager.saveBeforeExit();
+        this.view.quitGame();
     }
 
     public void incrementStudentLevel(){
@@ -114,4 +86,17 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
         }
     }
 
+    public void tick(long millisUntilFinished){
+        secondsRemaining = millisUntilFinished / 1000;
+        view.setSecondsRemaining(secondsRemaining);
+    }
+
+
+    public void validateLevel2(){
+        if (this.gameLevel.getCorrectAnswers() >= 5){
+            view.goToLevel2();
+        } else {
+            view.displayWarning("Sorry, the current level has not been unlocked");
+        }
+    }
 }

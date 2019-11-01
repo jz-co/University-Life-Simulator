@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,12 +27,12 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     private boolean pauseGame = false;
     private String username;
     private int clearingScore = 5;
+    private CountDownTimer countDownTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_game);
-
 
         this.username = (String) getIntent().getSerializableExtra("Username");
         this.level1Presenter = new Level1Presenter(this, new DataHandler(this), username);
@@ -56,64 +57,82 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         this.answerTV.setVisibility(View.INVISIBLE);
         this.resultTV.setVisibility(View.INVISIBLE);
         this.enter.setVisibility(View.INVISIBLE);
+
         level1Presenter.initDisplay(this);
 
     }
 
+
     public void goToLevel2() {
-        if (!this.nextLevelUnlocked) {
-            Toast.makeText(this,
-                    "Sorry, the current level has not been unlocked", Toast.LENGTH_SHORT).show();
-        } else {
-            Intent intent = new Intent(this, Lvl2GameActivity.class);
-            intent.putExtra("Username", this.username);
-            startActivity(intent);
-        }
+        Intent intent = new Intent(this, Lvl2GameActivity.class);
+        intent.putExtra("Username", this.username);
+        startActivity(intent);
     }
+
+
+    public void displayWarning(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+
 
     public void startGame(View view) {
         this.start.setVisibility(View.INVISIBLE);
         this.nextLevel.setVisibility(View.INVISIBLE);
-
         this.questionTV.setVisibility(View.VISIBLE);
         this.correctTV.setVisibility(View.VISIBLE);
         this.incorrectTV.setVisibility(View.VISIBLE);
         this.answerTV.setVisibility(View.VISIBLE);
         this.enter.setVisibility(View.VISIBLE);
-        displayQuestion();
+
         this.level1Presenter.startGame();
     }
 
     public void pauseOrResumeGame(View view) {
         if (pauseGame) {
-            this.level1Presenter.resumeGame();
+            level1Presenter.resumeGame();
         } else {
-            this.level1Presenter.pauseGame();
+            countDownTimer.cancel();
         }
         this.pauseGame = !this.pauseGame;
     }
 
+    public void startTimer(long totalTime){
+        countDownTimer = new CountDownTimer(totalTime, 1000) {
+            @Override
+            //on every tick, display the seconds remaining
+            public void onTick(long millisUntilFinished) {
+                level1Presenter.tick(millisUntilFinished);
+            }
+
+            @Override
+            //when time is up, quit game in the view
+            public void onFinish() {
+                level1Presenter.quitGame();
+            }
+
+        }.start();
+    }
+
     @SuppressLint("SetTextI18n")
     @Override
-    public void setSecondsRemaining() {
+    public void setSecondsRemaining(long secondsRemaining) {
         TextView seconds = findViewById(R.id.countdown);
-        seconds.setText("Secs Left:" + level1Presenter.getSecondsRemaining());
+        seconds.setText("Secs Left:" + secondsRemaining);
     }
 
     @SuppressLint("SetTextI18n")
-    public void displayCorrectScore() {
-        this.correctTV.setText("Correct: " + level1Presenter.getCorrectScore());
+    public void displayCorrectScore(int score) {
+        this.correctTV.setText("Correct: " + score);
     }
 
     @SuppressLint("SetTextI18n")
-    public void displayIncorrectScore() {
-        this.incorrectTV.setText("Incorrect: " + level1Presenter.getIncorrectScore());
-        Toast toast = Toast.makeText(this, "Wrong answer", Toast.LENGTH_SHORT);
-        toast.show();
+    public void displayIncorrectScore(int score) {
+        this.incorrectTV.setText("Incorrect: " + score);
     }
 
-    public void displayQuestion() {
-        this.questionTV.setText(level1Presenter.getCreatedQuestion());
+    public void displayQuestion(String question) {
+        this.questionTV.setText(question);
     }
 
     public void displayInvalidInputMessage() {
@@ -125,9 +144,6 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     public void evaluateAnswer(View view) {
         String answerReceived = this.answerTV.getText().toString();
         level1Presenter.evaluateAnswer(answerReceived);
-        //displayCorrectScore();
-        //displayIncorrectScore();
-        //displayQuestion();
     }
 
     @Override
@@ -164,10 +180,10 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
 
         }else{Toast.makeText(this, "Play again to unlock the next level!",
                 Toast.LENGTH_SHORT).show();
-                level1Presenter.decrementStudentGpa();
+            level1Presenter.decrementStudentGpa();
         }
     }
-    public void proceedNext(View view){
-        goToLevel2();
+    public void onClickNextLevel(View view){
+        level1Presenter.validateLevel2();
     }
 }
