@@ -495,3 +495,8 @@ Changes: fixed bug when storing student data before exit. Now customizations can
 Step 80 (Grace)
 Code Affected: Student
 Changes: changed default currentLevel, gpa
+
+########
+Step 81 (Grace)
+Code Affected: drawable folder
+Changes: added boy1-3, girl1-3 icons
