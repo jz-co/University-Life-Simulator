@@ -485,3 +485,8 @@ Changes: fixed keyword mismatch
 Step 78 (Koby)
 Code Affected: FirstGameActivity, Level1Presenter, activity_first_game.xml
 Changes: implement displayName method, and add a text view in xml file
+
+########
+Step 79 (Grace)
+Code Affected: Student, StudentManager, GameManager
+Changes: fixed bug when storing student data before exit. Now customizations can be properly saved!

@@ -54,7 +54,7 @@ public class GameManager implements IGameManager {
      * Saves the students' data before the app is closed.
      */
     public void saveBeforeExit(){
-        studentManager.saveStudentData(currentStudent.getUsername());
+        studentManager.saveStudentData(currentStudent);
     }
 
 

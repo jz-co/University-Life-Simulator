@@ -17,8 +17,7 @@ class StudentManager {
     /**
      * Saves data for all students.
      */
-    void saveStudentData(String username) {
-        Student student = dataHandler.getStudentByUserName(username);
+    void saveStudentData(Student student) {
         dataHandler.updateStudentData(student);
     }
 

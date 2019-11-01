@@ -14,10 +14,8 @@ public class Student{
      * @param password: the password of the student
      */
     public Student (String username, String password){
-
         this.username = username;
         this.password = password;
-        this.name = username;
     }
 
     /**
