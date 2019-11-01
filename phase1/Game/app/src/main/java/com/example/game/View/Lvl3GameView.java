@@ -143,11 +143,13 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
         String score = "High Score: " + (gameItemManager.getScore());
         Paint paint = new Paint();
         paint.setColor(Color.MAGENTA);
-        paint.setTextSize(60);
+        paint.setTextSize(70);
+        paint.setFakeBoldText(true);
         canvas.drawText(score, screenWidth - 500, 100, paint);
 
         String life = "Lives: " + (gameItemManager.getLives());
         canvas.drawText(life, 100, 100, paint);
+
     }
 
     /**
