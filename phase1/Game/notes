@@ -425,3 +425,8 @@ in the database.)
 Step 67 (Koby)
 Code Affected: All Activity classes (all files in view directory)
 Changes: deleted the import statements for datasaver and dataloader
+
+#########
+Step 68 (Trisha)
+Code Affected: activity_main_lvl_3
+Changes: changed the screen layout design
