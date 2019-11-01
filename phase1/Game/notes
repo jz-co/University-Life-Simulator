@@ -554,3 +554,8 @@ Step 90 (Trisha)
 Code Affected: Drawable module modified to add gradient files. CourseSelectroActivity,
 CustomizationActivity, MainActivity, ProfileActivity.
 Set the view of the game to full screen. Changed the layout of activities for the game.
+
+#########
+Step 91 (Trisha)
+Code Affected: Lvl3StartActivity, activity_main, activity_main_lvl_3, activity_game_result.
+Changes: Modified the layouts for each of the screens.
