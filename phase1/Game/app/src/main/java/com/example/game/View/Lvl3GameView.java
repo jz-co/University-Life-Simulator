@@ -25,6 +25,8 @@ import com.example.game.R;
 
 /**
  * Referenced https://www.androidauthority.com/android-game-java-785331/
+ *
+ * A view of the level 3 game.
  */
 
 public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback, ILevel3.ILevel3GameView {
@@ -45,7 +47,7 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
     int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
 
     /**
-     * GameManager instance
+     * GameManager instance.
      */
     private GameManager manager;
 
@@ -60,6 +62,12 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
     private Bitmap arrowImage = BitmapFactory.decodeResource(getResources(), R.drawable.arrow);
     private Bitmap bowImage = BitmapFactory.decodeResource(getResources(), R.drawable.bow);
 
+    /**
+     * Constructs the level 3 game view.
+     *
+     * @param context of game
+     * @param username of student player
+     */
     public Lvl3GameView(Context context, String username) {
         super(context);
         getHolder().addCallback(this);
@@ -109,14 +117,14 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
     }
 
     /**
-     * Updates the game
+     * Updates the game.
      */
     public void update() {
         gameItemManager.update();
     }
 
     /**
-     * Draws the canvas
+     * Draws the canvas.
      */
     @Override
     public void draw(Canvas canvas) {
@@ -132,7 +140,7 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
                 }
             }
         }
-        String score = "High Score: " + (gameItemManager.getHighScore());
+        String score = "High Score: " + (gameItemManager.getScore());
         Paint paint = new Paint();
         paint.setColor(Color.MAGENTA);
         paint.setTextSize(60);
@@ -142,6 +150,12 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
         canvas.drawText(life, 100, 100, paint);
     }
 
+    /**
+     * An onTouchEvent that is called when player touches the screen.
+     *
+     * @param event or motion
+     * @return boolean
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int action = event.getAction();
@@ -156,12 +170,12 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
         if (gameItemManager.getLives() == 0) {
             Student s = manager.getCurrentStudent();
             s.setGpa(4.0);
-            s.setHp(s.getHp() + gameItemManager.getHighScore());
+            s.setHp(s.getHp() + gameItemManager.getScore());
             Intent intent = new Intent(super.getContext(), GameResultActivity.class);
             super.getContext().startActivity(intent);
             intent.putExtra("Completion", "You have successfully completed level 3");
             intent.putExtra("Level", 3);
-            intent.putExtra("Score", gameItemManager.getHighScore());
+            intent.putExtra("Score", gameItemManager.getScore());
             intent.putExtra("Username", username);
 
         }
@@ -171,22 +185,53 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
         return true;
     }
 
+    /**
+     * Draws an arrow object on the canvas.
+     *
+     * @param canvas of game
+     * @param x coordinate
+     * @param y coordinate
+     */
     public void drawArrow(Canvas canvas, int x, int y){
         canvas.drawBitmap(arrowImage, x, y, null);
     }
 
+    /**
+     * Draws a bow object on the canvas.
+     *
+     * @param canvas of game
+     * @param x coordinate
+     * @param y coordinate
+     */
     public void drawBow(Canvas canvas, int x, int y){
         canvas.drawBitmap(this.bowImage, x, y, null);
     }
 
+    /**
+     * Draws a wheel object on the canvas.
+     *
+     * @param canvas of game
+     * @param x coordinate
+     * @param y coordinate
+     */
     public void drawWheel(Canvas canvas, int x, int y){
         canvas.drawBitmap(this.wheelImage, x, y, null);
     }
 
+    /**
+     * Getter for the width of wheel.
+     *
+     * @return wheelImage.getWidth()
+     */
     public int getWheelWidth(){
         return wheelImage.getWidth();
     }
 
+    /**
+     * Getter for the height of wheel.
+     *
+     * @return wheelImage.getHeight()
+     */
     public int getWheelHeight(){
         return wheelImage.getHeight();
     }

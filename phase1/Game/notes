@@ -452,6 +452,10 @@ Code affected : Modified update and image for circle
 
 ##########
 Step 72 (Trisha)
-Code affected : Level3.GameContents and its subclasses, Lvl3GameItemManager and interface TouchEvent
+Code affected: Level3.GameContents and its subclasses, Lvl3GameItemManager and interface TouchEvent
 Changes: Added javadoc to the classes and relevant comments. Changed access modifiers and name for
 some instance variables in the classes. Added setter and getter methods to Level3.GameContents.
+
+##########
+Step 73 (Trisha)
+Code affected: Modified code in Lvl3GameView and added comments.
