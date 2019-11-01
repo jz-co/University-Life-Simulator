@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class CustomizationActivity extends AppCompatActivity implements ICustomizationView {
     private CustomizationPresenter presenter;
-    private ArrayList<Integer> characterIcons;
+    private CharacterIcons icons;
     private EditText customName;
     private ImageView characterIconView;
 
@@ -35,58 +35,26 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
 
         presenter = new CustomizationPresenter(this, new DataHandler(this), username);
 
-        characterIcons = new ArrayList<Integer>();
-        populateCharacterIcons();
-
         customName = (EditText) findViewById(R.id.customNameText);
         characterIconView = (ImageView) findViewById(R.id.characterIconView);
 
-        characterIconView.setImageResource(characterIcons.get(currPicIndex));
+        icons = new CharacterIcons(this);
+        int picIdentifier = icons.getIconByIndex(currPicIndex);
+        characterIconView.setImageResource(picIdentifier);
     }
 
-    void populateCharacterIcons() {
-        characterIcons.add(getResources().getIdentifier("@drawable/boy1", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/girl1", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/boy2", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/girl2", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/boy3", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/girl3", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/pikachu", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/cactus", null, this.getPackageName()));
-    }
 
     /**
      * Executes when the switch avatar button is clicked.
      */
     public void nextPicture(View view) {
         currPicIndex += 1;
-        if (currPicIndex == characterIcons.size()) {
+        if (currPicIndex == icons.getNumberOfPics()) {
             currPicIndex = 0;
         }
-
-        characterIconView.setImageResource(characterIcons.get(currPicIndex));
+        int picIdentifier = icons.getIconByIndex(currPicIndex);
+        characterIconView.setImageResource(picIdentifier);
     }
-
-//    @Override
-//    public void previousPicture() {
-//
-//    }
-
-//    @Override
-//    public int getPictureIndex() {
-//        return 0;
-//    }
-//
-//    @Override
-//    public String getName() {
-//        return null;
-//    }
-//
-//
-//    @Override
-//    public String getLang() {
-//        return null;
-//    }
 
     /**
      * Method executes when confirm button clicked.

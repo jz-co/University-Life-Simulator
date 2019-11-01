@@ -13,13 +13,11 @@ import com.example.game.DataHandler.DataHandler;
 import com.example.game.Presenter.CourseSelectorPresenter;
 import com.example.game.R;
 
-import java.util.ArrayList;
-
 
 public class CourseSelectorActivity extends AppCompatActivity implements ICourseSelectorView {
 
     private CourseSelectorPresenter presenter;
-    private ArrayList<Integer> characterIcons;
+    private CharacterIcons icons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,34 +27,20 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
         // Get the username passed through from the last Activity
         String username = (String) getIntent().getSerializableExtra("Username");
 
-        // Create the list of character icons
-        characterIcons = new ArrayList<Integer>();
-        populateCharacterIcons();
-
         // Create an instance of the CourseSelectorPresenter
         presenter = new CourseSelectorPresenter(this, new DataHandler(this), username);
+
 
         // Set reference to the profileButton in layout
         // Set its image to the user's character icon
         ImageButton profileButton = (ImageButton) findViewById(R.id.profileButton);
-        int index = presenter.getPicIndex();
-        profileButton.setImageResource(characterIcons.get(index));
+
+        icons = new CharacterIcons(this);
+        int picIndex = presenter.getPicIndex();
+        int picIdentifier = icons.getIconByIndex(picIndex);
+        profileButton.setImageResource(picIdentifier);
     }
 
-
-    /**
-     * Add identifiers for all character icon files to the characterIcons list.
-     */
-    private void populateCharacterIcons() {
-        characterIcons.add(getResources().getIdentifier("@drawable/boy1", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/girl1", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/boy2", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/girl2", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/boy3", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/girl3", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/pikachu", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/cactus", null, this.getPackageName()));
-    }
 
     /**
      * Executes when levelButton1 is clicked.

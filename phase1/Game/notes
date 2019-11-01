@@ -543,3 +543,8 @@ Changes: decrease clearing score of level 2
 Step 88 (Parinita)
 Code Affected: FirstGameActivity.java, Level1Presenter.java
 Changes: Added incrementStudentlevel to presenter and modified code in firstgameactivity to allow to go to next level.
+
+#########
+Step 89 (Grace)
+Code Affected: CustomizationManager, Customization Activity, CouseSelection Activity, Profile activity
+Changes: deleted duplicate methods, used CharacterIcons instead.
