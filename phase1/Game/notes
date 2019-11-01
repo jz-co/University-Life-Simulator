@@ -490,3 +490,8 @@ Changes: implement displayName method, and add a text view in xml file
 Step 79 (Grace)
 Code Affected: Student, StudentManager, GameManager
 Changes: fixed bug when storing student data before exit. Now customizations can be properly saved!
+
+#########
+Step 80 (Grace)
+Code Affected: Student
+Changes: changed default currentLevel, gpa

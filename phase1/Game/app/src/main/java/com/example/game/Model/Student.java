@@ -1,9 +1,11 @@
 package com.example.game.Model;
 
 public class Student{
-    private int credit, currentLevel;
+    private int credit;
     private int appearance = 1;
-    private double gpa, hp;
+    private int currentLevel = 1;
+    private double gpa = 4.0;
+    private double  hp;
     private String username, password, name;
     private String language = "English";
 
