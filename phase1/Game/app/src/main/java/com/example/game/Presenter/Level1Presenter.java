@@ -16,6 +16,9 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
         this.view = view;
         GameManager gameManager = new GameManager(dataHandler, username);
         this.gameLevel = new GameLevel1(gameManager.getCurrentStudent(), this);
+        if (gameManager.getCurrentLevel()>1){
+            nextLevelUnlocked = true;
+        }
     }
 
     public void startGame() {
