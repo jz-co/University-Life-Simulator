@@ -7,6 +7,8 @@ import android.view.WindowManager;
 
 /**
  * Referenced https://www.androidauthority.com/android-game-java-785331/
+ *
+ * Activity that initiate the game view.
  */
 
 public class Lvl3GameActivity extends Activity {

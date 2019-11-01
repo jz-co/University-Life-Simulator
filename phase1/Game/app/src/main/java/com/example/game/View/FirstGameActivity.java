@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -30,6 +32,14 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set fullscreen
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        // Set No Title
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_first_game);
 
         this.username = (String) getIntent().getSerializableExtra("Username");
@@ -37,7 +47,6 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);
         this.incorrectTV = findViewById(R.id.incorrect);
-        this.hpTV = findViewById(R.id.hpLvl1);
         this.creditTV = findViewById(R.id.creditLvl1);
         this.gpaTV = findViewById(R.id.gpaLvl1);
         this.answerTV = findViewById(R.id.answer);
@@ -45,7 +54,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         this.start = findViewById(R.id.startLv1);
         this.enter = findViewById(R.id.enterLv1);
         this.nextLevel = findViewById(R.id.nextLevelLvl1);
-        this.hpTV = findViewById(R.id.hpLvl1);
+        this.hpTV = findViewById(R.id.textView14);
         this.creditTV = findViewById(R.id.creditLvl1);
         this.gpaTV = findViewById(R.id.gpaLvl1);
 
@@ -147,7 +156,8 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
 
     @Override
     public void displayHP(double hp) {
-        this.hpTV.setText("hp: "+ hp);
+        String hpString = "HP: " + hp;
+        this.hpTV.setText(hpString);
     }
 
     @Override
