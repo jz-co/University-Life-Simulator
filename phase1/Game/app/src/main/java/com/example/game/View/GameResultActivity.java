@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.game.Contract.IResult;
-import com.example.game.Presenter.CourseSelectorPresenter;
 import com.example.game.Presenter.ResultPresenter;
 import com.example.game.R;
 
