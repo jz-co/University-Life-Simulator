@@ -54,11 +54,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         this.incorrectTV.setVisibility(View.INVISIBLE);
         this.answerTV.setVisibility(View.INVISIBLE);
         this.resultTV.setVisibility(View.INVISIBLE);
-
-        displayCredit(level1Presenter.getGameManager().getCurrentStudent().getCredit());
-        displayGPA(level1Presenter.getGameManager().getCurrentStudent().getGpa());
-        displayHP(level1Presenter.getGameManager().getCurrentStudent().getHp());
-
+        level1Presenter.initDisplay(this);
 
     }
 
@@ -129,22 +125,23 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
 
     @Override
     public void displayName(String name) {
-
+        TextView tv_name = findViewById(R.id.Name);
+        tv_name.setText(name);
     }
 
     @Override
     public void displayGPA(double gpa) {
-        this.gpaTV.setText(Double.toString(gpa));
+        this.gpaTV.setText("gpa: "+ gpa);
     }
 
     @Override
     public void displayHP(double hp) {
-        this.hpTV.setText(Double.toString(hp));
+        this.hpTV.setText("hp: "+ hp);
     }
 
     @Override
     public void displayCredit(int credit) {
-        this.creditTV.setText(credit);
+        this.creditTV.setText("credit" + credit);
 
     }
 
