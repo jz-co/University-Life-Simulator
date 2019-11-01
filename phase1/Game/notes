@@ -516,3 +516,9 @@ Step 84 (Parinita)
 Code Affected: FirstGameActivity.java, Level1Presenter.java, activity_first_game.xml
 Changes: Modified the above files so that the result is now displayed. Still need to use Jenny's result page but
 for now, it tentatively displays the final score.
+
+########
+Step 85 (Koby)
+Code Affected: Lvl2GameActivity.java, Level2Presenter.java
+Changes: getBasketAppearence method in Level2Presenter.java and instantiate a character icon object
+to get the id of the image

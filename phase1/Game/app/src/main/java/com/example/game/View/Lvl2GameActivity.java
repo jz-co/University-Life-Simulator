@@ -36,6 +36,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     private long secondsRemaining;
     private Timer timer;
     private CountDownTimer countDownTimer;
+    private CharacterIcons characterIcons;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,13 +51,14 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         blue = findViewById(R.id.blue);
         yellow = findViewById(R.id.yellow);
         level2Presenter = new Level2Presenter(this, new DataHandler(this), username);
-        initiateImageView();
         resultBox = findViewById(R.id.resultBox);
         red.setVisibility(View.INVISIBLE);
         blue.setVisibility(View.INVISIBLE);
         yellow.setVisibility(View.INVISIBLE);
         this.handler = new Handler();
         level2Presenter.initDisplay(this);
+        characterIcons = new CharacterIcons(this);
+        initiateImageView();
     }
 
     /** set image resources for all the imageview in the xml file
@@ -70,7 +72,9 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         blue.setImageResource(level2Presenter.getBlueAppearence());
         yellow.setImageResource(level2Presenter.getYellowAppearence());
         ImageView basket = findViewById(R.id.character);
-        basket.setImageResource(level2Presenter.getBasketAppearence());
+        int Imageindex = level2Presenter.getBasketAppearence();
+        int id = characterIcons.getIconByIndex(Imageindex);
+        basket.setImageResource(id);
     }
 
 
@@ -157,7 +161,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @SuppressLint("SetTextI18n")
     @Override
     public void displayGPA(double gpa) {
-        gpa_tv.setText(Double.toString(gpa));
+        gpa_tv.setText("gpa: "+ Double.toString(gpa));
     }
 
 
@@ -169,7 +173,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @SuppressLint("SetTextI18n")
     @Override
     public void displayHP(double hp) {
-        hp_tv.setText(Double.toString(hp));
+        hp_tv.setText("hp: "+ Double.toString(hp));
     }
 
     /**
@@ -180,7 +184,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @SuppressLint("SetTextI18n")
     @Override
     public void displayCredit(int credit) {
-        credit_tv.setText(Double.toString(credit));
+        credit_tv.setText("credit: "+ Double.toString(credit));
     }
 
     /**

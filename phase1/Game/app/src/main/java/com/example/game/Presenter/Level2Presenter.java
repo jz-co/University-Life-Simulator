@@ -155,7 +155,7 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
      * @return int basket appearance
      */
     public int getBasketAppearence(){
-        return getBasket().getAppearence();
+        return gameLevel.getBasket().getAppearence();
     }
 
     /** get the x coordinate of the red object
