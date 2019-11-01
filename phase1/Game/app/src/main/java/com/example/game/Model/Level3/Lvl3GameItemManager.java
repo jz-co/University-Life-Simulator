@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  * Inspired by the code from A1.
+ *
+ * A manager class for all the objects in the game.
  */
 public class Lvl3GameItemManager {
 
@@ -18,27 +20,27 @@ public class Lvl3GameItemManager {
     private List<GameContents> gameItems;
 
     /**
-     * Wheel object.
+     * Wheel object in the game.
      */
     private Wheel gameWheel;
 
     /**
-     * high score in the game.
+     * The score in the game.
      */
-    private int highScore = 0;
+    private int score = 0;
 
     /**
-     * lives remaining in the game.
+     * The lives remaining in the game.
      */
     private int lives = 3;
 
     /**
-     * The width of game grid
+     * The width of game grid.
      */
-    private int gridWidth;
+    protected int gridWidth;
 
     /**
-     * The height of game grid
+     * The height of game grid.
      */
     private int gridHeight;
 
@@ -49,7 +51,7 @@ public class Lvl3GameItemManager {
     }
 
     /**
-     * Getter for the gridWidth
+     * Getter for the gridWidth.
      *
      * @return gridWidth
      */
@@ -58,7 +60,7 @@ public class Lvl3GameItemManager {
     }
 
     /**
-     * Getter for the gridHeight
+     * Getter for the gridHeight.
      *
      * @return gridHeight
      */
@@ -67,12 +69,30 @@ public class Lvl3GameItemManager {
     }
 
     /**
-     * Getter for gameItems
+     * Getter for gameItems.
      *
      * @return gameItems
      */
     public List<GameContents> getGameItems() {
         return gameItems;
+    }
+
+    /**
+     * Getter for score.
+     *
+     * @return score
+     */
+    public int getScore() {
+        return this.score;
+    }
+
+    /**
+     * Getter for lives.
+     *
+     * @return lives
+     */
+    public int getLives() {
+        return this.lives;
     }
 
     /**
@@ -85,12 +105,16 @@ public class Lvl3GameItemManager {
             moving_arrow.update();
             if ((gameWheel.getX() <= moving_arrow.getX() & moving_arrow.getX() <= gameWheel.getX() + gameWheel.getWidth()) &
                     (gameWheel.getY() <= moving_arrow.getY() & moving_arrow.getY() <= gameWheel.getY() + gameWheel.getHeight())) {
-                highScore += 1;
+
+                // player earns a score when the arrow touches the wheel.
+                score += 1;
                 gameWheel.setSpeed();
                 gameItems.remove(2);
             }
             if (moving_arrow.getReach()) {
                 gameItems.remove(2);
+
+                // player loses a life when they miss the wheel.
                 lives -= 1;
             }
 
@@ -98,7 +122,7 @@ public class Lvl3GameItemManager {
     }
 
     /**
-     * Create the Game items.
+     * Creates the game items collection.
      */
     public void createGameItems(GameContents item) {
         gameItems.add(item);
@@ -106,23 +130,4 @@ public class Lvl3GameItemManager {
             gameWheel = (Wheel) item;
         }
     }
-
-    /**
-     * Getter for highScore
-     *
-     * @return highScore
-     */
-    public int getHighScore() {
-        return this.highScore;
-    }
-
-    /**
-     * Getter for lives
-     *
-     * @return lives
-     */
-    public int getLives() {
-        return this.lives;
-    }
-
 }
