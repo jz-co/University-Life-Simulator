@@ -39,11 +39,11 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="64dp"
         android:onClick="nextPicture"
+        android:text="Change Avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/characterIconView"
-        tools:text="Change Avatar" />
+        app:layout_constraintTop_toBottomOf="@+id/characterIconView" />
 
     <TextView
         android:id="@+id/textView2"

@@ -23,11 +23,11 @@
         android:layout_height="60dp"
         android:layout_marginTop="64dp"
         android:onClick="onLevel1Click"
+        android:text="Level 1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:text="Level 1" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
         android:id="@+id/levelButton2"
@@ -35,11 +35,11 @@
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:onClick="onLevel2Click"
+        android:text="Level 2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/levelButton1"
-        tools:text="Level 2" />
+        app:layout_constraintTop_toBottomOf="@+id/levelButton1" />
 
     <Button
         android:id="@+id/levelButton3"
@@ -47,11 +47,11 @@
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:onClick="onLevel3Click"
+        android:text="Level 3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/levelButton2"
-        tools:text="Level 3" />
+        app:layout_constraintTop_toBottomOf="@+id/levelButton2" />
 
     <ImageButton
         android:id="@+id/profileButton"
