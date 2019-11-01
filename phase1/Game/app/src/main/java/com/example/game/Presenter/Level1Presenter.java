@@ -65,8 +65,8 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
             nextLevelUnlocked = true;
             gameLevel.levelPass();
         }
-        view.endGame();
         gameManager.saveBeforeExit();
+        view.endGame();
     }
 
 
