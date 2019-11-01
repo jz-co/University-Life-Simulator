@@ -522,3 +522,8 @@ Step 85 (Koby)
 Code Affected: Lvl2GameActivity.java, Level2Presenter.java
 Changes: getBasketAppearence method in Level2Presenter.java and instantiate a character icon object
 to get the id of the image
+
+########
+Step 86 (Parinita)
+Code Affected: FirstGameActivity.java
+Changes: Made the game easier LOL.
