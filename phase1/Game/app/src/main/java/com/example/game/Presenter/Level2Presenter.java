@@ -59,6 +59,8 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
     public void quitGame() {
         // adding the score of the player to their hp
         gameLevel.getStudent().incrementHp(gameLevel.getScore());
+        gameLevel.getStudent().incrementCredit(5);
+        gameLevel.getStudent().incrementGpa(1);
         this.updateDisplay(view);
         gameManager.saveBeforeExit();
     }
@@ -155,7 +157,7 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
      * @return int basket appearance
      */
     public int getBasketAppearence(){
-        return getBasket().getAppearence();
+        return gameLevel.getBasket().getAppearence();
     }
 
     /** get the x coordinate of the red object
@@ -229,4 +231,30 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
         gameLevel.initializeGame();
     }
 
+    /** return whether level2 is cleared or not
+     *
+     * @return boolean whether the level2 is cleared
+     */
+    public boolean thisLevelUnlocked(){
+        int level = gameLevel.getStudent().getCurrentLevel();
+        return level > 2;
+    }
+
+    /** increment level of the student
+     *
+     */
+    public void incrementStudentLevel(){
+        if (gameLevel.getStudent().getCurrentLevel() <= 2){
+            gameLevel.getStudent().incrementLevel();
+        }
+    }
+
+    /** decrease the gpa of the student
+     *
+     */
+    public void decrementStudentGpa(){
+        if (gameLevel.getStudent().getGpa() >= 0){
+            gameLevel.getStudent().incrementGpa(-1);
+        }
+    }
 }

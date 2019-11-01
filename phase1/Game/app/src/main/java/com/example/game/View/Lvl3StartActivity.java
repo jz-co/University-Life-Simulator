@@ -78,7 +78,7 @@ public class Lvl3StartActivity extends AppCompatActivity implements ILevel3.ILev
      */
     public void displayName(String name) {
         final TextView username = findViewById(R.id.textView5);
-        String usernameString = "Username" + name;
+        String usernameString = "Username: " + name;
         username.setText(usernameString);
     }
 
@@ -89,7 +89,7 @@ public class Lvl3StartActivity extends AppCompatActivity implements ILevel3.ILev
      */
     public void displayGPA(double gpa) {
         final TextView Gpa = findViewById(R.id.textView6);
-        String gpaString = "GPA" + gpa;
+        String gpaString = "GPA: " + gpa;
         Gpa.setText(gpaString);
     }
 
@@ -100,7 +100,7 @@ public class Lvl3StartActivity extends AppCompatActivity implements ILevel3.ILev
      */
     public void displayHP(double hp) {
         final TextView Hp = findViewById(R.id.textView8);
-        String hpaString = "Health Points:" + hp;
+        String hpaString = "Health Points: " + hp;
         Hp.setText(hpaString);
     }
 

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +15,6 @@ import com.example.game.DataHandler.DataHandler;
 import com.example.game.Presenter.ProfilePresenter;
 import com.example.game.R;
 
-import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity implements IProfile.IProfileView {
 
@@ -21,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
     private TextView gpaView;
     private TextView creditsView;
     private ImageView userIcon;
-    private ArrayList<Integer> characterIcons;
+    private CharacterIcons icons;
 
     private String username;
 
@@ -30,6 +31,14 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set fullscreen
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        // Set No Title
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_profile);
 
         username = (String) getIntent().getSerializableExtra("Username");
@@ -39,26 +48,15 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
         creditsView = (TextView) findViewById(R.id.creditsView);
         userIcon = (ImageView) findViewById(R.id.characterIconView);
 
-        characterIcons = new ArrayList<Integer>();
-        populateCharacterIcons();
-
         presenter = new ProfilePresenter(this, new DataHandler(this), username);
         nameView.setText(presenter.getName());
         gpaView.setText(presenter.getGPA());
         creditsView.setText(presenter.getCredits());
-        userIcon.setImageResource(characterIcons.get(presenter.getPicIndex()));
 
-    }
+        icons = new CharacterIcons(this);
+        int picIdentifier = icons.getIconByIndex(presenter.getPicIndex());
+        userIcon.setImageResource(picIdentifier);
 
-    private void populateCharacterIcons() {
-        characterIcons.add(getResources().getIdentifier("@drawable/boy1", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/girl1", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/boy2", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/girl2", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/boy3", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/girl3", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/pikachu", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/cactus", null, this.getPackageName()));
     }
 
     public void onClickCustomize (View view) {

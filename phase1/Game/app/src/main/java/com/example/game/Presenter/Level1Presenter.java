@@ -1,99 +1,82 @@
 package com.example.game.Presenter;
 
 import com.example.game.Contract.IData;
-import com.example.game.Contract.IGameManager;
 import com.example.game.Contract.ILevel1;
 import com.example.game.Model.GameManager;
 import com.example.game.Model.Level1.GameLevel1;
-import com.example.game.Model.Student;
-import com.example.game.Presenter.LevelPresenter;
 
 public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Presenter {
     private ILevel1.ILevel1View view;
     private GameLevel1 gameLevel;
-    private GameManager gameManager;
+    private long secondsRemaining;
+    private boolean nextLevelUnlocked = false;
 
     public Level1Presenter(ILevel1.ILevel1View view, IData dataHandler, String username) {
         super(dataHandler, username);
         this.view = view;
-        this.gameManager = new GameManager(dataHandler, username);
-        this.gameLevel = new GameLevel1(this.gameManager.getCurrentStudent(), this);
-    }
-
-    public void goToNextLevel() {
-        this.view.goToLevel2();
-    }
-
-    public void setSecondsRemaining() {
-        view.setSecondsRemaining();
-    }
-
-    public long getSecondsRemaining() {
-        return gameLevel.getSecondsRemaining();
+        GameManager gameManager = new GameManager(dataHandler, username);
+        this.gameLevel = new GameLevel1(gameManager.getCurrentStudent(), this);
     }
 
     public void startGame() {
-        this.gameLevel.play();
+        this.view.startTimer(60000);
+        newQuestion();
     }
 
     public void resumeGame() {
-        this.gameLevel.resumeGame();
-    }
-
-    public void pauseGame() {
-        this.gameLevel.pauseGame();
-    }
-
-    Student getStudent() {
-        return this.gameLevel.getStudent();
+        view.startTimer(secondsRemaining*1000);
     }
 
     public int getCorrectScore() {
         return this.gameLevel.getCorrectAnswers();
     }
 
-    public void setCorrectScore() {
-        this.view.displayCorrectScore();
+    private void newQuestion() {
+        this.view.displayQuestion(gameLevel.createQuestion());
     }
 
-    public int getIncorrectScore() {
-        return this.gameLevel.getIncorrectAnswers();
-    }
-
-    public void setIncorrectScore() {
-        this.view.displayIncorrectScore();
-    }
-
-    public String getCreatedQuestion() {
-        return this.gameLevel.createQuestion();
-    }
-
-    public void setQuestion() {
-        this.view.displayQuestion();
-    }
-
-    public void setInvalidInputMessage() {
-        this.view.displayInvalidInputMessage();
-    }
 
     public void evaluateAnswer(String answerReceived) {
-        int value = this.gameLevel.evaluateAnswer(answerReceived);
-        if (value != 0) {
-            if (value == 1) {
-                setCorrectScore();
-            } else if (value == -1) {
-                setIncorrectScore();
+        try {
+            int ans = Integer.parseInt(answerReceived);
+            boolean correct = this.gameLevel.evaluateAnswer(ans);
+            if (!correct) {
+                view.displayWarning("Wrong Answer!");
             }
-            setQuestion();
+            view.displayCorrectScore(gameLevel.getCorrectAnswers());
+            view.displayIncorrectScore(gameLevel.getIncorrectAnswers());
+            newQuestion();
+        } catch (NumberFormatException e){
+            view.displayWarning("Invalid!");
         }
-
     }
 
-    public void quitGame() {
-        this.view.quitGame();
-        // adding the score of the player to their hp
-        this.updateDisplay(view);
+    public void levelComplete() {
         this.gameLevel.getStudent().incrementHp(gameLevel.getCorrectAnswers());
-        this.gameManager.saveBeforeExit();
+        int clearingScore = gameLevel.getClearingScore();
+        if (gameLevel.getCorrectAnswers() < clearingScore){
+            view.displayWarning("Play again to unlock the next level!");
+            gameLevel.levelFail();
+        } else {
+            view.displayWarning("Congratulations, you have cleared this level!");
+            nextLevelUnlocked = true;
+            gameLevel.levelPass();
+        }
+        view.endGame();
+    }
+
+
+    public void tick(long millisUntilFinished){
+        secondsRemaining = millisUntilFinished / 1000;
+        view.setSecondsRemaining(secondsRemaining);
+    }
+
+
+    public void validateLevel2(){
+        if (nextLevelUnlocked){
+            view.goToLevel2();
+        } else {
+            view.displayWarning("Sorry, the current level has not been unlocked");
+        }
     }
 }

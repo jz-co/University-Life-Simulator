@@ -507,7 +507,72 @@ Code Affected: FirstGameActivity.java, Level1Presenter.java, GameLevel1.java
 Changes: Modified the evaluate answer methods in the files above. The game now runs and the user input is correctly assesed
 and the appropriate view are updated with the score.
 
+########
+Step 83 (Trisha)
+Added CharacterIcons class to View module.
+
+########
+Step 84 (Parinita)
+Code Affected: FirstGameActivity.java, Level1Presenter.java, activity_first_game.xml
+Changes: Modified the above files so that the result is now displayed. Still need to use Jenny's result page but
+for now, it tentatively displays the final score.
+
+########
+Step 85 (Koby)
+Code Affected: Lvl2GameActivity.java, Level2Presenter.java
+Changes: getBasketAppearence method in Level2Presenter.java and instantiate a character icon object
+to get the id of the image
+
+########
+Step 86 (Parinita)
+Code Affected: FirstGameActivity.java
+Changes: Made the game easier LOL.
+
+########
+Step 87 (Koby)
+Code Affected: Student.java, Lvl2GameActivity, Level2Presenter
+Changes: Add increment student level method
+and add the increment student level method in the level2Presenter class
+
+########
+Step 87 (Koby)
+Code Affected:Lvl2GameActivity
+Changes: decrease clearing score of level 2
+
+########
+Step 88 (Parinita)
+Code Affected: FirstGameActivity.java, Level1Presenter.java
+Changes: Added incrementStudentlevel to presenter and modified code in firstgameactivity to allow to go to next level.
+
+#########
+Step 89 (Grace)
+Code Affected: CustomizationManager, Customization Activity, CouseSelection Activity, Profile activity
+Changes: deleted duplicate methods, used CharacterIcons instead.
+
+#########
+Step 90 (Trisha)
+Code Affected: Drawable module modified to add gradient files. CourseSelectroActivity,
+CustomizationActivity, MainActivity, ProfileActivity.
+Set the view of the game to full screen. Changed the layout of activities for the game.
+
+#########
+Step 91 (Trisha)
+Code Affected: Lvl3StartActivity, activity_main, activity_main_lvl_3, activity_game_result.
+Changes: Modified the layouts for each of the screens.
+
+#########
+Step 92 (Trisha)
+Changes: Updated the onClick methods for the buttons in GameResultActivity.
+
+#########
+Step 93 (Grace)
+Changes: Level 1
+
+#########
+Step 94 (Trisha)
+Changes: Added a text view to the start activity of level 3 game.
+
 ##########
-Step  (Jenny)
+Step 95 (Jenny)
 Code affected: GameResultActivity
 Changes: modified onClickPLayAgain and changed how restarting/replaying a game is handled.

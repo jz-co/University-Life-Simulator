@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.ProfileActivity">
+    tools:context=".View.ProfileActivity"
+    android:background="@drawable/gradient2">
 
     <ImageView
         android:id="@+id/characterIconView"

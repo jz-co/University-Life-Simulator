@@ -73,6 +73,7 @@ public class GameResultActivity extends AppCompatActivity implements IResult.IRe
 
     public void onClickSelectAnother(View view) {
         Intent intent = new Intent(this, CourseSelectorActivity.class);
+        intent.putExtra("Username", username);
         startActivity(intent);
     }
 

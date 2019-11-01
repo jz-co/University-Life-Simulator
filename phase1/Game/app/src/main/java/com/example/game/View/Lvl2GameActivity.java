@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -29,17 +31,26 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     private LinearLayout resultBox;
     private boolean nextLevelUnlocked;
     private boolean pauseGame = false;
-    private int clearingScore = 20;
+    private int clearingScore = 10;
     private String username;
     private boolean start = false;
     private Handler handler;
     private long secondsRemaining;
     private Timer timer;
     private CountDownTimer countDownTimer;
+    private CharacterIcons characterIcons;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set fullscreen
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        // Set No Title
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_main_lvl_2);
         username = (String) getIntent().getSerializableExtra("Username");
         // finding textviews, imageviews and buttons in from the xml file
@@ -50,13 +61,15 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         blue = findViewById(R.id.blue);
         yellow = findViewById(R.id.yellow);
         level2Presenter = new Level2Presenter(this, new DataHandler(this), username);
-        initiateImageView();
         resultBox = findViewById(R.id.resultBox);
         red.setVisibility(View.INVISIBLE);
         blue.setVisibility(View.INVISIBLE);
         yellow.setVisibility(View.INVISIBLE);
+        nextLevelUnlocked = level2Presenter.thisLevelUnlocked();
         this.handler = new Handler();
         level2Presenter.initDisplay(this);
+        characterIcons = new CharacterIcons(this);
+        initiateImageView();
     }
 
     /** set image resources for all the imageview in the xml file
@@ -70,7 +83,9 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         blue.setImageResource(level2Presenter.getBlueAppearence());
         yellow.setImageResource(level2Presenter.getYellowAppearence());
         ImageView basket = findViewById(R.id.character);
-        basket.setImageResource(level2Presenter.getBasketAppearence());
+        int Imageindex = level2Presenter.getBasketAppearence();
+        int id = characterIcons.getIconByIndex(Imageindex);
+        basket.setImageResource(id);
     }
 
 
@@ -123,6 +138,9 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
             Toast.makeText(this, "Congratulation, you have cleared this level!",
                     Toast.LENGTH_SHORT).show();
             nextLevelUnlocked = true;
+            level2Presenter.incrementStudentLevel();
+        }else{
+            level2Presenter.decrementStudentGpa();
         }
         level2Presenter.quitGame();
     }
@@ -157,7 +175,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @SuppressLint("SetTextI18n")
     @Override
     public void displayGPA(double gpa) {
-        gpa_tv.setText(Double.toString(gpa));
+        gpa_tv.setText("gpa: "+ Double.toString(gpa));
     }
 
 
@@ -169,7 +187,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @SuppressLint("SetTextI18n")
     @Override
     public void displayHP(double hp) {
-        hp_tv.setText(Double.toString(hp));
+        hp_tv.setText("hp: "+ Double.toString(hp));
     }
 
     /**
@@ -180,7 +198,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @SuppressLint("SetTextI18n")
     @Override
     public void displayCredit(int credit) {
-        credit_tv.setText(Double.toString(credit));
+        credit_tv.setText("credit: "+ Double.toString(credit));
     }
 
     /**

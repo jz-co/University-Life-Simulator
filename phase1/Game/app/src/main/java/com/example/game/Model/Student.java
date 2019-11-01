@@ -170,6 +170,13 @@ public class Student{
         return appearance;
     }
 
+    /** increment the level of the student
+     *
+     */
+    public void incrementLevel(){
+        currentLevel += 1;
+    }
+
 
     /** set appearance of this student
      *
