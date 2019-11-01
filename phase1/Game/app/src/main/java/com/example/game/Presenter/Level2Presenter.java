@@ -26,11 +26,16 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
     private int frameHeight = 1500;
     private int basketInt = 1455;
     private GameManager gameManager;
+    private int clearingScore = 10;
+    private boolean nextLevelUnlocked = false;
 
     public Level2Presenter(ILevel2.ILevel2View view, IData datahandler, String username){
         super(datahandler, username);
         this.view = view;
         this.gameManager = new GameManager(datahandler, username);
+        if (gameManager.getCurrentLevel()>2){
+            nextLevelUnlocked = true;
+        }
         ArrayList<FallingObject> fallingObjects = new ArrayList<>();
         redObject = new redObject((int)(Math.random()*frameWidth), -100);
         yellowObject = new yellowObject(((int)(Math.random()*frameWidth)) , -100);
@@ -47,7 +52,12 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
      */
     @Override
     public void goToNextLevel(){
-        view.goToLevel3();
+        if (nextLevelUnlocked) {
+            view.goToLevel3();
+        } else{
+            view.displayMessage("Sorry, the current level has not been unlocked. You need to score at least 20 points to \" +\n" +
+                    "                            \"clear the level.");
+        }
     }
 
     @Override
@@ -55,14 +65,19 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
         view.updateViewPosById(id);
     }
 
-    @Override
     public void quitGame() {
         // adding the score of the player to their hp
-        gameLevel.getStudent().incrementHp(gameLevel.getScore());
-        gameLevel.getStudent().incrementCredit(5);
-        gameLevel.getStudent().incrementGpa(1);
+        if (gameLevel.getScore() >= clearingScore){
+            view.displayMessage("Congratulation, you have cleared this level!");
+            gameLevel.levelClear();
+            this.nextLevelUnlocked = true;
+        } else {
+            view.displayMessage("Sorry, you did not clear this level!");
+            gameLevel.levelFail();
+        }
         this.updateDisplay(view);
         gameManager.saveBeforeExit();
+        view.quitGame();
     }
 
     /** play the catching ball game
@@ -85,31 +100,16 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
      *
      */
     public void move_left(){
-        gameLevel.getBasket().move_left(20, 0);
+        gameLevel.getBasket().move_left(40, 0);
     }
 
     /** Move the basket to the right by 20 units
      *
      */
     public void move_right(){
-        gameLevel.getBasket().move_right(20, frameWidth);
+        gameLevel.getBasket().move_right(40, frameWidth);
     }
 
-    /** return student in the catching ball game
-     *
-     * @return student
-     */
-    Student getStudent(){
-        return gameLevel.getStudent();
-    }
-
-    /** return the basket of the game
-     *
-     * @return Basket
-     */
-    public Basket getBasket(){
-        return gameLevel.getBasket();
-    }
 
     /** set the score of the game in the frontend
      *
@@ -119,14 +119,6 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
         view.setScore();
     }
 
-
-    /** set the amounts of seconds left in the frontend
-     *
-     */
-    @Override
-    public void setSecondsRemaining() {
-        view.setSecondRemaining();
-    }
 
     /** get the id of the image for the red ball
      *
@@ -231,30 +223,4 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
         gameLevel.initializeGame();
     }
 
-    /** return whether level2 is cleared or not
-     *
-     * @return boolean whether the level2 is cleared
-     */
-    public boolean thisLevelUnlocked(){
-        int level = gameLevel.getStudent().getCurrentLevel();
-        return level > 2;
-    }
-
-    /** increment level of the student
-     *
-     */
-    public void incrementStudentLevel(){
-        if (gameLevel.getStudent().getCurrentLevel() <= 2){
-            gameLevel.getStudent().incrementLevel();
-        }
-    }
-
-    /** decrease the gpa of the student
-     *
-     */
-    public void decrementStudentGpa(){
-        if (gameLevel.getStudent().getGpa() >= 0){
-            gameLevel.getStudent().incrementGpa(-1);
-        }
-    }
 }

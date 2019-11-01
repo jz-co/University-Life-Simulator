@@ -109,6 +109,9 @@ public class Student{
      */
     public void incrementGpa(int amount_to_add){
         this.gpa += amount_to_add;
+        if (gpa>4){
+            gpa = 4;
+        }
     }
 
     /** decrease the credit of this student
@@ -125,6 +128,9 @@ public class Student{
      */
     public void decrementGpa(int amount_to_delete){
         this.gpa -= amount_to_delete;
+        if (gpa<0){
+            gpa = 0;
+        }
     }
 
     /** decrease the of the hp of the student

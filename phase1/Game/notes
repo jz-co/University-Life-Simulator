@@ -578,6 +578,12 @@ Code affected: GameResultActivity
 Changes: modified onClickPLayAgain and changed how restarting/replaying a game is handled.
 
 #########
-Step 95 (Jenny)
+Step 96 (Grace)
+Code Affected: lv2, Student
+Changes: modified student so that gpa is between 0 and 4. Moved some UI logic from view to presenter,
+and some game logic to model.
+
+#########
+Step 97 (Jenny)
 Code affected: CourseSelectorPresenter
 Changes: modified validateLevel3 method, needs to check that user has passed level 1 and 2 first.
