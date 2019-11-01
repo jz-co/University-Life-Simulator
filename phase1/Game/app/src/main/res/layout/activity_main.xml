@@ -24,6 +24,8 @@
         android:id="@+id/usernameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="208dp"
         android:autofillHints=""
         android:background="@android:drawable/editbox_background"
         android:ems="10"
@@ -33,8 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.697" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <EditText
         android:id="@+id/passwordText"
@@ -58,7 +59,7 @@
         android:onClick="onLoginClick"
         android:text="@string/login_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.306"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText" />
 
@@ -71,7 +72,7 @@
         android:onClick="onSignUpClick"
         android:text="@string/signup_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintHorizontal_bias="0.0285"
         app:layout_constraintStart_toEndOf="@+id/loginButton"
         app:layout_constraintTop_toBottomOf="@+id/passwordText" />
 
@@ -90,7 +91,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,11 +100,13 @@
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="40dp"
         android:text="©University of Toronto"
         app:layout_constraintBottom_toTopOf="@+id/usernameText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 

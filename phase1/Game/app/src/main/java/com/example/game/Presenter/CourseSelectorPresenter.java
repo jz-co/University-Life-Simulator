@@ -26,11 +26,11 @@ public class CourseSelectorPresenter {
     }
 
     public void validateLevel3(){
-//        if (gameManager.getCurrentLevel() >= 3){
+        if (gameManager.getCurrentLevel() >= 3){
             view.goToLevel3(gameManager.getCurrentUsername());
-//        } else{
-//            warning();
-//        }
+        } else{
+            warning();
+        }
     }
 
     public int getPicIndex () {

@@ -17,6 +17,7 @@ public class GameResultActivity extends AppCompatActivity implements IResult.IRe
     private TextView resultMessage;
     private TextView levelView;
     private TextView gradeView;
+    String username;
 
 
     @Override
@@ -28,7 +29,7 @@ public class GameResultActivity extends AppCompatActivity implements IResult.IRe
         levelView = (TextView) findViewById(R.id.levelTextView);
         gradeView = (TextView) findViewById(R.id.gradeTextView);
 
-        String username = (String) getIntent().getSerializableExtra("Username");
+        username = (String) getIntent().getSerializableExtra("Username");
         int level = (int) getIntent().getSerializableExtra("Level");
         int score = (int) getIntent().getSerializableExtra("Score");
         String completion = (String) getIntent().getSerializableExtra("Completion");
@@ -59,11 +60,14 @@ public class GameResultActivity extends AppCompatActivity implements IResult.IRe
     }
 
     public void onClickPlayAgain(View view) {
-        finish();
+        Intent intent = new Intent(this, Lvl3StartActivity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
     }
 
     public void onClickSelectAnother(View view) {
         Intent intent = new Intent(this, CourseSelectorActivity.class);
+        intent.putExtra("Username", username);
         startActivity(intent);
     }
 

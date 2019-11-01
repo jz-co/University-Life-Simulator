@@ -559,3 +559,7 @@ Set the view of the game to full screen. Changed the layout of activities for th
 Step 91 (Trisha)
 Code Affected: Lvl3StartActivity, activity_main, activity_main_lvl_3, activity_game_result.
 Changes: Modified the layouts for each of the screens.
+
+#########
+Step 92 (Trisha)
+Changes: Updated the onClick methods for the buttons in GameResultActivity.
