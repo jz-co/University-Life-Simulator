@@ -470,3 +470,8 @@ drawable folder to remove this error.
 Step 75 (Parinita)
 Code affected: drawable folder and Lvl3GameView, FirstGameActivity.java
 Changes: Resized the circle.png in drawable and instantied level1Presenter before calling it LOL.
+
+##########
+Step 76:
+Code affected: onTouchEvent in Lvl3GameView
+Changes: startActivity(intent) should execute after extras have been added.

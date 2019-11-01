@@ -172,11 +172,11 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
             s.setGpa(4.0);
             s.setHp(s.getHp() + gameItemManager.getScore());
             Intent intent = new Intent(super.getContext(), GameResultActivity.class);
-            super.getContext().startActivity(intent);
             intent.putExtra("Completion", "You have successfully completed level 3");
             intent.putExtra("Level", 3);
             intent.putExtra("Score", gameItemManager.getScore());
             intent.putExtra("Username", username);
+            super.getContext().startActivity(intent);
 
         }
 
