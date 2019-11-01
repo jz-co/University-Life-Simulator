@@ -6,14 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.game.Contract.ICourseSelector.*;
-import com.example.game.Contract.IData;
 import com.example.game.DataHandler.DataHandler;
-import com.example.game.DataHandler.DataLoader;
-import com.example.game.DataHandler.DataSaver;
 import com.example.game.Presenter.CourseSelectorPresenter;
 import com.example.game.R;
 

@@ -1,7 +1,14 @@
 package com.example.game.Model;
 
 public class LogInManager {
+    /**
+     * The game manager.
+     */
     private GameManager gameManager;
+
+    /**
+     * The student manager.
+     */
     private StudentManager studentManager;
 
     public LogInManager(GameManager gameManager){

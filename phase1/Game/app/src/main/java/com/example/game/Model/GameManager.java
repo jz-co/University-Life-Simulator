@@ -6,21 +6,46 @@ import com.example.game.Contract.IGameManager;
 
 
 public class GameManager implements IGameManager {
+    /**
+     * The student manager attached to this game manager.
+     */
     private StudentManager studentManager;
+
+    /**
+     * The current player.
+     */
     private Student currentStudent;
 
+    /**
+     * This constructor is used before the user logged in.
+     * @param dataHandler the data handler created in View.
+     */
     public GameManager(IData dataHandler){
         studentManager = new StudentManager(dataHandler);
     }
 
+    /**
+     * This constructor is used after the user logged in.
+     * @param dataHandler the data handler
+     * @param username the username of the current player.
+     */
     public GameManager(IData dataHandler, String username){
         studentManager = new StudentManager(dataHandler);
         currentStudent = studentManager.getStudentByUsername(username);
     }
 
+    /**
+     * Return the current student
+     * @return the current student
+     */
     public Student getCurrentStudent() {
         return currentStudent;
     }
+
+    /**
+     * Return the username of the current player
+     * @return the current player's username.
+     */
     public String getCurrentUsername(){
         return currentStudent.getUsername();
     }
@@ -56,10 +81,18 @@ public class GameManager implements IGameManager {
         currentStudent = studentManager.getStudentByUsername(username);
     }
 
+    /**
+     * Return the student manager.
+     * @return student manager
+     */
     StudentManager getStudentManager(){
         return studentManager;
     }
 
+    /**
+     * Return the current level.
+     * @return current level
+     */
     public int getCurrentLevel(){
         return this.currentStudent.getCurrentLevel();
     }

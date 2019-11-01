@@ -1,13 +1,24 @@
 package com.example.game.Model;
 
 public class CustomizationManager {
+    /**
+     * The total number of profile pictures.
+     */
     private int numberOfPictures; // TODO: where do we get this? idk yet
+
+    /**
+     * The current student.
+     */
     private Student currentStudent;
 
     public CustomizationManager(Student curr){
         this.currentStudent = curr;
     }
 
+    /**
+     * Return the total number of profile pictures.
+     * @return number of pictures.
+     */
     public int getNumberOfPictures() {
         return numberOfPictures;
     }

@@ -6,7 +6,14 @@ import com.example.game.DataHandler.DataHandler;
 import java.util.List;
 
 class StudentManager {
-    public List<Student> students;
+    /**
+     * The list of registered students.
+     */
+    private List<Student> students;
+
+    /**
+     * Data handler, used to save and load student data.
+     */
     private IData dataHandler;
 
 
