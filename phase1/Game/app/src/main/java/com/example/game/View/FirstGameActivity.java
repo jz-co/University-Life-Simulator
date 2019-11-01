@@ -22,10 +22,10 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     private TextView questionTV, correctTV, incorrectTV, hpTV, creditTV, gpaTV, resultTV;
     private EditText answerTV;
     private Button start, nextLevel, enter;
-    private boolean nextLevelUnlocked = false;
+    private static boolean nextLevelUnlocked = false;
     private boolean pauseGame = false;
     private String username;
-    private int clearingScore = 10;
+    private int clearingScore = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,7 +153,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     }
 
     public void quitGame() {
-        this.resultTV.setText(level1Presenter.getCorrectScore());
+        this.resultTV.setText("Score: " + Integer.toString(level1Presenter.getCorrectScore()));
         this.resultTV.setVisibility(View.VISIBLE);
         this.nextLevel.setVisibility(View.VISIBLE);
         if (level1Presenter.getCorrectScore() >= clearingScore) {
