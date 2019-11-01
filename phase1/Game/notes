@@ -414,3 +414,9 @@ Changes: update on instantiating gamemanager
 Step 65 (Grace)
 Code Affected: DataHandler.java
 Changes: added private helper methods to avoid duplicating code.
+
+#########
+Step 66 (Grace)
+Code Affected: DataHandler.java
+Changes: fixed method getStudentByUserName() (was always returning the first student
+in the database.)

@@ -97,7 +97,7 @@ public class DataHandler extends SQLiteOpenHelper implements IData {
     /**
      * Return the existing student with the given username.
      * @param userName the username to search for.
-     * @return the student
+     * @return the student.
      */
     @Override
     public Student getStudentByUserName(String userName){
@@ -106,7 +106,12 @@ public class DataHandler extends SQLiteOpenHelper implements IData {
         Student student = null;
         Cursor cursor = db.rawQuery(query,	null);
         if	(cursor.moveToFirst()){
-            student = getThisStudent(cursor);
+            do{
+                if (userName.equals(cursor.getString(1))){
+                    student = getThisStudent(cursor);
+                    break;
+                }
+            }while(cursor.moveToNext());
         }
         cursor.close();
         return student;
