@@ -9,5 +9,4 @@ public interface IData {
     void addStudentData(Student student);
     void updateStudentData(Student student);
     Student getStudentByUserName(String userName);
-    ArrayList<Student>listStudents();
 }

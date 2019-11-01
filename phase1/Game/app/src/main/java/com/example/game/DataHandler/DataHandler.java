@@ -52,25 +52,6 @@ public class DataHandler extends SQLiteOpenHelper implements IData {
     }
 
     /**
-     * Return the list of all registered students.
-     * @return all registered students
-     */
-    @Override
-    public ArrayList<Student> listStudents(){
-        String sql = "select * from " + TABLE_STUDENTS + " ORDER BY " + COLUMN_NAME + " ASC";
-        SQLiteDatabase db = this.getReadableDatabase();
-        ArrayList<Student> storeContacts = new ArrayList<>();
-        Cursor cursor = db.rawQuery(sql, null);
-        if(cursor.moveToFirst()){
-            do{
-                storeContacts.add(getThisStudent(cursor));
-            }while (cursor.moveToNext());
-        }
-        cursor.close();
-        return storeContacts;
-    }
-
-    /**
      * Add a new student to the database.
      * @param student the new student.
      */

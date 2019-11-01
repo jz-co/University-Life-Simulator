@@ -6,10 +6,6 @@ import com.example.game.DataHandler.DataHandler;
 import java.util.List;
 
 class StudentManager {
-    /**
-     * The list of registered students.
-     */
-    private List<Student> students;
 
     /**
      * Data handler, used to save and load student data.
@@ -19,7 +15,6 @@ class StudentManager {
 
     StudentManager(IData dataHandler){
         this.dataHandler = dataHandler;
-        students = dataHandler.listStudents();
     }
 
     /**
@@ -47,18 +42,12 @@ class StudentManager {
 
     /**
      * Return the Model.Student with the given username.
-     * Precondition: the student has already registered.
      *
      * @param username The username we are looking for.
      * @return The student with the given username.
      */
     Student getStudentByUsername(String username) {
-        for (Student s:students){
-            if (s.getUsername().equals(username)){
-                return s;
-            }
-        }
-        return null; // future improvement: throw exception.
+        return dataHandler.getStudentByUserName(username);
     }
 
 
@@ -67,8 +56,7 @@ class StudentManager {
      *
      * @param s A student to add to the list.
      */
-    public void addStudent(Student s){
-        students.add(s);
+    private void addStudent(Student s){
         dataHandler.addStudentData(s);
     }
 
@@ -79,12 +67,7 @@ class StudentManager {
      * @param username The username to check.
      */
     boolean studentExists(String username){
-        for (Student s:students){
-            if (s.getUsername().equals(username)){
-                return true;
-            }
-        }
-        return false;
+        return !(getStudentByUsername(username)== null);
     }
 
 

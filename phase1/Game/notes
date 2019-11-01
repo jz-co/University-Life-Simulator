@@ -430,3 +430,11 @@ Changes: deleted the import statements for datasaver and dataloader
 Step 68 (Trisha)
 Code Affected: activity_main_lvl_3
 Changes: changed the screen layout design
+
+#########
+Step 69 (Grace)
+Code Affected: DataHandler, IData, StudentManager
+Changes: deleted method that returns a list of all registered students. deleted attribute
+students in student manager. student manager no longer stores a full list of students
+(huge waste of space if we have lots of users), instead it's a handle for other classes
+to access student data from data handler.
