@@ -242,6 +242,8 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
      *
      */
     public void incrementStudentLevel(){
-        gameLevel.getStudent().incrementLevel();
+        if (gameLevel.getStudent().getCurrentLevel() <= 2){
+            gameLevel.getStudent().incrementLevel();
+        }
     }
 }
