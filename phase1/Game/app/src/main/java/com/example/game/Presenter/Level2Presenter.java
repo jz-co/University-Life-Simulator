@@ -229,4 +229,19 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
         gameLevel.initializeGame();
     }
 
+    /** return whether level2 is cleared or not
+     *
+     * @return boolean whether the level2 is cleared
+     */
+    public boolean thisLevelUnlocked(){
+        int level = gameLevel.getStudent().getCurrentLevel();
+        return level > 2;
+    }
+
+    /** increment level of the student
+     *
+     */
+    public void incrementStudentLevel(){
+        gameLevel.getStudent().incrementLevel();
+    }
 }

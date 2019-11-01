@@ -527,3 +527,9 @@ to get the id of the image
 Step 86 (Parinita)
 Code Affected: FirstGameActivity.java
 Changes: Made the game easier LOL.
+
+########
+Step 87 (Koby)
+Code Affected: Student.java, Lvl2GameActivity, Level2Presenter
+Changes: Add increment student level method
+and add the increment student level method in the level2Presenter class

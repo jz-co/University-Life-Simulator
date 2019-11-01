@@ -55,6 +55,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         red.setVisibility(View.INVISIBLE);
         blue.setVisibility(View.INVISIBLE);
         yellow.setVisibility(View.INVISIBLE);
+        nextLevelUnlocked = level2Presenter.thisLevelUnlocked();
         this.handler = new Handler();
         level2Presenter.initDisplay(this);
         characterIcons = new CharacterIcons(this);
@@ -127,6 +128,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
             Toast.makeText(this, "Congratulation, you have cleared this level!",
                     Toast.LENGTH_SHORT).show();
             nextLevelUnlocked = true;
+            level2Presenter.incrementStudentLevel();
         }
         level2Presenter.quitGame();
     }
