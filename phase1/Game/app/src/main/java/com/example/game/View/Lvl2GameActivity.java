@@ -29,7 +29,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     private LinearLayout resultBox;
     private boolean nextLevelUnlocked;
     private boolean pauseGame = false;
-    private int clearingScore = 20;
+    private int clearingScore = 10;
     private String username;
     private boolean start = false;
     private Handler handler;
