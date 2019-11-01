@@ -87,6 +87,4 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
         this.gameLevel.getStudent().incrementHp(gameLevel.getCorrectAnswers());
         this.gameManager.saveBeforeExit();
     }
-
-    public GameManager getGameManager(){return this.gameManager;}
 }
