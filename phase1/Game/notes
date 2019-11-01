@@ -576,3 +576,8 @@ Changes: Added a text view to the start activity of level 3 game.
 Step 95 (Jenny)
 Code affected: GameResultActivity
 Changes: modified onClickPLayAgain and changed how restarting/replaying a game is handled.
+
+#########
+Step 95 (Jenny)
+Code affected: CourseSelectorPresenter
+Changes: modified validateLevel3 method, needs to check that user has passed level 1 and 2 first.
