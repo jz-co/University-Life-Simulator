@@ -506,3 +506,8 @@ Step 82 (Parinita)
 Code Affected: FirstGameActivity.java, Level1Presenter.java, GameLevel1.java
 Changes: Modified the evaluate answer methods in the files above. The game now runs and the user input is correctly assesed
 and the appropriate view are updated with the score.
+
+##########
+Step  (Jenny)
+Code affected: GameResultActivity
+Changes: modified onClickPLayAgain and changed how restarting/replaying a game is handled.

@@ -66,7 +66,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
                     "Sorry, the current level has not been unlocked", Toast.LENGTH_SHORT).show();
         } else {
             Intent intent = new Intent(this, Lvl2GameActivity.class);
-            intent.putExtra("UserName", this.username);
+            intent.putExtra("Username", this.username);
             startActivity(intent);
         }
     }

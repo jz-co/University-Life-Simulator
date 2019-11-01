@@ -18,6 +18,9 @@ public class GameResultActivity extends AppCompatActivity implements IResult.IRe
     private TextView levelView;
     private TextView gradeView;
 
+    private int level;
+    private String username;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +31,8 @@ public class GameResultActivity extends AppCompatActivity implements IResult.IRe
         levelView = (TextView) findViewById(R.id.levelTextView);
         gradeView = (TextView) findViewById(R.id.gradeTextView);
 
-        String username = (String) getIntent().getSerializableExtra("Username");
-        int level = (int) getIntent().getSerializableExtra("Level");
+        username = (String) getIntent().getSerializableExtra("Username");
+        level = (int) getIntent().getSerializableExtra("Level");
         int score = (int) getIntent().getSerializableExtra("Score");
         String completion = (String) getIntent().getSerializableExtra("Completion");
 
@@ -59,11 +62,44 @@ public class GameResultActivity extends AppCompatActivity implements IResult.IRe
     }
 
     public void onClickPlayAgain(View view) {
-        finish();
+        if (level == 1) {
+            goToLevel1(username);
+        } else if (level == 2) {
+            goToLevel2(username);
+        } else {
+            goToLevel3(username);
+        }
     }
 
     public void onClickSelectAnother(View view) {
         Intent intent = new Intent(this, CourseSelectorActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Navigate to Level 1 activity for user with "username".
+     */
+    public void goToLevel1(String username) {
+        Intent intent = new Intent(this, FirstGameActivity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
+    }
+
+    /**
+     * Navigate to Level 2 activity for user with "username".
+     */
+    public void goToLevel2(String username) {
+        Intent intent = new Intent(this, Lvl2GameActivity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
+    }
+
+    /**
+     * Navigate to Level 3 activity for user with "username".
+     */
+    public void goToLevel3(String username) {
+        Intent intent = new Intent(this, Lvl3StartActivity.class);
+        intent.putExtra("Username", username);
         startActivity(intent);
     }
 
