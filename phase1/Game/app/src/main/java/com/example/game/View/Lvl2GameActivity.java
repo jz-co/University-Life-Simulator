@@ -29,9 +29,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     private TextView credit_tv, gpa_tv, hp_tv;
     private ImageView red, blue, yellow;
     private LinearLayout resultBox;
-    private boolean nextLevelUnlocked;
     private boolean pauseGame = false;
-    private int clearingScore = 10;
     private String username;
     private boolean start = false;
     private Handler handler;
@@ -65,7 +63,6 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         red.setVisibility(View.INVISIBLE);
         blue.setVisibility(View.INVISIBLE);
         yellow.setVisibility(View.INVISIBLE);
-        nextLevelUnlocked = level2Presenter.thisLevelUnlocked();
         this.handler = new Handler();
         level2Presenter.initDisplay(this);
         characterIcons = new CharacterIcons(this);
@@ -76,9 +73,6 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
      *
      */
     private void initiateImageView() {
-        //TODO: instead of letting presenter return the object and calling its getAppearance()
-        // method, maybe add a method in presenter called getRedAppearence(), which only
-        // returns the appearance of the object? Same for the other objects. : )
         red.setImageResource(level2Presenter.getRedAppearence());
         blue.setImageResource(level2Presenter.getBlueAppearence());
         yellow.setImageResource(level2Presenter.getYellowAppearence());
@@ -91,15 +85,9 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
 
     @Override
     public void goToLevel3() {
-        if (!nextLevelUnlocked){
-            Toast.makeText(this,
-                    "Sorry, the current level has not been unlocked. You need to score at least 20 points to " +
-                            "clear the level.", Toast.LENGTH_SHORT).show();
-        }else{
-            Intent intent = new Intent(this, Lvl3StartActivity.class);
-            intent.putExtra("Username", username);
-            startActivity(intent);
-        }
+        Intent intent = new Intent(this, Lvl3StartActivity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
     }
 
     @Override
@@ -134,15 +122,6 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
         TextView textView = findViewById(R.id.final_score);
         textView.setText(Integer.toString(level2Presenter.getScore()));
         resultBox.setVisibility(View.VISIBLE);
-        if (level2Presenter.getScore() >= clearingScore){
-            Toast.makeText(this, "Congratulation, you have cleared this level!",
-                    Toast.LENGTH_SHORT).show();
-            nextLevelUnlocked = true;
-            level2Presenter.incrementStudentLevel();
-        }else{
-            level2Presenter.decrementStudentGpa();
-        }
-        level2Presenter.quitGame();
     }
 
     @SuppressLint("SetTextI18n")
@@ -162,7 +141,6 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
 
     @Override
     public void displayName(String name) {
-//TODO: display the user's preferred name?
         TextView tv_userName = findViewById(R.id.userName);
         tv_userName.setText(name);
     }
@@ -175,7 +153,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @SuppressLint("SetTextI18n")
     @Override
     public void displayGPA(double gpa) {
-        gpa_tv.setText("gpa: "+ Double.toString(gpa));
+        gpa_tv.setText("gpa: "+ gpa);
     }
 
 
@@ -187,7 +165,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @SuppressLint("SetTextI18n")
     @Override
     public void displayHP(double hp) {
-        hp_tv.setText("hp: "+ Double.toString(hp));
+        hp_tv.setText("hp: "+ hp);
     }
 
     /**
@@ -198,7 +176,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
     @SuppressLint("SetTextI18n")
     @Override
     public void displayCredit(int credit) {
-        credit_tv.setText("credit: "+ Double.toString(credit));
+        credit_tv.setText("credit: "+ credit);
     }
 
     /**
@@ -257,7 +235,7 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
             public void onFinish() {
                 timer.cancel();
                 timer = null;
-                quitGame();
+                level2Presenter.quitGame();
             }
 
 
@@ -300,14 +278,14 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
                     }
 
                 }.start();
-                ;
+
             } else {
                 timer.cancel();
                 countDownTimer.cancel();
             }
             pauseGame = !pauseGame;
         } else{
-            Toast.makeText(this, "Please press the start button to start the game", Toast.LENGTH_SHORT).show();
+            displayMessage("Please press the start button to start the game");
         }
     }
 
@@ -316,7 +294,12 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
      * @param view: the next level button
      */
     public void proceedNext(View view){
-        goToLevel3();
+        level2Presenter.goToNextLevel();
+    }
+
+    @Override
+    public void displayMessage(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 }

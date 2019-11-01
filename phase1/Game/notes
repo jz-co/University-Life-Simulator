@@ -571,3 +571,9 @@ Changes: Level 1
 #########
 Step 94 (Trisha)
 Changes: Added a text view to the start activity of level 3 game.
+
+#########
+Step 95 (Grace)
+Files affected: Lvl2GameActivity, Level2Presenter, GameLevel2, Student, ILevel2
+Changes: made sure students' gpa is between 0 and 4. Moved some UI logic from activity to
+presenter, and some game logic from presenter to model.

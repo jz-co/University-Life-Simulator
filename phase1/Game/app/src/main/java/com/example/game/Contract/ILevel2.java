@@ -28,6 +28,8 @@ public interface ILevel2 extends ILevel {
          *
          */
         void setSecondRemaining();
+
+        void displayMessage(String message);
     }
     interface ILevel2Presenter{
         /** go the level 3 of the game
@@ -42,14 +44,9 @@ public interface ILevel2 extends ILevel {
         /** quit the GameLevel2
          *
          */
-        void quitGame();
-        /** set the score of the player in the frontend
-         *
-         */
         void setScore();
         /** set the amount of seconds left in the frontend
          *
          */
-        void setSecondsRemaining();
     }
 }

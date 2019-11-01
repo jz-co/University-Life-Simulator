@@ -97,4 +97,18 @@ public class GameLevel2 extends GameLevel {
     public Student getStudent(){
         return student;
     }
+
+    public void levelClear(){
+        if (student.getCurrentLevel() == 2){
+            student.incrementLevel();
+        }
+        student.incrementGpa(1);
+        student.incrementCredit(5);
+        student.incrementHp(score);
+    }
+
+    public void levelFail(){
+        student.decrementGpa(1);
+    }
+
 }
