@@ -548,3 +548,9 @@ Changes: Added incrementStudentlevel to presenter and modified code in firstgame
 Step 89 (Grace)
 Code Affected: CustomizationManager, Customization Activity, CouseSelection Activity, Profile activity
 Changes: deleted duplicate methods, used CharacterIcons instead.
+
+#########
+Step 90 (Trisha)
+Code Affected: Drawable module modified to add gradient files. CourseSelectroActivity,
+CustomizationActivity, MainActivity, ProfileActivity.
+Set the view of the game to full screen. Changed the layout of activities for the game.
