@@ -31,6 +31,8 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_game);
+        this.level1Presenter = new Level1Presenter(this, new DataHandler(this), username);
+
         this.username = (String) getIntent().getSerializableExtra("UserName");
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);
@@ -56,7 +58,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         displayGPA(level1Presenter.getGameManager().getCurrentStudent().getGpa());
         displayHP(level1Presenter.getGameManager().getCurrentStudent().getHp());
 
-        this.level1Presenter = new Level1Presenter(this, new DataHandler(this), username);
+
     }
 
     public void goToLevel2() {
