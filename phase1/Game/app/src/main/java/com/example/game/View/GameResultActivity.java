@@ -5,12 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.example.game.Contract.IResult;
-import com.example.game.Presenter.CourseSelectorPresenter;
 import com.example.game.Presenter.ResultPresenter;
 import com.example.game.R;
 
@@ -19,20 +16,14 @@ public class GameResultActivity extends AppCompatActivity implements IResult.IRe
     private TextView resultMessage;
     private TextView levelView;
     private TextView gradeView;
-    String username;
+
+    private int level;
+    private String username;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Set fullscreen
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        // Set No Title
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         setContentView(R.layout.activity_game_result);
 
         resultMessage = (TextView) findViewById(R.id.resultMessageView);
@@ -40,7 +31,7 @@ public class GameResultActivity extends AppCompatActivity implements IResult.IRe
         gradeView = (TextView) findViewById(R.id.gradeTextView);
 
         username = (String) getIntent().getSerializableExtra("Username");
-        int level = (int) getIntent().getSerializableExtra("Level");
+        level = (int) getIntent().getSerializableExtra("Level");
         int score = (int) getIntent().getSerializableExtra("Score");
         String completion = (String) getIntent().getSerializableExtra("Completion");
 
@@ -70,13 +61,44 @@ public class GameResultActivity extends AppCompatActivity implements IResult.IRe
     }
 
     public void onClickPlayAgain(View view) {
-        Intent intent = new Intent(this, Lvl3StartActivity.class);
-        intent.putExtra("Username", username);
-        startActivity(intent);
+        if (level == 1) {
+            goToLevel1(username);
+        } else if (level == 2) {
+            goToLevel2(username);
+        } else {
+            goToLevel3(username);
+        }
     }
 
     public void onClickSelectAnother(View view) {
         Intent intent = new Intent(this, CourseSelectorActivity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
+    }
+
+    /**
+     * Navigate to Level 1 activity for user with "username".
+     */
+    public void goToLevel1(String username) {
+        Intent intent = new Intent(this, FirstGameActivity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
+    }
+
+    /**
+     * Navigate to Level 2 activity for user with "username".
+     */
+    public void goToLevel2(String username) {
+        Intent intent = new Intent(this, Lvl2GameActivity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
+    }
+
+    /**
+     * Navigate to Level 3 activity for user with "username".
+     */
+    public void goToLevel3(String username) {
+        Intent intent = new Intent(this, Lvl3StartActivity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }
