@@ -475,3 +475,8 @@ Changes: Resized the circle.png in drawable and instantied level1Presenter befor
 Step 76:
 Code affected: onTouchEvent in Lvl3GameView
 Changes: startActivity(intent) should execute after extras have been added.
+
+#########
+Step 77 (Grace)
+Code Affected: First Game activity
+Changes: fixed keyword mismatch
