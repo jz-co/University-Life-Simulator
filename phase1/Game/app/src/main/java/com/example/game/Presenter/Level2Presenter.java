@@ -59,6 +59,8 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
     public void quitGame() {
         // adding the score of the player to their hp
         gameLevel.getStudent().incrementHp(gameLevel.getScore());
+        gameLevel.getStudent().incrementCredit(5);
+        gameLevel.getStudent().incrementGpa(1);
         this.updateDisplay(view);
         gameManager.saveBeforeExit();
     }
