@@ -66,6 +66,7 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
             gameLevel.levelPass();
         }
         view.endGame();
+        gameManager.saveBeforeExit();
     }
 
 
@@ -79,7 +80,7 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
         if (nextLevelUnlocked){
             view.goToLevel2();
         } else {
-            view.displayWarning("Sorry, the current level has not been unlocked");
+            view.displayWarning("Sorry, the next level has not been unlocked");
         }
     }
 }
