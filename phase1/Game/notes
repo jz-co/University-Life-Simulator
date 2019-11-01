@@ -506,3 +506,7 @@ Step 82 (Parinita)
 Code Affected: FirstGameActivity.java, Level1Presenter.java, GameLevel1.java
 Changes: Modified the evaluate answer methods in the files above. The game now runs and the user input is correctly assesed
 and the appropriate view are updated with the score.
+
+########
+Step 83 (Trisha)
+Added CharacterIcons class to View module.
