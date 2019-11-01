@@ -409,3 +409,8 @@ Changes: updated how we instantiate presenters and game managers.
 Step 64 (Koby)
 Code Affected: Lvl2GameActivity, FirstGameActivity
 Changes: update on instantiating gamemanager
+
+#########
+Step 65 (Grace)
+Code Affected: DataHandler.java
+Changes: added private helper methods to avoid duplicating code.

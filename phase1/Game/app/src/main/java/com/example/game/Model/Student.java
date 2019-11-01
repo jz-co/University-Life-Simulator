@@ -1,9 +1,11 @@
 package com.example.game.Model;
 
 public class Student{
-    private int credit, appearance, currentLevel;
+    private int credit, currentLevel;
+    private int appearance = 1;
     private double gpa, hp;
-    private String username, password, name, language;
+    private String username, password, name;
+    private String language = "English";
 
     /** Create a new Student. This student did not exist before and other attributes need to be
      * set separately.
@@ -15,7 +17,7 @@ public class Student{
 
         this.username = username;
         this.password = password;
-
+        this.name = username;
     }
 
     /**
