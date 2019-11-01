@@ -77,7 +77,16 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
     }
 
     public void evaluateAnswer(String answerReceived) {
-        this.gameLevel.evaluateAnswer(answerReceived);
+        int value = this.gameLevel.evaluateAnswer(answerReceived);
+        if (value != 0) {
+            if (value == 1) {
+                setCorrectScore();
+            } else if (value == -1) {
+                setIncorrectScore();
+            }
+            setQuestion();
+        }
+
     }
 
     public void quitGame() {

@@ -38,7 +38,7 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
 
     public void play() {
         //60 seconds countdown timer TODO: move to front end
-        countDownTimer = new CountDownTimer(600000, 1000) {
+        countDownTimer = new CountDownTimer(60000, 1000) {
             @Override
             //on every tick, display the seconds remaining
             public void onTick(long millisUntilFinished) {
@@ -128,24 +128,29 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
 
     }
 
-    public void evaluateAnswer(String answer) {
+    public int evaluateAnswer(String answer) {
         try {
             Integer.parseInt(answer);
             boolean rightAnswer = Integer.parseInt(answer) == correctAnswer;
             System.out.println(rightAnswer);
-
+            presenter.setQuestion();
             if (rightAnswer) {
-                presenter.setCorrectScore();
+                //presenter.setCorrectScore();
+                correctAnswers+=1;
+                return 1;
             } else {
-                presenter.setIncorrectScore();
+                //presenter.setIncorrectScore();
+                incorrectAnswers+=1;
+                return -1;
             }
 
-            presenter.setQuestion();
+
         } catch (NumberFormatException e) {
             presenter.setInvalidInputMessage();
-
+            return 0;
         }
 
 
     }
 }
+

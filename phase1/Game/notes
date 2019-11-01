@@ -500,3 +500,9 @@ Changes: changed default currentLevel, gpa
 Step 81 (Grace)
 Code Affected: drawable folder
 Changes: added boy1-3, girl1-3 icons
+
+########
+Step 82 (Parinita)
+Code Affected: FirstGameActivity.java, Level1Presenter.java, GameLevel1.java
+Changes: Modified the evaluate answer methods in the files above. The game now runs and the user input is correctly assesed
+and the appropriate view are updated with the score.

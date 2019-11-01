@@ -21,7 +21,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     private Level1Presenter level1Presenter;
     private TextView questionTV, correctTV, incorrectTV, hpTV, creditTV, gpaTV, resultTV;
     private EditText answerTV;
-    private Button start, nextLevel;
+    private Button start, nextLevel, enter;
     private boolean nextLevelUnlocked = false;
     private boolean pauseGame = false;
     private String username;
@@ -44,6 +44,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         this.answerTV = findViewById(R.id.answer);
         this.resultTV = findViewById(R.id.resultLvl1);
         this.start = findViewById(R.id.startLv1);
+        this.enter = findViewById(R.id.enterLv1);
         this.nextLevel = findViewById(R.id.nextLevelLvl1);
         this.hpTV = findViewById(R.id.hpLvl1);
         this.creditTV = findViewById(R.id.creditLvl1);
@@ -54,6 +55,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         this.incorrectTV.setVisibility(View.INVISIBLE);
         this.answerTV.setVisibility(View.INVISIBLE);
         this.resultTV.setVisibility(View.INVISIBLE);
+        this.enter.setVisibility(View.INVISIBLE);
         level1Presenter.initDisplay(this);
 
     }
@@ -77,6 +79,8 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         this.correctTV.setVisibility(View.VISIBLE);
         this.incorrectTV.setVisibility(View.VISIBLE);
         this.answerTV.setVisibility(View.VISIBLE);
+        this.enter.setVisibility(View.VISIBLE);
+        displayQuestion();
         this.level1Presenter.startGame();
     }
 
@@ -121,6 +125,9 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     public void evaluateAnswer(View view) {
         String answerReceived = this.answerTV.getText().toString();
         level1Presenter.evaluateAnswer(answerReceived);
+        //displayCorrectScore();
+        //displayIncorrectScore();
+        //displayQuestion();
     }
 
     @Override
