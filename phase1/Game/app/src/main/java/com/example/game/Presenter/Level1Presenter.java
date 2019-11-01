@@ -96,4 +96,11 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
         this.updateDisplay(view);
         this.gameManager.saveBeforeExit();
     }
+
+    public void incrementStudentLevel(){
+        if (gameLevel.getStudent().getCurrentLevel()<=1) {
+            gameLevel.getStudent().incrementLevel();
+        }
+    }
+
 }

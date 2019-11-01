@@ -538,3 +538,8 @@ and add the increment student level method in the level2Presenter class
 Step 87 (Koby)
 Code Affected:Lvl2GameActivity
 Changes: decrease clearing score of level 2
+
+########
+Step 88 (Parinita)
+Code Affected: FirstGameActivity.java, Level1Presenter.java
+Changes: Added incrementStudentlevel to presenter and modified code in firstgameactivity to allow to go to next level.
