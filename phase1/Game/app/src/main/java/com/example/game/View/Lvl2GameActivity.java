@@ -129,6 +129,8 @@ public class Lvl2GameActivity extends AppCompatActivity implements ILevel2.ILeve
                     Toast.LENGTH_SHORT).show();
             nextLevelUnlocked = true;
             level2Presenter.incrementStudentLevel();
+        }else{
+            level2Presenter.decrementStudentGpa();
         }
         level2Presenter.quitGame();
     }

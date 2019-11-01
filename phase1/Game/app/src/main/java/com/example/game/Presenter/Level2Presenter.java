@@ -248,4 +248,13 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
             gameLevel.getStudent().incrementLevel();
         }
     }
+
+    /** decrease the gpa of the student
+     *
+     */
+    public void decrementStudentGpa(){
+        if (gameLevel.getStudent().getGpa() >= 0){
+            gameLevel.getStudent().incrementGpa(-1);
+        }
+    }
 }

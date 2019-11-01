@@ -105,4 +105,13 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
         }
     }
 
+    /** decrease the gpa of the student
+     *
+     */
+    public void decrementStudentGpa(){
+        if (gameLevel.getStudent().getGpa() >= 0){
+            gameLevel.getStudent().incrementGpa(-1);
+        }
+    }
+
 }

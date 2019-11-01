@@ -163,7 +163,9 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
             level1Presenter.incrementStudentLevel();
 
         }else{Toast.makeText(this, "Play again to unlock the next level!",
-                Toast.LENGTH_SHORT).show();}
+                Toast.LENGTH_SHORT).show();
+                level1Presenter.decrementStudentGpa();
+        }
     }
     public void proceedNext(View view){
         goToLevel2();
