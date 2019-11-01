@@ -39,7 +39,8 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
         // Set reference to the profileButton in layout
         // Set its image to the user's character icon
         ImageButton profileButton = (ImageButton) findViewById(R.id.profileButton);
-        profileButton.setImageResource(characterIcons.get(presenter.getPicIndex()));
+        int index = presenter.getPicIndex();
+        profileButton.setImageResource(characterIcons.get(index));
     }
 
 

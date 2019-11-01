@@ -7,14 +7,15 @@ import com.example.game.Model.GameManager;
 
 public class CustomizationPresenter implements ICustomization.ICustomizationPresenter {
     private ICustomization.ICustomizationView view;
-    private CustomizationManager manager;
+    private CustomizationManager customizationManager;
     private GameManager gameManager;
 
     public CustomizationPresenter(ICustomization.ICustomizationView view, IData dataHandler, String username){
         this.view = view;
         this.gameManager = new GameManager(dataHandler, username);
-        this.manager = new CustomizationManager(this.gameManager.getCurrentStudent());
+        this.customizationManager = new CustomizationManager(this.gameManager.getCurrentStudent());
     }
+
 
 
 //    /**
@@ -53,7 +54,7 @@ public class CustomizationPresenter implements ICustomization.ICustomizationPres
         if (lang.length()==0){
             lang = "English";
         }
-        manager.customize(picIndex, customName, lang);
+        customizationManager.customize(picIndex, customName, lang);
         gameManager.saveBeforeExit();
         view.navigateToCourseSelector(gameManager.getCurrentUsername());
     }
