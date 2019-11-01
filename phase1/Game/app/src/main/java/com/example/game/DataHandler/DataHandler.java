@@ -9,8 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.game.Contract.IData;
 import com.example.game.Model.Student;
 
-import java.util.ArrayList;
-
 /** inspired by
  * Android SQLite - Very basic SQLite Contact App
  * https://www.youtube.com/watch?v=pXn9s-2YsIw

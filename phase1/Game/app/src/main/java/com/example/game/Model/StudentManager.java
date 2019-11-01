@@ -1,9 +1,6 @@
 package com.example.game.Model;
 
 import com.example.game.Contract.IData;
-import com.example.game.DataHandler.DataHandler;
-
-import java.util.List;
 
 class StudentManager {
 
