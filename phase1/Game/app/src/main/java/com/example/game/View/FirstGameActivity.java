@@ -23,10 +23,8 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     private TextView questionTV, correctTV, incorrectTV, hpTV, creditTV, gpaTV, resultTV;
     private EditText answerTV;
     private Button start, nextLevel, enter;
-    private boolean nextLevelUnlocked = false;
     private boolean pauseGame = false;
     private String username;
-    private int clearingScore = 5;
     private CountDownTimer countDownTimer;
 
     @Override
@@ -62,6 +60,17 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
 
     }
 
+    public void startGame(View view) {
+        this.start.setVisibility(View.INVISIBLE);
+        this.nextLevel.setVisibility(View.INVISIBLE);
+        this.questionTV.setVisibility(View.VISIBLE);
+        this.correctTV.setVisibility(View.VISIBLE);
+        this.incorrectTV.setVisibility(View.VISIBLE);
+        this.answerTV.setVisibility(View.VISIBLE);
+        this.enter.setVisibility(View.VISIBLE);
+
+        this.level1Presenter.startGame();
+    }
 
     public void goToLevel2() {
         Intent intent = new Intent(this, Lvl2GameActivity.class);
@@ -75,19 +84,6 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     }
 
 
-
-    public void startGame(View view) {
-        this.start.setVisibility(View.INVISIBLE);
-        this.nextLevel.setVisibility(View.INVISIBLE);
-        this.questionTV.setVisibility(View.VISIBLE);
-        this.correctTV.setVisibility(View.VISIBLE);
-        this.incorrectTV.setVisibility(View.VISIBLE);
-        this.answerTV.setVisibility(View.VISIBLE);
-        this.enter.setVisibility(View.VISIBLE);
-
-        this.level1Presenter.startGame();
-    }
-
     public void pauseOrResumeGame(View view) {
         if (pauseGame) {
             level1Presenter.resumeGame();
@@ -100,15 +96,13 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     public void startTimer(long totalTime){
         countDownTimer = new CountDownTimer(totalTime, 1000) {
             @Override
-            //on every tick, display the seconds remaining
             public void onTick(long millisUntilFinished) {
                 level1Presenter.tick(millisUntilFinished);
             }
 
             @Override
-            //when time is up, quit game in the view
             public void onFinish() {
-                level1Presenter.quitGame();
+                level1Presenter.levelComplete();
             }
 
         }.start();
@@ -135,12 +129,6 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
         this.questionTV.setText(question);
     }
 
-    public void displayInvalidInputMessage() {
-        System.out.println("Wrong");
-        Toast toast = Toast.makeText(this, "Invalid entry, please enter a new answer", Toast.LENGTH_SHORT);
-        toast.show();
-    }
-
     public void evaluateAnswer(View view) {
         String answerReceived = this.answerTV.getText().toString();
         level1Presenter.evaluateAnswer(answerReceived);
@@ -164,25 +152,16 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
 
     @Override
     public void displayCredit(int credit) {
-        this.creditTV.setText("credit" + credit);
+        this.creditTV.setText("credit: " + credit);
 
     }
 
-    public void quitGame() {
+    public void endGame() {
         this.resultTV.setText("Score:" + Integer.toString(level1Presenter.getCorrectScore()));
         this.resultTV.setVisibility(View.VISIBLE);
         this.nextLevel.setVisibility(View.VISIBLE);
-        if (level1Presenter.getCorrectScore() >= clearingScore) {
-            Toast.makeText(this, "Congratulations, you have cleared this level!",
-                    Toast.LENGTH_SHORT).show();
-            nextLevelUnlocked = true;
-            level1Presenter.incrementStudentLevel();
-
-        }else{Toast.makeText(this, "Play again to unlock the next level!",
-                Toast.LENGTH_SHORT).show();
-            level1Presenter.decrementStudentGpa();
-        }
     }
+
     public void onClickNextLevel(View view){
         level1Presenter.validateLevel2();
     }

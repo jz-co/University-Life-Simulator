@@ -8,15 +8,12 @@ public interface ILevel1 extends ILevel{
         void displayIncorrectScore(int score);
         void setSecondsRemaining(long secondsRemaining);
         void displayQuestion(String question);
-        void displayInvalidInputMessage();
-        void quitGame();
+
+        void endGame();
         void startTimer(long totalTime);
         void displayWarning(String message);
     }
     interface ILevel1Presenter{
-        void goToNextLevel();
-        void quitGame();
-        void newQuestion();
-        void setInvalidInputMessage();
+
     }
 }

@@ -11,18 +11,17 @@ import java.util.List;
 public class GameLevel1 extends com.example.game.Model.GameLevel {
     private Student student;
     private int correctAnswers, incorrectAnswers;
+    private int clearingScore = 5;
 
     private String question;
     private int correctAnswer;
     private List<String> operators = new ArrayList<>(Arrays.asList("+", "-", "*"));
-    private ILevel1.ILevel1Presenter presenter;
 
     //initialize the game
     public GameLevel1(Student student, ILevel1.ILevel1Presenter presenter) {
         this.student = student;
         this.correctAnswers = 0;
         this.incorrectAnswers = 0;
-        this.presenter = presenter;
     }
 
     public void play() {
@@ -39,10 +38,6 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
 
     public int getIncorrectAnswers() {
         return this.incorrectAnswers;
-    }
-
-    public void setPresenter(ILevel1.ILevel1Presenter presenter) {
-        this.presenter = presenter;
     }
 
 
@@ -71,25 +66,31 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
 
     }
 
-    public int evaluateAnswer(String answer) {
-        try {
-            Integer.parseInt(answer);
-            boolean rightAnswer = Integer.parseInt(answer) == correctAnswer;
-            System.out.println(rightAnswer);
-            presenter.newQuestion();
-            if (rightAnswer) {
-                correctAnswers+=1;
-                return 1;
-            } else {
-                incorrectAnswers+=1;
-                return 0;
-            }
-        } catch (NumberFormatException e) {
-            presenter.setInvalidInputMessage();
-            return -1;
+    public boolean evaluateAnswer(int answer) {
+        if (answer == correctAnswer){
+            correctAnswers++;
+        } else {
+            incorrectAnswers ++;
+        }
+        return answer == correctAnswer;
+    }
+
+    public int getClearingScore(){
+        return clearingScore;
+    }
+
+    public void levelPass(){
+        student.incrementGpa(1);
+        student.incrementHp(correctAnswers);
+        student.incrementCredit(5);
+        if (student.getCurrentLevel()<=1){
+            student.incrementLevel();
         }
     }
 
-
+    public void levelFail(){
+        student.decrementGpa(1);
+        student.decrementHp(incorrectAnswers);
+    }
 }
 
