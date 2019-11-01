@@ -1,15 +1,12 @@
 package com.example.game.Model.Level3;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
+import com.example.game.Contract.ILevel3;
 
 public abstract class GameContents {
     protected int x;
     protected int y;
 
-    Bitmap image;
-
+    ILevel3.ILevel3GameView view;
     /**
      * The width of grid
      */
@@ -21,14 +18,12 @@ public abstract class GameContents {
     protected int gridHeight;
 
 
-    public GameContents(Bitmap image, int gridWidth, int gridHeight) {
+    public GameContents(ILevel3.ILevel3GameView view, int gridWidth, int gridHeight) {
         this.gridHeight = gridHeight;
         this.gridWidth = gridWidth;
-        this.image = image;
+        this.view = view;
 
     }
-
-    public abstract void draw(Canvas canvas);
 
     public abstract void update();
 

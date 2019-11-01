@@ -3,6 +3,7 @@ package com.example.game.View;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -11,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.example.game.Contract.ILevel3;
 import com.example.game.DataHandler.DataHandler;
 import com.example.game.Model.GameManager;
 import com.example.game.Model.Level3.Arrow;
@@ -19,14 +21,13 @@ import com.example.game.Model.Level3.GameContents;
 import com.example.game.Model.Level3.Wheel;
 import com.example.game.Model.Level3.Lvl3GameItemManager;
 import com.example.game.Model.Student;
-import com.example.game.Presenter.MainThread;
 import com.example.game.R;
 
 /**
  * Referenced https://www.androidauthority.com/android-game-java-785331/
  */
 
-public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback {
+public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback, ILevel3.ILevel3GameView {
 
     /**
      * A game item manager object.
@@ -53,7 +54,11 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback 
      */
     String username;
 
-    private com.example.game.Presenter.MainThread thread;
+    private MainThread thread;
+
+    private Bitmap wheelImage = BitmapFactory.decodeResource(getResources(), R.drawable.circle);
+    private Bitmap arrowImage = BitmapFactory.decodeResource(getResources(), R.drawable.arrow);
+    private Bitmap bowImage = BitmapFactory.decodeResource(getResources(), R.drawable.bow);
 
     public Lvl3GameView(Context context, String username) {
         super(context);
@@ -74,17 +79,15 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback 
         gameItemManager = new Lvl3GameItemManager(screenWidth, screenHeight);
 
         // add a bow to the game
-        Bow bow = new Bow(BitmapFactory.decodeResource(getResources(), R.drawable.bow), screenWidth, screenHeight);
+        Bow bow = new Bow(this, screenWidth, screenHeight);
         gameItemManager.createGameItems(bow);
 
         // add a wheel to the game
-        Wheel wheel = new Wheel(BitmapFactory.decodeResource(getResources(), R.drawable.circle),
-                screenWidth, screenHeight);
+        Wheel wheel = new Wheel(this, screenWidth, screenHeight);
         gameItemManager.createGameItems(wheel);
 
         // add an arrow to the game
-        Arrow arrow = new Arrow(BitmapFactory.decodeResource(getResources(), R.drawable.arrow),
-                screenWidth, screenHeight);
+        Arrow arrow = new Arrow(this, screenWidth, screenHeight);
         gameItemManager.createGameItems(arrow);
 
         thread.setRunning(true);
@@ -120,7 +123,13 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback 
         super.draw(canvas);
         if (canvas != null) {
             for (GameContents item : gameItemManager.getGameItems()) {
-                item.draw(canvas);
+                if (item instanceof Arrow){
+                    drawArrow(canvas, item.getX(), item.getY());
+                } else if (item instanceof Bow){
+                    drawBow(canvas, item.getX(), item.getY());
+                } else if (item instanceof Wheel){
+                    drawWheel(canvas, item.getX(), item.getY());
+                }
             }
         }
         String score = "High Score: " + (gameItemManager.getHighScore());
@@ -140,8 +149,7 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback 
             Arrow moving_arrow = (Arrow) gameItemManager.getGameItems().get(2);
             moving_arrow.setTouch(true);
             if (gameItemManager.getGameItems().size() - 2 <= 1) {
-                gameItemManager.getGameItems().add(new Arrow(BitmapFactory.decodeResource(getResources(), R.drawable.arrow),
-                        screenWidth, screenHeight));
+                gameItemManager.getGameItems().add(new Arrow(this, screenWidth, screenHeight));
             }
         }
 
@@ -161,5 +169,25 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback 
 
         invalidate();
         return true;
+    }
+
+    public void drawArrow(Canvas canvas, int x, int y){
+        canvas.drawBitmap(arrowImage, x, y, null);
+    }
+
+    public void drawBow(Canvas canvas, int x, int y){
+        canvas.drawBitmap(this.bowImage, x, y, null);
+    }
+
+    public void drawWheel(Canvas canvas, int x, int y){
+        canvas.drawBitmap(this.wheelImage, x, y, null);
+    }
+
+    public int getWheelWidth(){
+        return wheelImage.getWidth();
+    }
+
+    public int getWheelHeight(){
+        return wheelImage.getHeight();
     }
 }

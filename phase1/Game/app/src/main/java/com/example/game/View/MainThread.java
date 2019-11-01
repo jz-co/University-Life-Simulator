@@ -1,4 +1,4 @@
-package com.example.game.Presenter;
+package com.example.game.View;
 
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;

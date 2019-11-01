@@ -1,36 +1,33 @@
 package com.example.game.Model.Level3;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
+import com.example.game.Contract.ILevel3;
 
 public class Wheel extends GameContents {
 
-    Bitmap image;
     private String direction = "->";
     private int speed;
+    private int width;
+    private int height;
 
-    public Wheel(Bitmap image, int width, int height) {
-        super(image, width, height);
-        this.image = image;
+    public Wheel(ILevel3.ILevel3GameView view, int width, int height) {
+        super(view, width, height);
         super.setX((25 * width) / 100);
         super.setY((15 * height) / 100);
         speed = 5;
+        this.width = view.getWheelWidth();
+        this.height = view.getWheelHeight();
     }
 
     public int getWidth() {
-        return image.getWidth();
+        return view.getWheelWidth();
     }
 
     public int getHeight() {
-        return image.getHeight();
-    }
-
-    public void draw(Canvas canvas) {
-        canvas.drawBitmap(image, getX(), getY(), null);
+        return view.getWheelHeight();
     }
 
     public void update() {
-        if (!(x < gridWidth - image.getWidth() & x > 0)) {
+        if (!(x < gridWidth - width & x > 0)) {
             reverse();
         }
         if (direction.equals("->")) {

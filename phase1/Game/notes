@@ -438,3 +438,10 @@ Changes: deleted method that returns a list of all registered students. deleted 
 students in student manager. student manager no longer stores a full list of students
 (huge waste of space if we have lots of users), instead it's a handle for other classes
 to access student data from data handler.
+
+#########
+Step 70 (Grace)
+Code Affected: ILevel3, Level3.GameContents and subclasses, Lvl3GameView, MainThread
+Changes: instead of letting backend objects draw on Canvas directly, stored their images
+in View and made view draw them according to their types. Added methods in view since Wheel
+needs the dimensions of the image. Moved MainThread from Presenter to View.
