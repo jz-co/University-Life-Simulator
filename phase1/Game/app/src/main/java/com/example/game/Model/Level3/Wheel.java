@@ -37,11 +37,12 @@ public class Wheel extends GameContents {
         }
     }
 
-    public void setSpeed() {
-        speed += 2;
+    void setSpeed() {
+        if (Math.random() <= 0.3 & speed >= 9){speed -= 2;}
+        else{speed += 2;}
     }
 
-    public void reverse() {
+    void reverse() {
         if (direction.equals("->")) {
             direction = "<-";
         } else {

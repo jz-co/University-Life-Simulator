@@ -445,3 +445,7 @@ Code Affected: ILevel3, Level3.GameContents and subclasses, Lvl3GameView, MainTh
 Changes: instead of letting backend objects draw on Canvas directly, stored their images
 in View and made view draw them according to their types. Added methods in view since Wheel
 needs the dimensions of the image. Moved MainThread from Presenter to View.
+
+##########
+Step 71 (Vishnu)
+Code affected : Modified update and image for circle
