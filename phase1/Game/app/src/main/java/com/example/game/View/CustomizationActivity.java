@@ -40,11 +40,13 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
 
         customName = (EditText) findViewById(R.id.customNameText);
         characterIconView = (ImageView) findViewById(R.id.characterIconView);
+
+        characterIconView.setImageResource(characterIcons.get(currPicIndex));
     }
 
     void populateCharacterIcons() {
         characterIcons.add(getResources().getIdentifier("@drawable/boy1", null, this.getPackageName()));
-        characterIcons.add(getResources().getIdentifier("@drawable/gir1", null, this.getPackageName()));
+        characterIcons.add(getResources().getIdentifier("@drawable/girl1", null, this.getPackageName()));
         characterIcons.add(getResources().getIdentifier("@drawable/boy2", null, this.getPackageName()));
         characterIcons.add(getResources().getIdentifier("@drawable/girl2", null, this.getPackageName()));
         characterIcons.add(getResources().getIdentifier("@drawable/boy3", null, this.getPackageName()));
@@ -55,7 +57,6 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
 
     /**
      * Executes when the switch avatar button is clicked.
-     * @param view
      */
     public void nextPicture(View view) {
         currPicIndex += 1;
