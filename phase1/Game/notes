@@ -459,3 +459,9 @@ some instance variables in the classes. Added setter and getter methods to Level
 ##########
 Step 73 (Trisha)
 Code affected: Modified code in Lvl3GameView and added comments.
+
+##########
+Step 74 (Parinita)
+Code affected: drawable folder and Lvl3GameView.
+Changes: Lvl3GameView was not running as there wasn't a circle.png in drawable. Added a circle to the
+drawable folder to remove this error.
