@@ -599,3 +599,8 @@ Changes: deleted unused methods in student. deleted class GameLevel since it's n
 #########
 Step 100 (!!) (Grace)
 Changes: removed unused presenter ResultPresenter
+
+#########
+Step 101 (!!!) (Parinita)
+Code affected: FirstGameActivity.java, activity_first_game.xml
+Changes: added java docs and hid the pause button until after the game is started.
