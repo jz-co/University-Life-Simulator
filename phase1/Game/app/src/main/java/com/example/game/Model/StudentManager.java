@@ -10,7 +10,7 @@ class StudentManager {
     private IData dataHandler;
 
 
-    StudentManager(IData dataHandler){
+    StudentManager(IData dataHandler) {
         this.dataHandler = dataHandler;
     }
 
@@ -29,8 +29,8 @@ class StudentManager {
      * @param password The new student's password
      * @return the new student
      */
-    Student getNewStudent(String username, String password){
-        Student newStudent = new Student(username,password);
+    Student getNewStudent(String username, String password) {
+        Student newStudent = new Student(username, password);
         addStudent(newStudent);
         return newStudent;
     }
@@ -52,7 +52,7 @@ class StudentManager {
      *
      * @param s A student to add to the list.
      */
-    private void addStudent(Student s){
+    private void addStudent(Student s) {
         dataHandler.addStudentData(s);
     }
 
@@ -62,8 +62,8 @@ class StudentManager {
      *
      * @param username The username to check.
      */
-    boolean studentExists(String username){
-        return !(getStudentByUsername(username)== null);
+    boolean studentExists(String username) {
+        return !(getStudentByUsername(username) == null);
     }
 
 
@@ -71,7 +71,7 @@ class StudentManager {
      * Check whether given username and password match.
      * Precondition: the student exists.
      */
-    boolean passwordMatches(String username, String password){
+    boolean passwordMatches(String username, String password) {
         Student thisStudent = getStudentByUsername(username);
         return thisStudent.getPassword().equals(password);
     }
