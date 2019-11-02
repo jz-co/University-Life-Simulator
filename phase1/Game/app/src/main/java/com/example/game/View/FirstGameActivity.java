@@ -44,6 +44,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
 
         this.username = (String) getIntent().getSerializableExtra("Username");
         this.level1Presenter = new Level1Presenter(this, new DataHandler(this), username);
+
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);
         this.incorrectTV = findViewById(R.id.incorrect);
@@ -90,6 +91,16 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
 
     public void displayWarning(String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void navigateToResults(String displayMessage, int score) {
+        Intent intent = new Intent(this, GameResultActivity.class);
+        intent.putExtra("Completion", displayMessage);
+        intent.putExtra("Level", 1);
+        intent.putExtra("Score", score);
+        intent.putExtra("Username", username);
+        startActivity(intent);
     }
 
 

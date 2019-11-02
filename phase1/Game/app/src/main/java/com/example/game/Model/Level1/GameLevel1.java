@@ -18,7 +18,7 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
     private List<String> operators = new ArrayList<>(Arrays.asList("+", "-", "*"));
 
     //initialize the game
-    public GameLevel1(Student student, ILevel1.ILevel1Presenter presenter) {
+    public GameLevel1(Student student) {
         this.student = student;
         this.correctAnswers = 0;
         this.incorrectAnswers = 0;

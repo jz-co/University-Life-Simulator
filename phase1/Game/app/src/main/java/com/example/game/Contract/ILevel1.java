@@ -12,6 +12,8 @@ public interface ILevel1 extends ILevel{
         void endGame();
         void startTimer(long totalTime);
         void displayWarning(String message);
+
+        void navigateToResults(String displayMessage, int score);
     }
     interface ILevel1Presenter{
 

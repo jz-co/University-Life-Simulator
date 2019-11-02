@@ -587,3 +587,14 @@ and some game logic to model.
 Step 97 (Jenny)
 Code affected: CourseSelectorPresenter
 Changes: modified validateLevel3 method, needs to check that user has passed level 1 and 2 first.
+
+#########
+Step 98 (Jenny)
+Code affected: Level1Presenter
+Flaw: gameManager is a local variable in the constructor, causing bug where different student objects
+were being referenced in the gameManager vs the gameLevel objects.
+Changes: made gameManager a class instance attribute.
+Flaw: The result page on game completion of level 1 is weird (allows user to continue to play game)
+Changes: changed levelComplete() in Level1Presenter, and implemented navigateToResults method in
+FirstGameActivity, which transitions to the GameResultActivity upon game completion.
+Can still display completion/failure message, score,
