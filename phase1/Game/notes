@@ -604,3 +604,8 @@ Changes: removed unused presenter ResultPresenter
 Step 101 (!!!) (Parinita)
 Code affected: FirstGameActivity.java, activity_first_game.xml
 Changes: added java docs and hid the pause button until after the game is started.
+
+#########
+Step 102 (!!!!) (Parinita)
+Code affected: Level1Presenter.java, GameLevel1.java
+Changes: added java docs to the above files.
