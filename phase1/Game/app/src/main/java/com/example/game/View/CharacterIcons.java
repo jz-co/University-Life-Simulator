@@ -26,10 +26,19 @@ class CharacterIcons {
 
     }
 
+    /**
+     * Returns the identifier of the icon
+     * @param index the picture index
+     * @return identifier of the pic
+     */
     int getIconByIndex(int index){
         return characterIcons.get(index);
     }
 
+    /**
+     * Returns the total number of pictures.
+     * @return number of pics
+     */
     int getNumberOfPics(){
         return characterIcons.size();
     }

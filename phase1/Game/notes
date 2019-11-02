@@ -595,3 +595,7 @@ Changes: added user icons.
 #########
 Step 99 (Grace)
 Changes: deleted unused methods in student. deleted class GameLevel since it's not useful at all.
+
+#########
+Step 100 (!!) (Grace)
+Changes: removed unused presenter ResultPresenter
