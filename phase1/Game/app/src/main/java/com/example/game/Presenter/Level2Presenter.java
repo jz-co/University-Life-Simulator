@@ -52,8 +52,8 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
         if (nextLevelUnlocked) {
             view.goToLevel3();
         } else{
-            view.displayMessage("Sorry, the current level has not been unlocked. You need to score at least 20 points to \" +\n" +
-                    "                            \"clear the level.");
+            view.displayMessage("Sorry, the current level has not been unlocked. You need to score at " +
+                    "least 20 points to clear the level.");
         }
     }
 
