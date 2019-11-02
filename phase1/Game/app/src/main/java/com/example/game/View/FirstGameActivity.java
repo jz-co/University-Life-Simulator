@@ -202,9 +202,11 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     public void evaluateAnswer(View view) {
         if (running) {
             String answerReceived = this.answerTV.getText().toString();
+            this.answerTV.getText().clear();
             level1Presenter.evaluateAnswer(answerReceived);
         }
     }
+
 
     /**
      * Sets the name of the player on the screen
