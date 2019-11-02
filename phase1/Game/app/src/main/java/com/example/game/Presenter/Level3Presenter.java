@@ -16,8 +16,4 @@ public class Level3Presenter extends com.example.game.Presenter.LevelPresenter i
 
     }
 
-    public GameManager getGameManager() {
-        return this.gameManager;
-    }
-
 }

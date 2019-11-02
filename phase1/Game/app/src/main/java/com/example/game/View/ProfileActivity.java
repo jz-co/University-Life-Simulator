@@ -18,12 +18,6 @@ import com.example.game.R;
 
 public class ProfileActivity extends AppCompatActivity implements IProfile.IProfileView {
 
-    private TextView nameView;
-    private TextView gpaView;
-    private TextView creditsView;
-    private ImageView userIcon;
-    private CharacterIcons icons;
-
     private String username;
 
     private ProfilePresenter presenter;
@@ -43,23 +37,23 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
 
         username = (String) getIntent().getSerializableExtra("Username");
 
-        nameView = (TextView) findViewById(R.id.nameView);
-        gpaView = (TextView) findViewById(R.id.gpaView);
-        creditsView = (TextView) findViewById(R.id.creditsView);
-        userIcon = (ImageView) findViewById(R.id.characterIconView);
+        TextView nameView = findViewById(R.id.nameView);
+        TextView gpaView = findViewById(R.id.gpaView);
+        TextView creditsView = findViewById(R.id.creditsView);
+        ImageView userIcon = findViewById(R.id.characterIconView);
 
         presenter = new ProfilePresenter(this, new DataHandler(this), username);
         nameView.setText(presenter.getName());
         gpaView.setText(presenter.getGPA());
         creditsView.setText(presenter.getCredits());
 
-        icons = new CharacterIcons(this);
+        CharacterIcons icons = new CharacterIcons(this);
         int picIdentifier = icons.getIconByIndex(presenter.getPicIndex());
         userIcon.setImageResource(picIdentifier);
 
     }
 
-    public void onClickCustomize (View view) {
+    public void onClickCustomize(View view) {
         Intent intent = new Intent(this, CustomizationActivity.class);
         intent.putExtra("Username", username);
         startActivity(intent);

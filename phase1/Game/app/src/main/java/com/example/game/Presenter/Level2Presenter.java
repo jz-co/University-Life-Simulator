@@ -1,7 +1,6 @@
 package com.example.game.Presenter;
 
 import com.example.game.Contract.IData;
-import com.example.game.Contract.IGameManager;
 import com.example.game.Contract.ILevel2;
 import com.example.game.Model.GameManager;
 import com.example.game.Model.Level2.Basket;
@@ -10,7 +9,6 @@ import com.example.game.Model.Level2.GameLevel2;
 import com.example.game.Model.Level2.blueObject;
 import com.example.game.Model.Level2.redObject;
 import com.example.game.Model.Level2.yellowObject;
-import com.example.game.Model.Student;
 import com.example.game.R;
 
 import java.util.ArrayList;
@@ -18,13 +16,10 @@ import java.util.ArrayList;
 public class Level2Presenter extends com.example.game.Presenter.LevelPresenter implements ILevel2.ILevel2Presenter {
     private ILevel2.ILevel2View view;
     private GameLevel2 gameLevel;
-    private ArrayList<FallingObject> fallingObjects;
     private com.example.game.Model.Level2.redObject redObject;
     private com.example.game.Model.Level2.blueObject blueObject;
     private com.example.game.Model.Level2.yellowObject yellowObject;
     private int frameWidth = 1000;
-    private int frameHeight = 1500;
-    private int basketInt = 1455;
     private GameManager gameManager;
     private int clearingScore = 10;
     private boolean nextLevelUnlocked = false;
@@ -43,7 +38,9 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
         fallingObjects.add(redObject);
         fallingObjects.add(blueObject);
         fallingObjects.add(yellowObject);
+        int basketInt = 1455;
         Basket basket = new Basket(R.id.character, 0, basketInt);
+        int frameHeight = 1500;
         this.gameLevel = new GameLevel2(this.gameManager.getCurrentStudent(), basket, frameWidth, frameHeight, fallingObjects, this);
     }
 

@@ -9,14 +9,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.game.Contract.ICustomization.*;
 import com.example.game.DataHandler.DataHandler;
 import com.example.game.Presenter.CustomizationPresenter;
 import com.example.game.R;
 
-import java.util.ArrayList;
 
 public class CustomizationActivity extends AppCompatActivity implements ICustomizationView {
     private CustomizationPresenter presenter;
@@ -45,8 +43,8 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
 
         presenter = new CustomizationPresenter(this, new DataHandler(this), username);
 
-        customName = (EditText) findViewById(R.id.customNameText);
-        characterIconView = (ImageView) findViewById(R.id.characterIconView);
+        customName = findViewById(R.id.customNameText);
+        characterIconView = findViewById(R.id.characterIconView);
 
         icons = new CharacterIcons(this);
         int picIdentifier = icons.getIconByIndex(currPicIndex);

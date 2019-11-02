@@ -41,10 +41,10 @@ public class MainActivity extends AppCompatActivity implements ILogin.ILoginView
         loginPresenter = new LoginPresenter(this, new DataHandler(this));
 
         // Set references to the editTexts and TextViews in the layout
-        usernameText = (EditText) findViewById(R.id.usernameText);
-        passwordText = (EditText) findViewById(R.id.passwordText);
+        usernameText = findViewById(R.id.usernameText);
+        passwordText = findViewById(R.id.passwordText);
 
-        messageView = (TextView) findViewById(R.id.messageView);
+        messageView = findViewById(R.id.messageView);
 
     }
 
