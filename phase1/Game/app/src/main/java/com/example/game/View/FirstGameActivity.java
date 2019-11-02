@@ -28,6 +28,7 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     private boolean pauseGame = false;
     private String username;
     private CountDownTimer countDownTimer;
+    private boolean running;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,11 +108,13 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
             @Override
             public void onTick(long millisUntilFinished) {
                 level1Presenter.tick(millisUntilFinished);
+                running = true;
             }
 
             @Override
             public void onFinish() {
                 level1Presenter.levelComplete();
+                running = false;
             }
 
         }.start();
@@ -139,8 +142,10 @@ public class FirstGameActivity extends AppCompatActivity implements ILevel1.ILev
     }
 
     public void evaluateAnswer(View view) {
-        String answerReceived = this.answerTV.getText().toString();
-        level1Presenter.evaluateAnswer(answerReceived);
+        if (running) {
+            String answerReceived = this.answerTV.getText().toString();
+            level1Presenter.evaluateAnswer(answerReceived);
+        }
     }
 
     @Override
