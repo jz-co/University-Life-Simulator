@@ -616,7 +616,7 @@ Code affected: FirstGameActivity.java, activity_first_game.xml
 Changes: Clears answer everytime we click submit
 
 #########
-Step 98 (Jenny)
+Step 104 (Jenny)
 Code affected: Level1Presenter
 Flaw: gameManager is a local variable in the constructor, causing bug where different student objects
 were being referenced in the gameManager vs the gameLevel objects.
@@ -625,3 +625,8 @@ Flaw: The result page on game completion of level 1 is weird (allows user to con
 Changes: changed levelComplete() in Level1Presenter, and implemented navigateToResults method in
 FirstGameActivity, which transitions to the GameResultActivity upon game completion.
 Can still display completion/failure message and score.
+
+#########
+Step 105 (!!!!!) (Parinita)
+Code affected: activity_first_game.xml
+Changes: Changed the layout of level1
