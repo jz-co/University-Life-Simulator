@@ -10,11 +10,12 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
     private GameLevel1 gameLevel;
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
+    private GameManager gameManager;
 
     public Level1Presenter(ILevel1.ILevel1View view, IData dataHandler, String username) {
         super(dataHandler, username);
         this.view = view;
-        GameManager gameManager = new GameManager(dataHandler, username);
+        gameManager = new GameManager(dataHandler, username);
         this.gameLevel = new GameLevel1(gameManager.getCurrentStudent(), this);
         if (gameManager.getCurrentLevel()>1){
             nextLevelUnlocked = true;
@@ -55,7 +56,7 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
     }
 
     public void levelComplete() {
-        this.gameLevel.getStudent().incrementHp(gameLevel.getCorrectAnswers());
+
         int clearingScore = gameLevel.getClearingScore();
         if (gameLevel.getCorrectAnswers() < clearingScore){
             view.displayWarning("Play again to unlock the next level!");
