@@ -20,7 +20,6 @@ public class Level2Presenter extends com.example.game.Presenter.LevelPresenter i
     private com.example.game.Model.Level2.blueObject blueObject;
     private com.example.game.Model.Level2.yellowObject yellowObject;
     private int frameWidth = 1000;
-    private GameManager gameManager;
     private int clearingScore = 10;
     private boolean nextLevelUnlocked = false;
 

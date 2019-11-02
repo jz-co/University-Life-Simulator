@@ -10,7 +10,6 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
     private GameLevel1 gameLevel;
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
-    private GameManager gameManager;
 
     public Level1Presenter(ILevel1.ILevel1View view, IData dataHandler, String username) {
         super(dataHandler, username);
