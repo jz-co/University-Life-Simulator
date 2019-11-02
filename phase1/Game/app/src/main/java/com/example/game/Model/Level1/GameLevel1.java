@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class GameLevel1 extends com.example.game.Model.GameLevel {
+public class GameLevel1 {
     private Student student;
     private int correctAnswers, incorrectAnswers;
     private int clearingScore = 5;
@@ -24,9 +24,6 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
         this.incorrectAnswers = 0;
     }
 
-    public void play() {
-
-    }
 
     public Student getStudent() {
         return this.student;

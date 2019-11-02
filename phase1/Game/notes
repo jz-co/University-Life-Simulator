@@ -591,3 +591,7 @@ Changes: modified validateLevel3 method, needs to check that user has passed lev
 #########
 Step 98 (Grace)
 Changes: added user icons.
+
+#########
+Step 99 (Grace)
+Changes: deleted unused methods in student. deleted class GameLevel since it's not useful at all.

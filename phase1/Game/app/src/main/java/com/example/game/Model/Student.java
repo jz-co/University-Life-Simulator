@@ -61,12 +61,6 @@ public class Student{
         return hp;
     }
 
-    /** set the credit of this student
-     * @param credit: set the credit number of this student to be credit
-     * **/
-    public void setCredit(int credit) {
-        this.credit = credit;
-    }
 
     /** set the credit of this student
      * @param gpa: set the gpa of this student to be gpa
@@ -114,14 +108,6 @@ public class Student{
         }
     }
 
-    /** decrease the credit of this student
-     *
-     * @param amount_to_delete: the amount to be deleted to the credit of the student
-     */
-    public void decrementCredit(int amount_to_delete){
-        this.credit -= amount_to_delete;
-    }
-
     /** decrease the gpa of the student
      *
      * @param amount_to_delete: the amount to be deleted to the gpa of the student
@@ -156,11 +142,6 @@ public class Student{
         this.username = username;
     }
 
-    /** set the password of this student **/
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     /** get customized name of this student **/
     public String getName(){
         return name;
@@ -188,16 +169,8 @@ public class Student{
      *
      * @param appearance: the id of the customized appearance
      */
-    public void setAppearance(int appearance) {
+    void setAppearance(int appearance) {
         this.appearance = appearance;
-    }
-
-    /** set the currentLevel of this student
-     *
-     * @param currentLevel: the current currentLevel that this student is playing
-     */
-    public void setCurrentLevel(int currentLevel) {
-        this.currentLevel = currentLevel;
     }
 
 
@@ -213,7 +186,7 @@ public class Student{
      *
      * @param language: the preferred language of the student
      */
-    public void setLanguage(String language) {
+    void setLanguage(String language) {
         this.language = language;
     }
 
