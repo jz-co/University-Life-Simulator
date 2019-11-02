@@ -14,7 +14,6 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
     public Level1Presenter(ILevel1.ILevel1View view, IData dataHandler, String username) {
         super(dataHandler, username);
         this.view = view;
-        gameManager = new GameManager(dataHandler, username);
         this.gameLevel = new GameLevel1(gameManager.getCurrentStudent());
         if (gameManager.getCurrentLevel() > 1) {
             nextLevelUnlocked = true;
@@ -78,32 +77,34 @@ public class Level1Presenter extends LevelPresenter implements ILevel1.ILevel1Pr
      * Checks if the user has successfully completed the level or not. If successful, unlock the
      * next level.
      */
-//    public void levelComplete() {
-//        this.gameLevel.getStudent().incrementHp(gameLevel.getCorrectAnswers());
-//        int clearingScore = gameLevel.getClearingScore();
-//        if (gameLevel.getCorrectAnswers() < clearingScore){
-//            view.displayWarning("Play again to unlock the next level!");
-//            gameLevel.levelFail();
-//        } else {
-//            view.displayWarning("Congratulations, you have cleared this level!");
-//            nextLevelUnlocked = true;
-//            gameLevel.levelPass();
-//        }
-//        gameManager.saveBeforeExit();
-//        view.endGame();
-//    }
-
     public void levelComplete() {
         this.gameLevel.getStudent().incrementHp(gameLevel.getCorrectAnswers());
-
-        if (gameLevel.getCorrectAnswers() < gameLevel.getClearingScore()) {
+        int clearingScore = gameLevel.getClearingScore();
+        if (gameLevel.getCorrectAnswers() < clearingScore) {
+            view.displayWarning("Play again to unlock the next level!");
             gameLevel.levelFail();
-            view.navigateToResults("Sorry, please play again!", gameLevel.getCorrectAnswers());
         } else {
+            view.displayWarning("Congratulations, you have cleared this level!");
+            nextLevelUnlocked = true;
             gameLevel.levelPass();
-            view.navigateToResults("Congratulations, you have cleared this level!", gameLevel.getCorrectAnswers());
         }
+        gameManager.saveBeforeExit();
+        updateDisplay(view);
+        view.endGame();
     }
+
+//    public void levelComplete() {
+//        this.gameLevel.getStudent().incrementHp(gameLevel.getCorrectAnswers());
+//
+//        if (gameLevel.getCorrectAnswers() < gameLevel.getClearingScore()) {
+//            gameLevel.levelFail();
+//            view.navigateToResults("Sorry, please play again!", gameLevel.getCorrectAnswers());
+//        } else {
+//            gameLevel.levelPass();
+//            view.navigateToResults("Congratulations, you have cleared this level!", gameLevel.getCorrectAnswers());
+//        }
+//        gameManager.saveBeforeExit();
+//    }
 
     /**
      * Ask the view to display the number of seconds left in the game.
