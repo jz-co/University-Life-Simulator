@@ -589,6 +589,33 @@ Code affected: CourseSelectorPresenter
 Changes: modified validateLevel3 method, needs to check that user has passed level 1 and 2 first.
 
 #########
+Step 98 (Grace)
+Changes: added user icons.
+
+#########
+Step 99 (Grace)
+Changes: deleted unused methods in student. deleted class GameLevel since it's not useful at all.
+
+#########
+Step 100 (!!) (Grace)
+Changes: removed unused presenter ResultPresenter
+
+#########
+Step 101 (!!!) (Parinita)
+Code affected: FirstGameActivity.java, activity_first_game.xml
+Changes: added java docs and hid the pause button until after the game is started.
+
+#########
+Step 102 (!!!!) (Parinita)
+Code affected: Level1Presenter.java, GameLevel1.java
+Changes: added java docs to the above files.
+
+#########
+Step 103 (!!!!!) (Parinita)
+Code affected: FirstGameActivity.java, activity_first_game.xml
+Changes: Clears answer everytime we click submit
+
+#########
 Step 98 (Jenny)
 Code affected: Level1Presenter
 Flaw: gameManager is a local variable in the constructor, causing bug where different student objects
@@ -597,4 +624,4 @@ Changes: made gameManager a class instance attribute.
 Flaw: The result page on game completion of level 1 is weird (allows user to continue to play game)
 Changes: changed levelComplete() in Level1Presenter, and implemented navigateToResults method in
 FirstGameActivity, which transitions to the GameResultActivity upon game completion.
-Can still display completion/failure message, score,
+Can still display completion/failure message and score.

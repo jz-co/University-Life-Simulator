@@ -9,22 +9,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.game.Contract.IData;
 import com.example.game.Model.Student;
 
-/** inspired by
+/**
+ * inspired by
  * Android SQLite - Very basic SQLite Contact App
  * https://www.youtube.com/watch?v=pXn9s-2YsIw
  */
 
 public class DataHandler extends SQLiteOpenHelper implements IData {
 
-    private	static final int DATABASE_VERSION =	5;
-    private	static final String	DATABASE_NAME = "studentData";
-    private	static final String TABLE_STUDENTS = "students";
+    private static final int DATABASE_VERSION = 5;
+    private static final String DATABASE_NAME = "studentData";
+    private static final String TABLE_STUDENTS = "students";
 
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_PASSWORD = "password";
     private static final String COLUMN_LEVEL = "currentLevel";
-    private static final String COLUMN_CREDIT ="credit";
+    private static final String COLUMN_CREDIT = "credit";
     private static final String COLUMN_GPA = "gpa";
     private static final String COLUMN_HP = "hp";
     private static final String COLUMN_NAME = "name";
@@ -37,9 +38,9 @@ public class DataHandler extends SQLiteOpenHelper implements IData {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String	CREATE_CONTACTS_TABLE = "CREATE	TABLE " + TABLE_STUDENTS + "(" + COLUMN_ID + " INTEGER PRIMARY KEY," + COLUMN_USERNAME + " TEXT," + COLUMN_PASSWORD +
-                " TEXT," + COLUMN_LEVEL + " TEXT," + COLUMN_CREDIT + " TEXT,"+ COLUMN_GPA + " TEXT," + COLUMN_HP + " TEXT," + COLUMN_NAME + " TEXT," +
-                COLUMN_APPEARANCE + " TEXT,"+ COLUMN_LANGUAGE + " TEXT" + ")";
+        String CREATE_CONTACTS_TABLE = "CREATE	TABLE " + TABLE_STUDENTS + "(" + COLUMN_ID + " INTEGER PRIMARY KEY," + COLUMN_USERNAME + " TEXT," + COLUMN_PASSWORD +
+                " TEXT," + COLUMN_LEVEL + " TEXT," + COLUMN_CREDIT + " TEXT," + COLUMN_GPA + " TEXT," + COLUMN_HP + " TEXT," + COLUMN_NAME + " TEXT," +
+                COLUMN_APPEARANCE + " TEXT," + COLUMN_LANGUAGE + " TEXT" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
 
@@ -51,10 +52,11 @@ public class DataHandler extends SQLiteOpenHelper implements IData {
 
     /**
      * Add a new student to the database.
+     *
      * @param student the new student.
      */
     @Override
-    public void addStudentData(Student student){
+    public void addStudentData(Student student) {
         ContentValues values = new ContentValues();
         storeThisStudent(values, student);
         SQLiteDatabase db = this.getWritableDatabase();
@@ -63,34 +65,36 @@ public class DataHandler extends SQLiteOpenHelper implements IData {
 
     /**
      * Update the information of an existing student.
+     *
      * @param student an existing student.
      */
     @Override
-    public void updateStudentData(Student student){
+    public void updateStudentData(Student student) {
         ContentValues values = new ContentValues();
         storeThisStudent(values, student);
         SQLiteDatabase db = this.getWritableDatabase();
-        db.update(TABLE_STUDENTS, values, COLUMN_USERNAME	+ "	= ?", new String[] { student.getUsername()});
+        db.update(TABLE_STUDENTS, values, COLUMN_USERNAME + "	= ?", new String[]{student.getUsername()});
     }
 
     /**
      * Return the existing student with the given username.
+     *
      * @param userName the username to search for.
      * @return the student.
      */
     @Override
-    public Student getStudentByUserName(String userName){
-        String query = "Select * FROM "	+ TABLE_STUDENTS + " WHERE " + COLUMN_USERNAME + " = " + "userName";
+    public Student getStudentByUserName(String userName) {
+        String query = "Select * FROM " + TABLE_STUDENTS + " WHERE " + COLUMN_USERNAME + " = " + "userName";
         SQLiteDatabase db = this.getWritableDatabase();
         Student student = null;
-        Cursor cursor = db.rawQuery(query,	null);
-        if	(cursor.moveToFirst()){
-            do{
-                if (userName.equals(cursor.getString(1))){
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            do {
+                if (userName.equals(cursor.getString(1))) {
                     student = getThisStudent(cursor);
                     break;
                 }
-            }while(cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         cursor.close();
         return student;
@@ -99,7 +103,7 @@ public class DataHandler extends SQLiteOpenHelper implements IData {
     /**
      * Helper method to build a student from data.
      */
-    private Student getThisStudent(Cursor cursor){
+    private Student getThisStudent(Cursor cursor) {
         String username = cursor.getString(1);
         String password = cursor.getString(2);
         String currentLevel = cursor.getString(3);
@@ -116,7 +120,7 @@ public class DataHandler extends SQLiteOpenHelper implements IData {
     /**
      * Helper method to input a student's information.
      */
-    private void storeThisStudent(ContentValues values, Student student){
+    private void storeThisStudent(ContentValues values, Student student) {
         values.put(COLUMN_USERNAME, student.getUsername());
         values.put(COLUMN_PASSWORD, student.getPassword());
         values.put(COLUMN_LEVEL, Integer.toString(student.getCurrentLevel()));

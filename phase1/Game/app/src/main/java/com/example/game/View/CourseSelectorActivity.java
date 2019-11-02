@@ -19,7 +19,6 @@ import com.example.game.R;
 public class CourseSelectorActivity extends AppCompatActivity implements ICourseSelectorView {
 
     private CourseSelectorPresenter presenter;
-    private CharacterIcons icons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +43,9 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
 
         // Set reference to the profileButton in layout
         // Set its image to the user's character icon
-        ImageButton profileButton = (ImageButton) findViewById(R.id.profileButton);
+        ImageButton profileButton = findViewById(R.id.profileButton);
 
-        icons = new CharacterIcons(this);
+        CharacterIcons icons = new CharacterIcons(this);
         int picIndex = presenter.getPicIndex();
         int picIdentifier = icons.getIconByIndex(picIndex);
         profileButton.setImageResource(picIdentifier);

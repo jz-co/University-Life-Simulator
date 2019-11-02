@@ -10,48 +10,21 @@ public class CustomizationPresenter implements ICustomization.ICustomizationPres
     private CustomizationManager customizationManager;
     private GameManager gameManager;
 
-    public CustomizationPresenter(ICustomization.ICustomizationView view, IData dataHandler, String username){
+    public CustomizationPresenter(ICustomization.ICustomizationView view, IData dataHandler, String username) {
         this.view = view;
         this.gameManager = new GameManager(dataHandler, username);
         this.customizationManager = new CustomizationManager(this.gameManager.getCurrentStudent());
     }
 
 
-
-//    /**
-//     * Go to the previous picture, if there is a previous picture.
-//     */
-//    @Override
-//    public void leftBtnClicked() {
-//        if (view.getPictureIndex() > 1){
-//            view.previousPicture();
-//        }
-//    }
-//
-//
-//    /**
-//     * Go to the next picture, if there is a next picture.
-//     */
-//    @Override
-//    public void rightBtnClicked() {
-//        if (view.getPictureIndex() < manager.getNumberOfPictures()){
-//            view.nextPicture();
-//        }
-//    }
-
     /**
      * Customize the student, then go to the next page.
      */
-
-//    public void confirmBtnClicked()
     public void setCustomizations(String customName, int picIndex, String lang) {
-//        int picIndex = view.getPictureIndex();
-//        String name = view.getName();
-        if (customName.length()==0){
+        if (customName.length() == 0) {
             customName = gameManager.getCurrentStudent().getUsername();
         }
-//        String lang = view.getLang();
-        if (lang.length()==0){
+        if (lang.length() == 0) {
             lang = "English";
         }
         customizationManager.customize(picIndex, customName, lang);

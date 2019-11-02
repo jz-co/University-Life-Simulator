@@ -18,24 +18,27 @@ public class GameManager implements IGameManager {
 
     /**
      * This constructor is used before the user logged in.
+     *
      * @param dataHandler the data handler created in View.
      */
-    public GameManager(IData dataHandler){
+    public GameManager(IData dataHandler) {
         studentManager = new StudentManager(dataHandler);
     }
 
     /**
      * This constructor is used after the user logged in.
+     *
      * @param dataHandler the data handler
-     * @param username the username of the current player.
+     * @param username    the username of the current player.
      */
-    public GameManager(IData dataHandler, String username){
+    public GameManager(IData dataHandler, String username) {
         studentManager = new StudentManager(dataHandler);
         currentStudent = studentManager.getStudentByUsername(username);
     }
 
     /**
      * Return the current student
+     *
      * @return the current student
      */
     public Student getCurrentStudent() {
@@ -44,16 +47,17 @@ public class GameManager implements IGameManager {
 
     /**
      * Return the username of the current player
+     *
      * @return the current player's username.
      */
-    public String getCurrentUsername(){
+    public String getCurrentUsername() {
         return currentStudent.getUsername();
     }
 
     /**
      * Saves the students' data before the app is closed.
      */
-    public void saveBeforeExit(){
+    public void saveBeforeExit() {
         studentManager.saveStudentData(currentStudent);
     }
 
@@ -66,7 +70,7 @@ public class GameManager implements IGameManager {
      * @param username The student's username
      * @param password The student's password
      */
-    void setCurrentStudent(String username, String password){
+    void setCurrentStudent(String username, String password) {
         currentStudent = studentManager.getNewStudent(username, password);
     }
 
@@ -77,23 +81,25 @@ public class GameManager implements IGameManager {
      *
      * @param username The student's username.
      */
-    void setCurrentStudent(String username){
+    void setCurrentStudent(String username) {
         currentStudent = studentManager.getStudentByUsername(username);
     }
 
     /**
      * Return the student manager.
+     *
      * @return student manager
      */
-    StudentManager getStudentManager(){
+    StudentManager getStudentManager() {
         return studentManager;
     }
 
     /**
      * Return the current level.
+     *
      * @return current level
      */
-    public int getCurrentLevel(){
+    public int getCurrentLevel() {
         return this.currentStudent.getCurrentLevel();
     }
 

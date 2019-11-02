@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class GameLevel1 extends com.example.game.Model.GameLevel {
+public class GameLevel1 {
     private Student student;
     private int correctAnswers, incorrectAnswers;
     private int clearingScore = 5;
@@ -24,23 +24,39 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
         this.incorrectAnswers = 0;
     }
 
-    public void play() {
-
-    }
-
+    /**
+     * Getter for the student stored in this level.
+     *
+     * @return the student stored in this level.
+     */
     public Student getStudent() {
         return this.student;
     }
 
+    /**
+     * Getter for the number of questions correctly answered by the student.
+     *
+     * @return number of correct answers.
+     */
     public int getCorrectAnswers() {
         return this.correctAnswers;
     }
 
+    /**
+     * Getter for the number of questions incorrectly answered by the student.
+     *
+     * @return number of incorrect answers
+     */
     public int getIncorrectAnswers() {
         return this.incorrectAnswers;
     }
 
 
+    /**
+     * Creates a new question.
+     *
+     * @return a new question.
+     */
     public String createQuestion() {
         int a = (int) (Math.random() * 100);
         int b = (int) (Math.random() * 100);
@@ -66,29 +82,46 @@ public class GameLevel1 extends com.example.game.Model.GameLevel {
 
     }
 
+    /**
+     * Evaluates if the input answer if correct.
+     *
+     * @param answer the input answer.
+     * @return a boolean determining if the answer is correct or not.
+     */
     public boolean evaluateAnswer(int answer) {
-        if (answer == correctAnswer){
+        if (answer == correctAnswer) {
             correctAnswers++;
         } else {
-            incorrectAnswers ++;
+            incorrectAnswers++;
         }
         return answer == correctAnswer;
     }
 
-    public int getClearingScore(){
+    /**
+     * Getter for the clearing score of the game.
+     *
+     * @return an int representing the clearing score of the game.
+     */
+    public int getClearingScore() {
         return clearingScore;
     }
 
-    public void levelPass(){
+    /**
+     * Updates the student statistics if the level is passed.
+     */
+    public void levelPass() {
         student.incrementGpa(1);
         student.incrementHp(correctAnswers);
         student.incrementCredit(5);
-        if (student.getCurrentLevel()<=1){
+        if (student.getCurrentLevel() <= 1) {
             student.incrementLevel();
         }
     }
 
-    public void levelFail(){
+    /**
+     * Updates the student statistics if the level is failed.
+     */
+    public void levelFail() {
         student.decrementGpa(1);
         student.decrementHp(incorrectAnswers);
     }

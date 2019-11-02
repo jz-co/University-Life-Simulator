@@ -1,18 +1,12 @@
 package com.example.game.Model.Level2;
 
-import android.annotation.SuppressLint;
-import android.os.CountDownTimer;
-import android.os.Handler;
 
 import com.example.game.Contract.ILevel2;
-import com.example.game.Model.GameLevel;
 import com.example.game.Model.Student;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
-public class GameLevel2 extends GameLevel {
+public class GameLevel2 {
     private Student student;
     private Basket basket;
     private int score, framewidth, frameHeight;
@@ -34,7 +28,6 @@ public class GameLevel2 extends GameLevel {
     /** start playing the game
      *
      */
-    @Override
     public void play() {
         int element = (int) (Math.random() * fallingObjects.size());
         score += game(element);
