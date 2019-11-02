@@ -587,3 +587,7 @@ and some game logic to model.
 Step 97 (Jenny)
 Code affected: CourseSelectorPresenter
 Changes: modified validateLevel3 method, needs to check that user has passed level 1 and 2 first.
+
+#########
+Step 98 (Grace)
+Changes: added user icons.

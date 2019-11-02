@@ -14,9 +14,9 @@ class CharacterIcons {
     }
 
     private void populateCharacterIcons(AppCompatActivity activity) {
-        ArrayList<String> iconNames = new ArrayList<String>(Arrays.asList("@drawable/boy1","@drawable/girl1",
+        ArrayList<String> iconNames = new ArrayList<String>(Arrays.asList("@drawable/person","@drawable/boy1","@drawable/girl1",
                 "@drawable/boy2", "@drawable/girl2", "@drawable/boy3", "@drawable/girl3",
-                "@drawable/pikachu", "@drawable/cactus"
+                "@drawable/pikachu", "@drawable/cactus", "@drawable/androidstudio", "@drawable/piggy"
         ));
 
         for (String iconName: iconNames){
