@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.universitylife.View.Lvl2GameActivity"></activity>
-        <activity android:name="com.example.universitylife.View.ProfileActivity"></activity>
-        <activity android:name="com.example.universitylife.View.GameResultActivity" />
-        <activity android:name="com.example.universitylife.View.FirstGameActivity" />
-        <activity android:name="com.example.universitylife.View.CourseSelectorActivity" />
-        <activity android:name="com.example.universitylife.View.CustomizationActivity" />
-        <activity android:name="com.example.universitylife.View.MainActivity">
+        <activity android:name=".View.Lvl2GameActivity"></activity>
+        <activity android:name=".View.ProfileActivity"></activity>
+        <activity android:name=".View.GameResultActivity" />
+        <activity android:name=".View.FirstGameActivity" />
+        <activity android:name=".View.CourseSelectorActivity" />
+        <activity android:name=".View.CustomizationActivity" />
+        <activity android:name=".View.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.universitylife.View.Lvl3StartActivity">
+        <activity android:name=".View.Lvl3StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,8 +32,8 @@
         </activity>
 
         <activity
-            android:name="com.example.universitylife.View.Lvl3GameActivity"
-            android:parentActivityName="com.example.universitylife.View.Lvl3StartActivity" />
+            android:name=".View.Lvl3GameActivity"
+            android:parentActivityName=".View.Lvl3StartActivity" />
     </application>
 
 </manifest>

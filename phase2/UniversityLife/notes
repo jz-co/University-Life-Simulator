@@ -1,0 +1,632 @@
+#########
+Step 1 (Grace)
+Code Affected: EVERYTHING
+Initial commit & Push
+#########
+Step 2 (Grace)
+Code Affected: EVERYTHING
+Added some missing files, fixed package and import at the top of each file
+#########
+Step 3 (Grace)
+Code Affected: DataLoader.java DataSaver.java Student.java
+Flaw: interfaces don't match (because class designs have been changed)
+Fix: changed some methods to public, fixed some mismatching signatures etc & Added notes.txt
+
+#########
+Step 4 (Jenny)
+Code Affected: none
+Changes: Added 5 new activities - Activity Classes added to com.example.game/View folder and
+corresponding xml layout files to layout folder
+Updated AndroidManifest.xml to reflect additional activities.
+
+#########
+Step 5 (Parinita)
+Code Affected: Presenter Package
+Changes: Added com.example.game ahead all of imports. There are still some errors but the imports are
+fixed.
+
+#########
+Step 6 (Grace)
+Code Affected: DataLoader.java DataSaver.java StGeorge.java Student.java
+Changes: Changed the signature of Student constructor (the one for 1st time users). Student no longer
+keeps track of a Campus object, instead it store a campusNumber.
+
+#########
+Step 7 (Grace)
+Code Affected: DataSaver, the GameLevels, Campus, CustomizationManager, GameLevel, GameManager,
+StGeorge, Student
+Changes: fixed some more package / import problems. Modified Campus class and subclass. Campus
+no longer has methods to play level, no longer stores currentLevel. Commented out add level etc.
+
+#########
+Step 8 (Grace)
+Code Affected: IMain, ICustomization, CustomizationPresenter, MainPresenter, MainActivity,
+CustomizationActivity, CustomizationManager, GameManager
+Changes: Made MainActivity implement IMain.IMainView, CustomizationActivity implement
+ICustomization.ICustomizationView. The @ Override methods are created, but not yet implemented.
+
+#########
+Step 9 (Grace)
+Code Affected: MVP contracts, presenters, MainActivity, CustomizationActivity, GameLevel, Student
+Changes: slightly modified the MVP contract, added comments, modified access modifiers. Temporarily
+bypassed Campus class and StGeorge class. The necessity of these classes will be further discussed.
+
+#########
+Step 10 (Koby)
+Code Affected: GameLevel.progressResult()
+Changes: Deleted the method because it is not necessary
+
+########
+Step 11 (Jenny)
+Code Affected: IMain.java, MainPresenter.java, MainActivity.java
+Changes: 1) Renamed interface: IMain -> ILogin, IMainView - ILoginView, IMainPresenter - ILoginPresenter
+2) Renamed MainPresenter -> LoginPresenter
+3) Made MainActivity implement ILoginView, and implemented interface abstract methods
+4) Removed methods getUsername() and getPassword() in ILoginView, instead directly pass username
+and password into the instance methods, validateLogin() and validateSignUp of the LoginPresenter object,
+which replace the LoginBtnClicked() and SignUpBtnClicked() methods.
+5) In LoginPresenter, in the .validateLogin(), if login is successful, should navigate to course
+selector activity. Changes made to accommodate.
+
+#######
+Step 12 (Trisha)
+Created Lvl3StartActivity, Lvl3GameActivity, Lvl3GameView and MainThread in Model.Level3 folder.
+Added layout activity_main_lvl_3 for the start page of the game.
+These are the two activities required for running the main menu of the level 3 game and the game
+view, respectively. Lvl3GameView creates the surface view for the game. MainThread class is
+responsible for the game loop.
+
+#########
+Step 13 (Grace)
+Code Affected: IData, ICustomization, ILogin, DataHandler, GameManager, Student, StudentManager,
+CustomizationPresenter, LoginPresenter, CustomizationActivity, MainActivity
+Changes: added IData interface. Now only View has access to DataHandler, others need to use the IData
+interface to access them. Changed the way information is passed between activities. Now instead of
+passing IGameManager, we pass the current student's username, and construct a new GameManager. (Save
+before leaving the page.)
+
+#########
+Step 14 (Grace)
+Code Affected: ICourseSelector, CourseSelectorPresenter
+Changes: added interface ICourseSelector. Implemented CourseSelectorPresenter. Added another constructor
+in GameManager, changed statements where GameManager is created in presenters accordingly.
+
+########
+Step 15 (Jenny)
+Code Affected: CustomizationPresenter and CustomizationActivity
+Changes: (1) Modified/added some methods to better facilitate a smooth path of communication between the
+Presenter and View.
+(2) Added the image files that users can select from to customize their avatar. Created method to
+create a list of references to these files, and updated nextPicture() to display images on the ImageView object.
+
+#########
+Step 16 (Koby)
+Code Affected: ILevel2.java, Level2Presenter.java
+Changes: Add required methods to the interface in both the view interface and the presenter interface
+
+#########
+Step 17 (Koby)
+Code Affected: GameLevel.java
+Changes: Modify the methods in GameLevel.java, delete unnecessary methods, kept only play() (i.e: there's only
+one play mehthod in the game level class.
+
+#########
+Step 18 (Koby)
+Code Affected: View.Lvl2GameActivity, AndroidManifest.xml
+Changes: (1)Add a new Activity for the level2 game, and add the activity in the android manifest
+(2) Implement methods need to be overide in Ilevel2.Ilevel2View
+(3) Implement additional methods for buttons onClick methods in xml file
+
+#########
+Step 19 (Koby)
+Code Affected: Drawable folder, FallingObject.java, redObject.java, blueObject.java, yellowObject.java
+Changes: (1) Add FallingObject, redObject, yellowObject and blueObject classes to the Model.Level2 folder
+(2) Add red ball, blue ball, yellow ball drawable png file into the folder
+(3) Add xml file of Lvl2_main
+
+#########
+Step 20 (Koby)
+Code Affected: Level2Presenter.java
+Changes: (1) Implement abstract methods from Ilevel2.Ilevel2Presenter
+(2) Add getters to obtain data from the game
+(3) Add setters so that there will be an update of position in the frontend view
+
+#########
+Step 21 (Vishnu)
+Created a abstract super class for Lvl3 Game Objects - GameContents
+Added all the necessary methods - along with essential getters and setters
+
+#########
+Step 22 (Vishnu)
+Created a bow class for Lvl3 Game which is a child class of GameContents
+Added image bow to res folder.
+
+#########
+Step 23 (Vishnu)
+Created a arrow class for Lvl3 Game which is a child class of GameContents
+Added image arrow to res folder.
+
+#########
+Step 24 (Vishnu)
+Created a wheel class for Lvl3 Game which is a child class of GameContents
+Added image circle to res folder.
+
+########
+Step 25 (Jenny)
+Code Affected: CourseSelectorPresenter.java, CourseSelectorActivity.java
+Changes (1) Implemented the abstract methods from ICourseSelectorView interface in CourseSelectorActivity
+(2) Modified some method names in CourseSelectorPresenter.
+Note however that some methods are incomplete, will update.
+
+#########
+Step 26 (Koby)
+Code Affected: Level2Presenter, LevelPresenter
+Changes: Add dataloader and datasaver codes into the constructor of level2Presenter and the
+levelPresenter
+
+#########
+Step 27 (Koby)
+Code Affected: GameLevel2.java, Level2Presenter
+Changes: add init_view and update_view, and add codes so that the final score will be added to the
+hp of the game when the method quitGame runs
+
+#########
+Step 28 (Koby)
+Code Affected: Lvl2GameActivity, activity_main_lvl_2.xml, Level2Presenter.java, GameLevel2.java
+Changes: (1) Modify invalid methods, basically making the methods work
+(2) add a proceed to next level method
+
+#########
+Step 29 (Trisha)
+Created Lvl3GameItemManager for accessing all the contents of the game from the game activity.
+Code Affected: Arrow, Bow and GameContents in Model.Level3.
+Changes: Made the access public for method update for the above classes.
+
+#########
+Step 30 (Koby)
+Code Affected: studentData.csv
+Changes: Add studentData.csv into the game folder
+
+#########
+Step 31 (Trisha)
+Code Affected: Lvl3GameView.update, Lvl3GameView.draw, Lvl3GameView.surfaceDestroyed, in
+Model.Level3, Arrow.draw, GameContents.draw, Wheel.draw and
+Presenter.Lvl3GameItemManager.getGameItems.
+Created methods update, draw and surfaceDestroyed in the Lvl3GameView class. Changed access
+modifiers for the constructors and methods draw in Arrow, Wheel and GameContents. Changed the return
+type for Lvl3GameItemManager.getGameItems.
+
+#########
+Step 32 (Koby)
+Code Affected: Level2Presenter, Lvl2GameActivity
+Changes: (1) Add a saveBeforeExit method in tht quitGame method
+(2) add putExtra for intent to pass the intent to the next Lvl3StartActivity
+
+#########
+Step 33 (Grace)
+Code Affected: ILevel, Lvl2GameActivity
+Changes: deleted method displayProfile() from the game level view contract. Added suggested changes
+in comments in Lvl2GameActivity.
+
+#########
+Step 33 (Vishnu)
+Created a new interface TouchEvent.
+Code affected : Modified Arrow class update(), and made getters and setters for touch.
+Modified Lvl3GameItemManagers update().
+Modified Lvl3GameView draw() by adding text for high score and lives and added new method
+TouchEvent to do a task when screen is touched.
+
+#########
+Step 34 (Parinita)
+Code affected : activity_first_game.xml
+Added additional text widgets on level 1 game screen.
+
+#########
+Step 35 (Parinita)
+Code affected : FirstGameActivity.java, activity_first_game.xml
+Added private attributes and startGame method to this View class.
+Also added statistics to the xml file.
+
+#########
+Step 36 (Koby)
+Code affected : Lvl2GameActivity.java, Level2Presenter.java
+Changes: Add helper methods in Level2Presenter so as to prevent returning a falling object in
+the view class
+
+
+#########
+Step 37 (Parinita)
+Code affected : Level1Presenter.java, ILevel1.java, FirstGameActivity.java
+Changes: Added methods to Level1Presenter such as getters and setters for the Correct adn Incorrect scores.
+Modified ILevel1.java to get more interface methods
+Added displayCorrectScore, and displayIncorrectScore to FirstGameActivity.java
+
+#########
+Step 38 (Parinita)
+Code affected : GameLevel1.java, Level1Presenter.java
+Changes: Added pauseGame, resumeGame, getStudent, getCorrectAnswers, getIncorrectAnswers to GameLevel1.java
+Modified method names in Level1Presenter.java
+
+#########
+Step 39 (Parinita)
+Code affected : GameLevel1.java, Level1Presenter.java, ILevel1.java
+Changes: Added a play method in GameLevel1.java. Due to this, I introduced a timer object into Level1Presenter.java and
+also added an interface method in ILevel1.java.
+
+
+#########
+Step 40 (Jenny)
+Code Affected: CourseSelectorActivity, CourseSelectorPresenter, ProfileActivity
+Code Added: IProfile Interface, ProfilePresenter
+Changes: (1) updated methods in CourseSelectorActivity, now we can navigate to individual game levels
+(2) Implemented the ProfileActivity (and necessary ProfilePresenter) which displays the user's profile
+(name, character icon, gpa and credits), as well as ability to Log out and customize their characters.
+ProfileActivity implements the IProfileView interface.
+(3) updated method in CourseSelecterActivity to be able to navigate to profile page from the imageButton.
+
+#########
+Step 41 (Parinita)
+Code affected : activity_first_game.xml, FirstGameActivity.java
+Changes: Added a timer widget to the view and changed some of the colours of the text views. Modified method startGame
+in FirstGameActivity.java to include a view parameter.
+
+#########
+Step 42 (Jenny)
+Code Affected: FirstGameActivity
+Fixed bugs and errors.
+
+
+#########
+Step 43 (Jenny)
+Updated GameResultActivity to implement the IResultView interface, and added new methods (or
+overrode abstract methods from interface). Also updated ResultPresenter and activity_game_result.xml.
+This is all to display of the results page shown at the completion of a game/level.
+
+
+#########
+Step 44 (Parinita)
+Code Affected: FirstGameActivity.java, Level1Presenter.java, GameLevel1.java, ILevel1.java
+Changes: 1) FirstGameActivity.java: modified displayIncorrectScore, displayQuestion and added displayInvalidInputMessage
+2) Level1Presenter.java: added getCreatedQuestion, setQuestion, setInvalidInputMessage
+3) GameLevel1: added createQuestion and evaluateAnswer
+4) ILevel1: added some interface methods
+
+#########
+Step 45 (Koby)
+Code Affected: GameLevel2.java
+Changes: Change time limit from 2 mins to 1 min
+
+#########
+Step 46 (Parinita)
+Code Affected: FirstGameActivity.java, Level1Presenter.java, GameLevel1.java
+Changes: 1) FirstGameActivity.java: added evaluateAnswer method
+2) Level1Presenter.java: added evaluateAnswer method
+3) GameLevel1: modified evaluateAnswer method
+
+#########
+Step 47 (Koby)
+Code Affected: activity_main_lvl_2.xml, Lvl2GameActivity.java
+Changes: Add a textview to hold the player's preferred name and add method body for the displayName
+method in Lvl2GameActivity
+
+#########
+Step 48 (Koby)
+Code Affected: Lvl2GameActivity.java
+Changes: Add a start boolean so as to avoid user resuming or pausing game before the game begins
+
+#########
+Step 49 (Parinita)
+Code Affected: activity_first_game.xml, FirstGameActivity.java, Level1Presenter.java
+Changes: Changed the pause button and refactored all the files LOL.
+
+#########
+Step 50 (Grace)
+Code Affected: Level1Presenter.java, GameLevel1.java
+Changes: suggested changes. Countdown should be moved to View, and accessed via ILevel1View and
+LLevel1Presenter.
+
+#########
+Step 51 (Parinita)
+Code Affected: activity_first_game.xml, FirstGameActivity.java, Level1Presenter.java, ILevel1.java
+Changes: added functionality for quit game and next level in the above files.
+
+#########
+Step 52 (Jenny)
+Updated GameResultActivity and ResultPresenter.
+
+#########
+Step 53 (Parinita)
+Code Affected: FirstGameActivity.java, Level1Presenter.java
+Changes: added code for displaying the credit, gpa and hp of a student on the screen.
+
+#########
+Step 54 (Grace)
+Code Affected: LevelPresenter.java
+Changes: deleted method displayProfilePic()
+
+#########
+Step 55 (Koby)
+Code Affected: Level2Presenter.java, GameLevel2.java, Lvl2GameActivity
+Changes: Move the CountDownTimer, Timer, Handler and TimerTask to the Lvl2GameActivity (to the frontend)
+cuz the backend shouldnt have access to any package from android
+
+#########
+Step 56 (Koby)
+Code Affected: Drawable folder
+Changes: Add pictures of more characters :))
+
+#########
+Step 57(Jenny)
+Updated GameResultActivity to display completion message, score and level.
+Important Note: At the end of each game level, make sure to create intent that passes from
+the game to GameResultActivity.class. Include the following extras in the intent to be passed:
+(1) String -- A completion message that will be displayed to user -- Name: "Completion"
+(2) int -- the level number (i.e. 1, 2, or 3) -- Name: "Level"
+(3) int -- the score -- Name: "Score"
+(4) String -- username of the user --- Name: "Username"
+
+#########
+Step 57(Jenny)
+Code Affected: CourseSelectorActivity, ProfileActivity, CustomizationActivity
+Changes: Added new character icons images to the populateCharacterIcons() method.
+
+#########
+Step 58 (Trisha)
+Code Affected: Lvl3GameManager, MainThread, Lvl3StartActivity, Lvl3GameItemManager.update,
+Lvl3GameView and Level3Presenter.
+Changes:Lvl3GameManager moved to Model package. MainThread for level 3 added to the Presenter module.
+Modified Lvl3StartActivity to implement ILevel3.ILevel3View.Changed access modifier for
+Lvl3GameItemManager.update. Also updated class Level3Presenter and Lvl3GameView.
+
+#########
+Step 59 (Jenny)
+Code Affected: navigate methods in MainActivity and LoginPresenter
+Changes: removed calls to presenter.prepareToLeavePage() and moved that to methods within the
+LoginPresenter class to handle instead.
+
+#########
+Step 60 (Koby)
+Code Affected: IData.java, StudentManager.java, DataHandler, studentData.csv
+Changes: Add a DataHandler class, and change our data saving strategy. Instead of saving data into a
+csv file, we are using SQLite database, delete the studentData.csv
+
+#########
+Step 61 (Koby)
+Code Affected: Level2Presenter.java, LevelPresenter,, GameManager
+Changes: Change constructor parameters
+
+#########
+Step 62 (Trisha)
+Code Affected: Level3Presenter, Lvl3GameActivity, Lvl3GameView, Lvl3StartActivity
+Changes: updated the methods to update student data.
+
+#########
+Step 63 (Grace)
+Code Affected: MainActivity, LoginPresenter, ProfileActivity, CustomizationActivity
+Changes: updated how we instantiate presenters and game managers.
+
+#########
+Step 64 (Koby)
+Code Affected: Lvl2GameActivity, FirstGameActivity
+Changes: update on instantiating gamemanager
+
+#########
+Step 65 (Grace)
+Code Affected: DataHandler.java
+Changes: added private helper methods to avoid duplicating code.
+
+#########
+Step 66 (Grace)
+Code Affected: DataHandler.java
+Changes: fixed method getStudentByUserName() (was always returning the first student
+in the database.)
+
+#########
+Step 67 (Koby)
+Code Affected: All Activity classes (all files in view directory)
+Changes: deleted the import statements for datasaver and dataloader
+
+#########
+Step 68 (Trisha)
+Code Affected: activity_main_lvl_3
+Changes: changed the screen layout design
+
+#########
+Step 69 (Grace)
+Code Affected: DataHandler, IData, StudentManager
+Changes: deleted method that returns a list of all registered students. deleted attribute
+students in student manager. student manager no longer stores a full list of students
+(huge waste of space if we have lots of users), instead it's a handle for other classes
+to access student data from data handler.
+
+#########
+Step 70 (Grace)
+Code Affected: ILevel3, Level3.GameContents and subclasses, Lvl3GameView, MainThread
+Changes: instead of letting backend objects draw on Canvas directly, stored their images
+in View and made view draw them according to their types. Added methods in view since Wheel
+needs the dimensions of the image. Moved MainThread from Presenter to View.
+
+##########
+Step 71 (Vishnu)
+Code affected : Modified update and image for circle
+
+##########
+Step 72 (Trisha)
+Code affected: Level3.GameContents and its subclasses, Lvl3GameItemManager and interface TouchEvent
+Changes: Added javadoc to the classes and relevant comments. Changed access modifiers and name for
+some instance variables in the classes. Added setter and getter methods to Level3.GameContents.
+
+##########
+Step 73 (Trisha)
+Code affected: Modified code in Lvl3GameView and added comments.
+
+##########
+Step 74 (Parinita)
+Code affected: drawable folder and Lvl3GameView.
+Changes: Lvl3GameView was not running as there wasn't a circle.png in drawable. Added a circle to the
+drawable folder to remove this error.
+
+##########
+Step 75 (Parinita)
+Code affected: drawable folder and Lvl3GameView, FirstGameActivity.java
+Changes: Resized the circle.png in drawable and instantied level1Presenter before calling it LOL.
+
+##########
+Step 76 (Jenny)
+Code affected: onTouchEvent in Lvl3GameView
+Changes: startActivity(intent) should execute after extras have been added.
+
+#########
+Step 77 (Grace)
+Code Affected: First Game activity
+Changes: fixed keyword mismatch
+
+#########
+Step 78 (Koby)
+Code Affected: FirstGameActivity, Level1Presenter, activity_first_game.xml
+Changes: implement displayName method, and add a text view in xml file
+
+########
+Step 79 (Grace)
+Code Affected: Student, StudentManager, GameManager
+Changes: fixed bug when storing student data before exit. Now customizations can be properly saved!
+
+#########
+Step 80 (Grace)
+Code Affected: Student
+Changes: changed default currentLevel, gpa
+
+########
+Step 81 (Grace)
+Code Affected: drawable folder
+Changes: added boy1-3, girl1-3 icons
+
+########
+Step 82 (Parinita)
+Code Affected: FirstGameActivity.java, Level1Presenter.java, GameLevel1.java
+Changes: Modified the evaluate answer methods in the files above. The game now runs and the user input is correctly assesed
+and the appropriate view are updated with the score.
+
+########
+Step 83 (Trisha)
+Added CharacterIcons class to View module.
+
+########
+Step 84 (Parinita)
+Code Affected: FirstGameActivity.java, Level1Presenter.java, activity_first_game.xml
+Changes: Modified the above files so that the result is now displayed. Still need to use Jenny's result page but
+for now, it tentatively displays the final score.
+
+########
+Step 85 (Koby)
+Code Affected: Lvl2GameActivity.java, Level2Presenter.java
+Changes: getBasketAppearence method in Level2Presenter.java and instantiate a character icon object
+to get the id of the image
+
+########
+Step 86 (Parinita)
+Code Affected: FirstGameActivity.java
+Changes: Made the game easier LOL.
+
+########
+Step 87 (Koby)
+Code Affected: Student.java, Lvl2GameActivity, Level2Presenter
+Changes: Add increment student level method
+and add the increment student level method in the level2Presenter class
+
+########
+Step 87 (Koby)
+Code Affected:Lvl2GameActivity
+Changes: decrease clearing score of level 2
+
+########
+Step 88 (Parinita)
+Code Affected: FirstGameActivity.java, Level1Presenter.java
+Changes: Added incrementStudentlevel to presenter and modified code in firstgameactivity to allow to go to next level.
+
+#########
+Step 89 (Grace)
+Code Affected: CustomizationManager, Customization Activity, CouseSelection Activity, Profile activity
+Changes: deleted duplicate methods, used CharacterIcons instead.
+
+#########
+Step 90 (Trisha)
+Code Affected: Drawable module modified to add gradient files. CourseSelectroActivity,
+CustomizationActivity, MainActivity, ProfileActivity.
+Set the view of the game to full screen. Changed the layout of activities for the game.
+
+#########
+Step 91 (Trisha)
+Code Affected: Lvl3StartActivity, activity_main, activity_main_lvl_3, activity_game_result.
+Changes: Modified the layouts for each of the screens.
+
+#########
+Step 92 (Trisha)
+Changes: Updated the onClick methods for the buttons in GameResultActivity.
+
+#########
+Step 93 (Grace)
+Changes: Level 1
+
+#########
+Step 94 (Trisha)
+Changes: Added a text view to the start activity of level 3 game.
+
+##########
+Step 95 (Jenny)
+Code affected: GameResultActivity
+Changes: modified onClickPLayAgain and changed how restarting/replaying a game is handled.
+
+#########
+Step 96 (Grace)
+Code Affected: lv2, Student
+Changes: modified student so that gpa is between 0 and 4. Moved some UI logic from view to presenter,
+and some game logic to model.
+
+#########
+Step 97 (Jenny)
+Code affected: CourseSelectorPresenter
+Changes: modified validateLevel3 method, needs to check that user has passed level 1 and 2 first.
+
+#########
+Step 98 (Grace)
+Changes: added user icons.
+
+#########
+Step 99 (Grace)
+Changes: deleted unused methods in student. deleted class GameLevel since it's not useful at all.
+
+#########
+Step 100 (!!) (Grace)
+Changes: removed unused presenter ResultPresenter
+
+#########
+Step 101 (!!!) (Parinita)
+Code affected: FirstGameActivity.java, activity_first_game.xml
+Changes: added java docs and hid the pause button until after the game is started.
+
+#########
+Step 102 (!!!!) (Parinita)
+Code affected: Level1Presenter.java, GameLevel1.java
+Changes: added java docs to the above files.
+
+#########
+Step 103 (!!!!!) (Parinita)
+Code affected: FirstGameActivity.java, activity_first_game.xml
+Changes: Clears answer everytime we click submit
+
+#########
+Step 104 (Jenny)
+Code affected: Level1Presenter
+Flaw: gameManager is a local variable in the constructor, causing bug where different student objects
+were being referenced in the gameManager vs the gameLevel objects.
+Changes: made gameManager a class instance attribute.
+Flaw: The result page on game completion of level 1 is weird (allows user to continue to play game)
+Changes: changed levelComplete() in Level1Presenter, and implemented navigateToResults method in
+FirstGameActivity, which transitions to the GameResultActivity upon game completion.
+Can still display completion/failure message and score.
+
+#########
+Step 105 (!!!!!) (Parinita)
+Code affected: activity_first_game.xml
+Changes: Changed the layout of level1
