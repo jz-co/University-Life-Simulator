@@ -6,8 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.universitylife.Contract.IData;
-import com.example.universitylife.Model.Student;
+import com.example.universitylife.IData;
+import com.example.universitylife.Student;
 
 /**
  * inspired by

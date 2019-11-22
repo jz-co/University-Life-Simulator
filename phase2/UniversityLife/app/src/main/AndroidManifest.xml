@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.Lvl2GameActivity"></activity>
-        <activity android:name=".View.ProfileActivity"></activity>
-        <activity android:name=".View.GameResultActivity" />
-        <activity android:name=".View.FirstGameActivity" />
-        <activity android:name=".View.CourseSelectorActivity" />
-        <activity android:name=".View.CustomizationActivity" />
-        <activity android:name=".View.MainActivity">
+        <activity android:name=".Game2.Game2Activity"></activity>
+        <activity android:name=".Profile.ProfileActivity"></activity>
+        <activity android:name=".Result.ResultActivity" />
+        <activity android:name=".Game1.Game1Activity" />
+        <activity android:name=".CourseSelector.CourseSelectorActivity" />
+        <activity android:name=".Customization.CustomizationActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".View.Lvl3StartActivity">
+        <activity android:name=".Game3.Game3StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,8 +32,8 @@
         </activity>
 
         <activity
-            android:name=".View.Lvl3GameActivity"
-            android:parentActivityName=".View.Lvl3StartActivity" />
+            android:name=".Game3.Game3Activity"
+            android:parentActivityName=".Game3.Game3StartActivity" />
     </application>
 
 </manifest>
