@@ -9,6 +9,12 @@ public class Student {
     private String username, password, name;
     private String language = "English";
 
+    public int getGiftcards() {
+        return giftcards;
+    }
+
+    private int giftcards;
+
     /** Create a constructor with no argument for the firebaseDatahandler to create students from
      * the database
      */
