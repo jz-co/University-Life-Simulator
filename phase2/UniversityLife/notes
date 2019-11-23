@@ -642,3 +642,8 @@ Step 107 (Koby)
 Code affected: Student.java
 Changes: Create a new empty constructor for Student so as to allow the FireBaseDataHandler to retrieve
 Student objects.
+
+#########
+Step 108 (Grace)
+Code affected: none
+Changes: added new package Bookstore.
