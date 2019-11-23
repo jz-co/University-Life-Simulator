@@ -7,17 +7,15 @@ import com.example.universitylife.R;
 
 import java.util.ArrayList;
 
-public class Game2Presenter extends LevelPresenter implements ILevel2.ILevel2Presenter {
+public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel2Presenter {
     private ILevel2.ILevel2View view;
-    private GameLevel2 gameLevel;
-    private com.example.universitylife.Game2.redObject redObject;
-    private com.example.universitylife.Game2.blueObject blueObject;
-    private com.example.universitylife.Game2.yellowObject yellowObject;
+    private GameLevel2Lvl1 gameLevel;
+    private FallingObject redObject, yellowObject, blueObject;
     private int frameWidth = 1000;
     private int clearingScore = 10;
     private boolean nextLevelUnlocked = false;
 
-    public Game2Presenter(ILevel2.ILevel2View view, IData datahandler, String username){
+    public Game2Lvl1Presenter(ILevel2.ILevel2View view, IData datahandler, String username){
         super(datahandler, username);
         this.view = view;
         this.gameManager = new GameManager(datahandler, username);
@@ -25,16 +23,20 @@ public class Game2Presenter extends LevelPresenter implements ILevel2.ILevel2Pre
             nextLevelUnlocked = true;
         }
         ArrayList<FallingObject> fallingObjects = new ArrayList<>();
-        redObject = new redObject((int)(Math.random()*frameWidth), -100);
-        yellowObject = new yellowObject(((int)(Math.random()*frameWidth)) , -100);
-        blueObject = new blueObject(((int)(Math.random() *frameWidth)), -100);
+        FallingObjectFactory factory = new FallingObjectFactory();
+        redObject = factory.getFallingObject("red", 1);
+        yellowObject = factory.getFallingObject("yellow", 1);
+        blueObject = factory.getFallingObject("blue", 1);
+        fallingObjects.add(redObject);
+        fallingObjects.add(blueObject);
+        fallingObjects.add(yellowObject);
         fallingObjects.add(redObject);
         fallingObjects.add(blueObject);
         fallingObjects.add(yellowObject);
         int basketInt = 1455;
         Basket basket = new Basket(R.id.character, 0, basketInt);
         int frameHeight = 1500;
-        this.gameLevel = new GameLevel2(this.gameManager.getCurrentStudent(), basket, frameWidth, frameHeight, fallingObjects, this);
+        this.gameLevel = new GameLevel2Lvl1(this.gameManager.getCurrentStudent(), basket, frameWidth, frameHeight, fallingObjects, this);
     }
 
     /** proceed to the next level

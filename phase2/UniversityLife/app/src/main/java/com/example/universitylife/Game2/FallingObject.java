@@ -1,18 +1,20 @@
 package com.example.universitylife.Game2;
 
-public abstract class FallingObject {
+abstract class FallingObject {
     private int x_coordinate;
     private int y_coordinate;
     private int score_worth;
     private String type;
     private int frontEndImage;
     private int appearence;
+    private int speed;
 
-    FallingObject(int x, int y, String type, int score_worth){
+    FallingObject(int x, int y, String type,  int score_worth, int speed){
         this.x_coordinate = x;
         this.y_coordinate = y;
         this.type = type;
         this.score_worth = score_worth;
+        this.speed = speed;
     }
 
     /** get x coordinate of the falling object
@@ -27,7 +29,7 @@ public abstract class FallingObject {
      *
      * @param x_coordinate: the new x coordinate
      */
-    void setX_coordinate(int x_coordinate) {
+    public void setX_coordinate(int x_coordinate) {
         this.x_coordinate = x_coordinate;
     }
 
@@ -43,7 +45,7 @@ public abstract class FallingObject {
      *
      * @param y_coordinate: the new y coordinate of this falling object
      */
-    void setY_coordinate(int y_coordinate) {
+    public void setY_coordinate(int y_coordinate) {
         this.y_coordinate = y_coordinate;
     }
 
@@ -66,7 +68,7 @@ public abstract class FallingObject {
      *
      * @param FrameWidth: the width of the framelayout
      */
-    void restoreHeight(int FrameWidth){
+    public void restoreHeight(int FrameWidth){
         y_coordinate = -200;
         x_coordinate = (int) Math.floor(Math.random() * (FrameWidth));
     }
@@ -83,7 +85,7 @@ public abstract class FallingObject {
      * set the appearence of the falling object
      * @param appearence the id of the new image of the appearence of this falling object
      */
-    void setAppearence(int appearence) {
+    public void setAppearence(int appearence) {
         this.appearence = appearence;
     }
 
@@ -109,5 +111,20 @@ public abstract class FallingObject {
      */
     int getScore_worth() {
         return score_worth;
+    }
+
+    /** get the falling speed of the falling objects
+     *
+     * @return falling speed
+     */
+    public int getSpeed() {
+        return speed;
+    }
+
+    /** increase the speed of the falling object
+     *
+     */
+    public void increaseSpeed() {
+        this.speed += 15;
     }
 }

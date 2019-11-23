@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.universitylife.CourseSelector.ICourseSelector.*;
 import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.Game1.Game1Activity;
-import com.example.universitylife.Game2.Game2Activity;
+import com.example.universitylife.Game2.Game2Lvl1Activity;
 import com.example.universitylife.Game3.Game3StartActivity;
 import com.example.universitylife.Profile.ProfileActivity;
 import com.example.universitylife.R;
@@ -119,7 +119,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
      */
     @Override
     public void goToLevel2(String username) {
-        Intent intent = new Intent(this, Game2Activity.class);
+        Intent intent = new Intent(this, Game2Lvl1Activity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }

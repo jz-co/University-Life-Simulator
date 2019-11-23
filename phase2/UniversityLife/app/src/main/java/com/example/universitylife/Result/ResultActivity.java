@@ -8,10 +8,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.universitylife.R;
-import com.example.universitylife.Result.IResult;
 import com.example.universitylife.CourseSelector.CourseSelectorActivity;
 import com.example.universitylife.Game1.Game1Activity;
-import com.example.universitylife.Game2.Game2Activity;
+import com.example.universitylife.Game2.Game2Lvl1Activity;
 import com.example.universitylife.Game3.Game3StartActivity;
 
 public class ResultActivity extends AppCompatActivity implements IResult.IResultView {
@@ -92,7 +91,7 @@ public class ResultActivity extends AppCompatActivity implements IResult.IResult
      * Navigate to Level 2 activity for user with "username".
      */
     public void goToLevel2(String username) {
-        Intent intent = new Intent(this, Game2Activity.class);
+        Intent intent = new Intent(this, Game2Lvl1Activity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }

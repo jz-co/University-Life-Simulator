@@ -663,3 +663,18 @@ and new methods to Student, added static method calculateGpa() to StudentManager
 Step 111 (Koby)
 Code Affected: Drawable folder
 Changes: added new pictures to drawable folder.
+
+#########
+Step 112 (Koby)
+Code Affected: redObject.java, blueObject.java, yellowObject.java
+Changes: make the speed of hte falling object to be editable
+
+#########
+Step 113 (Koby)
+Code Affected: none
+Changes: added 3 new classes call WhatYouShouldDo. WhatYouShouldNotDo and KillingObject.
+
+#########
+Step 114 (Koby)
+Code Affected: ILevel2, Game2Lvl1Activity, Game2Lvl1Presenter
+Changes: rename files.

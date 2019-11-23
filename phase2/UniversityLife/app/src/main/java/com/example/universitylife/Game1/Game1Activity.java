@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.universitylife.DataHandler.DataHandler;
-import com.example.universitylife.Game2.Game2Activity;
+import com.example.universitylife.Game2.Game2Lvl1Activity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.ResultActivity;
 
@@ -103,7 +103,7 @@ public class Game1Activity extends AppCompatActivity implements ILevel1.ILevel1V
      * Calls Level 2 Start page
      */
     public void goToLevel2() {
-        Intent intent = new Intent(this, Game2Activity.class);
+        Intent intent = new Intent(this, Game2Lvl1Activity.class);
         intent.putExtra("Username", this.username);
         startActivity(intent);
     }

@@ -16,7 +16,7 @@ public interface ILevel2 extends ILevel {
          */
         void updateViewPosById(int id);
 
-        /** quit the GameLevel2
+        /** quit the GameLevel2Lvl1
          *
          */
         void quitGame();
@@ -43,7 +43,7 @@ public interface ILevel2 extends ILevel {
          * @param id the id of the imageview
          */
         void updateViewPosById(int id);
-        /** quit the GameLevel2
+        /** quit the GameLevel2Lvl1
          *
          */
         void setScore();

@@ -24,8 +24,8 @@ import com.example.universitylife.CharacterIcons;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Game2Activity extends AppCompatActivity implements ILevel2.ILevel2View {
-    private Game2Presenter game2Presenter;
+public class Game2Lvl1Activity extends AppCompatActivity implements ILevel2.ILevel2View {
+    private Game2Lvl1Presenter game2Presenter;
     private TextView credit_tv, gpa_tv, hp_tv;
     private ImageView red, blue, yellow;
     private LinearLayout resultBox;
@@ -58,7 +58,7 @@ public class Game2Activity extends AppCompatActivity implements ILevel2.ILevel2V
         red = findViewById(R.id.red);
         blue = findViewById(R.id.blue);
         yellow = findViewById(R.id.yellow);
-        game2Presenter = new Game2Presenter(this, new DataHandler(this), username);
+        game2Presenter = new Game2Lvl1Presenter(this, new DataHandler(this), username);
         resultBox = findViewById(R.id.resultBox);
         red.setVisibility(View.INVISIBLE);
         blue.setVisibility(View.INVISIBLE);
