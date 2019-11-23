@@ -6,14 +6,17 @@ public class Student {
     private int currentLevel = 1;
     private double gpa = 4.0;
     private double hp;
-    private String username, password, name;
+    private String username;
+
+    private String password;
+    private String name;
     private String language = "English";
 
-    public int getGiftcards() {
-        return giftcards;
-    }
-
     private int giftcards;
+    int[] items = new int[3];
+    int[] currentLevels = {1,1,1};
+    double [][] sGpa = new double [3][3];
+    private boolean onLeaderboard = true;
 
     /** Create a constructor with no argument for the firebaseDatahandler to create students from
      * the database
@@ -237,5 +240,53 @@ public class Student {
         this.language = language;
     }
 
+    public int getGiftcards() {
+        return giftcards;
+    }
+
+    public void incrementGiftcards(int n){
+        giftcards += n;
+    }
+
+    public void spendGiftcards(int n){
+        giftcards -= n;
+    }
+
+
+    public void setCredit(int credit) {
+        this.credit = credit;
+    }
+
+    public void setCurrentLevel(int currentLevel) {
+        this.currentLevel = currentLevel;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setGiftcards(int giftcards) {
+        this.giftcards = giftcards;
+    }
+
+    public void setItems(int[] items) {
+        this.items = items;
+    }
+
+    public void setCurrentLevels(int[] currentLevels) {
+        this.currentLevels = currentLevels;
+    }
+
+    public void setsGpa(double[][] sGpa) {
+        this.sGpa = sGpa;
+    }
+
+    public void setOnLeaderboard(boolean onLeaderboard) {
+        this.onLeaderboard = onLeaderboard;
+    }
+
+    public boolean isOnLeaderboard(){
+        return onLeaderboard;
+    }
 
 }

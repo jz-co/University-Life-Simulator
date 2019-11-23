@@ -74,5 +74,26 @@ public class StudentManager {
         return thisStudent.getPassword().equals(password);
     }
 
+    /**
+     * Calculate the student's cumulative GPA. Only the sGPA of completed courses will be considered.
+     * The cGPA will be the average of the sGPA of all completed courses.
+     * @param s the student
+     * @return the student's current cGPA
+     */
+    public static double calculateCGpa(Student s){
+        double tempGpa = 0;
+        for (int i = 0; i<= 2; i++){
+            if (s.currentLevels[i]>= 3){
+                for (double grade : s.sGpa[i]){
+                    tempGpa += grade;
+                }
+            }
+        }
+        if (s.getCredit() != 0) {
+            tempGpa = tempGpa / s.getCredit();
+        }
+        return tempGpa;
+    }
+
 
 }

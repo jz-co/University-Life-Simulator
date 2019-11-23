@@ -652,3 +652,9 @@ Changes: added new package Bookstore.
 Step 109 (Grace)
 Code affected: BookstorePresenter
 Changes: added new package Leaderboard.
+
+#########
+Step 110 (Grace)
+Code Affected: Student, StudentManager
+Changes: added StudentBuilder (not used yet. Will be used by DataHandler.) Added new attributes
+and new methods to Student, added static method calculateGpa() to StudentManager.
