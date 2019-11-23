@@ -630,3 +630,15 @@ Can still display completion/failure message and score.
 Step 105 (!!!!!) (Parinita)
 Code affected: activity_first_game.xml
 Changes: Changed the layout of level1
+
+########################################### PHASE 2 ################################################
+#########
+Step 106 (Koby)
+Code affected: FireBaseDataHandler.java
+Changes: Create a new class called FireBaseDataHandler which handler Firebase RealTime Database
+
+#########
+Step 107 (Koby)
+Code affected: Student.java
+Changes: Create a new empty constructor for Student so as to allow the FireBaseDataHandler to retrieve
+Student objects.

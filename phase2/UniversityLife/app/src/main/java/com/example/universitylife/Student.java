@@ -9,6 +9,13 @@ public class Student {
     private String username, password, name;
     private String language = "English";
 
+    /** Create a constructor with no argument for the firebaseDatahandler to create students from
+     * the database
+     */
+    public Student(){
+
+    }
+
     /**
      * Create a new Student. This student did not exist before and other attributes need to be
      * set separately.
