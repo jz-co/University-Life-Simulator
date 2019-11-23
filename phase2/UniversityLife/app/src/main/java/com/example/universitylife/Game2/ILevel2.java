@@ -8,7 +8,7 @@ public interface ILevel2 extends ILevel {
         /** proceed to the level 3 of the game
          *
          */
-        void goToLevel3();
+        void goToNextLevel();
 
         /** update the x and y coordinate of the imageview in the frontend
          *
@@ -32,6 +32,11 @@ public interface ILevel2 extends ILevel {
         void setSecondRemaining();
 
         void displayMessage(String message);
+
+        /** stop the count down timer in the game
+         *
+         */
+        void stopTimer();
     }
     interface ILevel2Presenter{
         /** go the level 3 of the game
@@ -47,6 +52,8 @@ public interface ILevel2 extends ILevel {
          *
          */
         void setScore();
+
+        void quitGameByKilling();
         /** set the amount of seconds left in the frontend
          *
          */

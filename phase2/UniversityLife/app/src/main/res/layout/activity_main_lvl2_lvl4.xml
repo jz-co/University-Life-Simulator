@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Game2.Game2Lvl4Activity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/credit_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="Credits" />
+
+            <TextView
+                android:id="@+id/gpa_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GPA" />
+
+            <TextView
+                android:id="@+id/hp_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/score_4"
+            android:layout_width="91dp"
+            android:layout_height="60dp"
+            android:text="Score:"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/secondRemaining_4"
+            android:layout_width="99dp"
+            android:layout_height="60dp"
+            android:text="Secs Left:"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/pause_4"
+            android:layout_width="58dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:onClick="pauseOrResume_game"
+            app:srcCompat="@drawable/pause" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="390dp"
+        android:layout_height="609dp"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:id="@+id/red_4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageView
+            android:id="@+id/blue_4"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right" />
+
+        <ImageView
+            android:id="@+id/yellow_4"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <ImageView
+            android:id="@+id/thingsYouShouldDo_3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"/>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/umbrella"
+            android:id="@+id/umbrella_4"/>
+
+        <ImageView
+            android:id="@+id/thingsYouShouldNotDo_3"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
+
+        <ImageView
+            android:id="@+id/killingObject_2"
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
+
+        <ImageView
+            android:id="@+id/character_4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom" />
+
+        <LinearLayout
+            android:id="@+id/resultBox_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:id="@+id/Name_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Catching Ball Game"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Level 4"
+                android:textAlignment="center"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/userName_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/highest_score_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Score:"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/final_score_4"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAlignment="center"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/rules"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:onClick="start_game"
+                android:text="Rules: \n red A: + 4 point \n blue B: + 3 points \n yellow D: + 1 points\n In this level,
+you also have to identify actions that you should do in university life. Catching actions that you should do will earn you
+1 point. At the same time, you will also have to identify what you shoule NOT do. Catching actions that you should not do
+will reduce 2 points."
+                android:textAlignment="center"
+                android:textColor="#0C0808"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/startGame_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="#8BC34A"
+                android:onClick="start_game"
+                android:text="Start" />
+
+            <Button
+                android:id="@+id/NextLevel_2"
+                android:layout_width="144dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/holo_blue_bright"
+                android:onClick="proceedNext"
+                android:text="NextLevel" />
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/moveLeft_2"
+            android:layout_width="197dp"
+            android:layout_height="50dp"
+            android:background="@android:color/holo_orange_light"
+            android:onClick="move_left"
+            android:text="left" />
+
+        <Button
+            android:id="@+id/moveRight_2"
+            android:layout_width="208dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:background="@android:color/holo_blue_light"
+            android:onClick="move_right"
+            android:text="right" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

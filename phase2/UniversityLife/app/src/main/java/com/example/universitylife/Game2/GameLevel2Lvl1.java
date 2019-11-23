@@ -6,11 +6,11 @@ import com.example.universitylife.Student;
 import java.util.ArrayList;
 
 public class GameLevel2Lvl1 {
-    private Student student;
-    private Basket basket;
-    private int score, framewidth, frameHeight;
-    private ArrayList<FallingObject> fallingObjects;
-    private ILevel2.ILevel2Presenter presenter;
+    protected Student student;
+    protected Basket basket;
+    protected int score, framewidth, frameHeight;
+    protected ArrayList<FallingObject> fallingObjects;
+    protected ILevel2.ILevel2Presenter presenter;
 
     public GameLevel2Lvl1(Student student, Basket basket, int FrameWidth, int FrameHeight, ArrayList<FallingObject> fallingObjects, ILevel2.ILevel2Presenter presenter) {
         this.basket = basket;

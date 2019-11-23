@@ -31,7 +31,7 @@ public interface ILogin {
 //         * Go to the Level 3 Page, pass the IGameManager to the next page. (via intent)
 //         * @param gameManager
 //         */
-//        void goToLevel3(IGameManager gameManager);
+//        void goToNextLevel(IGameManager gameManager);
     }
 
     interface ILoginPresenter {

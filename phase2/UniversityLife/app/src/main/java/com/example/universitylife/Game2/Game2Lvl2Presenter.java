@@ -1,46 +1,53 @@
 package com.example.universitylife.Game2;
 
-import com.example.universitylife.IData;
+import android.content.Intent;
+
 import com.example.universitylife.GameManager;
+import com.example.universitylife.IData;
 import com.example.universitylife.LevelPresenter;
 import com.example.universitylife.R;
+import com.example.universitylife.Student;
 
 import java.util.ArrayList;
 
-public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel2Presenter {
+public class Game2Lvl2Presenter extends LevelPresenter implements ILevel2.ILevel2Presenter {
     private ILevel2.ILevel2View view;
-    private GameLevel2Lvl1 gameLevel;
-    private FallingObject redObject, yellowObject, blueObject;
+    private GameLevel2Lvl2 gameLevel;
+    private FallingObject redObject, yellowObject, blueObject, whatYouShouldDo, whatYouShouldNotdo;;
     private int frameWidth = 1000;
     private int frameHeight = 1500;
     private int basketInt = 1455;
-    private int clearingScore = 30;
+    private int clearingScore = 40;
     private boolean nextLevelUnlocked;
+    private boolean boughtUmbrella = false;
 
-    public Game2Lvl1Presenter(ILevel2.ILevel2View view, IData datahandler, String username){
-        super(datahandler, username);
+    public Game2Lvl2Presenter(ILevel2.ILevel2View view, IData dataHandler, String username) {
+        super(dataHandler, username);
         this.view = view;
-        this.gameManager = new GameManager(datahandler, username);
+        this.gameManager = new GameManager(dataHandler, username);
         if (gameManager.getCurrentLevel()>2){
             nextLevelUnlocked = true;
         }
         ArrayList<FallingObject> fallingObjects = new ArrayList<>();
         FallingObjectFactory factory = new FallingObjectFactory();
-        redObject = factory.getFallingObject("red", 1);
-        yellowObject = factory.getFallingObject("yellow", 1);
-        blueObject = factory.getFallingObject("blue", 1);
+        redObject = factory.getFallingObject("red", 2);
+        yellowObject = factory.getFallingObject("yellow", 2);
+        blueObject = factory.getFallingObject("blue", 2);
+        whatYouShouldDo = factory.getFallingObject("what you should do", 2);
+        whatYouShouldNotdo = factory.getFallingObject("what you should not do", 2);
         fallingObjects.add(redObject);
         fallingObjects.add(blueObject);
         fallingObjects.add(yellowObject);
-        Basket basket = new Basket(R.id.character, 0, basketInt);
-        this.gameLevel = new GameLevel2Lvl1(this.gameManager.getCurrentStudent(), basket, frameWidth, frameHeight, fallingObjects, this);
+        fallingObjects.add(whatYouShouldDo);
+        fallingObjects.add(whatYouShouldDo);
+        Basket basket = new Basket(R.id.character_2, 0, basketInt);
+        Student student = this.gameManager.getCurrentStudent();
+        // boughtUmbrella = student.getItems()[1] > 0;
+        this.gameLevel = new GameLevel2Lvl2(student, basket, frameWidth, frameHeight, fallingObjects, this);
     }
 
-    /** proceed to the next level
-     *
-     */
     @Override
-    public void goToNextLevel(){
+    public void goToNextLevel() {
         if (nextLevelUnlocked) {
             view.goToNextLevel();
         } else{
@@ -52,6 +59,16 @@ public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel
     @Override
     public void updateViewPosById(int id) {
         view.updateViewPosById(id);
+    }
+
+    @Override
+    public void setScore() {
+        view.setScore();
+    }
+
+    @Override
+    public void quitGameByKilling() {
+        // nothing should be implemented as there is no killing objects
     }
 
     public void quitGame() {
@@ -84,35 +101,19 @@ public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel
         return gameLevel.getScore();
     }
 
-
-    /** Move the basket to the left by 40 units
+    /** Move the basket to the left by 20 units
      *
      */
     public void move_left(){
-        gameLevel.getBasket().move_left(40, 0);
+        gameLevel.getBasket().move_left(20, 0);
     }
 
-    /** Move the basket to the right by 40 units
+    /** Move the basket to the right by 20 units
      *
      */
     public void move_right(){
-        gameLevel.getBasket().move_right(40, frameWidth);
+        gameLevel.getBasket().move_right(20, frameWidth);
     }
-
-
-    /** set the score of the game in the frontend
-     *
-     */
-    @Override
-    public void setScore() {
-        view.setScore();
-    }
-
-    @Override
-    public void quitGameByKilling() {
-        // nothing should be implemented as there is no killing objects
-    }
-
 
     /** get the id of the image for the red ball
      *
@@ -130,12 +131,28 @@ public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel
         return blueObject.getAppearence();
     }
 
-    /**  get te id of the image for the yellow ball
+    /**  get the id of the image for the yellow ball
      *
      * @return int yellowObject appearence
      */
     public int getYellowAppearence(){
         return yellowObject.getAppearence();
+    }
+
+    /** get the  id of the image of the whatYouShouldDo
+     * @return int whatYouShouldDo appearance
+     *
+     */
+    public int getWhatYouShouldDoAppearance(){
+        return whatYouShouldDo.getAppearence();
+    }
+
+    /** get the  id of the image of the whatYouShouldNotDo
+     * @return int whatYouShouldDo appearance
+     *
+     */
+    public int getWhatYouShouldNotDoAppearance(){
+        return whatYouShouldNotdo.getAppearence();
     }
 
     /** get the id of the image for the basket
@@ -194,6 +211,38 @@ public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel
         return yellowObject.getY_coordinate();
     }
 
+    /** get the x coordinate of the whatYouShouldDo object
+     *
+     * @return the x coordinate of the whatYouShouldDo
+     */
+    public int getWhatYouShouldDoX(){
+        return whatYouShouldDo.getX_coordinate();
+    }
+
+    /** get the y coordinate of the whatYouShouldDo object
+     *
+     * @return the y coordinate of the whatYouShouldDo
+     */
+    public int getWhatYouShouldDoY(){
+        return whatYouShouldDo.getY_coordinate();
+    }
+
+    /** get the x coordinate of the whatYouShouldNotDo object
+     *
+     * @return the x coordinate of the whatYouShouldDo
+     */
+    public int getWhatYouShouldNotDoX(){
+        return whatYouShouldNotdo.getX_coordinate();
+    }
+
+    /** get the y coordinate of the whatYouShouldNotDo object
+     *
+     * @return the y coordinate of the whatYouShouldDo
+     */
+    public int getWhatYouShouldNotDoY(){
+        return whatYouShouldNotdo.getY_coordinate();
+    }
+
     /** get the x coordinate of the basket object
      *
      * @return the x coordinate of the basket object
@@ -215,6 +264,24 @@ public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel
      */
     public void initializeGame(){
         gameLevel.initializeGame();
+    }
+
+    /** set umbrella open
+     *
+     */
+    public void setUmbrellaOpen(){
+        gameLevel.setUmbrellaOpen();
+    }
+
+    /** set umbrella close
+     *
+     */
+    public void setUmbrellaClose(){
+        gameLevel.setUmbrellaClose();
+    }
+
+    public boolean isBoughtUmbrella() {
+        return boughtUmbrella;
     }
 
 }

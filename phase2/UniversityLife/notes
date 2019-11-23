@@ -678,3 +678,13 @@ Changes: added 3 new classes call WhatYouShouldDo. WhatYouShouldNotDo and Killin
 Step 114 (Koby)
 Code Affected: ILevel2, Game2Lvl1Activity, Game2Lvl1Presenter
 Changes: rename files.
+
+#########
+Step 115 (Koby)
+Code ILevel2, GameLevel2Lvl1, Game2Lvl1Activity, Game2Lvl1Presenter, FallingObjectFactory
+Changes: adding methods, and changing private variables to protected to make inheritance easy
+
+#########
+Step 116 (Koby)
+Code Affected: none
+Changes: add Activities, xml files, Presenter, and the game file itself for the other levels.
