@@ -22,6 +22,7 @@ class BookstorePresenter {
             store.buyCalculator(calculators);
             store.buyUmbrella(umbrellas);
             store.buyLv3Booster(lv3s);
+            gameManager.saveBeforeExit();
         } else{
             view.displayWarning("You do not have enough giftcards for the items you selected!");
         }

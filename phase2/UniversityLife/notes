@@ -647,3 +647,8 @@ Student objects.
 Step 108 (Grace)
 Code affected: none
 Changes: added new package Bookstore.
+
+#########
+Step 109 (Grace)
+Code affected: BookstorePresenter
+Changes: added new package Leaderboard.
