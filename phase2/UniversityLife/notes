@@ -658,3 +658,8 @@ Step 110 (Grace)
 Code Affected: Student, StudentManager
 Changes: added StudentBuilder (not used yet. Will be used by DataHandler.) Added new attributes
 and new methods to Student, added static method calculateGpa() to StudentManager.
+
+#########
+Step 111 (Koby)
+Code Affected: Drawable folder
+Changes: added new pictures to drawable folder.
