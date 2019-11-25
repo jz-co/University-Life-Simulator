@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class GameLevel1 {
+public class GameLevel1Lvl1 {
     private Student student;
     private int correctAnswers, incorrectAnswers;
     private int clearingScore = 5;
@@ -17,7 +17,7 @@ public class GameLevel1 {
     private List<String> operators = new ArrayList<>(Arrays.asList("+", "-", "*"));
 
     //initialize the game
-    public GameLevel1(Student student) {
+    public GameLevel1Lvl1(Student student) {
         this.student = student;
         this.correctAnswers = 0;
         this.incorrectAnswers = 0;

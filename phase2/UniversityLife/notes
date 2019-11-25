@@ -694,3 +694,9 @@ Step 117 (Koby)
 Code Affected: ILevel2
 Changes: implement interfaces for presenters at different levels, so that games of lower levels won't
 have to implement methods that they don't need.
+
+#########
+Step 118 (Parinita)
+Code Affected: Game1 package
+Changes: Renamed files in game 1 package and added a couple new classes to the package for the different levels
+in game 1.

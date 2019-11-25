@@ -15,7 +15,7 @@
         <activity android:name=".Game2.Game2Lvl1Activity"></activity>
         <activity android:name=".Profile.ProfileActivity"></activity>
         <activity android:name=".Result.ResultActivity" />
-        <activity android:name=".Game1.Game1Activity" />
+        <activity android:name=".Game1.Game1Lvl1Activity" />
         <activity android:name=".CourseSelector.CourseSelectorActivity" />
         <activity android:name=".Customization.CustomizationActivity" />
         <activity android:name=".MainActivity">

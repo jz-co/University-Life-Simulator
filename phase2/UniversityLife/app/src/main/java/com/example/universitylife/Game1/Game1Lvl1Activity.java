@@ -20,9 +20,9 @@ import com.example.universitylife.Game2.Game2Lvl1Activity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.ResultActivity;
 
-public class Game1Activity extends AppCompatActivity implements ILevel1.ILevel1View {
+public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1View {
 
-    private Game1Presenter level1Presenter;
+    private Game1Lvl1Presenter level1Presenter;
     private TextView questionTV, correctTV, incorrectTV, hpTV, creditTV, gpaTV, resultTV;
     private EditText answerTV;
     private Button start, nextLevel, enter;
@@ -47,7 +47,7 @@ public class Game1Activity extends AppCompatActivity implements ILevel1.ILevel1V
 
         this.username = (String) getIntent().getSerializableExtra("Username");
 
-        this.level1Presenter = new Game1Presenter(this, new DataHandler(this), username);
+        this.level1Presenter = new Game1Lvl1Presenter(this, new DataHandler(this), username);
 
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);

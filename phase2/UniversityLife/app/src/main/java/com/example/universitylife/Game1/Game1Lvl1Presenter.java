@@ -3,16 +3,16 @@ package com.example.universitylife.Game1;
 import com.example.universitylife.IData;
 import com.example.universitylife.LevelPresenter;
 
-public class Game1Presenter extends LevelPresenter implements ILevel1.ILevel1Presenter {
+public class Game1Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel1Presenter {
     private ILevel1.ILevel1View view;
-    private GameLevel1 gameLevel;
+    private GameLevel1Lvl1 gameLevel;
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
 
-    public Game1Presenter(ILevel1.ILevel1View view, IData dataHandler, String username) {
+    public Game1Lvl1Presenter(ILevel1.ILevel1View view, IData dataHandler, String username) {
         super(dataHandler, username);
         this.view = view;
-        this.gameLevel = new GameLevel1(gameManager.getCurrentStudent());
+        this.gameLevel = new GameLevel1Lvl1(gameManager.getCurrentStudent());
         if (gameManager.getCurrentLevel() > 1) {
             nextLevelUnlocked = true;
         }
