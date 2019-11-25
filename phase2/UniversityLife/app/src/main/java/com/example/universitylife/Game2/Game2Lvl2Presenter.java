@@ -10,7 +10,7 @@ import com.example.universitylife.Student;
 
 import java.util.ArrayList;
 
-public class Game2Lvl2Presenter extends LevelPresenter implements ILevel2.ILevel2Presenter {
+public class Game2Lvl2Presenter extends LevelPresenter implements ILevel2.ILevel2PresenterLvl2 {
     private ILevel2.ILevel2View view;
     private GameLevel2Lvl2 gameLevel;
     private FallingObject redObject, yellowObject, blueObject, whatYouShouldDo, whatYouShouldNotdo;;
@@ -64,11 +64,6 @@ public class Game2Lvl2Presenter extends LevelPresenter implements ILevel2.ILevel
     @Override
     public void setScore() {
         view.setScore();
-    }
-
-    @Override
-    public void quitGameByKilling() {
-        // nothing should be implemented as there is no killing objects
     }
 
     public void quitGame() {

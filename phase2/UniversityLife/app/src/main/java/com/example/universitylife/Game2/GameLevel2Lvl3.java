@@ -5,24 +5,25 @@ import com.example.universitylife.Student;
 import java.util.ArrayList;
 
 public class GameLevel2Lvl3 extends GameLevel2Lvl2 {
-
-    public GameLevel2Lvl3(Student student, Basket basket, int FrameWidth, int FrameHeight, ArrayList<FallingObject> fallingObjects, ILevel2.ILevel2Presenter presenter) {
+    ILevel2.ILevel2PresenterLvl3 presenter;
+    public GameLevel2Lvl3(Student student, Basket basket, int FrameWidth, int FrameHeight, ArrayList<FallingObject> fallingObjects, ILevel2.ILevel2PresenterLvl3 presenter) {
         super(student, basket, FrameWidth, FrameHeight, fallingObjects, presenter);
+        this.presenter = presenter;
     }
 
     @Override
     public void play() {
-        int element = (int) (Math.random() * fallingObjects.size());
-        score += game(element);
+        int element = (int) (Math.random() * this.getFallingObjects().size());
+        this.setScore(this.getScore() + game(element));
         // setting the score in the frontend
         presenter.setScore();
     }
 
     private int game(int element) {
         int result;
-        FallingObject item = fallingObjects.get(element);
-        item.fall(frameHeight, framewidth);
-        boolean eat = basket.eatBall(item, frameHeight, framewidth);
+        FallingObject item = this.getFallingObjects().get(element);
+        item.fall(this.getFrameHeight(), this.getFramewidth());
+        boolean eat = this.getBasket().eatBall(item, this.getFrameHeight(), this.getFramewidth());
         if (eat) {
             if (item instanceof KillingObject){
                 presenter.quitGameByKilling();

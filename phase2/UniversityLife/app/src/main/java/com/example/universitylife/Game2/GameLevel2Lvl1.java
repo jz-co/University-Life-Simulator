@@ -6,13 +6,13 @@ import com.example.universitylife.Student;
 import java.util.ArrayList;
 
 public class GameLevel2Lvl1 {
-    protected Student student;
-    protected Basket basket;
-    protected int score, framewidth, frameHeight;
-    protected ArrayList<FallingObject> fallingObjects;
-    protected ILevel2.ILevel2Presenter presenter;
+    private Student student;
+    private Basket basket;
+    private int score, framewidth, frameHeight;
+    private ArrayList<FallingObject> fallingObjects;
+    private ILevel2.ILevel2PresenterLvl1 presenter;
 
-    public GameLevel2Lvl1(Student student, Basket basket, int FrameWidth, int FrameHeight, ArrayList<FallingObject> fallingObjects, ILevel2.ILevel2Presenter presenter) {
+    public GameLevel2Lvl1(Student student, Basket basket, int FrameWidth, int FrameHeight, ArrayList<FallingObject> fallingObjects, ILevel2.ILevel2PresenterLvl1 presenter) {
         this.basket = basket;
         this.basket.setAppearence(student.getAppearance());
         this.score = 0;
@@ -29,7 +29,7 @@ public class GameLevel2Lvl1 {
      */
     public void play() {
         int element = (int) (Math.random() * fallingObjects.size());
-        score += game(element);
+        score += this.game(element);
         // setting the score in the frontend
         presenter.setScore();
     }
@@ -103,4 +103,19 @@ public class GameLevel2Lvl1 {
         student.decrementGpa(1);
     }
 
+    ArrayList<FallingObject> getFallingObjects() {
+        return fallingObjects;
+    }
+
+    void setScore(int new_score){
+        score = new_score;
+    }
+
+    public int getFramewidth() {
+        return framewidth;
+    }
+
+    public int getFrameHeight() {
+        return frameHeight;
+    }
 }

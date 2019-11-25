@@ -688,3 +688,9 @@ Changes: adding methods, and changing private variables to protected to make inh
 Step 116 (Koby)
 Code Affected: none
 Changes: add Activities, xml files, Presenter, and the game file itself for the other levels.
+
+#########
+Step 117 (Koby)
+Code Affected: ILevel2
+Changes: implement interfaces for presenters at different levels, so that games of lower levels won't
+have to implement methods that they don't need.

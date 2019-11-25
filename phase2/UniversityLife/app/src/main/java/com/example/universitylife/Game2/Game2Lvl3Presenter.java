@@ -7,7 +7,7 @@ import com.example.universitylife.Student;
 
 import java.util.ArrayList;
 
-public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel2Presenter{
+public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel2PresenterLvl3{
     private ILevel2.ILevel2View view;
     private GameLevel2Lvl3 gameLevel;
     private FallingObject redObject, yellowObject, blueObject, whatYouShouldDo, whatYouShouldNotdo, killingObject;
@@ -18,7 +18,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
     private boolean nextLevelUnlocked;
     private boolean boughtUmbrella = false;
 
-    public Game2Lvl3Presenter (ILevel2.ILevel2View view, IData dataHandler, String username){
+    Game2Lvl3Presenter (ILevel2.ILevel2View view, IData dataHandler, String username){
         super(dataHandler, username);
         this.view = view;
         if (gameManager.getCurrentLevel()>2){
@@ -73,6 +73,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
     /** set umbrella open
      *
      */
+    @Override
     public void setUmbrellaOpen(){
         gameLevel.setUmbrellaOpen();
     }
@@ -80,10 +81,12 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
     /** set umbrella close
      *
      */
+    @Override
     public void setUmbrellaClose(){
         gameLevel.setUmbrellaClose();
     }
 
+    @Override
     public boolean isBoughtUmbrella() {
         return boughtUmbrella;
     }
@@ -106,6 +109,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
     /** play the catching ball game
      *
      */
+    @Override
     public void play(){
         gameLevel.play();
     }
@@ -114,6 +118,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return int score (the score of the catching game
      */
+    @Override
     public int getScore(){
         return gameLevel.getScore();
     }
@@ -121,6 +126,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
     /** Move the basket to the left by 20 units
      *
      */
+    @Override
     public void move_left(){
         gameLevel.getBasket().move_left(20, 0);
     }
@@ -128,6 +134,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
     /** Move the basket to the right by 20 units
      *
      */
+    @Override
     public void move_right(){
         gameLevel.getBasket().move_right(20, frameWidth);
     }
@@ -136,6 +143,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return int redObject appearence
      */
+    @Override
     public int getRedAppearence(){
         return redObject.getAppearence();
     }
@@ -144,6 +152,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return int blueObject appearence
      */
+    @Override
     public int getBlueAppearence(){
         return blueObject.getAppearence();
     }
@@ -152,6 +161,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return int yellowObject appearence
      */
+    @Override
     public int getYellowAppearence(){
         return yellowObject.getAppearence();
     }
@@ -160,6 +170,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      * @return int whatYouShouldDo appearance
      *
      */
+    @Override
     public int getWhatYouShouldDoAppearance(){
         return whatYouShouldDo.getAppearence();
     }
@@ -168,6 +179,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      * @return int whatYouShouldDo appearance
      *
      */
+    @Override
     public int getWhatYouShouldNotDoAppearance(){
         return whatYouShouldNotdo.getAppearence();
     }
@@ -175,6 +187,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
     /** get the appearance of the killing object
      * @return int appearance of the killing object
      */
+    @Override
     public int getKillingAppearance(){
         return killingObject.getAppearence();
     }
@@ -183,6 +196,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return int basket appearance
      */
+    @Override
     public int getBasketAppearence(){
         return gameLevel.getBasket().getAppearence();
     }
@@ -191,6 +205,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return the x coordinate of the red object
      */
+    @Override
     public int getRedX(){
         return redObject.getX_coordinate();
     }
@@ -199,6 +214,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return the y coordinate of the red object
      */
+    @Override
     public int getRedY(){
         return redObject.getY_coordinate();
     }
@@ -207,6 +223,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return the x coordinate of the blue object
      */
+    @Override
     public int getBlueX(){
         return blueObject.getX_coordinate();
     }
@@ -215,6 +232,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return the y coordinate of the blue object
      */
+    @Override
     public int getBlueY(){
         return blueObject.getY_coordinate();
     }
@@ -223,6 +241,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return the x coordinate of the yellow object
      */
+    @Override
     public int getYellowX(){
         return yellowObject.getX_coordinate();
     }
@@ -231,6 +250,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return the y coordinate of the yellow object
      */
+    @Override
     public int getYellowY(){
         return yellowObject.getY_coordinate();
     }
@@ -239,6 +259,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return the x coordinate of the whatYouShouldDo
      */
+    @Override
     public int getWhatYouShouldDoX(){
         return whatYouShouldDo.getX_coordinate();
     }
@@ -247,6 +268,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return the y coordinate of the whatYouShouldDo
      */
+    @Override
     public int getWhatYouShouldDoY(){
         return whatYouShouldDo.getY_coordinate();
     }
@@ -255,6 +277,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return the x coordinate of the whatYouShouldDo
      */
+    @Override
     public int getWhatYouShouldNotDoX(){
         return whatYouShouldNotdo.getX_coordinate();
     }
@@ -263,6 +286,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return the y coordinate of the whatYouShouldDo
      */
+    @Override
     public int getWhatYouShouldNotDoY(){
         return whatYouShouldNotdo.getY_coordinate();
     }
@@ -270,6 +294,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
     /** get the x coordinate of the killing object
      * @return the x coordinate of the killng object
      */
+    @Override
     public int getKillingX(){
         return killingObject.getX_coordinate();
     }
@@ -277,6 +302,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
     /** get the x coordinate of the killing object
      * @return the x coordinate of the killng object
      */
+    @Override
     public int getKillingY(){
         return killingObject.getY_coordinate();
     }
@@ -285,6 +311,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return the x coordinate of the basket object
      */
+    @Override
     public int getBasketX(){
         return gameLevel.getBasket().getX();
     }
@@ -293,6 +320,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return the y coordinate of the bakset object
      */
+    @Override
     public int getBasketY(){
         return gameLevel.getBasket().getY();
     }
@@ -300,6 +328,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
     /** initialize the position of objects at the start of the game
      *
      */
+    @Override
     public void initializeGame(){
         gameLevel.initializeGame();
     }

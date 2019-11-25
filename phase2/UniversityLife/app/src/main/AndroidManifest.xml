@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Game2.Game2Lvl4Activity"></activity>
+        <activity android:name=".Game2.Game2Lvl3Activity"></activity>
+        <activity android:name=".Game2.Game2Lvl2Activity"></activity>
         <activity android:name=".Game2.Game2Lvl1Activity"></activity>
         <activity android:name=".Profile.ProfileActivity"></activity>
         <activity android:name=".Result.ResultActivity" />

@@ -7,7 +7,7 @@ import com.example.universitylife.R;
 
 import java.util.ArrayList;
 
-public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel2Presenter {
+public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel2PresenterLvl1 {
     private ILevel2.ILevel2View view;
     private GameLevel2Lvl1 gameLevel;
     private FallingObject redObject, yellowObject, blueObject;
@@ -54,6 +54,7 @@ public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel
         view.updateViewPosById(id);
     }
 
+    @Override
     public void quitGame() {
         // adding the score of the player to their hp
         if (gameLevel.getScore() >= clearingScore){
@@ -72,6 +73,7 @@ public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel
     /** play the catching ball game
      *
      */
+    @Override
     public void play(){
         gameLevel.play();
     }
@@ -80,139 +82,87 @@ public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel
      *
      * @return int score (the score of the catching game
      */
+    @Override
     public int getScore(){
         return gameLevel.getScore();
     }
 
-
-    /** Move the basket to the left by 40 units
-     *
-     */
+    @Override
     public void move_left(){
         gameLevel.getBasket().move_left(40, 0);
     }
 
-    /** Move the basket to the right by 40 units
-     *
-     */
+    @Override
     public void move_right(){
         gameLevel.getBasket().move_right(40, frameWidth);
     }
 
-
-    /** set the score of the game in the frontend
-     *
-     */
     @Override
     public void setScore() {
         view.setScore();
     }
 
     @Override
-    public void quitGameByKilling() {
-        // nothing should be implemented as there is no killing objects
-    }
-
-
-    /** get the id of the image for the red ball
-     *
-     * @return int redObject appearence
-     */
     public int getRedAppearence(){
         return redObject.getAppearence();
     }
 
-    /** get the id of the image for the blue ball
-     *
-     * @return int blueObject appearence
-     */
+    @Override
     public int getBlueAppearence(){
         return blueObject.getAppearence();
     }
 
-    /**  get te id of the image for the yellow ball
-     *
-     * @return int yellowObject appearence
-     */
+    @Override
     public int getYellowAppearence(){
         return yellowObject.getAppearence();
     }
 
-    /** get the id of the image for the basket
-     *
-     * @return int basket appearance
-     */
+    @Override
     public int getBasketAppearence(){
         return gameLevel.getBasket().getAppearence();
     }
 
-    /** get the x coordinate of the red object
-     *
-     * @return the x coordinate of the red object
-     */
+    @Override
     public int getRedX(){
         return redObject.getX_coordinate();
     }
 
-    /** get the y coordinate of the red object
-     *
-     * @return the y coordinate of the red object
-     */
+    @Override
     public int getRedY(){
         return redObject.getY_coordinate();
     }
 
-    /** get the x coordinate of the blue object
-     *
-     * @return the x coordinate of the blue object
-     */
+    @Override
     public int getBlueX(){
         return blueObject.getX_coordinate();
     }
 
-    /** get the y coordinate of the blue object
-     *
-     * @return the y coordinate of the blue object
-     */
+    @Override
     public int getBlueY(){
         return blueObject.getY_coordinate();
     }
 
-    /** get the x coordinate of the yellow object
-     *
-     * @return the x coordinate of the yellow object
-     */
+    @Override
     public int getYellowX(){
         return yellowObject.getX_coordinate();
     }
 
-    /** get the y coordinate of the yellow object
-     *
-     * @return the y coordinate of the yellow object
-     */
+    @Override
     public int getYellowY(){
         return yellowObject.getY_coordinate();
     }
 
-    /** get the x coordinate of the basket object
-     *
-     * @return the x coordinate of the basket object
-     */
+    @Override
     public int getBasketX(){
         return gameLevel.getBasket().getX();
     }
 
-    /** get the y coordinate of the basket object
-     *
-     * @return the y coordinate of the bakset object
-     */
+    @Override
     public int getBasketY(){
         return gameLevel.getBasket().getY();
     }
 
-    /** initialize the position of objects at the start of the game
-     *
-     */
+    @Override
     public void initializeGame(){
         gameLevel.initializeGame();
     }
