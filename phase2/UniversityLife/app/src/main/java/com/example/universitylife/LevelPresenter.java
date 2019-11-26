@@ -10,13 +10,13 @@ public abstract class LevelPresenter {
 
 
     public void initDisplay(ILevel.ILevelView view){
-        Student currStudent = gameManager.getCurrentStudent();
+        StudentOld currStudent = gameManager.getCurrentStudent();
         view.displayName(currStudent.getName());
         updateDisplay(view);
     }
 
     public void updateDisplay(ILevel.ILevelView view){
-        Student currStudent = gameManager.getCurrentStudent();
+        StudentOld currStudent = gameManager.getCurrentStudent();
         view.displayCredit(currStudent.getCredit());
         view.displayGPA(currStudent.getGpa());
         view.displayHP(currStudent.getHp());

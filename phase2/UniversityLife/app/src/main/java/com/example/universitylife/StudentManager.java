@@ -1,5 +1,8 @@
 package com.example.universitylife;
 
+import com.example.universitylife.Student.StudentFacade;
+import com.example.universitylife.Student.StudentFacadeBuilder;
+
 public class StudentManager {
 
     /**
@@ -15,32 +18,34 @@ public class StudentManager {
     /**
      * Saves data for all students.
      */
-    void saveStudentData(Student student) {
+    void saveStudentData(StudentFacade student) {
         dataHandler.updateStudentData(student);
     }
 
 
     /**
-     * Create a new student, add to the list, and return the new student.
+     * Create and return a new student facade.
      *
      * @param username The new student's username
      * @param password The new student's password
      * @return the new student
      */
-    Student getNewStudent(String username, String password) {
-        Student newStudent = new Student(username, password);
-        addStudent(newStudent);
-        return newStudent;
+    StudentFacade getNewStudent(String username, String password) {
+        StudentFacadeBuilder builder = new StudentFacadeBuilder();
+        builder.buildStudentAccount(username, password);
+        StudentFacade student = builder.getNewFacade();
+        addStudent(student);
+        return student;
     }
 
 
     /**
-     * Return the Model.Student with the given username.
+     * Return the Model.StudentOld with the given username.
      *
      * @param username The username we are looking for.
      * @return The student with the given username.
      */
-    Student getStudentByUsername(String username) {
+    StudentFacade getStudentByUsername(String username) {
         return dataHandler.getStudentByUserName(username);
     }
 
@@ -48,10 +53,10 @@ public class StudentManager {
     /**
      * Adds a student to the student list.
      *
-     * @param s A student to add to the list.
+     * @param student A student to add to the list.
      */
-    private void addStudent(Student s) {
-        dataHandler.addStudentData(s);
+    private void addStudent(StudentFacade student) {
+        dataHandler.addStudentData(student);
     }
 
 
@@ -70,8 +75,8 @@ public class StudentManager {
      * Precondition: the student exists.
      */
     public boolean passwordMatches(String username, String password) {
-        Student thisStudent = getStudentByUsername(username);
-        return thisStudent.getPassword().equals(password);
+        StudentFacade student = getStudentByUsername(username);
+        return student.passwordMatches(password);
     }
 
 

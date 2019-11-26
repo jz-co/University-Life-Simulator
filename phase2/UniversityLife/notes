@@ -739,3 +739,8 @@ modified Student getters and setters, set fields to private, etc.
 Step 125 (Trisha)
 Code affected: Game3ContentsFactory
 Changes: introduced a simple factory design pattern for the Game3 contents.
+
+########
+Step 126 (Grace)
+Code affected: Student.java (now StudentOld.java), StudentManager, GameManager
+Changes: added package Student. Student is now a Facade.

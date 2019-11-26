@@ -10,7 +10,7 @@ public class GameManager implements IGameManager {
     /**
      * The current player.
      */
-    private Student currentStudent;
+    private StudentFacade currentStudent;
 
     /**
      * This constructor is used before the user logged in.
@@ -37,7 +37,7 @@ public class GameManager implements IGameManager {
      *
      * @return the current student
      */
-    public Student getCurrentStudent() {
+    public StudentFacade getCurrentStudent() {
         return currentStudent;
     }
 
@@ -89,14 +89,4 @@ public class GameManager implements IGameManager {
     public StudentManager getStudentManager() {
         return studentManager;
     }
-
-    /**
-     * Return the current level.
-     *
-     * @return current level
-     */
-    public int getCurrentLevel() {
-        return this.currentStudent.getCurrentLevel();
-    }
-
 }
