@@ -749,3 +749,8 @@ Changes: added package Student. Student is now a Facade.
 Step 127 (Grace)
 Code affected: ILevel, IData, GameManager, LevelPresenter
 Changes: refactored interfaces and level presenter to use the facade instead of student class.
+
+#########
+Step 128 (Trisha)
+Added activity_leaderboard for displaying the leaderboard.
+Added onCreate method to Leaderboard class.

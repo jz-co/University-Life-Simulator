@@ -1,6 +1,19 @@
 package com.example.universitylife.Leaderboard;
 
-public class LeaderboardActivity implements ILeaderboard.ILeaderboardView {
+import android.os.Bundle;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.universitylife.R;
+
+public class LeaderboardActivity extends AppCompatActivity implements ILeaderboard.ILeaderboardView {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_leaderboard);
+    }
     @Override
     public void displayAvatar(int i, int picIndex) {
 

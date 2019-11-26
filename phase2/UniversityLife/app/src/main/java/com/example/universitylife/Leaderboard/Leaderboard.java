@@ -1,14 +1,16 @@
 package com.example.universitylife.Leaderboard;
 
 import com.example.universitylife.IData;
-import com.example.universitylife.Student;
+import com.example.universitylife.Student.StudentFacade;
+
+import java.lang.reflect.Array;
 
 
 class Leaderboard {
-    private Student[] top5 = new Student[5];
-    private Student currentStudent;
+    private StudentFacade[] top5 = new StudentFacade[5];
+    private StudentFacade currentStudent;
 
-    Leaderboard(Student s, IData dataHandler){
+    Leaderboard(StudentFacade s, IData dataHandler){
         currentStudent = s;
         //TODO
         // this.top5 = dataHandler.getTop5();
@@ -37,4 +39,6 @@ class Leaderboard {
     double getOnScreenGpa(){
         return currentStudent.getGpa();
     }
+
+    StudentFacade[] getTop5() {return top5;}
 }
