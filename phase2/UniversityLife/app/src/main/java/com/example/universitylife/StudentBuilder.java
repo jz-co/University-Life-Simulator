@@ -8,21 +8,20 @@ public class StudentBuilder {
         student.setPassword(password);
     }
 
-    public void buildStudentCustomization(String name, int appearance, String language, boolean leaderboard){
+    public void buildStudentCustomization(String name, int appearance, String language){
         student.setName(name);
         student.setAppearance(appearance);
         student.setLanguage(language);
-        student.setOnLeaderboard(leaderboard);
     }
 
-    public void buildStudentGameHistory(int game, int level, double[] sGpa){
-        student.currentLevels[game-1] = level; // game = 1, 2, or 3
-        student.sGpa[game-1] = sGpa;
+    public void buildStudentGameHistory(int game, int level, double[] gameScores){
+        student.setCurrentLevel(game, level);
+        student.setScores(game, gameScores);
     }
 
     public void buildStudentPerformance(int credit){
-        student.setCredit(StudentManager.calculateCredit(student));
-        student.setGpa(StudentManager.calculateCGpa(student));
+        student.setCredit(StudentPerformanceCalculator.calculateCredit(student));
+        student.setGpa(StudentPerformanceCalculator.calculateGpa(student));
     }
 
     public void buildStudentBookstoreItems(int giftcards, int[] items){

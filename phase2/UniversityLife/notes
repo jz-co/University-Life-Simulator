@@ -728,3 +728,9 @@ Step 123 (Koby)
 Package affected: FireBaseDataHandler, RankingHandler
 Changes: added a ranking handler to get the top five students, and complete the other methods in the
 FireBaseDataHandler class
+
+#########
+Step 124 (Grace)
+Code affected: student related classes
+Changes: moved static methods in StudentManager to a new class, StudentPerformanceCalculator,
+modified Student getters and setters, set fields to private, etc.

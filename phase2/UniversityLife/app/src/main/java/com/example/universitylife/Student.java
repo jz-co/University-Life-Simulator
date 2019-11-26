@@ -13,10 +13,9 @@ public class Student {
     private String language = "English";
 
     private int giftcards;
-    int[] items = new int[3];
-    int[] currentLevels = {1,1,1};
-    double [][] sGpa = new double [3][3];
-    private boolean onLeaderboard = true;
+    private int[] items = new int[3];
+    private int[] currentLevels = {1,1,1};
+    private double [][] scores = new double [3][3];
 
     /** Create a constructor with no argument for the firebaseDatahandler to create students from
      * the database
@@ -39,6 +38,7 @@ public class Student {
 
     /**
      * Create a new student. This student already exists and is being created from existing data.
+     * TODO: Delete!
      *
      * @param username:   the student's username
      * @param password:   the student's password
@@ -84,6 +84,7 @@ public class Student {
     public double getHp() {
         return hp;
     }
+    //TODO: delete
 
 
     /**
@@ -103,6 +104,7 @@ public class Student {
     public void setHp(double hp) {
         this.hp = hp;
     }
+    //TODO: delete
 
     /**
      * get the current currentLevel of this student
@@ -110,6 +112,7 @@ public class Student {
     public int getCurrentLevel() {
         return currentLevel;
     }
+    //TODO: delete
 
     /**
      * increase the credit of this student
@@ -119,6 +122,7 @@ public class Student {
     public void incrementCredit(int amount_to_add) {
         this.credit += amount_to_add;
     }
+    //TODO: delete
 
     /**
      * increase the hp of this student
@@ -128,6 +132,7 @@ public class Student {
     public void incrementHp(int amount_to_add) {
         this.hp += amount_to_add;
     }
+    //TODO: delete
 
     /**
      * increase the gpa of the student
@@ -140,6 +145,7 @@ public class Student {
             gpa = 4;
         }
     }
+    //TODO: delete
 
     /**
      * decrease the gpa of the student
@@ -152,6 +158,7 @@ public class Student {
             gpa = 0;
         }
     }
+    //TODO: delete
 
     /**
      * decrease the of the hp of the student
@@ -161,6 +168,7 @@ public class Student {
     public void decrementHp(int amount_to_delete) {
         this.hp -= amount_to_delete;
     }
+    //TODO: delete
 
     /**
      * get the username in the login page for this student
@@ -261,10 +269,6 @@ public class Student {
         this.credit = credit;
     }
 
-    public void setCurrentLevel(int currentLevel) {
-        this.currentLevel = currentLevel;
-    }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -281,20 +285,25 @@ public class Student {
         this.currentLevels = currentLevels;
     }
 
-    public void setsGpa(double[][] sGpa) {
-        this.sGpa = sGpa;
+    public void setScores(double[][] scores) {
+        this.scores = scores;
     }
 
-    public void setOnLeaderboard(boolean onLeaderboard) {
-        this.onLeaderboard = onLeaderboard;
-    }
-
-    public boolean isOnLeaderboard(){
-        return onLeaderboard;
-    }
 
     public int getCurrentLevel(int game){
         return this.currentLevels[game];
+    }
+
+    void setCurrentLevel(int game, int level){
+        this.currentLevels[game-1] = level;
+    }
+
+    void setScores(int game, double[] gameScores){
+        this.scores[game-1] = gameScores;
+    }
+
+    double[] getScores(int game){
+        return this.scores[game-1];
     }
 
 }
