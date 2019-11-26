@@ -27,13 +27,13 @@ public class Game2Lvl4Presenter extends LevelPresenter implements ILevel2.ILevel
             nextLevelUnlocked = true;
         }
         ArrayList<FallingObject> fallingObjects = new ArrayList<>();
-        FallingObjectFactory factory = new FallingObjectFactory();
-        redObject = factory.getFallingObject("red", 4);
-        yellowObject = factory.getFallingObject("yellow", 4);
-        blueObject = factory.getFallingObject("blue", 4);
-        whatYouShouldDo = factory.getFallingObject("what you should do", 4);
-        whatYouShouldNotdo = factory.getFallingObject("what you should not do", 4);
-        killingObject = factory.getFallingObject("killing object", 4);
+        FallingObjectFactory factory = new FallingObjectFactoryLvl4();
+        redObject = factory.getFallingObject("red");
+        yellowObject = factory.getFallingObject("yellow");
+        blueObject = factory.getFallingObject("blue");
+        whatYouShouldDo = factory.getFallingObject("what you should do");
+        whatYouShouldNotdo = factory.getFallingObject("what you should not do");
+        killingObject = factory.getFallingObject("killing object");
         fallingObjects.add(redObject);
         fallingObjects.add(blueObject);
         fallingObjects.add(yellowObject);

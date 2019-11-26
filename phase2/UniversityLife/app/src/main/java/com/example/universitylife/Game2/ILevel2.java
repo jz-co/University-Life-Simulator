@@ -31,6 +31,10 @@ public interface ILevel2 extends ILevel {
          */
         void setSecondRemaining();
 
+        /** display the message in the view
+         *
+         * @param message: String message
+         */
         void displayMessage(String message);
 
         /** stop the count down timer in the game
