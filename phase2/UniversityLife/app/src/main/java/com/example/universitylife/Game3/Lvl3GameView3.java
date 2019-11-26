@@ -20,11 +20,11 @@ import com.example.universitylife.Result.ResultActivity;
 
 /**
  * Referenced https://www.androidauthority.com/android-game-java-785331/
- *
+ * <p>
  * A view of the level 3 game.
  */
 
-public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback, ILevel3.ILevel3GameView {
+public class Lvl3GameView3 extends SurfaceView implements SurfaceHolder.Callback, ILevel3.ILevel3GameView {
 
     /**
      * A game item manager object.
@@ -54,6 +54,7 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
     private MainThread thread;
 
     private Bitmap wheelImage = BitmapFactory.decodeResource(getResources(), R.drawable.circle);
+    private Bitmap wheelImage2 = BitmapFactory.decodeResource(getResources(), R.drawable.small_circle);
     private Bitmap arrowImage = BitmapFactory.decodeResource(getResources(), R.drawable.arrow);
     private Bitmap bowImage = BitmapFactory.decodeResource(getResources(), R.drawable.bow);
     private Bitmap background = BitmapFactory.decodeResource(getResources(), R.drawable.game3_background);
@@ -61,10 +62,10 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
     /**
      * Constructs the level 3 game view.
      *
-     * @param context of game
+     * @param context  of game
      * @param username of student player
      */
-    public Lvl3GameView(Context context, String username) {
+    public Lvl3GameView3(Context context, String username) {
         super(context);
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
@@ -129,11 +130,11 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
         if (canvas != null) {
             drawBackground(canvas, 0, 0);
             for (GameContents item : gameItemManager.getGameItems()) {
-                if (item instanceof Arrow){
+                if (item instanceof Arrow) {
                     drawArrow(canvas, item.getX(), item.getY());
-                } else if (item instanceof Bow){
+                } else if (item instanceof Bow) {
                     drawBow(canvas, item.getX(), item.getY());
-                } else if (item instanceof Wheel){
+                } else if (item instanceof Wheel) {
                     drawWheel(canvas, item.getX(), item.getY());
                 }
             }
@@ -190,10 +191,10 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
      * Draws an arrow object on the canvas.
      *
      * @param canvas of game
-     * @param x coordinate
-     * @param y coordinate
+     * @param x      coordinate
+     * @param y      coordinate
      */
-    public void drawArrow(Canvas canvas, int x, int y){
+    public void drawArrow(Canvas canvas, int x, int y) {
         canvas.drawBitmap(arrowImage, x, y, null);
     }
 
@@ -201,10 +202,10 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
      * Draws a bow object on the canvas.
      *
      * @param canvas of game
-     * @param x coordinate
-     * @param y coordinate
+     * @param x      coordinate
+     * @param y      coordinate
      */
-    public void drawBow(Canvas canvas, int x, int y){
+    public void drawBow(Canvas canvas, int x, int y) {
         canvas.drawBitmap(this.bowImage, x, y, null);
     }
 
@@ -212,11 +213,15 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
      * Draws a wheel object on the canvas.
      *
      * @param canvas of game
-     * @param x coordinate
-     * @param y coordinate
+     * @param x      coordinate
+     * @param y      coordinate
      */
-    public void drawWheel(Canvas canvas, int x, int y){
-        canvas.drawBitmap(this.wheelImage, x, y, null);
+    public void drawWheel(Canvas canvas, int x, int y) {
+        if (gameItemManager.getScore() <= 2) {
+            canvas.drawBitmap(this.wheelImage, x, y, null);
+        } else {
+            canvas.drawBitmap(this.wheelImage2, x, y, null);
+        }
     }
 
     /**
@@ -236,7 +241,7 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
      *
      * @return wheelImage.getWidth()
      */
-    public int getWheelWidth(){
+    public int getWheelWidth() {
         return wheelImage.getWidth();
     }
 
@@ -245,7 +250,7 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
      *
      * @return wheelImage.getHeight()
      */
-    public int getWheelHeight(){
+    public int getWheelHeight() {
         return wheelImage.getHeight();
     }
 }

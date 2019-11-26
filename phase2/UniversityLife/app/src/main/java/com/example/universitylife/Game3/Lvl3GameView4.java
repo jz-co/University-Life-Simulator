@@ -20,11 +20,11 @@ import com.example.universitylife.Result.ResultActivity;
 
 /**
  * Referenced https://www.androidauthority.com/android-game-java-785331/
- *
+ * <p>
  * A view of the level 3 game.
  */
 
-public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback, ILevel3.ILevel3GameView {
+public class Lvl3GameView4 extends SurfaceView implements SurfaceHolder.Callback, ILevel3.ILevel3GameView {
 
     /**
      * A game item manager object.
@@ -61,10 +61,10 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
     /**
      * Constructs the level 3 game view.
      *
-     * @param context of game
+     * @param context  of game
      * @param username of student player
      */
-    public Lvl3GameView(Context context, String username) {
+    public Lvl3GameView4(Context context, String username) {
         super(context);
         getHolder().addCallback(this);
         thread = new MainThread(getHolder(), this);
@@ -129,11 +129,11 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
         if (canvas != null) {
             drawBackground(canvas, 0, 0);
             for (GameContents item : gameItemManager.getGameItems()) {
-                if (item instanceof Arrow){
+                if (item instanceof Arrow) {
                     drawArrow(canvas, item.getX(), item.getY());
-                } else if (item instanceof Bow){
+                } else if (item instanceof Bow) {
                     drawBow(canvas, item.getX(), item.getY());
-                } else if (item instanceof Wheel){
+                } else if (item instanceof Wheel) {
                     drawWheel(canvas, item.getX(), item.getY());
                 }
             }
@@ -147,6 +147,10 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
 
         String life = "Lives: " + (gameItemManager.getLives());
         canvas.drawText(life, 100, 100, paint);
+
+        GameContents arrow = gameItemManager.getGameItems().get(0);
+        String windSpeed = "WindSpeed: " + (arrow.getWindSpeed());
+        canvas.drawText(windSpeed, screenWidth - 500, 200, paint);
 
     }
 
@@ -164,7 +168,14 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
             GameContents item = gameItemManager.getGameItems().get(1);
             moving_arrow.setTouch(true);
             if (!(item instanceof Arrow)) {
+                String wind;
                 gameItemManager.getGameItems().add(1, new Arrow(this, screenWidth, screenHeight));
+                if (Math.random() < 0.5) {
+                    wind = "-";
+                } else {
+                    wind = "+";
+                }
+                gameItemManager.getGameItems().get(1).setWindSpeed(wind);
             }
         }
 
@@ -190,10 +201,10 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
      * Draws an arrow object on the canvas.
      *
      * @param canvas of game
-     * @param x coordinate
-     * @param y coordinate
+     * @param x      coordinate
+     * @param y      coordinate
      */
-    public void drawArrow(Canvas canvas, int x, int y){
+    public void drawArrow(Canvas canvas, int x, int y) {
         canvas.drawBitmap(arrowImage, x, y, null);
     }
 
@@ -201,10 +212,10 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
      * Draws a bow object on the canvas.
      *
      * @param canvas of game
-     * @param x coordinate
-     * @param y coordinate
+     * @param x      coordinate
+     * @param y      coordinate
      */
-    public void drawBow(Canvas canvas, int x, int y){
+    public void drawBow(Canvas canvas, int x, int y) {
         canvas.drawBitmap(this.bowImage, x, y, null);
     }
 
@@ -212,10 +223,10 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
      * Draws a wheel object on the canvas.
      *
      * @param canvas of game
-     * @param x coordinate
-     * @param y coordinate
+     * @param x      coordinate
+     * @param y      coordinate
      */
-    public void drawWheel(Canvas canvas, int x, int y){
+    public void drawWheel(Canvas canvas, int x, int y) {
         canvas.drawBitmap(this.wheelImage, x, y, null);
     }
 
@@ -236,7 +247,7 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
      *
      * @return wheelImage.getWidth()
      */
-    public int getWheelWidth(){
+    public int getWheelWidth() {
         return wheelImage.getWidth();
     }
 
@@ -245,7 +256,7 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
      *
      * @return wheelImage.getHeight()
      */
-    public int getWheelHeight(){
+    public int getWheelHeight() {
         return wheelImage.getHeight();
     }
 }

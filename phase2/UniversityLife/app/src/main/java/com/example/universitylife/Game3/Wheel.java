@@ -8,12 +8,16 @@ public class Wheel extends GameContents {
     /**
      * Determines the direction of movement of the wheel.
      */
-    private String direction = "->";
+    private String direction_x;
+
+    private String direction_y = "|";
 
     /**
      * The speed of movement of the wheel.
      */
-    private int speed;
+    private int x_speed = 5;
+
+    private int y_speed = 0;
 
     /**
      * The width of the wheel object.
@@ -24,6 +28,8 @@ public class Wheel extends GameContents {
      * The height of the wheel object.
      */
     private int height;
+
+    private int score = 0;
 
     /**
      * Constructs a wheel object.
@@ -36,9 +42,9 @@ public class Wheel extends GameContents {
         super(view, width, height);
         super.setX((25 * width) / 100);
         super.setY((15 * height) / 100);
-        speed = 5;
         this.width = view.getWheelWidth();
         this.height = view.getWheelHeight();
+        setDirection();
     }
 
     /**
@@ -48,6 +54,14 @@ public class Wheel extends GameContents {
      */
     public int getWidth() {
         return view.getWheelWidth();
+    }
+
+    private void setDirection() {
+        if (Math.random() < 0.5) {
+            direction_x = "->";
+        } else {
+            direction_x = "<-";
+        }
     }
 
     /**
@@ -63,18 +77,68 @@ public class Wheel extends GameContents {
      * Sets the speed of the wheel in the game.
      */
     void setSpeed() {
-        if (Math.random() <= 0.3 & speed >= 9){speed -= 2;}
-        else{speed += 2;}
+        if (getLevel() == 1) {
+            setLevel1Speed(1);
+        } else if (getLevel() == 2) {
+            setLevel1Speed(2);
+            if (score >= 1) {
+                setLevel2Speed();
+            }
+        } else {
+            setLevel1Speed(3);
+            if (score <= 1) {
+                setLevel2Speed();
+            } else {
+                setLevel3Speed();
+            }
+        }
+        score++;
+    }
+
+    private void setLevel1Speed(int val) {
+        if (Math.random() <= 0.3 & x_speed >= 24) {
+            x_speed -= val;
+        } else {
+            x_speed += val;
+        }
+    }
+
+    private void setLevel2Speed() {
+        double val = Math.random();
+        if (val <= 0.3) {
+            y = (int) (150 * val);
+        } else if (val <= 0.65) {
+            y = (int) (300 * val);
+        } else {
+            y = (int) (600 * val);
+        }
+    }
+
+    private void setLevel3Speed() {
+        double val = Math.random();
+        if (val < 0.5 & y_speed > 2) {
+            y_speed--;
+        } else {
+            y_speed++;
+        }
     }
 
     /**
      * Reverses the direction of movement of the wheel in the grid.
      */
-    void reverse() {
-        if (direction.equals("->")) {
-            direction = "<-";
+    private void reverse_x() {
+        if (direction_x.equals("->")) {
+            direction_x = "<-";
         } else {
-            direction = "->";
+            direction_x = "->";
+        }
+    }
+
+    private void reverse_y() {
+        if (direction_y.equals("^")) {
+            direction_y = "|";
+        } else {
+            direction_y = "^";
         }
     }
 
@@ -83,12 +147,22 @@ public class Wheel extends GameContents {
      */
     public void update() {
         if (!(x < getGridWidth() - width & x > 0)) {
-            reverse();
+            reverse_x();
         }
-        if (direction.equals("->")) {
-            x += speed;
+        if (!(y < getGridHeight() - height - 500 & y > 200)) {
+            reverse_y();
+        }
+        if (direction_x.equals("->")) {
+            x += x_speed;
         } else {
-            x -= speed;
+            x -= x_speed;
+        }
+        if (getLevel() == 3) {
+            if (direction_y.equals("|")) {
+                y += y_speed;
+            } else {
+                y -= y_speed;
+            }
         }
     }
 }
