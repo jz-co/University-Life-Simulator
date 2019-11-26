@@ -7,11 +7,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.universitylife.Bookstore.IBookstore.*;
+import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.R;
 
 public class BookStoreActivity extends AppCompatActivity implements IBookstoreView {
 
-    IBookstorePresenter presenter;
+    BookstorePresenter presenter;
     TextView moneyDisplay;
     TextView messageView;
 
@@ -22,6 +23,9 @@ public class BookStoreActivity extends AppCompatActivity implements IBookstoreVi
 
         moneyDisplay = findViewById(R.id.moneyView);
         messageView = findViewById(R.id.messageView);
+
+        String username = ""; //TODO: catch intent
+        presenter = new BookstorePresenter(this, new DataHandler(this), username);
     }
 
     @Override
@@ -48,6 +52,7 @@ public class BookStoreActivity extends AppCompatActivity implements IBookstoreVi
     }
 
     public void onExitClick(View view) {
+        presenter.save();
         finish();
     }
 }

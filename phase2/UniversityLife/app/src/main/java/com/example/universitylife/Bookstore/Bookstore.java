@@ -13,18 +13,12 @@ class Bookstore {
         return currentStudent.getGiftcards() >= price;
     }
 
-    void buyCalculator(int n){
-        currentStudent.addItem(1, n);
-        currentStudent.spendGiftcards(n);
+    void buyItem(int itemIndex){
+        currentStudent.addItem(itemIndex, 1);
+        currentStudent.spendGiftcards(1);
     }
 
-    void buyUmbrella(int n){
-        currentStudent.addItem(2,n);
-        currentStudent.spendGiftcards(n);
-    }
-
-    void buyLv3Booster(int n){
-        currentStudent.addItem(3,n);
-        currentStudent.spendGiftcards(n);
+    int getStudentGiftcards(){
+        return currentStudent.getGiftcards();
     }
 }

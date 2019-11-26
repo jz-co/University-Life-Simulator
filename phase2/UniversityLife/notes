@@ -718,3 +718,8 @@ Step 121 (Jenny)
 Updated CourseSelectorActivity, BookStoreActivity, ProfileActivity to reflect new app design.
 Also added layout xml file for BookStoreActivity.
 
+#########
+Step 122 (Grace)
+Package affected: Bookstore
+Changes: modified presenter and model according to the front end design.
+

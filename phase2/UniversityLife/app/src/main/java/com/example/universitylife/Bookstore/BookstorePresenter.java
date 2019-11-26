@@ -3,7 +3,7 @@ package com.example.universitylife.Bookstore;
 import com.example.universitylife.GameManager;
 import com.example.universitylife.IData;
 
-class BookstorePresenter implements IBookstore.IBookstorePresenter {
+class BookstorePresenter {
     private IBookstore.IBookstoreView view;
     private Bookstore store;
     private GameManager gameManager;
@@ -14,24 +14,16 @@ class BookstorePresenter implements IBookstore.IBookstorePresenter {
         store = new Bookstore(gameManager.getCurrentStudent());
     }
 
-    void validatePurchase(){
-        int calculators = 0;
-        int umbrellas = 0;
-        int lv3s = 0;
-        if (store.studentCanAfford(calculators + umbrellas + lv3s)){
-            store.buyCalculator(calculators);
-            store.buyUmbrella(umbrellas);
-            store.buyLv3Booster(lv3s);
-            gameManager.saveBeforeExit();
-        } else{
-            view.displayWarning("You do not have enough giftcards for the items you selected!");
-        }
+    void save(){
+        gameManager.saveBeforeExit();
     }
 
-    @Override
-    public void validateBonusPurchase(int bonusIdNum) {
-
-        int newAmount = 0;
-        view.updateMoneyDisplay(newAmount);
+    void validateBonusPurchase(int bonusIdNum) {
+        if (store.studentCanAfford(1)){
+            store.buyItem(bonusIdNum);
+        } else{
+            view.displayWarning("You do not have enough giftcards for this purchase!");
+        }
+        view.updateMoneyDisplay(store.getStudentGiftcards());
     }
 }
