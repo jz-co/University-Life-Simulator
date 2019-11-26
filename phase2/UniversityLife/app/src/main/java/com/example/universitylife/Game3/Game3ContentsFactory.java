@@ -97,7 +97,8 @@ public class  Game3ContentsFactory{
      */
     public void update() {
         gameWheel.update();
-        Arrow moving_arrow = (Arrow) gameItems.get(2);
+        Arrow moving_arrow = (Arrow) gameItems.get(0);
+
         if (moving_arrow.getTouch()) {
             moving_arrow.update();
             if ((gameWheel.getX() <= moving_arrow.getX() & moving_arrow.getX() <= gameWheel.getX() + gameWheel.getWidth()) &
@@ -106,10 +107,10 @@ public class  Game3ContentsFactory{
                 // player earns a score when the arrow touches the wheel.
                 score += 1;
                 gameWheel.setSpeed();
-                gameItems.remove(2);
+                gameItems.remove(moving_arrow);
             }
             if (moving_arrow.getReach()) {
-                gameItems.remove(2);
+                gameItems.remove(moving_arrow);
 
                 // player loses a life when they miss the wheel.
                 lives -= 1;

@@ -66,6 +66,6 @@ public class Arrow extends GameContents implements TouchEvent {
         } else {
             reachEnd = true;
         }
-
+        x += getWindSpeed();
     }
 }

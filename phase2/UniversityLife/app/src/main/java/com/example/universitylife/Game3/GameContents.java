@@ -31,6 +31,13 @@ public abstract class GameContents {
     private int gridHeight;
 
     /**
+     * The level of the game
+     */
+    private int level;
+
+    private int windSpeed = 0;
+
+    /**
      * Constructs a game object.
      *
      * @param view of game
@@ -41,7 +48,15 @@ public abstract class GameContents {
         this.gridHeight = gridHeight;
         this.gridWidth = gridWidth;
         this.view = view;
-
+        if (view instanceof Lvl3GameView) {
+            level = 1;
+        } else if (view instanceof Lvl3GameView2) {
+            level = 2;
+        } else if (view instanceof Lvl3GameView3) {
+            level = 3;
+        } else {
+            level = 4;
+        }
     }
 
     /**
@@ -56,6 +71,21 @@ public abstract class GameContents {
      */
     public int getX() {
         return this.x;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getWindSpeed() {
+        return windSpeed;
+    }
+
+    public void setWindSpeed(String direction) {
+        windSpeed = (int) (5 * Math.random());
+        if (!direction.equals("+")) {
+            windSpeed = -windSpeed;
+        }
     }
 
     /**
