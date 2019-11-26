@@ -6,9 +6,10 @@ import java.util.List;
 /**
  * Inspired by the code from A1.
  *
- * A manager class for all the objects in the game.
+ * A factory class for interacting with all the objects in the game.
+ *
  */
-public class Game3ItemManager {
+public class  Game3ContentsFactory{
 
     /**
      * Collection of all items in the game.
@@ -40,7 +41,7 @@ public class Game3ItemManager {
      */
     private int gridHeight;
 
-    public Game3ItemManager(int width, int height) {
+    public Game3ContentsFactory(int width, int height) {
         this.gridWidth = width;
         this.gridHeight = height;
         gameItems = new ArrayList<>();

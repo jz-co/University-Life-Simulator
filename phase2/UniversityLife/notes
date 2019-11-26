@@ -734,3 +734,8 @@ Step 124 (Grace)
 Code affected: student related classes
 Changes: moved static methods in StudentManager to a new class, StudentPerformanceCalculator,
 modified Student getters and setters, set fields to private, etc.
+
+#########
+Step 125 (Trisha)
+Code affected: Game3ContentsFactory
+Changes: introduced a simple factory design pattern for the Game3 contents.

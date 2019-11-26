@@ -29,7 +29,7 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
     /**
      * A game item manager object.
      */
-    public Game3ItemManager gameItemManager;
+    public Game3ContentsFactory gameItemManager;
 
     /**
      * The width of the screen.
@@ -79,7 +79,7 @@ public class Lvl3GameView extends SurfaceView implements SurfaceHolder.Callback,
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        gameItemManager = new Game3ItemManager(screenWidth, screenHeight);
+        gameItemManager = new Game3ContentsFactory(screenWidth, screenHeight);
 
         // add a bow to the game
         Bow bow = new Bow(this, screenWidth, screenHeight);
