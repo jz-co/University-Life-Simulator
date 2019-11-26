@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import com.example.universitylife.Customization.ICustomization.*;
 import com.example.universitylife.DataHandler.DataHandler;
+import com.example.universitylife.Profile.ProfileActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.CharacterIcons;
 import com.example.universitylife.CourseSelector.CourseSelectorActivity;
@@ -75,8 +76,8 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
     /**
      * Navigate to course selection activity.
      */ @Override
-    public void navigateToCourseSelector(String username) {
-        Intent intent = new Intent(this, CourseSelectorActivity.class);
+    public void navigateToProfile(String username) {
+        Intent intent = new Intent(this, ProfileActivity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }

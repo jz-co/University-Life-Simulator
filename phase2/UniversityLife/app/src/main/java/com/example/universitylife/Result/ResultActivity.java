@@ -35,10 +35,8 @@ public class ResultActivity extends AppCompatActivity implements IResult.IResult
         username = (String) getIntent().getSerializableExtra("Username");
         level = (int) getIntent().getSerializableExtra("Level");
         int score = (int) getIntent().getSerializableExtra("Score");
-        String completion = (String) getIntent().getSerializableExtra("Completion");
 
         displayGrade(String.valueOf(score));
-        displayCompletionMessage(completion);
         displayLevel(String.valueOf(level));
 
     }
@@ -57,10 +55,9 @@ public class ResultActivity extends AppCompatActivity implements IResult.IResult
 
     }
 
-    @Override
-    public void displayCompletionMessage(String message) {
-        resultMessage.setText(message);
-    }
+//    public void displayCompletionMessage(String message) {
+//        resultMessage.setText(message);
+//    }
 
     public void onClickPlayAgain(View view) {
         if (level == 1) {
@@ -72,7 +69,7 @@ public class ResultActivity extends AppCompatActivity implements IResult.IResult
         }
     }
 
-    public void onClickSelectAnother(View view) {
+    public void onClickSelectNext(View view) {
         Intent intent = new Intent(this, CourseSelectorActivity.class);
         intent.putExtra("Username", username);
         startActivity(intent);

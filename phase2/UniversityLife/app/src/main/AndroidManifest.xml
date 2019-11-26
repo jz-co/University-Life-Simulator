@@ -9,23 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Game2.Game2Lvl4Activity"></activity>
-        <activity android:name=".Game2.Game2Lvl3Activity"></activity>
-        <activity android:name=".Game2.Game2Lvl2Activity"></activity>
-        <activity android:name=".Game2.Game2Lvl1Activity"></activity>
-        <activity android:name=".Profile.ProfileActivity"></activity>
+        <activity android:name=".Bookstore.BookStoreActivity"></activity>
+        <activity android:name=".Game2.Game2Lvl4Activity" />
+        <activity android:name=".Game2.Game2Lvl3Activity" />
+        <activity android:name=".Game2.Game2Lvl2Activity" />
+        <activity android:name=".Game2.Game2Lvl1Activity" />
+        <activity android:name=".Profile.ProfileActivity" />
         <activity android:name=".Result.ResultActivity" />
         <activity android:name=".Game1.Game1Lvl1Activity" />
         <activity android:name=".CourseSelector.CourseSelectorActivity" />
         <activity android:name=".Customization.CustomizationActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Game3.Game3StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Game3.Game3Activity"
             android:parentActivityName=".Game3.Game3StartActivity" />

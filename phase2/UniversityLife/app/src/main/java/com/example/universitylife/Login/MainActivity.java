@@ -1,4 +1,4 @@
-package com.example.universitylife;
+package com.example.universitylife.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 

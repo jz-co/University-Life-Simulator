@@ -7,7 +7,7 @@ public interface ICustomization {
 //        int getPictureIndex();
 //        String getName();
 //        String getLang();
-        void navigateToCourseSelector(String username);
+        void navigateToProfile(String username);
     }
     interface ICustomizationPresenter{
 //        void leftBtnClicked();

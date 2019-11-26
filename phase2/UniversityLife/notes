@@ -712,3 +712,9 @@ at different levels.
 Step 120 (Grace)
 Code Affected: Student, StudentManager, StudentBuilder, Bookstore
 Changes: added static method calculateCredits() to StudentManager, some getters in Student.
+
+#########
+Step 121 (Jenny)
+Updated CourseSelectorActivity, BookStoreActivity, ProfileActivity to reflect new app design.
+Also added layout xml file for BookStoreActivity.
+

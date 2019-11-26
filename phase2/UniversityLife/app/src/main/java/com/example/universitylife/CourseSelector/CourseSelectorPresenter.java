@@ -7,7 +7,7 @@ public class CourseSelectorPresenter {
     private ICourseSelector.ICourseSelectorView view;
     private GameManager gameManager;
 
-    public CourseSelectorPresenter(ICourseSelector.ICourseSelectorView view, IData dataHandler, String username) {
+    CourseSelectorPresenter(ICourseSelector.ICourseSelectorView view, IData dataHandler, String username) {
         this.view = view;
         gameManager = new GameManager(dataHandler, username);
     }
@@ -15,16 +15,16 @@ public class CourseSelectorPresenter {
     /**
      * Direct user to lv1
      */
-    public void validateLevel1() {
-        view.goToLevel1(gameManager.getCurrentUsername());
+    void validateCourse1() {
+        view.navigateToCourse1(gameManager.getCurrentUsername());
     }
 
     /**
      * check if student has unlocked lv2. If so, go to lv2. If not, show warning message.
      */
-    public void validateLevel2() {
+    void validateCourse2() {
         if (gameManager.getCurrentLevel() >= 2) {
-            view.goToLevel2(gameManager.getCurrentUsername());
+            view.navigateToCourse2(gameManager.getCurrentUsername());
         } else {
             warning();
         }
@@ -33,15 +33,15 @@ public class CourseSelectorPresenter {
     /**
      * check if student has unlocked lv3. If so, go to lv3. If not, show warning.
      */
-    public void validateLevel3() {
+    void validateCourse3() {
         if (gameManager.getCurrentLevel() >= 3) {
-            view.goToLevel3(gameManager.getCurrentUsername());
+            view.navigateToCourse3(gameManager.getCurrentUsername());
         } else {
             warning();
         }
     }
 
-    public int getPicIndex() {
+    int getPicIndex() {
         return gameManager.getCurrentStudent().getAppearance();
     }
 

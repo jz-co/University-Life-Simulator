@@ -27,6 +27,6 @@ public class CustomizationPresenter implements ICustomization.ICustomizationPres
         }
         customizationManager.customize(picIndex, customName, lang);
         gameManager.saveBeforeExit();
-        view.navigateToCourseSelector(gameManager.getCurrentUsername());
+        view.navigateToProfile(gameManager.getCurrentUsername());
     }
 }

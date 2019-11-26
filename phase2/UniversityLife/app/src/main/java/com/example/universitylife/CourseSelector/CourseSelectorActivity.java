@@ -45,36 +45,28 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
         presenter = new CourseSelectorPresenter(this, new DataHandler(this), username);
 
 
-        // Set reference to the profileButton in layout
-        // Set its image to the user's character icon
-        ImageButton profileButton = findViewById(R.id.profileButton);
-
-        CharacterIcons icons = new CharacterIcons(this);
-        int picIndex = presenter.getPicIndex();
-        int picIdentifier = icons.getIconByIndex(picIndex);
-        profileButton.setImageResource(picIdentifier);
     }
 
 
     /**
      * Executes when levelButton1 is clicked.
      */
-    public void onLevel1Click (View view) {
-        presenter.validateLevel1();
+    public void onClickCourse1 (View view) {
+        presenter.validateCourse1();
     }
 
     /**
      * Executes when levelButton2 is clicked.
      */
-    public void onLevel2Click (View view) {
-        presenter.validateLevel2();
+    public void onClickCourse2(View view) {
+        presenter.validateCourse2();
     }
 
     /**
      * Executes when levelButton3 is clicked.
      */
-    public void onLevel3Click (View view) {
-        presenter.validateLevel3();
+    public void onClickCourse3(View view) {
+        presenter.validateCourse3();
 
     }
 
@@ -83,6 +75,10 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
      */
     public void onProfileClick (View view) {
         navigateToProfile(presenter.getUsername());
+    }
+
+    public void onBackClick(View view) {
+        finish();
     }
 
 
@@ -108,7 +104,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
      * Navigate to Level 1 activity for user with "username".
      */
     @Override
-    public void goToLevel1(String username) {
+    public void navigateToCourse1(String username) {
         Intent intent = new Intent(this, Game1Lvl1Activity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
@@ -118,7 +114,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
      * Navigate to Level 2 activity for user with "username".
      */
     @Override
-    public void goToLevel2(String username) {
+    public void navigateToCourse2(String username) {
         Intent intent = new Intent(this, Game2Lvl1Activity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
@@ -128,7 +124,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
      * Navigate to Level 3 activity for user with "username".
      */
     @Override
-    public void goToLevel3(String username) {
+    public void navigateToCourse3(String username) {
         Intent intent = new Intent(this, Game3StartActivity.class);
         intent.putExtra("Username", username);
         startActivity(intent);

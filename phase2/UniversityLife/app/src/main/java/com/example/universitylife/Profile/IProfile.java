@@ -9,6 +9,9 @@ public interface IProfile {
         String getName();
         String getGPA();
         String getCredits();
+        String getMoney();
+
+        void validateGraduation();
 
     }
 }

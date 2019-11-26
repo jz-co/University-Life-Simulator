@@ -10,11 +10,13 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.universitylife.Bookstore.BookstoreActivityRough;
+import com.example.universitylife.CourseSelector.CourseSelectorActivity;
 import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.R;
 import com.example.universitylife.CharacterIcons;
 import com.example.universitylife.Customization.CustomizationActivity;
-import com.example.universitylife.MainActivity;
+import com.example.universitylife.Login.MainActivity;
 
 
 public class ProfileActivity extends AppCompatActivity implements IProfile.IProfileView {
@@ -41,12 +43,14 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
         TextView nameView = findViewById(R.id.nameView);
         TextView gpaView = findViewById(R.id.gpaView);
         TextView creditsView = findViewById(R.id.creditsView);
+        TextView moneyView = findViewById(R.id.moneyView);
         ImageView userIcon = findViewById(R.id.characterIconView);
 
         presenter = new ProfilePresenter(this, new DataHandler(this), username);
         nameView.setText(presenter.getName());
         gpaView.setText(presenter.getGPA());
         creditsView.setText(presenter.getCredits());
+        moneyView.setText(presenter.getMoney());
 
         CharacterIcons icons = new CharacterIcons(this);
         int picIdentifier = icons.getIconByIndex(presenter.getPicIndex());
@@ -72,4 +76,22 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
     public void onBackClick(View view) {
         finish();
     }
+
+    public void onClickCourseSelection(View view) {
+        Intent intent = new Intent(this, CourseSelectorActivity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
+    }
+
+    public void onClickGraduate(View view) {
+        presenter.validateGraduation();
+
+    }
+
+    public void onClickBookstore(View view) {
+        Intent intent = new Intent(this, BookstoreActivityRough.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
+    }
 }
+
