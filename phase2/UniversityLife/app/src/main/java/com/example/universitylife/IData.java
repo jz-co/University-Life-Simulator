@@ -1,9 +1,12 @@
 package com.example.universitylife;
 
-import com.example.universitylife.Student;
+
+import com.example.universitylife.Student.StudentFacade;
 
 public interface IData {
-    void addStudentData(Student student);
-    void updateStudentData(Student student);
-    Student getStudentByUserName(String userName);
+    void addStudentData(StudentFacade student);
+
+    void updateStudentData(StudentFacade student);
+
+    StudentFacade getStudentByUserName(String userName);
 }

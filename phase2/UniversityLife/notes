@@ -744,3 +744,8 @@ Changes: introduced a simple factory design pattern for the Game3 contents.
 Step 126 (Grace)
 Code affected: Student.java (now StudentOld.java), StudentManager, GameManager
 Changes: added package Student. Student is now a Facade.
+
+#########
+Step 127 (Grace)
+Code affected: ILevel, IData, GameManager, LevelPresenter
+Changes: refactored interfaces and level presenter to use the facade instead of student class.

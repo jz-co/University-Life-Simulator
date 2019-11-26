@@ -1,6 +1,8 @@
 package com.example.universitylife;
 
 
+import com.example.universitylife.Student.StudentFacade;
+
 public class GameManager implements IGameManager {
     /**
      * The student manager attached to this game manager.

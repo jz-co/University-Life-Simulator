@@ -1,6 +1,8 @@
 package com.example.universitylife;
 
 
+import com.example.universitylife.Student.StudentFacade;
+
 public abstract class LevelPresenter {
     public GameManager gameManager;
 
@@ -10,15 +12,13 @@ public abstract class LevelPresenter {
 
 
     public void initDisplay(ILevel.ILevelView view){
-        StudentOld currStudent = gameManager.getCurrentStudent();
+        StudentFacade currStudent = gameManager.getCurrentStudent();
         view.displayName(currStudent.getName());
         updateDisplay(view);
     }
 
     public void updateDisplay(ILevel.ILevelView view){
-        StudentOld currStudent = gameManager.getCurrentStudent();
-        view.displayCredit(currStudent.getCredit());
-        view.displayGPA(currStudent.getGpa());
-        view.displayHP(currStudent.getHp());
+        StudentFacade currStudent = gameManager.getCurrentStudent();
+        view.displayScore(currStudent.getGpa());
     }
 }
