@@ -21,7 +21,7 @@ public class StudentBuilder {
     }
 
     public void buildStudentPerformance(int credit){
-        student.setCredit(credit);
+        student.setCredit(StudentManager.calculateCredit(student));
         student.setGpa(StudentManager.calculateCGpa(student));
     }
 

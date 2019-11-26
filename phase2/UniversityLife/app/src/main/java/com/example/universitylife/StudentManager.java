@@ -80,7 +80,7 @@ public class StudentManager {
      * @param s the student
      * @return the student's current cGPA
      */
-    public static double calculateCGpa(Student s){
+    static double calculateCGpa(Student s){
         double tempGpa = 0;
         for (int i = 0; i<= 2; i++){
             if (s.currentLevels[i]>= 3){
@@ -93,6 +93,20 @@ public class StudentManager {
             tempGpa = tempGpa / s.getCredit();
         }
         return tempGpa;
+    }
+
+    static int calculateCredit(Student s){
+        int credit = 0;
+        for (int i = 0; i<=2; i++){
+            if (s.currentLevels[i] >= 3){
+                credit ++;
+            }
+        }
+        return credit;
+    }
+
+    static boolean validateGraduation(Student s){
+        return s.getCredit() >= 3;
     }
 
 

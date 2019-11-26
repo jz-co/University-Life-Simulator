@@ -14,14 +14,17 @@ class Bookstore {
     }
 
     void buyCalculator(int n){
-
+        currentStudent.addItem(1, n);
+        currentStudent.spendGiftcards(n);
     }
 
     void buyUmbrella(int n){
-
+        currentStudent.addItem(2,n);
+        currentStudent.spendGiftcards(n);
     }
 
     void buyLv3Booster(int n){
-
+        currentStudent.addItem(3,n);
+        currentStudent.spendGiftcards(n);
     }
 }

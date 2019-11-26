@@ -707,3 +707,8 @@ Code Affected: none
 Changes: Make FallingObjectFactory an interface and add 4 different classes: FallingObjectFactoryLvl1,
 FallingObjectFactoryLvl2, FallingObjectFactoryLvl3, FallingObjectFactoryLvl4 to create falling objects
 at different levels.
+
+#########
+Step 120 (Grace)
+Code Affected: Student, StudentManager, StudentBuilder, Bookstore
+Changes: added static method calculateCredits() to StudentManager, some getters in Student.

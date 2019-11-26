@@ -252,6 +252,10 @@ public class Student {
         giftcards -= n;
     }
 
+    public void addItem(int i, int number){
+        this.items[i] += number;
+    }
+
 
     public void setCredit(int credit) {
         this.credit = credit;
@@ -287,6 +291,10 @@ public class Student {
 
     public boolean isOnLeaderboard(){
         return onLeaderboard;
+    }
+
+    public int getCurrentLevel(int game){
+        return this.currentLevels[game];
     }
 
 }
