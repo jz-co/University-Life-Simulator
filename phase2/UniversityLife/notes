@@ -723,3 +723,8 @@ Step 122 (Grace)
 Package affected: Bookstore
 Changes: modified presenter and model according to the front end design.
 
+#########
+Step 123 (Koby)
+Package affected: FireBaseDataHandler, RankingHandler
+Changes: added a ranking handler to get the top five students, and complete the other methods in the
+FireBaseDataHandler class
