@@ -1,6 +1,6 @@
 package com.example.universitylife;
 
-public class Student {
+public class StudentOld {
 //
 //
 //    /** Create a constructor with no argument for the firebaseDatahandler to create students from
