@@ -3,7 +3,7 @@ package com.example.universitylife.Login;
 import com.example.universitylife.GameManager;
 import com.example.universitylife.StudentManager;
 
-public class LogInManager {
+class LogInManager {
     /**
      * The game manager.
      */
@@ -14,7 +14,7 @@ public class LogInManager {
      */
     private StudentManager studentManager;
 
-    public LogInManager(GameManager gameManager){
+    LogInManager(GameManager gameManager) {
         this.gameManager = gameManager;
         this.studentManager = gameManager.getStudentManager();
     }
@@ -34,7 +34,7 @@ public class LogInManager {
      * @param username The username entered by the user.
      * @param password The password entered by the user.
      */
-    public boolean logIn(String username, String password){
+    boolean logIn(String username, String password) {
         if (!userExists(username) || !studentManager.passwordMatches(username,password)) {
             return false;
         } else{
@@ -51,7 +51,7 @@ public class LogInManager {
      * @param username The username entered by the user.
      * @param password The password entered by the user.
      */
-    public boolean signUp(String username, String password){
+    boolean signUp(String username, String password) {
         if (userExists(username)){
             return false;
         } else{

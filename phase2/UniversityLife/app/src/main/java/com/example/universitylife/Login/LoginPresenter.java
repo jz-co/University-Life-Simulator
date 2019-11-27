@@ -8,7 +8,7 @@ public class LoginPresenter implements ILogin.ILoginPresenter {
     private GameManager gameManager;
     private LogInManager logInManager;
 
-    public LoginPresenter(ILogin.ILoginView view, IData dataHandler) {
+    LoginPresenter(ILogin.ILoginView view, IData dataHandler) {
         this.view = view;
         this.gameManager = new GameManager(dataHandler);
         this.logInManager = new LogInManager(gameManager);

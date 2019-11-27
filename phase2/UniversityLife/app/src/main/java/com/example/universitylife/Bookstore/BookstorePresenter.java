@@ -19,7 +19,7 @@ class BookstorePresenter {
     }
 
     void validateBonusPurchase(int bonusIdNum) {
-        if (store.studentCanAfford(1)){
+        if (store.studentHasGiftcards()) {
             store.buyItem(bonusIdNum);
         } else{
             view.displayWarning("You do not have enough giftcards for this purchase!");

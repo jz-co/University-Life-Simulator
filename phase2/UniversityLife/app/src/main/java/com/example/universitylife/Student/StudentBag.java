@@ -16,8 +16,11 @@ class StudentBag {
         return giftcards > 0;
     }
 
-    void purchaseItem(int itemIndex) {
+    void addItem(int itemIndex) {
         items[itemIndex-1]++;
+    }
+
+    void spendGiftcard() {
         giftcards--;
     }
 

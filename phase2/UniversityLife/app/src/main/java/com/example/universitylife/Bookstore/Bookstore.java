@@ -1,21 +1,21 @@
 package com.example.universitylife.Bookstore;
 
-import com.example.universitylife.Student;
+import com.example.universitylife.Student.StudentFacade;
 
 class Bookstore {
-    private Student currentStudent;
+    private StudentFacade currentStudent;
 
-    Bookstore(Student s){
+    Bookstore(StudentFacade s) {
         this.currentStudent = s;
     }
 
-    boolean studentCanAfford (int price){
-        return currentStudent.getGiftcards() >= price;
+    boolean studentHasGiftcards() {
+        return currentStudent.hasGiftcards();
     }
 
     void buyItem(int itemIndex){
-        currentStudent.addItem(itemIndex, 1);
-        currentStudent.spendGiftcards(1);
+        currentStudent.addItem(itemIndex);
+        currentStudent.spendGiftcard();
     }
 
     int getStudentGiftcards(){

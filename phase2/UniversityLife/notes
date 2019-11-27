@@ -758,4 +758,4 @@ Added onCreate method to Leaderboard class.
 ########
 Step 129 (Grace)
 Changes: changed access modifiers in Student package. Refactored Customization package to
-adapt to the student facade.
+adapt to the student facade. Refactored Login, bookstore package.

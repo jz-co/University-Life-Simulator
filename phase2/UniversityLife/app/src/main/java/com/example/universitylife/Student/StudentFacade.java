@@ -62,8 +62,16 @@ public class StudentFacade {
         bag.obtainGiftcards(n);
     }
 
-    public void purchaseItem(int itemIndex){
-        bag.purchaseItem(itemIndex);
+    public void addItem(int itemIndex) {
+        bag.addItem(itemIndex);
+    }
+
+    public void spendGiftcard() {
+        bag.spendGiftcard();
+    }
+
+    public boolean hasGiftcards() {
+        return bag.hasGiftcards();
     }
 
 
