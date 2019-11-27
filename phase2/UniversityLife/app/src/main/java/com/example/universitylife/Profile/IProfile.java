@@ -2,7 +2,9 @@ package com.example.universitylife.Profile;
 
 public interface IProfile {
     interface IProfileView {
-        public void logOut();
+        void logOut();
+        void displayErrorMessage();
+
     }
 
     interface IProfilePresenter {

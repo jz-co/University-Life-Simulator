@@ -93,5 +93,10 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
         intent.putExtra("Username", username);
         startActivity(intent);
     }
+
+    @Override
+    public void displayErrorMessage(){
+
+    }
 }
 

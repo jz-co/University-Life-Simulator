@@ -34,7 +34,24 @@ public class ProfilePresenter implements IProfilePresenter {
         return String.valueOf(gameManager.getCurrentStudent().getCredit());
     }
 
-    public int getPicIndex() {
+    @Override
+    public String getMoney() {
+        return String.valueOf(gameManager.getCurrentStudent().getGiftcards());
+    }
+
+    @Override
+    public void validateGraduation() {
+        // if gameManager.getCurrentStudent().  // TODO: Does student have a graduated indicator
+
+        // If student has graduated
+        // Navigate to graduationActivity
+
+        // else
+        // displayErrorMessage
+
+    }
+
+    int getPicIndex() {
         return gameManager.getCurrentStudent().getAppearance();
     }
 
