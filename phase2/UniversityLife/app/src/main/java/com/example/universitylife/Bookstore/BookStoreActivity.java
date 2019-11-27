@@ -34,7 +34,7 @@ public class BookStoreActivity extends AppCompatActivity implements IBookstoreVi
     }
 
     @Override
-    public void updateMoneyDisplay(int newAmount) {
+    public void updateGiftcardDisplay(int newAmount) {
         moneyDisplay.setText(newAmount);
 
     }

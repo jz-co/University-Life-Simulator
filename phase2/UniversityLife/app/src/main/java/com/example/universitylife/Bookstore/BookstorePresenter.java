@@ -24,6 +24,6 @@ class BookstorePresenter {
         } else{
             view.displayWarning("You do not have enough giftcards for this purchase!");
         }
-        view.updateMoneyDisplay(store.getStudentGiftcards());
+        view.updateGiftcardDisplay(store.getStudentGiftcards());
     }
 }
