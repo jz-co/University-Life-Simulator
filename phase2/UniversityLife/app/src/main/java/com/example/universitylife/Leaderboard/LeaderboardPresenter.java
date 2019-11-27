@@ -26,4 +26,24 @@ class LeaderboardPresenter {
             view.displayGpa(i, leaderboard.getGpaOf(i));
         }
     }
+
+    int displayAvatar(int i) {
+        return leaderboard.getAppearanceOf(i);
+    }
+
+    String currentUserName() {
+        return leaderboard.getOnScreenName();
+    }
+
+    String leaderBoardName(int i) {
+        return leaderboard.getNameOf(i);
+    }
+
+    double currentGPA() {
+        return leaderboard.getOnScreenGpa();
+    }
+
+    int currentAvatar() {
+        return leaderboard.getOnScreenAppearance();
+    }
 }
