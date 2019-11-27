@@ -12,11 +12,11 @@ class StudentBag {
         this.items = items;
     }
 
-    public boolean hasGiftcards(){
+    boolean hasGiftcards() {
         return giftcards > 0;
     }
 
-    public void purchaseItem(int itemIndex){
+    void purchaseItem(int itemIndex) {
         items[itemIndex-1]++;
         giftcards--;
     }

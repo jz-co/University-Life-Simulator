@@ -5,6 +5,16 @@ class StudentPreferences {
     private int appearance = 1;
     private String language = "English";
 
+    StudentPreferences() {
+
+    }
+
+    StudentPreferences(String name, int appearance, String language) {
+        this.name = name;
+        this.appearance = appearance;
+        this.language = language;
+    }
+
     public String getName() {
         return name;
     }
@@ -13,11 +23,11 @@ class StudentPreferences {
         this.name = name;
     }
 
-    public int getAppearance() {
+    int getAppearance() {
         return appearance;
     }
 
-    public void setAppearance(int appearance) {
+    void setAppearance(int appearance) {
         this.appearance = appearance;
     }
 
@@ -25,19 +35,9 @@ class StudentPreferences {
         return language;
     }
 
-    public void setLanguage(String language) {
+    void setLanguage(String language) {
         this.language = language;
     }
 
 
-
-    StudentPreferences(){
-
-    }
-
-    StudentPreferences(String name, int appearance, String language){
-        this.name = name;
-        this.appearance = appearance;
-        this.language = language;
-    }
 }

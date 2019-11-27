@@ -1,15 +1,15 @@
 package com.example.universitylife.Customization;
 
-import com.example.universitylife.Student;
+import com.example.universitylife.Student.StudentFacade;
 
-public class CustomizationManager {
+class CustomizationManager {
 
     /**
      * The current student.
      */
-    private Student currentStudent;
+    private StudentFacade currentStudent;
 
-    public CustomizationManager(Student curr) {
+    CustomizationManager(StudentFacade curr) {
         this.currentStudent = curr;
     }
 
@@ -21,7 +21,7 @@ public class CustomizationManager {
      * @param name     The student's preferred name
      * @param lang     The student's preferred language
      */
-    public void customize(int picIndex, String name, String lang) {
+    void customize(int picIndex, String name, String lang) {
         currentStudent.setLanguage(lang);
         currentStudent.setAppearance(picIndex);
         currentStudent.setName(name);

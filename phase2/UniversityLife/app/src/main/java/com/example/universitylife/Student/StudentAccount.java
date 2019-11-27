@@ -13,7 +13,7 @@ class StudentAccount {
         return password.equals(this.password);
     }
 
-    public String getUsername() {
+    String getUsername() {
         return username;
     }
 }

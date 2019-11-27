@@ -754,3 +754,8 @@ Changes: refactored interfaces and level presenter to use the facade instead of 
 Step 128 (Trisha)
 Added activity_leaderboard for displaying the leaderboard.
 Added onCreate method to Leaderboard class.
+
+########
+Step 129 (Grace)
+Changes: changed access modifiers in Student package. Refactored Customization package to
+adapt to the student facade.

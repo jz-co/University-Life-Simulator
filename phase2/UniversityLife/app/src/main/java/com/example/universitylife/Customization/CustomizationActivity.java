@@ -15,7 +15,6 @@ import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.Profile.ProfileActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.CharacterIcons;
-import com.example.universitylife.CourseSelector.CourseSelectorActivity;
 
 
 public class CustomizationActivity extends AppCompatActivity implements ICustomizationView {

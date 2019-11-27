@@ -55,7 +55,7 @@ class StudentPerformance {
         return credit >= 3;
     }
 
-    public int getCredit() {
+    int getCredit() {
         return credit;
     }
 
@@ -64,7 +64,7 @@ class StudentPerformance {
         updateGpa();
     }
 
-    public double getGpa() {
+    double getGpa() {
         return gpa;
     }
 
@@ -79,7 +79,7 @@ class StudentPerformance {
         scores[game-1][level-1] = score;
     }
 
-    public int getGameLevel(int game){
+    int getGameLevel(int game) {
         return currentLevels[game-1];
     }
 }
