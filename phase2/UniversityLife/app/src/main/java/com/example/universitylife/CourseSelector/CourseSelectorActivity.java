@@ -25,6 +25,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
     static final String GAME3 = "GAME3";
 
     private CourseSelectorPresenter presenter;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,42 +42,12 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
 
 
         // Get the username passed through from the last Activity
-        String username = (String) getIntent().getSerializableExtra("Username");
+        username = (String) getIntent().getSerializableExtra("Username");
 
         // Create an instance of the CourseSelectorPresenter
         presenter = new CourseSelectorPresenter(this, username);
 
 
-    }
-
-
-    /**
-     * Executes when levelButton1 is clicked.
-     */
-    public void onClickCourse1 (View view) {
-        presenter.validateCourse1();
-    }
-
-    /**
-     * Executes when levelButton2 is clicked.
-     */
-    public void onClickCourse2(View view) {
-        presenter.validateCourse2();
-    }
-
-    /**
-     * Executes when levelButton3 is clicked.
-     */
-    public void onClickCourse3(View view) {
-        presenter.validateCourse3();
-
-    }
-
-    /**
-     * Executes when the profile button is clicked.
-     */
-    public void onProfileClick (View view) {
-        navigateToProfile(presenter.getUsername());
     }
 
     public void onBackClick(View view) {
@@ -85,18 +56,8 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
 
 
     /**
-     * Navigate to the profile page of the user (with username "username")
-     */
-    public void navigateToProfile (String username) {
-        Intent intent = new Intent(this, ProfileActivity.class);
-        intent.putExtra("Username", username);
-        startActivity(intent);
-    }
-
-    /**
      * Display "message" as a toast.
      */
-    @Override
     public void displayWarning(String message) {
         Toast warning = Toast.makeText(this, message, Toast.LENGTH_LONG);
         warning.show();
@@ -105,8 +66,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
     /**
      * Navigate to Level 1 activity for user with "username".
      */
-    @Override
-    public void navigateToCourse1(String username) {
+    public void navigateToCourse1(View view) {
         Intent intent = new Intent(this, LevelSelectorActivity.class);
         intent.putExtra("Username", username);
         intent.putExtra("GAME_NAME", GAME1);
@@ -116,8 +76,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
     /**
      * Navigate to Level 2 activity for user with "username".
      */
-    @Override
-    public void navigateToCourse2(String username) {
+    public void navigateToCourse2(View view) {
         Intent intent = new Intent(this, LevelSelectorActivity.class);
         intent.putExtra("Username", username);
         intent.putExtra("GAME_NAME", GAME2);
@@ -127,8 +86,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
     /**
      * Navigate to Level 3 activity for user with "username".
      */
-    @Override
-    public void navigateToCourse3(String username) {
+    public void navigateToCourse3(View view) {
         Intent intent = new Intent(this, LevelSelectorActivity.class);
         intent.putExtra("Username", username);
         intent.putExtra("GAME_NAME", GAME3);
