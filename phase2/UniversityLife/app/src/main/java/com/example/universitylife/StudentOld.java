@@ -95,7 +95,7 @@ public class StudentOld {
 //    /**
 //     * get the current currentLevel of this student
 //     **/
-//    public int getCurrentLevel() {
+//    public int getHighestLevel() {
 //        return currentLevel;
 //    }
 //    //TODO: delete
@@ -276,7 +276,7 @@ public class StudentOld {
 //    }
 //
 //
-//    public int getCurrentLevel(int game){
+//    public int getHighestLevel(int game){
 //        return this.currentLevels[game];
 //    }
 //

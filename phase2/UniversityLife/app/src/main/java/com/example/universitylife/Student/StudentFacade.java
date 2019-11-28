@@ -58,7 +58,7 @@ public class StudentFacade {
         return performance.validateGraduation();
     }
 
-    public int getCurrentLevel(int game){
+    public int getHighestLevel(int game) {
         return performance.highestLevelOf(game);
     }
 

@@ -34,27 +34,18 @@ public class GameManager implements IGameManager {
         currentStudent = studentManager.getStudentByUsername(username);
     }
 
-    /**
-     * Return the current student
-     *
-     * @return the current student
-     */
+    public int getHighestLevel(int game) {
+        return currentStudent.getHighestLevel(game);
+    }
+
     public StudentFacade getCurrentStudent() {
         return currentStudent;
     }
 
-    /**
-     * Return the username of the current player
-     *
-     * @return the current player's username.
-     */
     public String getCurrentUsername() {
         return currentStudent.getUsername();
     }
 
-    /**
-     * Saves the students' data before the app is closed.
-     */
     public void saveBeforeExit() {
         studentManager.saveStudentData(currentStudent);
     }
@@ -83,11 +74,6 @@ public class GameManager implements IGameManager {
         currentStudent = studentManager.getStudentByUsername(username);
     }
 
-    /**
-     * Return the student manager.
-     *
-     * @return student manager
-     */
     public StudentManager getStudentManager() {
         return studentManager;
     }
