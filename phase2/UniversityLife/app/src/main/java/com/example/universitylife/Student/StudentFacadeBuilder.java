@@ -1,6 +1,7 @@
 package com.example.universitylife.Student;
 
 public class StudentFacadeBuilder {
+// this class may not be necessary..
 
     private StudentAccount account;
     private StudentPreferences preferences;

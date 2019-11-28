@@ -32,9 +32,7 @@ public class StudentManager {
      * @return the new student
      */
     StudentFacade getNewStudent(String username, String password) {
-        StudentFacadeBuilder builder = new StudentFacadeBuilder();
-        builder.buildStudentAccount(username, password);
-        StudentFacade student = builder.getNewFacade();
+        StudentFacade student = new StudentFacade(username, password);
         addStudent(student);
         return student;
     }
