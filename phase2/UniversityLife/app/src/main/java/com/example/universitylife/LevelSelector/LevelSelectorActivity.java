@@ -25,8 +25,8 @@ public class LevelSelectorActivity extends AppCompatActivity {
         TextView courseName = findViewById(R.id.courseNameView);
         TextView currGPA = findViewById(R.id.courseGPAView);
 
-        String presenterType = "Insert Type Here";
-        String username = "Insert username";
+        String presenterType = (String) getIntent().getSerializableExtra("GAME_NAME");
+        String username = (String) getIntent().getSerializableExtra("Username");
         presenter = (new LevelSelectorPresenterFactory()).createLevelSelectorPresenter(presenterType, this, new DataHandler(this), username);
 
         courseName.setText(presenter.getCourseName());

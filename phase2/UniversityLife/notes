@@ -774,3 +774,8 @@ Changes: added canGraduate() method to studentFacade
 Step 132 (Jenny)
 Changes: added and implemented LevelSelectorActivity, LevelSelectorPresenterFactory and abstract LevelSelectorPresenter,
 as well as all necessary concrete Level Selector Presenters (for each game).
+
+#######
+(Jenny)
+Changes: added concrete presenters in Results package.
+Updated CourseSelectorPresenter class and CourseSelectorActivity class with new specifications.

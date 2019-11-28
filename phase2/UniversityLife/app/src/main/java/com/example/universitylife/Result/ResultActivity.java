@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.LevelSelector.LevelSelectorActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.CourseSelector.CourseSelectorActivity;
@@ -34,23 +35,21 @@ public class ResultActivity extends AppCompatActivity implements IResult {
 
         username = (String) getIntent().getSerializableExtra("Username");
         game = (String) getIntent().getSerializableExtra("GAME_NAME");
-        int score = (int) getIntent().getSerializableExtra("Score");
 
-        presenter = (new ResultPresenterFactory()).createResultPresenter(game, username);
+        presenter = (new ResultPresenterFactory()).createResultPresenter(game, this, new DataHandler(this), username);
 
-        displayGrade(String.valueOf(score));
-        displayGameName(String.valueOf(game));
+        displayGrade(String.valueOf(presenter.getFinalGPA()));
+        displayGameName(String.valueOf(presenter.getCourseName()));
 
     }
 
-    @Override
     public void displayGrade(String grade) {
         String gradeString = "Your grade: " + grade;
         gradeView.setText(gradeString);
 
     }
 
-    @Override
+
     public void displayGameName(String game) {
         levelView.setText(game);
 

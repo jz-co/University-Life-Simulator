@@ -12,12 +12,13 @@ class Game1ResultPresenter extends ResultPresenter {
     }
 
     @Override
-    void getCourseName() {
-
+    String getCourseName() {
+        return "Course 1";
     }
 
     @Override
-    void getFinalGPA() {
+    String getFinalGPA() {
+        return "Course 2";
 
     }
 }
