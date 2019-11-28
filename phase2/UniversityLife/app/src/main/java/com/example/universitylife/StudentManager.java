@@ -1,5 +1,6 @@
 package com.example.universitylife;
 
+import com.example.universitylife.DataHandler.FireBaseDataHandler;
 import com.example.universitylife.Student.StudentFacade;
 import com.example.universitylife.Student.StudentFacadeBuilder;
 
@@ -8,11 +9,11 @@ public class StudentManager {
     /**
      * Data handler, used to save and load student data.
      */
-    private IData dataHandler;
+    private FireBaseDataHandler dataHandler;
 
 
-    StudentManager(IData dataHandler) {
-        this.dataHandler = dataHandler;
+    StudentManager() {
+        this.dataHandler = new FireBaseDataHandler();
     }
 
     /**

@@ -10,8 +10,8 @@ class LevelSelectorPresenter {
     private int game;
     private ILevelSelector.ILevelSelectorView view;
 
-    LevelSelectorPresenter(ILevelSelector.ILevelSelectorView view, int game, String username, IData dataHandler) {
-        gameManager = new GameManager(dataHandler, username);
+    LevelSelectorPresenter(ILevelSelector.ILevelSelectorView view, int game, String username) {
+        gameManager = new GameManager(username);
         this.game = game;
         this.view = view;
     }

@@ -1,15 +1,10 @@
 package com.example.universitylife.DataHandler;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.renderscript.Sampler;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.universitylife.Student;
+import com.example.universitylife.IData;
+import com.example.universitylife.Student.StudentFacade;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,11 +15,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class FireBaseDataHandler {
+public class FireBaseDataHandler implements IData {
     private DatabaseReference studentDatabase;
     private String nameOfTable = "students";
 
-    FireBaseDataHandler(){
+    public FireBaseDataHandler() {
         studentDatabase = FirebaseDatabase.getInstance().getReference(nameOfTable);
     }
 
@@ -33,7 +28,7 @@ public class FireBaseDataHandler {
      *
      * @param student the new student.
      */
-    public void addStudentData(Student student) {
+    public void addStudentData(StudentFacade student) {
         String id = studentDatabase.push().getKey();
         studentDatabase.child(id).setValue(student);
     }
@@ -42,15 +37,15 @@ public class FireBaseDataHandler {
      *
      * @return ArrayList<Student>
      */
-    public ArrayList<Student> getStudentsList(){
-        final ArrayList<Student> students = new ArrayList<>();
+    private ArrayList<StudentFacade> getStudentsList() {
+        final ArrayList<StudentFacade> students = new ArrayList<>();
         studentDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 students.clear();
                 if (dataSnapshot.hasChildren()) {
                     for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                        Student student = userSnapshot.getValue(Student.class);
+                        StudentFacade student = userSnapshot.getValue(StudentFacade.class);
                         students.add(student);
                     }
                 }
@@ -68,7 +63,7 @@ public class FireBaseDataHandler {
     /**
      * update Student Data
      */
-    public void updateStudentData(Student student){
+    public void updateStudentData(StudentFacade student) {
         String username = student.getUsername();
         DatabaseReference student_data = studentDatabase.child(username);
         student_data.setValue(student);
@@ -79,9 +74,9 @@ public class FireBaseDataHandler {
      * @param userName the username of the user
      * @return a student with the corresponding username
      */
-    public Student getStudentByUserName(final String userName) {
-        ArrayList<Student> students = getStudentsList();
-        for (Student s: students){
+    public StudentFacade getStudentByUserName(final String userName) {
+        ArrayList<StudentFacade> students = getStudentsList();
+        for (StudentFacade s : students) {
             if (s.getUsername().equals(userName)){
                 return s;
             }

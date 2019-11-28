@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.Game1.Game1Lvl1Activity;
 import com.example.universitylife.Game1.Game1Lvl2Activity;
 import com.example.universitylife.Game1.Game1Lvl3Activity;
@@ -36,7 +35,7 @@ public class LevelSelectorActivity extends AppCompatActivity implements ILevelSe
         String username = "Insert username";
         int game = Integer.parseInt("1");
         //presenter = (new LevelSelectorPresenterFactory()).createLevelSelectorPresenter(presenterType, this, new DataHandler(this), username);
-        presenter = new LevelSelectorPresenter(this, game, username, new DataHandler(this));
+        presenter = new LevelSelectorPresenter(this, game, username);
 
         courseName.setText(presenter.getCourseName());
         currGPA.setText(presenter.getCurrGPA());

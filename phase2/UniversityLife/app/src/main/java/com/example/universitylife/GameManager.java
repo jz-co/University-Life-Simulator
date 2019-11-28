@@ -3,7 +3,7 @@ package com.example.universitylife;
 
 import com.example.universitylife.Student.StudentFacade;
 
-public class GameManager implements IGameManager {
+public class GameManager {
     /**
      * The student manager attached to this game manager.
      */
@@ -17,20 +17,18 @@ public class GameManager implements IGameManager {
     /**
      * This constructor is used before the user logged in.
      *
-     * @param dataHandler the data handler created in View.
      */
-    public GameManager(IData dataHandler) {
-        studentManager = new StudentManager(dataHandler);
+    public GameManager() {
+        studentManager = new StudentManager();
     }
 
     /**
      * This constructor is used after the user logged in.
      *
-     * @param dataHandler the data handler
      * @param username    the username of the current player.
      */
-    public GameManager(IData dataHandler, String username) {
-        studentManager = new StudentManager(dataHandler);
+    public GameManager(String username) {
+        studentManager = new StudentManager();
         currentStudent = studentManager.getStudentByUsername(username);
     }
 

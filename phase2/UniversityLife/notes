@@ -779,3 +779,9 @@ as well as all necessary concrete Level Selector Presenters (for each game).
 Step 133 (Grace)
 Code affected: LevelSelector package, GameManager
 Changes: modified LevelSelectorPresenter to a concrete class.
+
+#########
+Step 134 (Grace)
+Changes: refactored FireBaseDataHandler to use StudentFacade. Since FireBaseDataHandler does not
+require a context in its constructor, we will instantiate it directly from StudentManager. The
+activities no longer need to create a data handler.
