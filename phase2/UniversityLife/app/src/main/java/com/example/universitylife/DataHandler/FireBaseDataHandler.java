@@ -85,8 +85,8 @@ public class FireBaseDataHandler implements IData {
     }
 
 
-    DatabaseReference getStudentDatabase(){
-        return studentDatabase;
+    public String getNameOfTable() {
+        return nameOfTable;
     }
 
 }

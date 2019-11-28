@@ -1,18 +1,17 @@
 package com.example.universitylife.Game2;
 
-
-import com.example.universitylife.Student;
+import com.example.universitylife.Student.StudentFacade;
 
 import java.util.ArrayList;
 
 public class GameLevel2Lvl1 {
-    private Student student;
+    private StudentFacade student;
     private Basket basket;
     private int score, framewidth, frameHeight;
     private ArrayList<FallingObject> fallingObjects;
     private ILevel2.ILevel2PresenterLvl1 presenter;
 
-    public GameLevel2Lvl1(Student student, Basket basket, int FrameWidth, int FrameHeight, ArrayList<FallingObject> fallingObjects, ILevel2.ILevel2PresenterLvl1 presenter) {
+    public GameLevel2Lvl1(StudentFacade student, Basket basket, int FrameWidth, int FrameHeight, ArrayList<FallingObject> fallingObjects, ILevel2.ILevel2PresenterLvl1 presenter) {
         this.basket = basket;
         this.basket.setAppearence(student.getAppearance());
         this.score = 0;
@@ -86,22 +85,14 @@ public class GameLevel2Lvl1 {
      *
      * @return Student student
      */
-    public Student getStudent(){
+    public StudentFacade getStudent(){
         return student;
     }
 
     public void levelClear(){
-        if (student.getCurrentLevel() == 2){
-            student.incrementLevel();
-        }
-        student.incrementGpa(1);
-        student.incrementCredit(5);
-        student.incrementHp(score);
+        student.registerLevelResults(2, 1, score);
     }
 
-    public void levelFail(){
-        student.decrementGpa(1);
-    }
 
     ArrayList<FallingObject> getFallingObjects() {
         return fallingObjects;
