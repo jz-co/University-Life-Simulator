@@ -18,8 +18,9 @@ public class RankingHandler {
 
     private FireBaseDataHandler fireBaseDataHandler;
     private ArrayList<StudentFacade> topFive = new ArrayList<>();
-    public RankingHandler(FireBaseDataHandler fireBaseDataHandler){
-        this.fireBaseDataHandler = fireBaseDataHandler;
+
+    public RankingHandler() {
+        this.fireBaseDataHandler = new FireBaseDataHandler();
     }
 
     /** get top five gpa
