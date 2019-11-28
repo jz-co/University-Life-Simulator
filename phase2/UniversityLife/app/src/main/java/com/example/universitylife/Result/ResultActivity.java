@@ -7,20 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.universitylife.LevelSelector.LevelSelectorActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.CourseSelector.CourseSelectorActivity;
-import com.example.universitylife.Game1.Game1Lvl1Activity;
-import com.example.universitylife.Game2.Game2Lvl1Activity;
-import com.example.universitylife.Game3.Game3StartActivity;
 
-public class ResultActivity extends AppCompatActivity implements IResult.IResultView {
+public class ResultActivity extends AppCompatActivity implements IResult {
 
     private TextView resultMessage;
     private TextView levelView;
     private TextView gradeView;
 
-    private int level;
+    private String game;
     private String username;
+
+    private ResultPresenter presenter;
 
 
     @Override
@@ -29,15 +29,17 @@ public class ResultActivity extends AppCompatActivity implements IResult.IResult
         setContentView(R.layout.activity_game_result);
 
         resultMessage = (TextView) findViewById(R.id.resultMessageView);
-        levelView = (TextView) findViewById(R.id.levelTextView);
-        gradeView = (TextView) findViewById(R.id.gradeTextView);
+        levelView = (TextView) findViewById(R.id.courseDisplay);
+        gradeView = (TextView) findViewById(R.id.courseGradeView);
 
         username = (String) getIntent().getSerializableExtra("Username");
-        level = (int) getIntent().getSerializableExtra("Level");
+        game = (String) getIntent().getSerializableExtra("GAME_NAME");
         int score = (int) getIntent().getSerializableExtra("Score");
 
+        presenter = (new ResultPresenterFactory()).createResultPresenter(game, username);
+
         displayGrade(String.valueOf(score));
-        displayLevel(String.valueOf(level));
+        displayGameName(String.valueOf(game));
 
     }
 
@@ -49,9 +51,8 @@ public class ResultActivity extends AppCompatActivity implements IResult.IResult
     }
 
     @Override
-    public void displayLevel(String level) {
-        String levelString = "Level: " + level;
-        levelView.setText(levelString);
+    public void displayGameName(String game) {
+        levelView.setText(game);
 
     }
 
@@ -59,46 +60,24 @@ public class ResultActivity extends AppCompatActivity implements IResult.IResult
 //        resultMessage.setText(message);
 //    }
 
-    public void onClickPlayAgain(View view) {
-        if (level == 1) {
-            goToLevel1(username);
-        } else if (level == 2) {
-            goToLevel2(username);
-        } else {
-            goToLevel3(username);
-        }
+    public void onClickRetakeCourse(View view) {
+        presenter.retakeCourse();
     }
 
-    public void onClickSelectNext(View view) {
+    public void onClickReturnToCourses(View view) {
         Intent intent = new Intent(this, CourseSelectorActivity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }
 
-    /**
-     * Navigate to Level 1 activity for user with "username".
-     */
-    public void goToLevel1(String username) {
-        Intent intent = new Intent(this, Game1Lvl1Activity.class);
-        intent.putExtra("Username", username);
-        startActivity(intent);
-    }
 
     /**
-     * Navigate to Level 2 activity for user with "username".
+     * Navigate to Level Selection activity for the game "game" and user with username "username".
      */
-    public void goToLevel2(String username) {
-        Intent intent = new Intent(this, Game2Lvl1Activity.class);
+    void goToLevelSelection(String username, String game) {
+        Intent intent = new Intent(this, LevelSelectorActivity.class);
         intent.putExtra("Username", username);
-        startActivity(intent);
-    }
-
-    /**
-     * Navigate to Level 3 activity for user with "username".
-     */
-    public void goToLevel3(String username) {
-        Intent intent = new Intent(this, Game3StartActivity.class);
-        intent.putExtra("Username", username);
+        intent.putExtra("GAME_NAME", game);
         startActivity(intent);
     }
 
