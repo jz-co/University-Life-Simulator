@@ -24,7 +24,6 @@ import static android.view.View.INVISIBLE;
 
 public class Game2Lvl3Activity extends AppCompatActivity implements ILevel2.ILevel2View {
     private Game2Lvl3Presenter game2Presenter;
-    private TextView credit_tv, gpa_tv, hp_tv;
     private ImageView red, blue, yellow, whatyoushoulddo, whatyoushouldnotdo, killingObject, umbrella;
     private LinearLayout resultBox;
     private boolean pauseGame = false;
@@ -34,7 +33,6 @@ public class Game2Lvl3Activity extends AppCompatActivity implements ILevel2.ILev
     private long secondsRemaining;
     private Timer timer;
     private CountDownTimer countDownTimer;
-    private CharacterIcons characterIcons;
     private boolean useUmbrella = false;
 
     @Override
@@ -42,9 +40,6 @@ public class Game2Lvl3Activity extends AppCompatActivity implements ILevel2.ILev
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_lvl2_lvl3);
         username = (String) getIntent().getSerializableExtra("UserName");
-        credit_tv = findViewById(R.id.credit_3);
-        gpa_tv = findViewById(R.id.gpa_3);
-        hp_tv = findViewById(R.id.hp_3);
         red = findViewById(R.id.red_3);
         blue = findViewById(R.id.blue_3);
         yellow = findViewById(R.id.yellow_3);
@@ -157,19 +152,10 @@ public class Game2Lvl3Activity extends AppCompatActivity implements ILevel2.ILev
     }
 
     @Override
-    public void displayGPA(double gpa) {
-        gpa_tv.setText("gpa: "+ gpa);
+    public void displayScore(double score) {
+        setScore();
     }
 
-    @Override
-    public void displayHP(double hp) {
-        hp_tv.setText("hp: "+ hp);
-    }
-
-    @Override
-    public void displayCredit(int credit) {
-        credit_tv.setText("credit: "+ credit);
-    }
 
     /**
      * moves the basket(the character) to the right

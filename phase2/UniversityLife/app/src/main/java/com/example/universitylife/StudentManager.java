@@ -1,5 +1,6 @@
 package com.example.universitylife;
 
+import com.example.universitylife.DataHandler.FireBaseDataHandler;
 import com.example.universitylife.Student.StudentFacade;
 import com.example.universitylife.Student.StudentFacadeBuilder;
 
@@ -8,11 +9,11 @@ public class StudentManager {
     /**
      * Data handler, used to save and load student data.
      */
-    private IData dataHandler;
+    private FireBaseDataHandler dataHandler;
 
 
-    StudentManager(IData dataHandler) {
-        this.dataHandler = dataHandler;
+    StudentManager() {
+        this.dataHandler = new FireBaseDataHandler();
     }
 
     /**
@@ -31,9 +32,7 @@ public class StudentManager {
      * @return the new student
      */
     StudentFacade getNewStudent(String username, String password) {
-        StudentFacadeBuilder builder = new StudentFacadeBuilder();
-        builder.buildStudentAccount(username, password);
-        StudentFacade student = builder.getNewFacade();
+        StudentFacade student = new StudentFacade(username, password);
         addStudent(student);
         return student;
     }

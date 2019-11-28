@@ -13,42 +13,23 @@
         android:background="#FFFFFF"
         android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="114dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/credit_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:text="credits" />
-
-            <TextView
-                android:id="@+id/gpa_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="GPA" />
-
-            <TextView
-                android:id="@+id/hp_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hp" />
-        </LinearLayout>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/umbrella"
+            android:id="@+id/umbrella_3"
+            android:onClick="umbrellaTracker"/>
 
         <TextView
             android:id="@+id/score_3"
-            android:layout_width="91dp"
+            android:layout_width="125dp"
             android:layout_height="60dp"
             android:text="Score:"
             android:textSize="15sp" />
 
         <TextView
             android:id="@+id/secondRemaining_3"
-            android:layout_width="99dp"
+            android:layout_width="136dp"
             android:layout_height="60dp"
             android:text="Secs Left:"
             android:textSize="13sp" />
@@ -96,12 +77,6 @@
             android:id="@+id/thingsYouShouldNotDo_2"
             android:layout_width="70dp"
             android:layout_height="70dp" />
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/umbrella"
-            android:id="@+id/umbrella_3"
-            android:onClick="umbrellaTracker"/>
 
         <ImageView
             android:id="@+id/killingObject"

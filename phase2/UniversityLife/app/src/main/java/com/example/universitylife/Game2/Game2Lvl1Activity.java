@@ -26,7 +26,6 @@ import java.util.TimerTask;
 
 public class Game2Lvl1Activity extends AppCompatActivity implements ILevel2.ILevel2View {
     private Game2Lvl1Presenter game2Presenter;
-    private TextView credit_tv, gpa_tv, hp_tv;
     private ImageView red, blue, yellow;
     private LinearLayout resultBox;
     private boolean pauseGame = false;
@@ -52,9 +51,6 @@ public class Game2Lvl1Activity extends AppCompatActivity implements ILevel2.ILev
         setContentView(R.layout.activity_main_lvl2_lvl1);
         username = (String) getIntent().getSerializableExtra("Username");
         // finding textviews, imageviews and buttons in from the xml file
-        credit_tv = findViewById(R.id.credit);
-        gpa_tv = findViewById(R.id.gpa);
-        hp_tv = findViewById(R.id.hp);
         red = findViewById(R.id.red);
         blue = findViewById(R.id.blue);
         yellow = findViewById(R.id.yellow);
@@ -144,38 +140,9 @@ public class Game2Lvl1Activity extends AppCompatActivity implements ILevel2.ILev
         tv_userName.setText(name);
     }
 
-    /**
-     * displays the gpa of the student
-     *
-     * @param gpa: how well the player
-     */
-    @SuppressLint("SetTextI18n")
     @Override
-    public void displayGPA(double gpa) {
-        gpa_tv.setText("gpa: "+ gpa);
-    }
-
-
-    /**
-     * displays the hp of the player
-     *
-     * @param hp: the hp of the player
-     */
-    @SuppressLint("SetTextI18n")
-    @Override
-    public void displayHP(double hp) {
-        hp_tv.setText("hp: "+ hp);
-    }
-
-    /**
-     * displays the credit of the player
-     *
-     * @param credit: the credit of the player
-     */
-    @SuppressLint("SetTextI18n")
-    @Override
-    public void displayCredit(int credit) {
-        credit_tv.setText("credit: "+ credit);
+    public void displayScore(double score) {
+        setScore();
     }
 
     /**

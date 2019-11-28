@@ -775,7 +775,24 @@ Step 132 (Jenny)
 Changes: added and implemented LevelSelectorActivity, LevelSelectorPresenterFactory and abstract LevelSelectorPresenter,
 as well as all necessary concrete Level Selector Presenters (for each game).
 
+#########
+Step 133 (Grace)
+Code affected: LevelSelector package, GameManager
+Changes: modified LevelSelectorPresenter to a concrete class.
+
+#########
+Step 134 (Grace)
+Changes: refactored FireBaseDataHandler to use StudentFacade. Since FireBaseDataHandler does not
+require a context in its constructor, we will instantiate it directly from StudentManager. The
+activities no longer need to create a data handler.
+
+#########
+Step 135 (Koby)
+Code Affected: RankingHandler, the whole game 2 package
+Changes: - make RankingHandler work
+- change student to studentFacade and refactor gameManagers
+
 #######
-(Jenny)
+Step 136 (Jenny)
 Changes: added concrete presenters in Results package.
 Updated CourseSelectorPresenter class and CourseSelectorActivity class with new specifications.

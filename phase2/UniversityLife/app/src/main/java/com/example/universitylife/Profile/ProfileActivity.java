@@ -46,7 +46,7 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
         TextView moneyView = findViewById(R.id.moneyView);
         ImageView userIcon = findViewById(R.id.characterIconView);
 
-        presenter = new ProfilePresenter(this, new DataHandler(this), username);
+        presenter = new ProfilePresenter(this, username);
         nameView.setText(presenter.getName());
         gpaView.setText(presenter.getGPA());
         creditsView.setText(presenter.getCredits());

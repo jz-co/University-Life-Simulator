@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "818515119925-ksp6c3sm7hbs6hrjg2ei9fuke3q77n8o.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.universitylife",
-            "certificate_hash": "f577e89cb73fbee7cfb05bf8b7604997bf49a3ec"
-          }
-        },
-        {
           "client_id": "818515119925-5rd9pahdrt58dvr21rd2f4ipaiq2grms.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
