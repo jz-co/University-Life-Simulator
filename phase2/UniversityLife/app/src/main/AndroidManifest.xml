@@ -20,7 +20,8 @@
         <activity android:name=".Game1.Game1Lvl1Activity" />
         <activity android:name=".CourseSelector.CourseSelectorActivity" />
         <activity android:name=".Customization.CustomizationActivity" />
-        <activity android:name=".Login.MainActivity">
+        <activity android:name=".Login.MainActivity"/>
+        <activity android:name=".Leaderboard.LeaderboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

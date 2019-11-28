@@ -760,7 +760,17 @@ Step 129 (Grace)
 Changes: changed access modifiers in Student package. Refactored Customization package to
 adapt to the student facade. Refactored Login, bookstore package.
 
+########
+Step 130 (Trisha)
+Changes: Added methods to LeaderboardPresenter and filled in methods of LeaderboardActivity to
+assign values for the items in the activity_leaderboard.xml. Also registered LeaderboardActivity to
+the AndroidManifest.
+
+#########
+Step 131 (Grace)
+Changes: added canGraduate() method to studentFacade
+
 #######
-Step 130 (Jenny)
+Step 132 (Jenny)
 Changes: added and implemented LevelSelectorActivity, LevelSelectorPresenterFactory and abstract LevelSelectorPresenter,
 as well as all necessary concrete Level Selector Presenters (for each game).

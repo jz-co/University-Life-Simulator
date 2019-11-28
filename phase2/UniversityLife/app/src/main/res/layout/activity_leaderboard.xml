@@ -257,8 +257,8 @@
         android:id="@+id/textView30"
         android:layout_width="103dp"
         android:layout_height="25dp"
-        android:layout_marginStart="87dp"
-        android:layout_marginTop="79dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="88dp"
         android:text="Username"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -267,7 +267,7 @@
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="91dp"
+        android:layout_marginStart="92dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="105dp"
         android:text="Your GPA"
@@ -288,4 +288,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="24dp"
+        android:text=" GPA:"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
 </androidx.constraintlayout.widget.ConstraintLayout>

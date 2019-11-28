@@ -14,6 +14,7 @@ public class StudentFacade {
         this.bag = bag;
     }
 
+    //ACCOUNT RELATED:
     public boolean passwordMatches(String password) {
         return account.passwordMatches(password);
     }
@@ -22,6 +23,29 @@ public class StudentFacade {
         return account.getUsername();
     }
 
+
+    //CUSTOMIZATION RELATED:
+    public String getName() {
+        return preferences.getName();
+    }
+
+    public void setName(String name) {
+        preferences.setName(name);
+    }
+
+    public int getAppearance() {
+        return preferences.getAppearance();
+    }
+
+    public void setAppearance(int appearance) {
+        preferences.setAppearance(appearance);
+    }
+
+    public void setLanguage(String language) {
+        preferences.setLanguage(language);
+    }
+
+    //GAME PERFORMANCE RELATED:
     public int getCredit(){
         return performance.getCredit();
     }
@@ -30,30 +54,39 @@ public class StudentFacade {
         return performance.getGpa();
     }
 
-    public int getCurrentLevel(int game){
-        return performance.getGameLevel(game);
+    public boolean canGraduate() {
+        return performance.validateGraduation();
     }
 
-    public String getName(){
-        return preferences.getName();
+    public int getHighestLevel(int game) {
+        return performance.highestLevelOf(game);
     }
 
-    public void setName(String name){
-        preferences.setName(name);
+
+    /**
+     * Register results for a non-bonus game level
+     *
+     * @param game  index of the game
+     * @param level level the user has just completed
+     * @param score score the user received
+     */
+    public void registerLevelResults(int game, int level, double score) {
+        performance.registerLevelResults(game, level, score);
     }
 
-    public int getAppearance(){
-        return preferences.getAppearance();
+    /**
+     * Register results for a bonus game level
+     *
+     * @param game      index of the game
+     * @param level     index of the level
+     * @param giftcards number of giftcards obtained in the level
+     */
+    public void registerLevelResults(int game, int level, int giftcards) {
+        bag.obtainGiftcards(giftcards);
+        performance.registerLevelResults(game, level);
     }
 
-    public void setAppearance(int appearance){
-        preferences.setAppearance(appearance);
-    }
-
-    public void setLanguage(String language){
-        preferences.setLanguage(language);
-    }
-
+    //BAG RELATED:
     public int getGiftcards(){
         return bag.getGiftcards();
     }
