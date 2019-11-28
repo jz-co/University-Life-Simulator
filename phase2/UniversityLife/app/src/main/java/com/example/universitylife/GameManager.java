@@ -77,4 +77,8 @@ public class GameManager implements IGameManager {
     public StudentManager getStudentManager() {
         return studentManager;
     }
+
+    public double getGpa() {
+        return currentStudent.getGpa();
+    }
 }
