@@ -23,22 +23,14 @@ public class CourseSelectorPresenter {
      * check if student has unlocked lv2. If so, go to lv2. If not, show warning message.
      */
     void validateCourse2() {
-        if (gameManager.getCurrentLevel() >= 2) {
             view.navigateToCourse2(gameManager.getCurrentUsername());
-        } else {
-            warning();
-        }
     }
 
     /**
      * check if student has unlocked lv3. If so, go to lv3. If not, show warning.
      */
     void validateCourse3() {
-        if (gameManager.getCurrentLevel() >= 3) {
             view.navigateToCourse3(gameManager.getCurrentUsername());
-        } else {
-            warning();
-        }
     }
 
     int getPicIndex() {
