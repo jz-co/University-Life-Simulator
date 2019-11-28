@@ -74,5 +74,9 @@ public class StudentFacade {
         return bag.hasGiftcards();
     }
 
+    public boolean canGraduate() {
+        return performance.validateGraduation();
+    }
+
 
 }

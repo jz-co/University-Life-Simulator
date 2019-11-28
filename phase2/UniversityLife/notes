@@ -765,3 +765,7 @@ Step 130 (Trisha)
 Changes: Added methods to LeaderboardPresenter and filled in methods of LeaderboardActivity to
 assign values for the items in the activity_leaderboard.xml. Also registered LeaderboardActivity to
 the AndroidManifest.
+
+#########
+Step 131 (Grace)
+Changes: added canGraduate() method to studentFacade

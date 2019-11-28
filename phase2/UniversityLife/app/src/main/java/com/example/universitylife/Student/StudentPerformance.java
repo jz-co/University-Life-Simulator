@@ -1,7 +1,5 @@
 package com.example.universitylife.Student;
 
-import com.example.universitylife.StudentOld;
-
 class StudentPerformance {
     private int credit;
     private double gpa = 0;
@@ -51,7 +49,7 @@ class StudentPerformance {
         this.credit = credit;
     }
 
-    boolean validateGraduation(StudentOld s){
+    boolean validateGraduation() {
         return credit >= 3;
     }
 
