@@ -20,10 +20,9 @@ public class Game2Lvl4Presenter extends LevelPresenter implements ILevel2.ILevel
     private boolean boughtUmbrella = false;
 
     Game2Lvl4Presenter(ILevel2.ILevel2View view, IData dataHandler, String username){
-        super(dataHandler, username);
+        super(username);
         this.view = view;
         this.gameManager = new GameManager(username);
-        this.gameManager = new GameManager(dataHandler, username);
         if (gameManager.getHighestLevel(2) == 4){
             nextLevelUnlocked = true;
         }
@@ -103,7 +102,6 @@ public class Game2Lvl4Presenter extends LevelPresenter implements ILevel2.ILevel
             this.nextLevelUnlocked = true;
         } else {
             view.displayMessage("Sorry, you did not clear this level!");
-            gameLevel.levelFail();
         }
         this.updateDisplay(view);
         gameManager.saveBeforeExit();

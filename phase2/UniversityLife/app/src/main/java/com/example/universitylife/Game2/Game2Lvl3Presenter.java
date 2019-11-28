@@ -101,7 +101,6 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
             this.nextLevelUnlocked = true;
         } else {
             view.displayMessage("Sorry, you did not clear this level!");
-            gameLevel.levelFail();
         }
         this.updateDisplay(view);
         gameManager.saveBeforeExit();

@@ -6,6 +6,14 @@ public class StudentFacade {
     private StudentPerformance performance;
     private StudentBag bag;
 
+    public StudentFacade(String username, String password) {
+        account = new StudentAccount(username, password);
+        preferences = new StudentPreferences();
+        performance = new StudentPerformance();
+        bag = new StudentBag();
+    }
+
+    // This may not be necessary.
     StudentFacade(StudentAccount account, StudentPreferences preferences,
                   StudentPerformance performance, StudentBag bag){
         this.account = account;

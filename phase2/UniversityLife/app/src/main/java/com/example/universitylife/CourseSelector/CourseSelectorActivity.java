@@ -42,7 +42,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
         String username = (String) getIntent().getSerializableExtra("Username");
 
         // Create an instance of the CourseSelectorPresenter
-        presenter = new CourseSelectorPresenter(this, new DataHandler(this), username);
+        presenter = new CourseSelectorPresenter(this, username);
 
 
     }

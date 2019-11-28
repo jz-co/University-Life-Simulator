@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements ILogin.ILoginView
 
 
         // Create an instance of the LoginPresenter for this Activity
-        loginPresenter = new LoginPresenter(this, new DataHandler(this));
+        loginPresenter = new LoginPresenter(this);
 
         // Set references to the editTexts and TextViews in the layout
         usernameText = findViewById(R.id.usernameText);

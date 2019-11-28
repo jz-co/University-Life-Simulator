@@ -1,0 +1,64 @@
+{
+  "project_info": {
+    "project_number": "818515119925",
+    "firebase_url": "https://universitylife-76075.firebaseio.com",
+    "project_id": "universitylife-76075",
+    "storage_bucket": "universitylife-76075.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818515119925:android:0d111c5d04adbf4b49067c",
+        "android_client_info": {
+          "package_name": "com.example.universitylife"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818515119925-5rd9pahdrt58dvr21rd2f4ipaiq2grms.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.universitylife",
+            "certificate_hash": "8c74919e1a6abc0bd0121e305b1d94b3c2070914"
+          }
+        },
+        {
+          "client_id": "818515119925-m3pf9ralv20e35b6hqk4dcov0aepvqom.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.universitylife",
+            "certificate_hash": "2a7a960268ec6426bd9b84583e2e781f91a60b43"
+          }
+        },
+        {
+          "client_id": "818515119925-18ilohnlj0nk90d5obibkbsaj7ej3ue1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.universitylife",
+            "certificate_hash": "dcdc33526886def386fe46a7e54ab4321e0a4705"
+          }
+        },
+        {
+          "client_id": "818515119925-hvqe59j7sqau81en1uobrl52hpfho4f8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4u1dJfoMUuyJBTFHSoYwaU4v9UwTvz0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "818515119925-hvqe59j7sqau81en1uobrl52hpfho4f8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
