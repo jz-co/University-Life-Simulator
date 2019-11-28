@@ -29,13 +29,9 @@ public class LevelSelectorActivity extends AppCompatActivity implements ILevelSe
         TextView courseName = findViewById(R.id.courseNameView);
         TextView currGPA = findViewById(R.id.courseGPAView);
 
-        //String presenterType = "Insert Type Here";
-
-        // username and game index will be passed in from the previous activity.
-        String username = "Insert username";
-        int game = Integer.parseInt("1");
-        //presenter = (new LevelSelectorPresenterFactory()).createLevelSelectorPresenter(presenterType, this, new DataHandler(this), username);
-        presenter = new LevelSelectorPresenter(this, game, username);
+        String presenterType = (String) getIntent().getSerializableExtra("GAME_NAME");
+        String username = (String) getIntent().getSerializableExtra("Username");
+        presenter = (new LevelSelectorPresenterFactory()).createLevelSelectorPresenter(presenterType, this, new DataHandler(this), username);
 
         courseName.setText(presenter.getCourseName());
         currGPA.setText(presenter.getCurrGPA());
@@ -64,21 +60,31 @@ public class LevelSelectorActivity extends AppCompatActivity implements ILevelSe
      * Executes when user clicks Level1Button.
      */
     public void onClickLevel1(View view) {
-        presenter.validateLevel(1);
+        presenter.validateLevel();
     }
 
     /**
      * Executes when user clicks Level2Button.
      */
     public void onClickLevel2(View view) {
-        presenter.validateLevel(2);
+        presenter.validateLevel2();
     }
 
     /**
      * Executes when user clicks Level3Button.
      */
     public void onClickLevel3(View view) {
-        presenter.validateLevel(3);
+        presenter.validateLevel3();
+    }
+
+
+    /**
+     * Starts Game1Level1 Activity
+     */
+    void navigateToGame1Level1() {
+        Intent intent = new Intent(this, Game1Lvl1Activity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
     }
 
     private void navigateToGame1(int level) {

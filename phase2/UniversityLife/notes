@@ -791,3 +791,8 @@ Step 135 (Koby)
 Code Affected: RankingHandler, the whole game 2 package
 Changes: - make RankingHandler work
 - change student to studentFacade and refactor gameManagers
+
+#######
+Step 136 (Jenny)
+Changes: added concrete presenters in Results package.
+Updated CourseSelectorPresenter class and CourseSelectorActivity class with new specifications.

@@ -12,15 +12,17 @@ import android.widget.Toast;
 
 import com.example.universitylife.CourseSelector.ICourseSelector.*;
 import com.example.universitylife.DataHandler.DataHandler;
-import com.example.universitylife.Game1.Game1Lvl1Activity;
-import com.example.universitylife.Game2.Game2Lvl1Activity;
-import com.example.universitylife.Game3.Game3StartActivity;
+import com.example.universitylife.LevelSelector.LevelSelectorActivity;
 import com.example.universitylife.Profile.ProfileActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.CharacterIcons;
 
 
 public class CourseSelectorActivity extends AppCompatActivity implements ICourseSelectorView {
+
+    static final String GAME1 = "GAME1";
+    static final String GAME2 = "GAME2";
+    static final String GAME3 = "GAME3";
 
     private CourseSelectorPresenter presenter;
 
@@ -105,8 +107,9 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
      */
     @Override
     public void navigateToCourse1(String username) {
-        Intent intent = new Intent(this, Game1Lvl1Activity.class);
+        Intent intent = new Intent(this, LevelSelectorActivity.class);
         intent.putExtra("Username", username);
+        intent.putExtra("GAME_NAME", GAME1);
         startActivity(intent);
     }
 
@@ -115,8 +118,9 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
      */
     @Override
     public void navigateToCourse2(String username) {
-        Intent intent = new Intent(this, Game2Lvl1Activity.class);
+        Intent intent = new Intent(this, LevelSelectorActivity.class);
         intent.putExtra("Username", username);
+        intent.putExtra("GAME_NAME", GAME2);
         startActivity(intent);
     }
 
@@ -125,8 +129,9 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
      */
     @Override
     public void navigateToCourse3(String username) {
-        Intent intent = new Intent(this, Game3StartActivity.class);
+        Intent intent = new Intent(this, LevelSelectorActivity.class);
         intent.putExtra("Username", username);
+        intent.putExtra("GAME_NAME", GAME3);
         startActivity(intent);
     }
 }
