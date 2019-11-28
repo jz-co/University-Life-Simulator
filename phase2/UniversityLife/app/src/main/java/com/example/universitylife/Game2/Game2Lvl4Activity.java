@@ -42,9 +42,6 @@ public class Game2Lvl4Activity extends AppCompatActivity implements ILevel2.ILev
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_lvl2_lvl4);
         username = (String) getIntent().getSerializableExtra("UserName");
-        credit_tv = findViewById(R.id.credit_4);
-        gpa_tv = findViewById(R.id.gpa_4);
-        hp_tv = findViewById(R.id.hp_4);
         red = findViewById(R.id.red_4);
         blue = findViewById(R.id.blue_4);
         yellow = findViewById(R.id.yellow_4);
@@ -157,18 +154,8 @@ public class Game2Lvl4Activity extends AppCompatActivity implements ILevel2.ILev
     }
 
     @Override
-    public void displayGPA(double gpa) {
-        gpa_tv.setText("gpa: "+ gpa);
-    }
-
-    @Override
-    public void displayHP(double hp) {
-        hp_tv.setText("hp: "+ hp);
-    }
-
-    @Override
-    public void displayCredit(int credit) {
-        credit_tv.setText("credit: "+ credit);
+    public void displayScore(double score) {
+        setScore();
     }
 
     /**

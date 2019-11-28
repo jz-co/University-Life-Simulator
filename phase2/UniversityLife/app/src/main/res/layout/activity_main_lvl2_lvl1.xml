@@ -13,42 +13,17 @@
         android:background="#FFFFFF"
         android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="114dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/credit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:text="Credits" />
-
-            <TextView
-                android:id="@+id/gpa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="GPA" />
-
-            <TextView
-                android:id="@+id/hp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hp" />
-        </LinearLayout>
 
         <TextView
             android:id="@+id/score"
-            android:layout_width="91dp"
+            android:layout_width="152dp"
             android:layout_height="60dp"
             android:text="Score:"
             android:textSize="15sp" />
 
         <TextView
             android:id="@+id/secondRemaining"
-            android:layout_width="99dp"
+            android:layout_width="167dp"
             android:layout_height="60dp"
             android:text="Secs Left:"
             android:textSize="13sp" />

@@ -1,12 +1,12 @@
 package com.example.universitylife.Game2;
 
-import com.example.universitylife.Student;
+import com.example.universitylife.Student.StudentFacade;
 
 import java.util.ArrayList;
 
 public class GameLevel2Lvl3 extends GameLevel2Lvl2 {
     ILevel2.ILevel2PresenterLvl3 presenter;
-    public GameLevel2Lvl3(Student student, Basket basket, int FrameWidth, int FrameHeight, ArrayList<FallingObject> fallingObjects, ILevel2.ILevel2PresenterLvl3 presenter) {
+    public GameLevel2Lvl3(StudentFacade student, Basket basket, int FrameWidth, int FrameHeight, ArrayList<FallingObject> fallingObjects, ILevel2.ILevel2PresenterLvl3 presenter) {
         super(student, basket, FrameWidth, FrameHeight, fallingObjects, presenter);
         this.presenter = presenter;
     }

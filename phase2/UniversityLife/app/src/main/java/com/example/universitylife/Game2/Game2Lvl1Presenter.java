@@ -17,11 +17,11 @@ public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel
     private int clearingScore = 30;
     private boolean nextLevelUnlocked;
 
-    public Game2Lvl1Presenter(ILevel2.ILevel2View view, IData datahandler, String username){
-        super(datahandler, username);
+    public Game2Lvl1Presenter(ILevel2.ILevel2View view, String username){
+        super(username);
         this.view = view;
-        this.gameManager = new GameManager(datahandler, username);
-        if (gameManager.getCurrentLevel()>2){
+        this.gameManager = new GameManager(username);
+        if (gameManager.getHighestLevel(2)> 1){
             nextLevelUnlocked = true;
         }
         ArrayList<FallingObject> fallingObjects = new ArrayList<>();
@@ -63,7 +63,6 @@ public class Game2Lvl1Presenter extends LevelPresenter implements ILevel2.ILevel
             this.nextLevelUnlocked = true;
         } else {
             view.displayMessage("Sorry, you did not clear this level!");
-            gameLevel.levelFail();
         }
         this.updateDisplay(view);
         gameManager.saveBeforeExit();

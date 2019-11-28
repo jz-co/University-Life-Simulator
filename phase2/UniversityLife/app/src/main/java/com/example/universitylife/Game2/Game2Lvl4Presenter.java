@@ -4,7 +4,7 @@ import com.example.universitylife.GameManager;
 import com.example.universitylife.IData;
 import com.example.universitylife.LevelPresenter;
 import com.example.universitylife.R;
-import com.example.universitylife.Student;
+import com.example.universitylife.Student.StudentFacade;
 
 import java.util.ArrayList;
 
@@ -20,10 +20,10 @@ public class Game2Lvl4Presenter extends LevelPresenter implements ILevel2.ILevel
     private boolean boughtUmbrella = false;
 
     Game2Lvl4Presenter(ILevel2.ILevel2View view, IData dataHandler, String username){
-        super(dataHandler, username);
+        super(username);
         this.view = view;
-        this.gameManager = new GameManager(dataHandler, username);
-        if (gameManager.getCurrentLevel() == 4){
+        this.gameManager = new GameManager(username);
+        if (gameManager.getHighestLevel(2) == 4){
             nextLevelUnlocked = true;
         }
         ArrayList<FallingObject> fallingObjects = new ArrayList<>();
@@ -41,8 +41,8 @@ public class Game2Lvl4Presenter extends LevelPresenter implements ILevel2.ILevel
         fallingObjects.add(whatYouShouldNotdo);
         fallingObjects.add(killingObject);
         Basket basket = new Basket(R.id.character_4, 0, basketInt);
-        Student student = this.gameManager.getCurrentStudent();
-        // boughtUmbrella = student.getItems()[1] > 0;
+        StudentFacade student = this.gameManager.getCurrentStudent();
+        // boughtUmbrella = student.getItems(2) > 0;
         this.gameLevel = new GameLevel2Lvl4(student, basket, frameWidth, frameHeight, fallingObjects, this);
     }
     @Override
@@ -102,7 +102,6 @@ public class Game2Lvl4Presenter extends LevelPresenter implements ILevel2.ILevel
             this.nextLevelUnlocked = true;
         } else {
             view.displayMessage("Sorry, you did not clear this level!");
-            gameLevel.levelFail();
         }
         this.updateDisplay(view);
         gameManager.saveBeforeExit();
