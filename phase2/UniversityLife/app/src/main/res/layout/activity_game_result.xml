@@ -27,34 +27,23 @@
         android:id="@+id/playAgainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClickPlayAgain"
-        android:text="Play Again"
+        android:onClick="onClickRetakeCourse"
+        android:text="Retake Course"
         android:textColor="#01143F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultMessageView" />
-
-    <Button
-        android:id="@+id/chooseAnotherButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:onClick="onClickSelectNext"
-        android:text="Next Course"
-        android:textColor="#01143F"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playAgainButton" />
+        app:layout_constraintTop_toBottomOf="@+id/resultMessageView"
+        app:layout_constraintVertical_bias="0.631" />
 
     <TextView
-        android:id="@+id/gradeTextView"
+        android:id="@+id/courseGradeView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
         android:foregroundTint="#2196F3"
-        android:textColor="#054375"
+        android:textColor="#FFEB3B"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +53,7 @@
         tools:text="display grade here" />
 
     <TextView
-        android:id="@+id/levelTextView"
+        android:id="@+id/courseDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#11CEB2"
@@ -81,9 +70,11 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back To Assignments"
+        android:text="Back To Course Selection"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chooseAnotherButton" />
+        app:layout_constraintTop_toBottomOf="@+id/playAgainButton"
+        app:layout_constraintVertical_bias="0.228" />
 </androidx.constraintlayout.widget.ConstraintLayout>
