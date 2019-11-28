@@ -8,9 +8,9 @@ class CustomizationPresenter {
     private CustomizationManager customizationManager;
     private GameManager gameManager;
 
-    CustomizationPresenter(ICustomization.ICustomizationView view, IData dataHandler, String username) {
+    CustomizationPresenter(ICustomization.ICustomizationView view, String username) {
         this.view = view;
-        this.gameManager = new GameManager(dataHandler, username);
+        this.gameManager = new GameManager(username);
         this.customizationManager = new CustomizationManager(this.gameManager.getCurrentStudent());
     }
 

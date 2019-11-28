@@ -24,8 +24,8 @@ public class BookStoreActivity extends AppCompatActivity implements IBookstoreVi
         moneyDisplay = findViewById(R.id.moneyView);
         messageView = findViewById(R.id.messageView);
 
-        String username = ""; //TODO: catch intent
-        presenter = new BookstorePresenter(this, new DataHandler(this), username);
+        String username = (String) getIntent().getSerializableExtra("Username");
+        presenter = new BookstorePresenter(this, username);
     }
 
     @Override

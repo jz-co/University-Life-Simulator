@@ -8,9 +8,9 @@ class BookstorePresenter {
     private Bookstore store;
     private GameManager gameManager;
 
-    BookstorePresenter(IBookstore.IBookstoreView view, IData dataHandler, String username){
+    BookstorePresenter(IBookstore.IBookstoreView view, String username) {
         this.view = view;
-        gameManager = new GameManager(dataHandler, username);
+        gameManager = new GameManager(username);
         store = new Bookstore(gameManager.getCurrentStudent());
     }
 
