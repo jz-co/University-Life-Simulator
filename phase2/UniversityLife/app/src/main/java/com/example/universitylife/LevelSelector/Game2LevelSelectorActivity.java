@@ -60,7 +60,7 @@ public class Game2LevelSelectorActivity extends AppCompatActivity implements ILe
         });
 
         Button level3Button = findViewById(R.id.level3button);
-        level2Button.setOnClickListener(new View.OnClickListener() {
+        level3Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 presenter.validateLevel(3);
