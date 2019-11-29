@@ -20,27 +20,28 @@ class LevelSelectorPresenter {
      */
     void validateLevel(int level) {
         if (gameManager.getHighestLevel(game) >= level) {
-            view.goToGameLevel(game, level);
+            goToLevel(level);
         } else {
-            view.displayWarning();
+            String LOCKED_WARNING = "Sorry, you have not unlocked this level.";
+            view.displayWarning(LOCKED_WARNING);
         }
     }
 
-    String getCourseName() {
-        switch (game) {
+    private void goToLevel(int level) {
+        switch (level) {
             case 1:
-                return "Math";
+                view.navigateToLevel1();
+                break;
             case 2:
-                return "Catching";
+                view.navigateToLevel2();
+                break;
             case 3:
-                return "Arrow";
-            default:
-                return Integer.toString(game);
+                view.navigateToLevel3();
         }
     }
 
     String getCurrGPA() {
-        //TODO: cumulative GPA or..?
+        //TODO: cumulative GPA or..? (GPA for this course ONLY, not all courses)
         return Double.toString(gameManager.getGpa());
     }
 

@@ -7,22 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.universitylife.CourseSelector.ICourseSelector.*;
-import com.example.universitylife.DataHandler.DataHandler;
-import com.example.universitylife.LevelSelector.LevelSelectorActivity;
-import com.example.universitylife.Profile.ProfileActivity;
+import com.example.universitylife.LevelSelector.Game1LevelSelectorActivity;
+import com.example.universitylife.LevelSelector.Game2LevelSelectorActivity;
+import com.example.universitylife.LevelSelector.Game3LevelSelectorActivity;
 import com.example.universitylife.R;
-import com.example.universitylife.CharacterIcons;
 
 
 public class CourseSelectorActivity extends AppCompatActivity implements ICourseSelectorView {
-
-    static final String GAME1 = "GAME1";
-    static final String GAME2 = "GAME2";
-    static final String GAME3 = "GAME3";
 
     private CourseSelectorPresenter presenter;
     private String username;
@@ -67,9 +61,8 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
      * Navigate to Level 1 activity for user with "username".
      */
     public void navigateToCourse1(View view) {
-        Intent intent = new Intent(this, LevelSelectorActivity.class);
+        Intent intent = new Intent(this, Game1LevelSelectorActivity.class);
         intent.putExtra("Username", username);
-        intent.putExtra("GAME_NAME", GAME1);
         startActivity(intent);
     }
 
@@ -77,9 +70,8 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
      * Navigate to Level 2 activity for user with "username".
      */
     public void navigateToCourse2(View view) {
-        Intent intent = new Intent(this, LevelSelectorActivity.class);
+        Intent intent = new Intent(this, Game2LevelSelectorActivity.class);
         intent.putExtra("Username", username);
-        intent.putExtra("GAME_NAME", GAME2);
         startActivity(intent);
     }
 
@@ -87,9 +79,8 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
      * Navigate to Level 3 activity for user with "username".
      */
     public void navigateToCourse3(View view) {
-        Intent intent = new Intent(this, LevelSelectorActivity.class);
+        Intent intent = new Intent(this, Game3LevelSelectorActivity.class);
         intent.putExtra("Username", username);
-        intent.putExtra("GAME_NAME", GAME3);
         startActivity(intent);
     }
 }

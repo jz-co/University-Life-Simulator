@@ -1,10 +1,20 @@
 package com.example.universitylife.Result;
 
-abstract class ResultPresenter {
+import com.example.universitylife.GameManager;
 
-    abstract void retakeCourse();
+class ResultPresenter {
 
-    abstract String getCourseName();
+    private int game;
+    private String username;
+    private GameManager gameManager;
 
-    abstract String getFinalGPA();
+    ResultPresenter(int game, String username) {
+        gameManager = new GameManager(username);
+        this.game = game;
+    }
+
+    String getFinalGPA() {
+        // TODO: Ensure this returns the final/most recent GPA of this course/game
+        return Double.toString(gameManager.getGpa());
+    }
 }

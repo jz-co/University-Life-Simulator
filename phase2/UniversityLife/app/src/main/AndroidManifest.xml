@@ -9,18 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LevelSelector.LevelSelectorActivity"></activity>
+        <activity android:name=".Result.Game3ResultActivity"></activity>
+        <activity android:name=".Result.Game2ResultActivity" />
+        <activity android:name=".LevelSelector.Game3LevelSelectorActivity" />
+        <activity android:name=".LevelSelector.Game2LevelSelectorActivity" />
+        <activity android:name=".LevelSelector.Game1LevelSelectorActivity" />
         <activity android:name=".Bookstore.BookStoreActivity" />
         <activity android:name=".Game2.Game2Lvl4Activity" />
         <activity android:name=".Game2.Game2Lvl3Activity" />
         <activity android:name=".Game2.Game2Lvl2Activity" />
         <activity android:name=".Game2.Game2Lvl1Activity" />
         <activity android:name=".Profile.ProfileActivity" />
-        <activity android:name=".Result.ResultActivity" />
+        <activity android:name=".Result.Game1ResultActivity" />
         <activity android:name=".Game1.Game1Lvl1Activity" />
         <activity android:name=".CourseSelector.CourseSelectorActivity" />
         <activity android:name=".Customization.CustomizationActivity" />
-        <activity android:name=".Login.MainActivity"/>
+        <activity android:name=".Login.MainActivity" />
         <activity android:name=".Leaderboard.LeaderboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LevelSelector.LevelSelectorActivity">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/courseNameView"
@@ -22,33 +21,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:onClick="onClickLevel3"
         android:text="Level 3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Level2Button" />
+        app:layout_constraintTop_toBottomOf="@+id/level2Button" />
 
     <Button
-        android:id="@+id/Level1Button"
+        android:id="@+id/level1Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="320dp"
-        android:onClick="onClickLevel1"
         android:text="Level 1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/Level2Button"
+        android:id="@+id/level2Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:onClick="onClickLevel2"
         android:text="Level 2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Level1Button" />
+        app:layout_constraintTop_toBottomOf="@+id/level1Button" />
 
     <TextView
         android:id="@+id/courseGPAView"

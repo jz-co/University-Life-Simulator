@@ -2,12 +2,11 @@ package com.example.universitylife.LevelSelector;
 
 interface ILevelSelector {
     interface ILevelSelectorView {
-        void displayWarning();
+        void displayWarning(String message);
 
-        void goToGameLevel(int game, int level);
+        void navigateToLevel1();
+        void navigateToLevel2();
+        void navigateToLevel3();
     }
 
-    interface IGame1LevelSelector {
-
-    }
 }
