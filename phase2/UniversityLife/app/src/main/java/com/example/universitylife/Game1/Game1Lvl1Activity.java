@@ -1,7 +1,5 @@
 package com.example.universitylife.Game1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.universitylife.DataHandler.DataHandler;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.universitylife.Game2.Game2Lvl1Activity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
@@ -286,5 +285,9 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
      */
     public void onClickNextLevel(View view) {
         level1Presenter.validateLevel2();
+    }
+
+    public void displayScore(double score){
+        System.out.println("1");
     }
 }

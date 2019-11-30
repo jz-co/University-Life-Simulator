@@ -1,6 +1,6 @@
 package com.example.universitylife.Game1;
 
-import com.example.universitylife.Student;
+import com.example.universitylife.Student.StudentFacade;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public class GameLevel1Lvl1 {
-    private Student student;
+    private StudentFacade student;
     private int correctAnswers, incorrectAnswers;
     private int clearingScore = 5;
 
@@ -17,7 +17,7 @@ public class GameLevel1Lvl1 {
     private List<String> operators = new ArrayList<>(Arrays.asList("+", "-", "*"));
 
     //initialize the game
-    public GameLevel1Lvl1(Student student) {
+    public GameLevel1Lvl1(StudentFacade student) {
         this.student = student;
         this.correctAnswers = 0;
         this.incorrectAnswers = 0;
@@ -28,7 +28,7 @@ public class GameLevel1Lvl1 {
      *
      * @return the student stored in this level.
      */
-    public Student getStudent() {
+    public StudentFacade getStudent() {
         return this.student;
     }
 
@@ -109,6 +109,13 @@ public class GameLevel1Lvl1 {
      * Updates the student statistics if the level is passed.
      */
     public void levelPass() {
+        double points;
+        if (correctAnswers >= clearingScore){
+            points = 1.0;
+        } else{
+            points = correctAnswers/clearingScore;
+        }
+        student.registerLevelResults(1, 1, points);
         student.incrementGpa(1);
         student.incrementHp(correctAnswers);
         student.incrementCredit(5);
@@ -125,4 +132,3 @@ public class GameLevel1Lvl1 {
         student.decrementHp(incorrectAnswers);
     }
 }
-

@@ -13,7 +13,7 @@ public class Game1Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel
         super(username);
         this.view = view;
         this.gameLevel = new GameLevel1Lvl1(gameManager.getCurrentStudent());
-        if (gameManager.getCurrentLevel() > 1) {
+        if (gameManager.getHighestLevel(1) > 1) {
             nextLevelUnlocked = true;
         }
     }
@@ -76,7 +76,8 @@ public class Game1Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel
      * next level.
      */
     public void levelComplete() {
-        this.gameLevel.getStudent().incrementHp(gameLevel.getCorrectAnswers());
+        //TODO do we have an hp score anymore?
+        //this.gameLevel.getStudent().incrementHp(gameLevel.getCorrectAnswers());
         int clearingScore = gameLevel.getClearingScore();
         if (gameLevel.getCorrectAnswers() < clearingScore) {
             view.displayWarning("Play again to unlock the next level!");
@@ -90,19 +91,6 @@ public class Game1Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel
         updateDisplay(view);
         view.endGame();
     }
-
-//    public void levelComplete() {
-//        this.gameLevel.getStudent().incrementHp(gameLevel.getCorrectAnswers());
-//
-//        if (gameLevel.getCorrectAnswers() < gameLevel.getClearingScore()) {
-//            gameLevel.levelFail();
-//            view.navigateToResults("Sorry, please play again!", gameLevel.getCorrectAnswers());
-//        } else {
-//            gameLevel.levelPass();
-//            view.navigateToResults("Congratulations, you have cleared this level!", gameLevel.getCorrectAnswers());
-//        }
-//        gameManager.saveBeforeExit();
-//    }
 
     /**
      * Ask the view to display the number of seconds left in the game.

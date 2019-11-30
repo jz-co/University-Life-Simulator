@@ -808,9 +808,14 @@ Changes: Game1Lvl1Activity, Game1Lvl1Presenter.
 Removed the data handler from the constructors as required by the change in Step 134.
 
 #######
-Step 138 (Jenny)
+Step 139 (Jenny)
 Changes: implemented different layout for LeaderboardActivity and updated LeaderboardPresenter accordingly.
 The new layout, which uses a ListView can now take any size list of top students, which makes it more
 flexible for future changes (in case we want more than just top 5).
 Removed unnecessary Leaderboard class, and used Rank Handler directly in Presenter.
 Added intent in ProfileActivity and finished ProfilePresenter, which now allows transition to graduation/leaderboard page.
+
+#######
+Step 140 (Parinita)
+Code Affected: Game1Lvl1Presenter, Game1Lvl1Activity, GameLevel1Lvl1
+Changes: Modified imports and a method levelPass in GameLevel1Lvl1. Preparation to import code into the files.
