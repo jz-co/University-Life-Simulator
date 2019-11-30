@@ -16,7 +16,7 @@ import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.GameManager;
 import com.example.universitylife.Student;
 import com.example.universitylife.R;
-import com.example.universitylife.Result.ResultActivity;
+import com.example.universitylife.Result.Game1ResultActivity;
 
 /**
  * Referenced https://www.androidauthority.com/android-game-java-785331/
@@ -172,7 +172,7 @@ public class Lvl3GameView2 extends SurfaceView implements SurfaceHolder.Callback
             Student s = manager.getCurrentStudent();
             s.setGpa(4.0);
             s.setHp(s.getHp() + gameItemManager.getScore());
-            Intent intent = new Intent(super.getContext(), ResultActivity.class);
+            Intent intent = new Intent(super.getContext(), Game1ResultActivity.class);
             intent.putExtra("Completion", "You have successfully completed level 3");
             intent.putExtra("Level", 3);
             intent.putExtra("Score", gameItemManager.getScore());

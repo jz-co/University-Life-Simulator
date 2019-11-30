@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Result.Game3ResultActivity"></activity>
+        <activity android:name=".Leaderboard.LeaderboardActivity"></activity>
+        <activity android:name=".Result.Game3ResultActivity" />
         <activity android:name=".Result.Game2ResultActivity" />
         <activity android:name=".LevelSelector.Game3LevelSelectorActivity" />
         <activity android:name=".LevelSelector.Game2LevelSelectorActivity" />
@@ -25,13 +26,6 @@
         <activity android:name=".CourseSelector.CourseSelectorActivity" />
         <activity android:name=".Customization.CustomizationActivity" />
         <activity android:name=".Login.MainActivity" />
-        <activity android:name=".Leaderboard.LeaderboardActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".Game3.Game3StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

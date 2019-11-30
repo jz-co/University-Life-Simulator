@@ -9,10 +9,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.universitylife.Bookstore.BookstoreActivityRough;
+import com.example.universitylife.Bookstore.BookStoreActivity;
 import com.example.universitylife.CourseSelector.CourseSelectorActivity;
-import com.example.universitylife.DataHandler.DataHandler;
+import com.example.universitylife.Leaderboard.LeaderboardActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.CharacterIcons;
 import com.example.universitylife.Customization.CustomizationActivity;
@@ -89,14 +90,24 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
     }
 
     public void onClickBookstore(View view) {
-        Intent intent = new Intent(this, BookstoreActivityRough.class);
+        Intent intent = new Intent(this, BookStoreActivity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }
 
     @Override
-    public void displayErrorMessage(){
-
+    public void displayErrorMessage(String message){
+        Toast warning = Toast.makeText(this, message, Toast.LENGTH_LONG);
+        warning.show();
     }
+
+    @Override
+    public void navigateToEnd() {
+        Intent intent = new Intent(this, LeaderboardActivity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
+    }
+
+
 }
 

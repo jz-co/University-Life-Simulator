@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.Game2.Game2Lvl1Activity;
 import com.example.universitylife.R;
-import com.example.universitylife.Result.ResultActivity;
+import com.example.universitylife.Result.Game1ResultActivity;
 
 public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1View {
 
@@ -119,7 +119,7 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
 
     @Override
     public void navigateToResults(String displayMessage, int score) {
-        Intent intent = new Intent(this, ResultActivity.class);
+        Intent intent = new Intent(this, Game1ResultActivity.class);
         intent.putExtra("Completion", displayMessage);
         intent.putExtra("Level", 1);
         intent.putExtra("Score", score);

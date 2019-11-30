@@ -3,7 +3,8 @@ package com.example.universitylife.Profile;
 public interface IProfile {
     interface IProfileView {
         void logOut();
-        void displayErrorMessage();
+        void displayErrorMessage(String message);
+        void navigateToEnd();
 
     }
 

@@ -43,9 +43,9 @@ public class ProfilePresenter implements IProfilePresenter {
     @Override
     public void validateGraduation() {
         if (student.canGraduate()) {
-            // navigate to graduationActivity
+            view.navigateToEnd();
         } else {
-            view.displayErrorMessage();
+            view.displayErrorMessage("Sorry, you have not earned enough credits!");
         }
     }
 
