@@ -47,7 +47,7 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
 
         this.username = (String) getIntent().getSerializableExtra("Username");
 
-        this.level1Presenter = new Game1Lvl1Presenter(this, new DataHandler(this), username);
+        this.level1Presenter = new Game1Lvl1Presenter(this, username);
 
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);

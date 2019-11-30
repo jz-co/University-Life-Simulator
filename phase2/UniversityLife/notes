@@ -803,6 +803,11 @@ Changes: updated CourseSelectorActivity.
 Implemented LevelSelector Activities, and Result Activities for each individual game.
 
 #######
+Step 138 (Parinita)
+Changes: Game1Lvl1Activity, Game1Lvl1Presenter.
+Removed the data handler from the constructors as required by the change in Step 134.
+
+#######
 Step 138 (Jenny)
 Changes: implemented different layout for LeaderboardActivity and updated LeaderboardPresenter accordingly.
 The new layout, which uses a ListView can now take any size list of top students, which makes it more

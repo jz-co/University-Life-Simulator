@@ -9,8 +9,8 @@ public class Game1Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
 
-    public Game1Lvl1Presenter(ILevel1.ILevel1View view, IData dataHandler, String username) {
-        super(dataHandler, username);
+    public Game1Lvl1Presenter(ILevel1.ILevel1View view, String username) {
+        super(username);
         this.view = view;
         this.gameLevel = new GameLevel1Lvl1(gameManager.getCurrentStudent());
         if (gameManager.getCurrentLevel() > 1) {
