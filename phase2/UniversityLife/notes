@@ -801,3 +801,8 @@ Updated CourseSelectorPresenter class and CourseSelectorActivity class with new 
 Step 137 (Jenny)
 Changes: updated CourseSelectorActivity.
 Implemented LevelSelector Activities, and Result Activities for each individual game.
+
+#######
+Step 138 (Parinita)
+Changes: Game1Lvl1Activity, Game1Lvl1Presenter.
+Removed the data handler from the constructors as required by the change in Step 134.
