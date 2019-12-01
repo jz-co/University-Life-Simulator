@@ -16,4 +16,8 @@ class StudentAccount {
     String getUsername() {
         return username;
     }
+
+    String getPassword() {
+        return username;
+    }
 }

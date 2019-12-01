@@ -984,3 +984,9 @@ Added bonus item usage and manipulated the code.
 Step 165 (Vishnu)
 Code affected: Game3ViewActivity1, Game3ViewActivity2, Game3ViewActivity3, Game3ViewActivity4, Game3ContentsFactory
 Added bonus item reduction and Text Modification in each level
+
+#########
+Step 166 (Grace)
+Code Affected: Student package, StudentManager
+Change: added class StudentData which only has Strings, ints, doubles attributes. This makes it easier
+to interact with the firebase data handler.

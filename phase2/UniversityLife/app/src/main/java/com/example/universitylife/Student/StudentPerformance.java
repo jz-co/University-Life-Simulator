@@ -17,21 +17,21 @@ class StudentPerformance {
         Arrays.fill(highestLevels, 1);
     }
 
-//    /**
-//     * Records the student's performance in a game. (Used only when loading data of existing users)
-//     *
-//     * @param game         the index of the game, starting from 1
-//     * @param highestLevel the highest level reached by the user, starting from 1
-//     * @param scores       the scores the student received in each of the levels.
-//     */
-//    void setGamePerformance(int game, int highestLevel, double[] scores) {
-//        highestLevels[game - 1] = highestLevel;
-//        for (int level = 1; level <= numberOfLevels; level++) {
-//            setLevelScore(game, level, scores[level - 1]);
-//        }
-//        updateCredit();
-//        updateGpa();
-//    }
+    /**
+     * Records the student's performance in a game. (Used only when loading data of existing users)
+     *
+     * @param game         the index of the game, starting from 1
+     * @param highestLevel the highest level reached by the user, starting from 1
+     * @param scores       the scores the student received in each of the levels.
+     */
+    void setGamePerformance(int game, int highestLevel, double[] scores) {
+        highestLevels[game - 1] = highestLevel;
+        for (int level = 1; level <= numberOfLevels; level++) {
+            setLevelScore(game, level, scores[level - 1]);
+        }
+        updateCredit();
+        updateGpa();
+    }
 
 
     /**
@@ -52,17 +52,17 @@ class StudentPerformance {
         }
     }
 
-    /**
-     * Register the results of a bonus level.
-     *
-     * @param game  index of the game
-     * @param level index of the level
-     */
-    void registerLevelResults(int game, int level) {
-        if (highestLevelOf(game) <= level) {
-            unlockNextLevel(game);
-        }
-    }
+//    /**
+//     * Register the results of a bonus level.
+//     *
+//     * @param game  index of the game
+//     * @param level index of the level
+//     */
+//    void registerLevelResults(int game, int level) {
+//        if (highestLevelOf(game) <= level) {
+//            unlockNextLevel(game);
+//        }
+//    }
 
 
     /**
@@ -149,5 +149,12 @@ class StudentPerformance {
         return highestLevelOf(game) >= numberOfLevels;
     }
 
+    double[] getGameScores(int game) {
+        return scores[game - 1];
+    }
+
+    int[] getHighestLevels() {
+        return highestLevels;
+    }
 
 }

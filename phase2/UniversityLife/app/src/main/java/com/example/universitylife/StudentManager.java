@@ -1,6 +1,7 @@
 package com.example.universitylife;
 
 import com.example.universitylife.DataHandler.FireBaseDataHandler;
+import com.example.universitylife.Student.StudentData;
 import com.example.universitylife.Student.StudentFacade;
 import com.example.universitylife.Student.StudentFacadeBuilder;
 
@@ -20,7 +21,8 @@ public class StudentManager {
      * Saves data for all students.
      */
     void saveStudentData(StudentFacade student) {
-        dataHandler.updateStudentData(student);
+        StudentData studentData = new StudentData(student);
+        dataHandler.updateStudentData(studentData);
     }
 
 
@@ -45,7 +47,8 @@ public class StudentManager {
      * @return The student with the given username.
      */
     StudentFacade getStudentByUsername(String username) {
-        return dataHandler.getStudentByUserName(username);
+        StudentData studentData = dataHandler.getStudentByUserName(username);
+        return studentData.dataToStudent();
     }
 
 
@@ -55,7 +58,8 @@ public class StudentManager {
      * @param student A student to add to the list.
      */
     private void addStudent(StudentFacade student) {
-        dataHandler.addStudentData(student);
+        StudentData data = new StudentData(student);
+        dataHandler.addStudentData(data);
     }
 
 

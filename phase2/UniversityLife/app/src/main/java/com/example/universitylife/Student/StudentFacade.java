@@ -14,15 +14,15 @@ public class StudentFacade implements ILeaderboard.ILeaderboardStudent {
         performance = new StudentPerformance();
         bag = new StudentBag();
     }
-//
-//    // This may not be necessary.
-//    StudentFacade(StudentAccount account, StudentPreferences preferences,
-//                  StudentPerformance performance, StudentBag bag){
-//        this.account = account;
-//        this.preferences = preferences;
-//        this.performance = performance;
-//        this.bag = bag;
-//    }
+
+    // This may not be necessary.
+    StudentFacade(StudentAccount account, StudentPreferences preferences,
+                  StudentPerformance performance, StudentBag bag) {
+        this.account = account;
+        this.preferences = preferences;
+        this.performance = performance;
+        this.bag = bag;
+    }
 
     //ACCOUNT RELATED:
     public boolean passwordMatches(String password) {
@@ -33,6 +33,9 @@ public class StudentFacade implements ILeaderboard.ILeaderboardStudent {
         return account.getUsername();
     }
 
+    String getPassword() {
+        return account.getPassword();
+    }
 
     //CUSTOMIZATION RELATED:
     public String getName() {
@@ -74,6 +77,13 @@ public class StudentFacade implements ILeaderboard.ILeaderboardStudent {
         return performance.highestLevelOf(game);
     }
 
+    int[] getHighestLevels() {
+        return performance.getHighestLevels();
+    }
+
+    double[] getGameScores(int game) {
+        return performance.getGameScores(game);
+    }
 
     /**
      * Register results for a non-bonus game level
@@ -95,7 +105,6 @@ public class StudentFacade implements ILeaderboard.ILeaderboardStudent {
      */
     public void registerLevelResults(int game, int level, int giftcards) {
         bag.obtainGiftcards(giftcards);
-        performance.registerLevelResults(game, level);
     }
 
     //BAG RELATED:
@@ -125,6 +134,10 @@ public class StudentFacade implements ILeaderboard.ILeaderboardStudent {
 
     public void useItem(int game) {
         bag.useItem(game);
+    }
+
+    int[] getItems() {
+        return bag.getItems();
     }
 
 

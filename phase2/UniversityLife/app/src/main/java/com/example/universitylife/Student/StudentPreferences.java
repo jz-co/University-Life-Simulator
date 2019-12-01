@@ -8,11 +8,10 @@ class StudentPreferences {
 
     }
 
-//    StudentPreferences(String name, int appearance, String language) {
-//        this.name = name;
-//        this.appearance = appearance;
-//        this.language = language;
-//    }
+    StudentPreferences(String name, int appearance) {
+        this.name = name;
+        this.appearance = appearance;
+    }
 
     public String getName() {
         return name;
