@@ -4,34 +4,34 @@ import java.util.Arrays;
 
 class StudentPerformance {
     private int numberOfGames = 3;
-    private int numberOfLevels = 4;
-    private int numberOfBonusLevels = 3;
+    private int numberOfLevels = 3;
+    // Bonus levels do not affect the student's performance.
+
     private int credit;
     private double gpa = 0;
-    private int[] highestLevels = new int[numberOfBonusLevels];
+    private int[] highestLevels = new int[numberOfGames];
 
-    private double[][] scores = new double[numberOfGames][numberOfLevels - numberOfBonusLevels];
-    // Bonus levels do not have a score associated with them.
+    private double[][] scores = new double[numberOfGames][numberOfLevels];
 
     StudentPerformance(){
         Arrays.fill(highestLevels, 1);
     }
 
-    /**
-     * Records the student's performance in a game. (Used only when loading data of existing users)
-     *
-     * @param game         the index of the game, starting from 1
-     * @param highestLevel the highest level reached by the user, starting from 1
-     * @param scores       the scores the student received in each of the levels.
-     */
-    void setGamePerformance(int game, int highestLevel, double[] scores) {
-        highestLevels[game - 1] = highestLevel;
-        for (int level = 1; level <= numberOfLevels - numberOfBonusLevels; level++) {
-            setLevelScore(game, level, scores[level - 1]);
-        }
-        updateCredit();
-        updateGpa();
-    }
+//    /**
+//     * Records the student's performance in a game. (Used only when loading data of existing users)
+//     *
+//     * @param game         the index of the game, starting from 1
+//     * @param highestLevel the highest level reached by the user, starting from 1
+//     * @param scores       the scores the student received in each of the levels.
+//     */
+//    void setGamePerformance(int game, int highestLevel, double[] scores) {
+//        highestLevels[game - 1] = highestLevel;
+//        for (int level = 1; level <= numberOfLevels; level++) {
+//            setLevelScore(game, level, scores[level - 1]);
+//        }
+//        updateCredit();
+//        updateGpa();
+//    }
 
 
     /**
@@ -44,7 +44,7 @@ class StudentPerformance {
      * @param score score received
      */
     void registerLevelResults(int game, int level, double score) {
-        if (highestLevels[game - 1] <= level) {
+        if (highestLevelOf(game) <= level) {
             unlockNextLevel(game);
         }
         if (getLevelScore(game, level) < score) {
@@ -123,7 +123,7 @@ class StudentPerformance {
      */
     private void unlockNextLevel(int game) {
         highestLevels[game - 1]++;
-        if (highestLevelOf(game) == numberOfLevels - numberOfBonusLevels) {
+        if (gameIsCompleted(game)) {
             updateCredit();
             updateGpa();
             // register game as complete when the user reaches the final non-bonus level.
@@ -136,7 +136,7 @@ class StudentPerformance {
     }
 
 
-    double getLevelScore(int game, int level) {
+    private double getLevelScore(int game, int level) {
         return scores[game - 1][level - 1];
     }
 
@@ -146,7 +146,7 @@ class StudentPerformance {
     }
 
     boolean gameIsCompleted(int game) {
-        return highestLevelOf(game) >= numberOfLevels - numberOfBonusLevels;
+        return highestLevelOf(game) >= numberOfLevels;
     }
 
 
