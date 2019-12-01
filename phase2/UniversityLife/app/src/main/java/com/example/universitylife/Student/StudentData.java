@@ -9,8 +9,98 @@ public class StudentData {
     private String game2;
     private String game3;
     private String highestLevels;
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAppearance() {
+        return appearance;
+    }
+
+    public void setAppearance(int appearance) {
+        this.appearance = appearance;
+    }
+
+    public String getGame1() {
+        return game1;
+    }
+
+    public void setGame1(String game1) {
+        this.game1 = game1;
+    }
+
+    public String getGame2() {
+        return game2;
+    }
+
+    public void setGame2(String game2) {
+        this.game2 = game2;
+    }
+
+    public String getGame3() {
+        return game3;
+    }
+
+    public void setGame3(String game3) {
+        this.game3 = game3;
+    }
+
+    public String getHighestLevels() {
+        return highestLevels;
+    }
+
+    public void setHighestLevels(String highestLevels) {
+        this.highestLevels = highestLevels;
+    }
+
+    public int getGiftcards() {
+        return giftcards;
+    }
+
+    public void setGiftcards(int giftcards) {
+        this.giftcards = giftcards;
+    }
+
+    public String getItems() {
+        return items;
+    }
+
+    public void setItems(String items) {
+        this.items = items;
+    }
+
+    public double getGpa() {
+        return gpa;
+    }
+
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
+
     private int giftcards;
     private String items;
+    private double gpa;
+
+    public StudentData() {
+
+    }
 
     public StudentData(StudentFacade student) {
         username = student.getUsername();
@@ -23,6 +113,7 @@ public class StudentData {
         game3 = doublesToString(student.getGameScores(3));
         giftcards = student.getGiftcards();
         items = intsToString(student.getItems());
+        gpa = student.getGpa();
     }
 
     public StudentFacade dataToStudent() {
@@ -75,6 +166,10 @@ public class StudentData {
             }
         }
         return sb.toString();
+    }
+
+    public String getUsername() {
+        return username;
     }
 
 }

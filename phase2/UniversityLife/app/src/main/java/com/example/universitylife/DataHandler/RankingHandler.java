@@ -6,7 +6,7 @@ import android.service.notification.NotificationListenerService;
 import androidx.annotation.NonNull;
 
 import com.example.universitylife.Leaderboard.ILeaderboard;
-import com.example.universitylife.Student.StudentFacade;
+import com.example.universitylife.Student.StudentData;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -34,9 +34,10 @@ public class RankingHandler {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                    StudentFacade student = postSnapshot.getValue(StudentFacade.class);
-                    topFive.add(student);
+                    StudentData student = postSnapshot.getValue(StudentData.class);
+                    topFive.add(student.dataToStudent());
                 }
+
             }
 
             @Override

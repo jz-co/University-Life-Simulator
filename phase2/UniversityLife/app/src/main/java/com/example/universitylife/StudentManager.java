@@ -48,6 +48,9 @@ public class StudentManager {
      */
     StudentFacade getStudentByUsername(String username) {
         StudentData studentData = dataHandler.getStudentByUserName(username);
+        if (studentData == null) {
+            return null;
+        }
         return studentData.dataToStudent();
     }
 
