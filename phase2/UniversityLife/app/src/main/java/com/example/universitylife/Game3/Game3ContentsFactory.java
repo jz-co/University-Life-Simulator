@@ -41,10 +41,16 @@ public class  Game3ContentsFactory{
      */
     private int gridHeight;
 
+    private boolean isDoubleArrow;
+
     public Game3ContentsFactory(int width, int height) {
         this.gridWidth = width;
         this.gridHeight = height;
         gameItems = new ArrayList<>();
+    }
+
+    public void setDoubleArrow(boolean doubleArrow) {
+        isDoubleArrow = doubleArrow;
     }
 
     /**
@@ -72,6 +78,10 @@ public class  Game3ContentsFactory{
      */
     public List<GameContents> getGameItems() {
         return gameItems;
+    }
+
+    public void setScore(int s) {
+        score += s;
     }
 
     /**
@@ -105,7 +115,11 @@ public class  Game3ContentsFactory{
                     (gameWheel.getY() <= moving_arrow.getY() & moving_arrow.getY() <= gameWheel.getY() + gameWheel.getHeight())) {
 
                 // player earns a score when the arrow touches the wheel.
-                score += 1;
+                if (isDoubleArrow) {
+                    setScore(2);
+                } else {
+                    setScore(1);
+                }
                 gameWheel.setSpeed();
                 gameItems.remove(moving_arrow);
             }

@@ -74,9 +74,10 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
     private MainThread thread;
 
     private Bitmap wheelImage = BitmapFactory.decodeResource(getResources(), R.drawable.circle);
-    private Bitmap arrowImage = BitmapFactory.decodeResource(getResources(), R.drawable.arrow);
+    private Bitmap arrowImage;
     private Bitmap bowImage = BitmapFactory.decodeResource(getResources(), R.drawable.bow);
     private Bitmap background = BitmapFactory.decodeResource(getResources(), R.drawable.game3_background);
+    private boolean isDoubleArrow = false;
 
     /**
      * Creates the level 3 surface view.
@@ -126,11 +127,16 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
+        StudentFacade student = manager.getCurrentStudent();
+        isDoubleArrow = student.getItem(3) > 0;
+
         gameItemManager = new Game3ContentsFactory(screenWidth, screenHeight);
+        gameItemManager.setDoubleArrow(isDoubleArrow);
 
         // add an arrow to the game
         Arrow arrow = new Arrow(4, screenWidth, screenHeight);
         gameItemManager.createGameItems(arrow);
+        setArrowImage();
 
         // add a bow to the game
         Bow bow = new Bow(4, screenWidth, screenHeight);
@@ -239,6 +245,14 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
 
 
         return true;
+    }
+
+    public void setArrowImage() {
+        if (isDoubleArrow) {
+            arrowImage = BitmapFactory.decodeResource(getResources(), R.drawable.double_arrow);
+        } else {
+            arrowImage = BitmapFactory.decodeResource(getResources(), R.drawable.arrow);
+        }
     }
 
     /**
