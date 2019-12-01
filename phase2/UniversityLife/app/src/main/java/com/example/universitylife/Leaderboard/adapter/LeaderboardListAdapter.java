@@ -40,7 +40,7 @@ public class LeaderboardListAdapter extends BaseAdapter {
     public View getView(int rank, View scoreView, ViewGroup parent) {
         // inflate the layout for each list row
         if (scoreView == null) {
-            scoreView = LayoutInflater.from(context).inflate(R.layout.list_row_layout, parent, false);
+            scoreView = LayoutInflater.from(context).inflate(R.layout.leaderboard_list_row_layout, parent, false);
         }
 
         // get current item to be displayed

@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Leaderboard.LeaderboardActivity"></activity>
+        <activity android:name=".Bookstore.BookStoreActivity"></activity>
+        <activity android:name=".Leaderboard.LeaderboardActivity" />
         <activity android:name=".Result.Game3ResultActivity" />
         <activity android:name=".Result.Game2ResultActivity" />
         <activity android:name=".LevelSelector.Game3LevelSelectorActivity" />
         <activity android:name=".LevelSelector.Game2LevelSelectorActivity" />
         <activity android:name=".LevelSelector.Game1LevelSelectorActivity" />
-        <activity android:name=".Bookstore.BookStoreActivity" />
         <activity android:name=".Game2.Game2Lvl4Activity" />
         <activity android:name=".Game2.Game2Lvl3Activity" />
         <activity android:name=".Game2.Game2Lvl2Activity" />

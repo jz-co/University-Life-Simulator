@@ -3,6 +3,8 @@ package com.example.universitylife.Bookstore;
 import com.example.universitylife.GameManager;
 import com.example.universitylife.IData;
 
+import java.util.List;
+
 class BookstorePresenter {
     private IBookstore.IBookstoreView view;
     private Bookstore store;
@@ -14,16 +16,20 @@ class BookstorePresenter {
         store = new Bookstore(gameManager.getCurrentStudent());
     }
 
-    void save(){
+    void save() {
         gameManager.saveBeforeExit();
     }
 
     void validateBonusPurchase(int bonusIdNum) {
         if (store.studentHasGiftcards()) {
             store.buyItem(bonusIdNum);
-        } else{
+        } else {
             view.displayWarning("You do not have enough giftcards for this purchase!");
         }
         view.updateGiftcardDisplay(store.getStudentGiftcards());
+    }
+
+    List<BonusItem> getBonusItemsList() {
+        return store.getBonusItemList();
     }
 }

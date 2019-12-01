@@ -831,3 +831,12 @@ Step 142 (Parinita)
 Code Affected: Game1Lvl1Presenter, Game1Lvl1Activity, GameLevel1Lvl1, activity_main_lvl1_lvl1
 Changes: Added displayScore in Game1Lvl1Activity, modified evaluateAnswer in Game1Lvl1Presenter, added updateScore in GameLevel1Lvl1,
 modified the xml for game1.
+
+
+#######
+(Jenny)
+Changes: Added new class BonusItem, which represents the different items that are purchasable from
+the bookstore.
+Added ListView to BookStoreActivity and accordingly added a custom list adapter called BookStoreListAdapater.
+Added BonusItemBuilder which builds a list of all bonusItems that can be displayed and bought from the Bookstore.
+Added BonusIcons class that contains image resources for the bonuses.
