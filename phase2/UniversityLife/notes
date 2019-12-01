@@ -837,3 +837,11 @@ Step 143 (Koby)
 Code Affected: Game2 Package
 Changes: Add boughtUmbrella variable so that we can track whether this user has an umbrella in the
 bag or not.
+
+#######
+Step 144 (Parinita)
+Code Affected: Game1Lvl1Presenter, GameLevel1Lvl1, GameLevel1Lvl3
+Changes: Modified updateScore method and added calculateLevelGpaScore method in GameLevel1Lvl1.
+Modified minor statement calls in Game1Lvl1Presenter.
+Added calculateScore in GameLevel1Lvl3 to account for negative marking scheme.
+

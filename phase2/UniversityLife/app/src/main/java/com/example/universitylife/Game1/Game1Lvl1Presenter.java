@@ -65,7 +65,7 @@ public class Game1Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel
             }
             view.displayCorrectScore(gameLevel.getCorrectAnswers());
             view.displayIncorrectScore(gameLevel.getIncorrectAnswers());
-            gameLevel.updateScore();
+            gameLevel.updateScore(gameLevel.getCorrectAnswers());
             view.displayScore(gameLevel.getTotalScore());
             newQuestion();
         } catch (NumberFormatException e) {
@@ -78,12 +78,9 @@ public class Game1Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel
      * next level.
      */
     public void levelComplete() {
-        //TODO do we have an hp score anymore?
-        //this.gameLevel.getStudent().incrementHp(gameLevel.getCorrectAnswers());
         int clearingScore = gameLevel.getClearingScore();
         if (gameLevel.getCorrectAnswers() < clearingScore) {
             view.displayWarning("Play again to unlock the next level!");
-            gameLevel.levelFail();
         } else {
             view.displayWarning("Congratulations, you have cleared this level!");
             nextLevelUnlocked = true;

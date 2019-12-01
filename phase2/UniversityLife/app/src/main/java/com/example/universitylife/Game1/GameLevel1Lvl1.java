@@ -57,12 +57,41 @@ public class GameLevel1Lvl1 {
         return this.incorrectAnswers;
     }
 
-    public int getTotalScore(){return this.totalScore;}
 
-    public void setClearingScore(int clearScore){ this.clearingScore = clearScore;}
+    /**
+     * Getter for the clearing score of the game.
+     *
+     * @return an int representing the clearing score of the game.
+     */
+    public int getClearingScore() {
+        return clearingScore;
+    }
 
-    public void updateScore(){
-        this.totalScore = this.correctAnswers;
+    /**
+     * Setter for the number of points a student must earn to pass this level.
+     *
+     * @return number of incorrect answers
+     */
+    public void setClearingScore(int clearScore) {
+        this.clearingScore = clearScore;
+    }
+
+    /**
+     * Getter for the total score of the student.
+     *
+     * @return total score of the student
+     */
+    public int getTotalScore() {
+        return this.totalScore;
+    }
+
+    /**
+     * Setter for the total score of the student.
+     *
+     * @param score the new score to update the instance attribute with.
+     */
+    public void updateScore(int score) {
+        this.totalScore = score;
     }
 
     /**
@@ -110,39 +139,33 @@ public class GameLevel1Lvl1 {
         return answer == correctAnswer;
     }
 
+
     /**
-     * Getter for the clearing score of the game.
+     * Calculates the GPA score earned for this level
      *
-     * @return an int representing the clearing score of the game.
+     * @param factor the total score this level is out of. For Level 1 and 2, it is out of
+     *               1.0 and for Level 3, it is out of 2.0.
+     * @return a double representing the total GPA score earned for this level
      */
-    public int getClearingScore() {
-        return clearingScore;
+    public double calculateLevelGpaScore(int factor) {
+        double points;
+        if (correctAnswers >= clearingScore) {
+            points = factor;
+        } else {
+            points = (correctAnswers / clearingScore) * factor;
+        }
+        return points;
     }
 
     /**
      * Updates the student statistics if the level is passed.
      */
     public void levelPass() {
-        double points;
-        if (correctAnswers >= clearingScore){
-            points = 1.0;
-        } else{
-            points = correctAnswers/clearingScore;
-        }
+        double points = calculateLevelGpaScore(1);
         student.registerLevelResults(1, 1, points);
-        student.incrementGpa(1);
-        student.incrementHp(correctAnswers);
-        student.incrementCredit(5);
-        if (student.getCurrentLevel() <= 1) {
-            student.incrementLevel();
-        }
+        //if (student.getCurrentLevel() <= 1) {
+        //    student.incrementLevel();
+        //}
     }
 
-    /**
-     * Updates the student statistics if the level is failed.
-     */
-    public void levelFail() {
-        student.decrementGpa(1);
-        student.decrementHp(incorrectAnswers);
-    }
 }
