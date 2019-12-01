@@ -21,6 +21,7 @@ import android.widget.ImageButton;
 
 import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.GameManager;
+import com.example.universitylife.LevelSelector.Game3LevelSelectorActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
 import com.example.universitylife.Result.Game3ResultActivity;
@@ -106,14 +107,11 @@ public class Game3ViewActivity3 extends Activity implements SurfaceHolder.Callba
 
         this.context = this.getApplicationContext();
 
-        ImageButton exit = (ImageButton) findViewById(R.id.imageButton);
-        exit.setOnClickListener(new View.OnClickListener() {
+        Button back = (Button) findViewById(R.id.button5);
+        back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.addCategory(Intent.CATEGORY_HOME);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(context, Game3LevelSelectorActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -243,14 +241,23 @@ public class Game3ViewActivity3 extends Activity implements SurfaceHolder.Callba
             }
         }
 
-        if (gameItemManager.getLives() == 0) {
-            Intent intent = new Intent(context, Game3ResultActivity.class);
-            intent.putExtra("Completion", "You have successfully completed level 3");
-            intent.putExtra("Level", 3);
-            intent.putExtra("Score", gameItemManager.getScore());
-            intent.putExtra("Username", username);
-            startActivity(intent);
+        if (gameItemManager.getScore() >= 10) {
+            StudentFacade s = manager.getCurrentStudent();
+            s.registerLevelResults(3, 3, gameItemManager.getScore());
 
+            Button next = (Button) findViewById(R.id.button);
+            next.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    nextLevel(v);
+                }
+            });
+
+            if (gameItemManager.getLives() == 0) {
+                Intent intent = new Intent(context, Game3LevelSelectorActivity.class);
+                startActivity(intent);
+
+            }
         }
 
 
