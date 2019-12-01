@@ -34,9 +34,14 @@ public class BookStoreActivity extends AppCompatActivity implements IBookstore.I
         String username = (String) getIntent().getSerializableExtra("Username");
         presenter = new BookstorePresenter(this, username, new DataHandler(this));
 
-        bonusIcons = new BonusIcons(this);
+        final String WELCOME_MESSAGE = "Welcome to the Bookstore!";
+        moneyDisplay.setText(presenter.getStudentGiftcards());
+        messageView.setText(WELCOME_MESSAGE);
 
+
+        bonusIcons = new BonusIcons(this);
         displayBonusList();
+
     }
 
 

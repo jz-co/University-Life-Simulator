@@ -29,6 +29,10 @@ class BookstorePresenter {
         view.updateGiftcardDisplay(store.getStudentGiftcards());
     }
 
+    int getStudentGiftcards() {
+        return store.getStudentGiftcards();
+    }
+
     List<BonusItem> getBonusItemsList() {
         return store.getBonusItemList();
     }
