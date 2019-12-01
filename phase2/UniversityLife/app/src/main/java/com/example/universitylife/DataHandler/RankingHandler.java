@@ -5,6 +5,7 @@ import android.service.notification.NotificationListenerService;
 
 import androidx.annotation.NonNull;
 
+import com.example.universitylife.Leaderboard.ILeaderboard;
 import com.example.universitylife.Student.StudentFacade;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 public class RankingHandler {
 
     private FireBaseDataHandler fireBaseDataHandler;
-    private ArrayList<StudentFacade> topFive = new ArrayList<>();
+    private ArrayList<ILeaderboard.ILeaderboardStudent> topFive = new ArrayList<>();
 
     public RankingHandler() {
         this.fireBaseDataHandler = new FireBaseDataHandler();
@@ -27,7 +28,7 @@ public class RankingHandler {
      *
      * @return ArrayList<Student> student
      */
-    public ArrayList<StudentFacade> getTop5gpaStudent(){
+    public ArrayList<ILeaderboard.ILeaderboardStudent> getTop5gpaStudent() {
         Query query = FirebaseDatabase.getInstance().getReference().child(fireBaseDataHandler.getNameOfTable()).orderByChild("gpa").limitToLast(5);
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -47,8 +48,8 @@ public class RankingHandler {
         return reverseTopFive();
     }
 
-    private ArrayList<StudentFacade> reverseTopFive() {
-        ArrayList<StudentFacade> reversedList = new ArrayList<>();
+    private ArrayList<ILeaderboard.ILeaderboardStudent> reverseTopFive() {
+        ArrayList<ILeaderboard.ILeaderboardStudent> reversedList = new ArrayList<>();
         for (int i = topFive.size() - 1 ; i >= 0; i--){
             reversedList.add(topFive.get(i));
         }

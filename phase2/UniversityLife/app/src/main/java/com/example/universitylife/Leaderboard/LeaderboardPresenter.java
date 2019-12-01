@@ -2,22 +2,17 @@ package com.example.universitylife.Leaderboard;
 
 import com.example.universitylife.DataHandler.RankingHandler;
 import com.example.universitylife.GameManager;
-import com.example.universitylife.IData;
-import com.example.universitylife.Student.StudentFacade;
 
 import java.util.List;
 
-class LeaderboardPresenter {
-    private ILeaderboard.ILeaderboardView view;
+class LeaderboardPresenter implements ILeaderboard.ILeaderboardPresenter {
     private GameManager gameManager;
-    private List<StudentFacade> leaderBoardList;
+    private List<ILeaderboard.ILeaderboardStudent> leaderBoardList;
 
-    LeaderboardPresenter(ILeaderboard.ILeaderboardView view, String username){
+    LeaderboardPresenter(String username) {
         this.gameManager = new GameManager(username);
         RankingHandler rankingHandler = new RankingHandler();
         this.leaderBoardList = rankingHandler.getTop5gpaStudent();
-
-        this.view = view;
 
 
 //        leaderboardList = leaderboard.getTop5();
@@ -53,8 +48,8 @@ class LeaderboardPresenter {
 //    int currentAvatar() {
 //        return leaderboard.getOnScreenAppearance();
 //    }
-
-    List<StudentFacade> getLeaderBoardList() {
+@Override
+public List<ILeaderboard.ILeaderboardStudent> getLeaderBoardList() {
         return leaderBoardList;
     }
 

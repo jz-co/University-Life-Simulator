@@ -1,4 +1,4 @@
-package com.example.universitylife.Leaderboard.adapter;
+package com.example.universitylife.Leaderboard;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.universitylife.Leaderboard.ILeaderboard;
 import com.example.universitylife.R;
 
 import java.util.List;
@@ -16,9 +15,9 @@ public class LeaderboardListAdapter extends BaseAdapter {
     private Context context;
     private List<ILeaderboard.ILeaderboardStudent> topFiveStudents;
 
-    public LeaderboardListAdapter(Context context, List<ILeaderboard.ILeaderboardStudent> topFiveStudents) {
+    LeaderboardListAdapter(Context context, ILeaderboard.ILeaderboardPresenter presenter) {
         this.context = context;
-        this.topFiveStudents = topFiveStudents;
+        this.topFiveStudents = presenter.getLeaderBoardList();
     }
 
     @Override
@@ -47,9 +46,9 @@ public class LeaderboardListAdapter extends BaseAdapter {
         ILeaderboard.ILeaderboardStudent currStudent = (ILeaderboard.ILeaderboardStudent) getItem(rank);
 
         // get the TextView for the ranking, username and gpa
-        TextView textViewRanking = (TextView) scoreView.findViewById(R.id.ranking);
-        TextView textViewUsername = (TextView) scoreView.findViewById(R.id.username);
-        TextView textViewGPA = (TextView) scoreView.findViewById(R.id.gpa);
+        TextView textViewRanking = scoreView.findViewById(R.id.ranking);
+        TextView textViewUsername = scoreView.findViewById(R.id.username);
+        TextView textViewGPA = scoreView.findViewById(R.id.gpa);
 
         textViewRanking.setText(String.valueOf(rank));
         textViewUsername.setText(currStudent.getUsername());

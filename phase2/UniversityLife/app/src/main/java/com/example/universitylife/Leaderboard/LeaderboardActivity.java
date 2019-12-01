@@ -9,10 +9,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.universitylife.CharacterIcons;
-import com.example.universitylife.Leaderboard.adapter.LeaderboardListAdapter;
 import com.example.universitylife.R;
 
-public class LeaderboardActivity extends AppCompatActivity implements ILeaderboard.ILeaderboardView {
+public class LeaderboardActivity extends AppCompatActivity {
 
     private ListView listView;
     private LeaderboardListAdapter adapter;
@@ -26,7 +25,7 @@ public class LeaderboardActivity extends AppCompatActivity implements ILeaderboa
         setContentView(R.layout.activity_leaderboard_main);
 
         String username = (String) getIntent().getSerializableExtra("Username");
-        presenter = new LeaderboardPresenter(this, username);
+        presenter = new LeaderboardPresenter(username);
 
         characterIcons = new CharacterIcons(this);
 
@@ -35,8 +34,8 @@ public class LeaderboardActivity extends AppCompatActivity implements ILeaderboa
     }
 
     private void displayLeaderBoard() {
-        listView = (ListView) findViewById(R.id.leaderboard_list);
-        adapter = new LeaderboardListAdapter(this, presenter.getLeaderBoardList());
+        listView = findViewById(R.id.leaderboard_list);
+        adapter = new LeaderboardListAdapter(this, presenter);
         listView.setAdapter(adapter);
     }
 
