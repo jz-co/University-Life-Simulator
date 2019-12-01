@@ -13,7 +13,7 @@ interface ILogin {
          */
         void navigateToCustomization(String username);
 
-        void navigateToCourseSelector(String username);
+        void navigateToProfile(String username);
 
     }
 

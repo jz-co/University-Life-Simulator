@@ -1,6 +1,5 @@
 package com.example.universitylife.Login;
 
-import com.example.universitylife.IData;
 import com.example.universitylife.GameManager;
 
 public class LoginPresenter implements ILogin.ILoginPresenter {
@@ -53,7 +52,7 @@ public class LoginPresenter implements ILogin.ILoginPresenter {
         boolean success = logInManager.logIn(username, password);
         if (success) {
             prepareToLeavePage();
-            view.navigateToCourseSelector(username);
+            view.navigateToProfile(username);
         } else {
             sendWarning("Username doesn't exist or doesn't match password.");
         }

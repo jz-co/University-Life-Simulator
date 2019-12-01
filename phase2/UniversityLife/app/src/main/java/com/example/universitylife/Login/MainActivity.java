@@ -14,6 +14,7 @@ import com.example.universitylife.CourseSelector.CourseSelectorActivity;
 import com.example.universitylife.Customization.CustomizationActivity;
 import com.example.universitylife.Login.ILogin;
 import com.example.universitylife.DataHandler.DataHandler;
+import com.example.universitylife.Profile.ProfileActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.Login.LoginPresenter;
 
@@ -82,8 +83,8 @@ public class MainActivity extends AppCompatActivity implements ILogin.ILoginView
     /**
      * Navigate to the course selection page for a user with "username".
      */ @Override
-    public void navigateToCourseSelector(String username) {
-        Intent intent = new Intent(this, CourseSelectorActivity.class);
+    public void navigateToProfile(String username) {
+        Intent intent = new Intent(this, ProfileActivity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }
