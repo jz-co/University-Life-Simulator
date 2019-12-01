@@ -87,8 +87,6 @@ public class FireBaseDataHandler implements IData {
 //        }
         return null;
     }
-    }
-
 
     public String getNameOfTable() {
         return nameOfTable;

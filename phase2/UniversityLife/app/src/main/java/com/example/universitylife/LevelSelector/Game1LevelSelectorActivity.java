@@ -76,6 +76,14 @@ public class Game1LevelSelectorActivity extends AppCompatActivity implements ILe
                 presenter.validateBonus();
             }
         });
+
+        Button backButton = findViewById(R.id.back_btn);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
 

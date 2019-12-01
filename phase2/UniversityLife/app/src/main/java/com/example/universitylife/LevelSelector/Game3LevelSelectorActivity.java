@@ -76,6 +76,13 @@ public class Game3LevelSelectorActivity extends AppCompatActivity implements ILe
             }
         });
 
+        Button backButton = findViewById(R.id.back_btn);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
     }
 
