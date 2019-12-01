@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class Level1 {
+public class Game1Level1 {
     private StudentFacade student;
     private int numCorrectAnswers, numIncorrectAnswers, totalScore;
     private int clearingScore;
@@ -18,7 +18,7 @@ public class Level1 {
     private int numberBoundary;
 
     //initialize the game
-    public Level1(StudentFacade student) {
+    public Game1Level1(StudentFacade student) {
         this.student = student;
         this.numCorrectAnswers = 0;
         this.numIncorrectAnswers = 0;
@@ -26,6 +26,12 @@ public class Level1 {
         setRandomNumberBoundary(10);
     }
 
+    /**
+     * The range of numbers that can be used to generate questions
+     *
+     * @param num the upper number boundary of the possible range. This value is excluded from the
+     *            range.
+     */
     public void setRandomNumberBoundary(int num) {
         this.numberBoundary = num;
     }
@@ -39,7 +45,14 @@ public class Level1 {
         return this.student;
     }
 
-    public int getCorrectAnswer(){return this.correctAnswer;}
+    /**
+     * Getter for the correct answer to the current question
+     *
+     * @return value of the correct answer to the question.
+     */
+    public int getCorrectAnswer() {
+        return this.correctAnswer;
+    }
 
     /**
      * Getter for the number of questions correctly answered by the student.

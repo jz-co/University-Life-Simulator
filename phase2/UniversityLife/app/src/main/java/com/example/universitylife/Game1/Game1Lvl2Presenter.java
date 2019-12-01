@@ -2,17 +2,17 @@ package com.example.universitylife.Game1;
 
 import com.example.universitylife.LevelPresenter;
 
-public class Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel1Presenter {
-    private ILevel1.ILevel1ViewLvl1 view;
-    private Level1 gameLevel;
+public class Game1Lvl2Presenter extends LevelPresenter implements ILevel1.ILevel1Presenter {
+    private ILevel1.ILevel1ViewLvl23 view;
+    private Game1Level2 gameLevel;
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
 
-    public Lvl1Presenter(ILevel1.ILevel1ViewLvl1 view, String username) {
+    public Game1Lvl2Presenter(ILevel1.ILevel1ViewLvl23 view, String username){
         super(username);
         this.view = view;
-        this.gameLevel = new Level1(gameManager.getCurrentStudent());
-        if (gameManager.getHighestLevel(1) > 1) {
+        this.gameLevel = new Game1Level2(gameManager.getCurrentStudent());
+        if (gameManager.getHighestLevel(1) > 2){
             nextLevelUnlocked = true;
         }
     }
@@ -44,7 +44,7 @@ public class Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel1Pres
     /**
      * Asks the view to display the new question
      */
-    private void newQuestion() {
+    public void newQuestion() {
         this.view.displayQuestion(gameLevel.createQuestion());
     }
 
@@ -66,6 +66,7 @@ public class Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel1Pres
             view.displayIncorrectScore(gameLevel.getNumIncorrectAnswers());
             gameLevel.updateScore(gameLevel.getNumCorrectAnswers());
             view.displayScore(gameLevel.getTotalScore());
+            view.resetHintDisplay();
             newQuestion();
         } catch (NumberFormatException e) {
             view.displayWarning("Invalid!");
@@ -101,13 +102,28 @@ public class Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel1Pres
     }
 
     /**
-     * Check if the Level 2 is unlocked or not. If unlocked, go to Level 2. Else, display a warning.
+     * Check if the Level 3 is unlocked or not. If unlocked, go to Level 3. Else, display a warning.
      */
-    public void validateLevel2() {
+    public void validateLevel3() {
         if (nextLevelUnlocked) {
             view.goToNextLevel();
         } else {
             view.displayWarning("Sorry, the next level has not been unlocked");
+        }
+    }
+
+    /**
+     * Checks if the student has a calculator and if yes, display the hint on the screen.
+     */
+    public void getHint(){
+        //need to first check if the student has a calculator.
+        if (gameLevel.hasCalculator()) {
+            int correctAnswer = gameLevel.getCorrectAnswer();
+            int lowerBound = correctAnswer - (int) (Math.random() * 6);
+            int upperBound = correctAnswer + (int) (Math.random() * 6);
+            view.displayHint(lowerBound, upperBound);
+        } else{
+            view.displayWarning("Sorry, you don't have any calculators in your bag");
         }
     }
 }

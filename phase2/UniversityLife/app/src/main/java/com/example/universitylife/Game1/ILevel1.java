@@ -33,6 +33,12 @@ public interface ILevel1 extends ILevel {
         void resetHintDisplay();
     }
     interface ILevel1Presenter{
-
+        void startGame();
+        void resumeGame();
+        int getFinalScore();
+        void newQuestion();
+        void evaluateAnswer(String answerReceived);
+        void levelComplete();
+        void tick(long millisUntilFinished);
     }
 }

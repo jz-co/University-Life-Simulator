@@ -18,9 +18,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
 
-public class Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1ViewLvl1 {
+public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1ViewLvl1 {
 
-    private Lvl1Presenter level1Presenter;
+    private Game1Lvl1Presenter level1Presenter;
     private TextView questionTV, correctTV, incorrectTV, scoreTV,resultTV;
     private EditText answerTV;
     private Button start, nextLevel, enter;
@@ -44,7 +44,7 @@ public class Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         setContentView(R.layout.activity_main_lvl1_lvl1);
 
         this.username = (String) getIntent().getSerializableExtra("Username");
-        this.level1Presenter = new Lvl1Presenter(this, username);
+        this.level1Presenter = new Game1Lvl1Presenter(this, username);
 
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);
@@ -97,7 +97,7 @@ public class Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
      * Calls Level 2 Start page
      */
     public void goToNextLevel() {
-        Intent intent = new Intent(this, Lvl2Activity.class);
+        Intent intent = new Intent(this, Game1Lvl2Activity.class);
         intent.putExtra("Username", this.username);
         startActivity(intent);
     }
