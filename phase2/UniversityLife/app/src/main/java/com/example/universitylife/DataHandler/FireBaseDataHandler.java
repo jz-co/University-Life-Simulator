@@ -29,8 +29,7 @@ public class FireBaseDataHandler implements IData {
      * @param student the new student.
      */
     public void addStudentData(StudentFacade student) {
-        String id = studentDatabase.push().getKey();
-        studentDatabase.child(id).setValue(student);
+        studentDatabase.child(student.getUsername()).setValue(student);
     }
 
     /** get the list of the students in the database
