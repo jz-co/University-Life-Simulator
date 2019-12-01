@@ -23,6 +23,7 @@ import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.GameManager;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
+import com.example.universitylife.Result.Game3ResultActivity;
 import com.example.universitylife.Student.StudentFacade;
 
 /**
@@ -233,11 +234,14 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
             }
         }
 
-
-        if (gameItemManager.getLives() == 0) {
+        if (gameItemManager.getScore() >= 10) {
             StudentFacade s = manager.getCurrentStudent();
             s.registerLevelResults(3, 4, gameItemManager.getScore());
-            Intent intent = new Intent(context, Game1ResultActivity.class);
+        }
+
+
+        if (gameItemManager.getLives() == 0) {
+            Intent intent = new Intent(context, Game3ResultActivity.class);
             intent.putExtra("Completion", "You have successfully completed level 3");
             intent.putExtra("Level", 3);
             intent.putExtra("Score", gameItemManager.getScore());

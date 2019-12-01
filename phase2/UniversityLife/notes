@@ -999,3 +999,7 @@ Change: modified DataHandler to save and load StudentData instead of studentFaca
 ########
 Step 168 (Grace)
 ABORT! Firebase is not working. We're switching back to SQL.
+
+########
+Step 169 (Trisha)
+Changed layout, added a back button and connected to level selector.
