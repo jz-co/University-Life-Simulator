@@ -11,6 +11,7 @@ public class StudentData {
     private String highestLevels;
     private int giftcards;
     private String items;
+    private double gpa;
 
     public StudentData(StudentFacade student) {
         username = student.getUsername();
@@ -23,6 +24,7 @@ public class StudentData {
         game3 = doublesToString(student.getGameScores(3));
         giftcards = student.getGiftcards();
         items = intsToString(student.getItems());
+        gpa = student.getGpa();
     }
 
     public StudentFacade dataToStudent() {
@@ -75,6 +77,10 @@ public class StudentData {
             }
         }
         return sb.toString();
+    }
+
+    public String getUsername() {
+        return username;
     }
 
 }

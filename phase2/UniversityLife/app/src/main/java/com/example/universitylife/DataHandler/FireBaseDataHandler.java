@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.universitylife.IData;
-import com.example.universitylife.Student.StudentFacade;
+import com.example.universitylife.Student.StudentData;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,7 +28,7 @@ public class FireBaseDataHandler implements IData {
      *
      * @param student the new student.
      */
-    public void addStudentData(StudentFacade student) {
+    public void addStudentData(StudentData student) {
         studentDatabase.child(student.getUsername()).setValue(student);
     }
 
@@ -36,15 +36,15 @@ public class FireBaseDataHandler implements IData {
      *
      * @return ArrayList<Student>
      */
-    private ArrayList<StudentFacade> getStudentsList() {
-        final ArrayList<StudentFacade> students = new ArrayList<>();
+    private ArrayList<StudentData> getStudentsList() {
+        final ArrayList<StudentData> students = new ArrayList<>();
         studentDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 students.clear();
                 if (dataSnapshot.hasChildren()) {
                     for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                        StudentFacade student = userSnapshot.getValue(StudentFacade.class);
+                        StudentData student = userSnapshot.getValue(StudentData.class);
                         students.add(student);
                     }
                 }
@@ -62,7 +62,7 @@ public class FireBaseDataHandler implements IData {
     /**
      * update Student Data
      */
-    public void updateStudentData(StudentFacade student) {
+    public void updateStudentData(StudentData student) {
         String username = student.getUsername();
         DatabaseReference student_data = studentDatabase.child(username);
         student_data.setValue(student);
@@ -73,9 +73,9 @@ public class FireBaseDataHandler implements IData {
      * @param userName the username of the user
      * @return a student with the corresponding username
      */
-    public StudentFacade getStudentByUserName(final String userName) {
-        ArrayList<StudentFacade> students = getStudentsList();
-        for (StudentFacade s : students) {
+    public StudentData getStudentByUserName(final String userName) {
+        ArrayList<StudentData> students = getStudentsList();
+        for (StudentData s : students) {
             if (s.getUsername().equals(userName)){
                 return s;
             }

@@ -79,18 +79,19 @@ class StudentPerformance {
         return sum;
     }
 
-
+    /**
+     * update the GPA for a student who has completed graduation requirements.
+     */
     private void updateGpa() {
-        double tempGpa = 0;
-        for (int game = 1; game <= numberOfGames; game++) {
-            if (gameIsCompleted(game)) {
+        if (credit < numberOfGames) {
+            gpa = 0;
+        } else {
+            double tempGpa = 0;
+            for (int game = 1; game <= numberOfGames; game++) {
                 tempGpa += calculateGameTotal(game);
             }
+            this.gpa = tempGpa / credit;
         }
-        if (credit != 0) {
-            tempGpa = tempGpa / credit;
-        }
-        this.gpa = tempGpa;
     }
 
     private void updateCredit() {
@@ -145,7 +146,7 @@ class StudentPerformance {
         return highestLevels[game - 1];
     }
 
-    boolean gameIsCompleted(int game) {
+    private boolean gameIsCompleted(int game) {
         return highestLevelOf(game) >= numberOfLevels;
     }
 

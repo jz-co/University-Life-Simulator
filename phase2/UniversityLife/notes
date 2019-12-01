@@ -990,3 +990,8 @@ Step 166 (Grace)
 Code Affected: Student package, StudentManager
 Change: added class StudentData which only has Strings, ints, doubles attributes. This makes it easier
 to interact with the firebase data handler.
+
+#########
+Step 167 (Grace)
+Code Affected: StudentData, StudentPerformance, IData, DataHandler package
+Change: modified DataHandler to save and load StudentData instead of studentFacade.
