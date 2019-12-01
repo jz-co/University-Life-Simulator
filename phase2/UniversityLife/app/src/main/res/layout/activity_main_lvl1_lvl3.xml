@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Game1.Game1Lvl2Activity"
+    tools:context=".Game1.Game1Lvl3Activity"
     tools:ignore="ExtraText">
 
     <Button
-        android:id="@+id/startLvl2"
+        android:id="@+id/startLvl3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="152dp"
@@ -61,7 +61,7 @@
         app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/totalScoreLvl2"
+        app:layout_constraintTop_toBottomOf="@id/totalScoreLvl3"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/instructions" />
 
     <Button
-        android:id="@+id/enterLvl2"
+        android:id="@+id/enterLvl3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="evaluateAnswer"
@@ -149,7 +149,7 @@
         app:layout_constraintVertical_bias="0.086" />
 
     <TextView
-        android:id="@+id/totalScoreLvl2"
+        android:id="@+id/totalScoreLvl3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
@@ -166,7 +166,7 @@
         app:layout_constraintVertical_bias="0.375" />
 
     <ImageView
-        android:id="@+id/pauseLvl2"
+        android:id="@+id/pauseLvl3"
         android:layout_width="58dp"
         android:layout_height="40dp"
         android:layout_gravity="center_vertical"
@@ -180,7 +180,7 @@
 
 
     <Button
-        android:id="@+id/nextLevelLvl2"
+        android:id="@+id/nextLevelLvl3"
         android:layout_width="144dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -195,7 +195,7 @@
         app:layout_constraintVertical_bias="0.628" />
 
     <TextView
-        android:id="@+id/resultLvl2"
+        android:id="@+id/resultLvl3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="112dp"
