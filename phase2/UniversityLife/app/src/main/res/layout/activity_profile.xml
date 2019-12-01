@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Display GPA here" />
+        tools:text="GPA" />
 
     <Button
         android:id="@+id/customizeButton"
@@ -66,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gpaView"
-        tools:text="Display Credits Here" />
+        tools:text="Credits" />
 
     <TextView
         android:id="@+id/moneyView"
@@ -79,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/creditsView"
-        tools:text="Display Money Here" />
+        tools:text="Money" />
 
     <Button
         android:id="@+id/logOutButton"
@@ -134,5 +134,38 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/logOutButton"
         app:layout_constraintStart_toEndOf="@+id/customizeButton" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="GPA:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/gpaView"
+        app:layout_constraintTop_toTopOf="@+id/gpaView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Credits:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/creditsView"
+        app:layout_constraintTop_toTopOf="@+id/creditsView" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Giftcards:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/moneyView"
+        app:layout_constraintTop_toTopOf="@+id/moneyView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
