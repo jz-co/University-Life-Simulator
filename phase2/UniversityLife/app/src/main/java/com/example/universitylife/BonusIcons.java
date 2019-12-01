@@ -30,6 +30,6 @@ public class BonusIcons {
      * @return identifier of the pic
      */
     public int getIconIdentifierByIndex(int index) {
-        return bonusIconsIdentifiers.get(index);
+        return bonusIconsIdentifiers.get(index-1);
     }
 }
