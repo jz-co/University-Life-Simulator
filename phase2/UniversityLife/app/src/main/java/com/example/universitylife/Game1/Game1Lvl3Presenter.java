@@ -121,8 +121,8 @@ public class Game1Lvl3Presenter extends LevelPresenter implements ILevel1.ILevel
         //need to first check if the student has a calculator.
         if (gameLevel.hasCalculator()) {
             int correctAnswer = gameLevel.getCorrectAnswer();
-            int lowerBound = correctAnswer - (int) (Math.random() * 6);
-            int upperBound = correctAnswer + (int) (Math.random() * 6);
+            int lowerBound = correctAnswer - (int) (Math.random() * 6) - 1;
+            int upperBound = correctAnswer + (int) (Math.random() * 6) + 1;
             view.displayHint(lowerBound, upperBound);
         } else {
             view.displayWarning("Sorry, you don't have any calculators in your bag");
