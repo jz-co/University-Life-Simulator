@@ -857,7 +857,6 @@ Code Affected: Game1Lvl1 and 2 activity and presenter, ILevel1
 Changes: Modified goToNextLevel in ILevel1 and reflected those changes amongst Game1Lvl1 and 2
 activity and presenter methods.
 
-
 #######
 Step 147 (Parinita)
 Code Affected: Game1Lvl1 and 2 activity and XML
@@ -868,3 +867,8 @@ Step 148 (Trisha)
 Code Affected: Game 3 Package
 Changes: All game view classes were changed to game view activity classes and modified other classes
 to adjust to these changes. Added a game_3_layout for the game 3 activity.
+
+#######
+Step 149 (Parinita)
+Code Affected: Game1 Package
+Changes: Renamed files.

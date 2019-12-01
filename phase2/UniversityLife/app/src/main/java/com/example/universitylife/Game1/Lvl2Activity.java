@@ -15,24 +15,22 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.universitylife.Game2.Game2Lvl1Activity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
 
-public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1View {
+public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1View {
+    private Lvl2Presenter level2Presenter;
 
-    private Game1Lvl1Presenter level1Presenter;
-    private TextView questionTV, correctTV, incorrectTV, scoreTV,resultTV;
+    private TextView questionTV, correctTV, incorrectTV, scoreTV, resultTV;
     private EditText answerTV;
     private Button start, nextLevel, enter;
     private ImageView pause;
-    private boolean pauseGame = false;
     private String username;
+    private boolean pauseGame = false;
     private CountDownTimer countDownTimer;
     private boolean running;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
         // Set fullscreen
@@ -42,25 +40,24 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
         // Set No Title
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        setContentView(R.layout.activity_main_lvl1_lvl1);
+        setContentView(R.layout.activity_main_lvl1_lvl2);
 
         this.username = (String) getIntent().getSerializableExtra("Username");
-
-        this.level1Presenter = new Game1Lvl1Presenter(this, username);
+        this.level2Presenter = new Lvl2Presenter(this, username);
 
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);
         this.incorrectTV = findViewById(R.id.incorrect);
-        this.scoreTV = findViewById(R.id.totalScoreLvl1);
+        this.scoreTV = findViewById(R.id.totalScoreLvl2);
 
         this.answerTV = findViewById(R.id.answer);
-        this.resultTV = findViewById(R.id.resultLvl1);
+        this.resultTV = findViewById(R.id.resultLvl2);
 
-        this.start = findViewById(R.id.startLv1);
-        this.enter = findViewById(R.id.enterLv1);
-        this.nextLevel = findViewById(R.id.nextLevelLvl1);
+        this.start = findViewById(R.id.startLvl2);
+        this.enter = findViewById(R.id.enterLvl2);
+        this.nextLevel = findViewById(R.id.nextLevelLvl2);
 
-        this.pause = findViewById(R.id.pauseLvl1);
+        this.pause = findViewById(R.id.pauseLvl2);
 
         //set the game screen features invisible
         this.questionTV.setVisibility(View.INVISIBLE);
@@ -71,8 +68,7 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
         this.enter.setVisibility(View.INVISIBLE);
         this.pause.setVisibility(View.INVISIBLE);
 
-        level1Presenter.initDisplay(this);
-
+        level2Presenter.initDisplay(this);
     }
 
     /**
@@ -92,14 +88,14 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
         this.enter.setVisibility(View.VISIBLE);
         this.pause.setVisibility(View.VISIBLE);
 
-        this.level1Presenter.startGame();
+        this.level2Presenter.startGame();
     }
 
     /**
-     * Calls Level 2 Start page
+     * Calls Level 3 Start page
      */
     public void goToNextLevel() {
-        Intent intent = new Intent(this, Game1Lvl2Activity.class);
+        Intent intent = new Intent(this, Lvl3Activity.class);
         intent.putExtra("Username", this.username);
         startActivity(intent);
     }
@@ -130,7 +126,7 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
      */
     public void pauseOrResumeGame(View view) {
         if (pauseGame) {
-            level1Presenter.resumeGame();
+            level2Presenter.resumeGame();
         } else {
             countDownTimer.cancel();
         }
@@ -146,13 +142,13 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
         countDownTimer = new CountDownTimer(totalTime, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                level1Presenter.tick(millisUntilFinished);
+                level2Presenter.tick(millisUntilFinished);
                 running = true;
             }
 
             @Override
             public void onFinish() {
-                level1Presenter.levelComplete();
+                level2Presenter.levelComplete();
                 running = false;
             }
 
@@ -210,7 +206,7 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
         if (running) {
             String answerReceived = this.answerTV.getText().toString();
             this.answerTV.getText().clear();
-            level1Presenter.evaluateAnswer(answerReceived);
+            level2Presenter.evaluateAnswer(answerReceived);
         }
     }
 
@@ -231,7 +227,7 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
      */
     @SuppressLint("SetTextI18n")
     public void endGame() {
-        this.resultTV.setText("Score:" + Integer.toString(level1Presenter.getCorrectScore()));
+        this.resultTV.setText("Score:" + Integer.toString(level2Presenter.getCorrectScore()));
         this.resultTV.setVisibility(View.VISIBLE);
         this.nextLevel.setVisibility(View.VISIBLE);
 
@@ -247,15 +243,11 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
      * @param view the view that this method is called from.
      */
     public void onClickNextLevel(View view) {
-        level1Presenter.validateLevel2();
+        level2Presenter.validateLevel3();
     }
 
-    /**
-     * Displays the total score of the player in this level
-     *
-     * @param score the score of the player.
-     */
     public void displayScore(double score){
         this.scoreTV.setText("Score: " + score);
     }
+
 }

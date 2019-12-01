@@ -2,8 +2,8 @@ package com.example.universitylife.Game1;
 
 import com.example.universitylife.Student.StudentFacade;
 
-public class GameLevel1Lvl3 extends GameLevel1Lvl2 {
-    public GameLevel1Lvl3(StudentFacade student) {
+public class Level3 extends Level2 {
+    public Level3(StudentFacade student) {
         super(student);
         setClearingScore(8);
         setRandomNumberBoundary(50);

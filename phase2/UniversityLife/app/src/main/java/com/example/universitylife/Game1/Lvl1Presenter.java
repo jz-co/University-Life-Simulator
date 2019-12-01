@@ -1,18 +1,17 @@
 package com.example.universitylife.Game1;
 
-import com.example.universitylife.IData;
 import com.example.universitylife.LevelPresenter;
 
-public class Game1Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel1Presenter {
+public class Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel1Presenter {
     private ILevel1.ILevel1View view;
-    private GameLevel1Lvl1 gameLevel;
+    private Level1 gameLevel;
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
 
-    public Game1Lvl1Presenter(ILevel1.ILevel1View view, String username) {
+    public Lvl1Presenter(ILevel1.ILevel1View view, String username) {
         super(username);
         this.view = view;
-        this.gameLevel = new GameLevel1Lvl1(gameManager.getCurrentStudent());
+        this.gameLevel = new Level1(gameManager.getCurrentStudent());
         if (gameManager.getHighestLevel(1) > 1) {
             nextLevelUnlocked = true;
         }

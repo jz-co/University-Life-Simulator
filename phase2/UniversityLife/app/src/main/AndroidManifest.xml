@@ -22,7 +22,7 @@
         <activity android:name=".Game2.Game2Lvl1Activity" />
         <activity android:name=".Profile.ProfileActivity" />
         <activity android:name=".Result.Game1ResultActivity" />
-        <activity android:name=".Game1.Game1Lvl1Activity" />
+        <activity android:name=".Game1.Lvl1Activity" />
         <activity android:name=".CourseSelector.CourseSelectorActivity" />
         <activity android:name=".Customization.CustomizationActivity" />
         <activity android:name=".Login.MainActivity" />

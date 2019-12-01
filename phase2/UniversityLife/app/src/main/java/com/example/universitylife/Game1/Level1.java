@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class GameLevel1Lvl1 {
+public class Level1 {
     private StudentFacade student;
     private int correctAnswers, incorrectAnswers, totalScore;
     private int clearingScore;
@@ -18,7 +18,7 @@ public class GameLevel1Lvl1 {
     private int numberBoundary;
 
     //initialize the game
-    public GameLevel1Lvl1(StudentFacade student) {
+    public Level1(StudentFacade student) {
         this.student = student;
         this.correctAnswers = 0;
         this.incorrectAnswers = 0;

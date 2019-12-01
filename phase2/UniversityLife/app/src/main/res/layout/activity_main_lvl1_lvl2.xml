@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Game1.Game1Lvl2Activity">
+    tools:context=".Game1.Lvl2Activity">
 
     <Button
         android:id="@+id/startLvl2"
@@ -47,7 +47,7 @@
         app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/totalScore"
+        app:layout_constraintTop_toBottomOf="@id/totalScoreLvl2"
         app:layout_constraintVertical_bias="0.168" />
 
     <TextView

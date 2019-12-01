@@ -2,16 +2,16 @@ package com.example.universitylife.Game1;
 
 import com.example.universitylife.LevelPresenter;
 
-public class Game1Lvl2Presenter extends LevelPresenter {
+public class Lvl2Presenter extends LevelPresenter {
     private ILevel1.ILevel1View view;
-    private GameLevel1Lvl2 gameLevel;
+    private Level2 gameLevel;
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
 
-    public Game1Lvl2Presenter(ILevel1.ILevel1View view, String username){
+    public Lvl2Presenter(ILevel1.ILevel1View view, String username){
         super(username);
         this.view = view;
-        this.gameLevel = new GameLevel1Lvl2(gameManager.getCurrentStudent());
+        this.gameLevel = new Level2(gameManager.getCurrentStudent());
         if (gameManager.getHighestLevel(1) > 2){
             nextLevelUnlocked = true;
         }
