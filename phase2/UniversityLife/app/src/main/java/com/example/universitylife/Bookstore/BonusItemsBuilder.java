@@ -10,7 +10,7 @@ class BonusItemsBuilder {
 
         masterList.add(buildFirstBonus());
         masterList.add(buildSecondBonus());
-        masterList.add(buildThirdBonus());
+//        masterList.add(buildThirdBonus());
     }
 
     List<BonusItem> getBonusItemsList() {
@@ -36,7 +36,7 @@ class BonusItemsBuilder {
     private BonusItem buildThirdBonus() {
         int id = 3;
         String name = "Arrow Bonus";
-        String description = "Insert Description"; // TODO
+        String description = "Insert Description";
         return new BonusItem(id, name, description);
 
     }

@@ -73,7 +73,7 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
     }
 
     /**
-     * Navigate to course selection activity.
+     * Navigate to profile activity.
      */ @Override
     public void navigateToProfile(String username) {
         Intent intent = new Intent(this, ProfileActivity.class);

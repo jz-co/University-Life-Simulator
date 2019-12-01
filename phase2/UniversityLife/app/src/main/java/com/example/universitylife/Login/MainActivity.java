@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements ILogin.ILoginView
         // Get user's input for username and password
         // Pass information to LoginPresenter to validate whether it is a valid login
         loginPresenter.validateLogin(usernameText.getText().toString(), passwordText.getText().toString());
-
     }
 
     /**
