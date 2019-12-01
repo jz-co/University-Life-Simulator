@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.universitylife.R;
@@ -12,10 +13,10 @@ import com.example.universitylife.R;
 import java.util.List;
 
 public class LeaderboardListAdapter extends BaseAdapter {
-    private Context context;
+    private LeaderboardActivity context;
     private List<ILeaderboard.ILeaderboardStudent> topFiveStudents;
 
-    LeaderboardListAdapter(Context context, ILeaderboard.ILeaderboardPresenter presenter) {
+    LeaderboardListAdapter(LeaderboardActivity context, ILeaderboard.ILeaderboardPresenter presenter) {
         this.context = context;
         this.topFiveStudents = presenter.getLeaderBoardList();
     }
@@ -45,14 +46,16 @@ public class LeaderboardListAdapter extends BaseAdapter {
         // get current item to be displayed
         ILeaderboard.ILeaderboardStudent currStudent = (ILeaderboard.ILeaderboardStudent) getItem(rank);
 
-        // get the TextView for the ranking, username and gpa
+        // get the TextView for the ranking, username and gpa,
         TextView textViewRanking = scoreView.findViewById(R.id.ranking);
         TextView textViewUsername = scoreView.findViewById(R.id.username);
         TextView textViewGPA = scoreView.findViewById(R.id.gpa);
+        ImageView userImage = scoreView.findViewById(R.id.user_image);
 
         textViewRanking.setText(String.valueOf(rank));
         textViewUsername.setText(currStudent.getUsername());
         textViewGPA.setText(String.valueOf(currStudent.getGpa()));
+        userImage.setImageResource(context.getIconIdentifier(currStudent.getAppearance()));
 
         return scoreView;
     }

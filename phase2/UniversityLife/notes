@@ -964,3 +964,8 @@ and other minor modifications.
 Step 162 (Grace)
 Code Affected: Customization, student facade, student performance
 Changes: removed language customization.
+
+########
+Step 163 (Jenny)
+Changes: Added getAppearance() method to ILeaderboard Student interface that needs to be implemented by the Student facade.
+Added methods in LeaderboardListAdapter and LeaderboardActivity to allow us to display the image of top students in the leaderboard.

@@ -10,8 +10,11 @@ public interface ILeaderboard {
     }
 
     interface ILeaderboardStudent {
+
         String getUsername();
 
         double getGpa();
+
+        int getAppearance();
     }
 }

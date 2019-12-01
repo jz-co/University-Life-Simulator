@@ -36,4 +36,10 @@
         android:textSize="14sp"
         android:textColor="#222222"/>
 
+    <ImageView
+        android:id="@+id/user_image"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_marginLeft="25dp" />
+
 </RelativeLayout>

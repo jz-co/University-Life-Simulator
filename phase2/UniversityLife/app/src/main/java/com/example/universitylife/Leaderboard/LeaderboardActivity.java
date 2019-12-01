@@ -46,11 +46,15 @@ public class LeaderboardActivity extends AppCompatActivity {
 
         textViewCurrName.setText(presenter.getCurrName());
         textViewCurrGPA.setText(presenter.getCurrGPA());
-        imageViewCurrIcon.setImageResource(characterIcons.getIconByIndex(presenter.getPicIndex()));
+        imageViewCurrIcon.setImageResource(getIconIdentifier(presenter.getPicIndex()));
 
     }
 
     public void onClickBack(View view) {
         finish();
+    }
+
+    int getIconIdentifier(int index) {
+        return characterIcons.getIconByIndex(index);
     }
 }

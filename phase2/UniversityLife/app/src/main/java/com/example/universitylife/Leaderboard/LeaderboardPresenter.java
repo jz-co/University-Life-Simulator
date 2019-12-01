@@ -48,8 +48,8 @@ class LeaderboardPresenter implements ILeaderboard.ILeaderboardPresenter {
 //    int currentAvatar() {
 //        return leaderboard.getOnScreenAppearance();
 //    }
-@Override
-public List<ILeaderboard.ILeaderboardStudent> getLeaderBoardList() {
+    @Override
+    public List<ILeaderboard.ILeaderboardStudent> getLeaderBoardList() {
         return leaderBoardList;
     }
 
