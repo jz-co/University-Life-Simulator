@@ -35,7 +35,7 @@ public class BookStoreActivity extends AppCompatActivity implements IBookstore.I
         presenter = new BookstorePresenter(this, username, new DataHandler(this));
 
         final String WELCOME_MESSAGE = "Welcome to the Bookstore!";
-        moneyDisplay.setText(presenter.getStudentGiftcards());
+        moneyDisplay.setText(String.valueOf(presenter.getStudentGiftcards()));
         messageView.setText(WELCOME_MESSAGE);
 
 
@@ -64,7 +64,7 @@ public class BookStoreActivity extends AppCompatActivity implements IBookstore.I
 
     @Override
     public void updateGiftcardDisplay(int newAmount) {
-        moneyDisplay.setText(newAmount);
+        moneyDisplay.setText(String.valueOf(newAmount));
     }
 
     BookstorePresenter getPresenter() {
