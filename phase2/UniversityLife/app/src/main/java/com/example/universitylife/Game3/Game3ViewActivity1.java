@@ -31,12 +31,12 @@ import com.example.universitylife.Student.StudentFacade;
  * A view of the level 3 game.
  */
 
-public class Lvl3GameViewActivity1 extends Activity implements SurfaceHolder.Callback {
+public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callback {
 
     /**
      * A game surface view
      */
-    SurfaceView surfaceView;
+    private SurfaceView surfaceView;
 
     /**
      * A game surface holder
@@ -128,7 +128,7 @@ public class Lvl3GameViewActivity1 extends Activity implements SurfaceHolder.Cal
 
     public void nextLevel(View view) {
         Intent intent;
-        intent = new Intent(this, Lvl3GameViewActivity2.class);
+        intent = new Intent(this, Game3ViewActivity2.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }

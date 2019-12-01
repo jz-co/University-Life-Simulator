@@ -30,7 +30,7 @@ import com.example.universitylife.Student.StudentFacade;
  * A view of the level 3 game.
  */
 
-public class Lvl3GameViewActivity3 extends Activity implements SurfaceHolder.Callback {
+public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callback {
     /**
      * A game surface view
      */
@@ -115,23 +115,9 @@ public class Lvl3GameViewActivity3 extends Activity implements SurfaceHolder.Cal
         });
 
         Button next = (Button) findViewById(R.id.button);
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nextLevel(v);
-            }
-        });
+        next.setVisibility(View.INVISIBLE);
 
     }
-
-    public void nextLevel(View view) {
-        Intent intent;
-        intent = new Intent(this, Lvl3GameViewActivity4.class);
-        intent.putExtra("Username", username);
-        startActivity(intent);
-    }
-
-
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
@@ -143,15 +129,15 @@ public class Lvl3GameViewActivity3 extends Activity implements SurfaceHolder.Cal
         gameItemManager = new Game3ContentsFactory(screenWidth, screenHeight);
 
         // add an arrow to the game
-        Arrow arrow = new Arrow(3, screenWidth, screenHeight);
+        Arrow arrow = new Arrow(4, screenWidth, screenHeight);
         gameItemManager.createGameItems(arrow);
 
         // add a bow to the game
-        Bow bow = new Bow(3, screenWidth, screenHeight);
+        Bow bow = new Bow(4, screenWidth, screenHeight);
         gameItemManager.createGameItems(bow);
 
         // add a wheel to the game
-        Wheel wheel = new Wheel(3, screenWidth, screenHeight);
+        Wheel wheel = new Wheel(4, screenWidth, screenHeight);
         gameItemManager.createGameItems(wheel);
 
 
@@ -207,6 +193,9 @@ public class Lvl3GameViewActivity3 extends Activity implements SurfaceHolder.Cal
         String life = "Lives: " + (gameItemManager.getLives());
         canvas.drawText(life, 100, 100, paint);
 
+        GameContents arrow = gameItemManager.getGameItems().get(0);
+        String windSpeed = "WindSpeed: " + (arrow.getWindSpeed());
+        canvas.drawText(windSpeed, screenWidth - 500, 200, paint);
     }
 
     /**
@@ -223,9 +212,17 @@ public class Lvl3GameViewActivity3 extends Activity implements SurfaceHolder.Cal
             GameContents item = gameItemManager.getGameItems().get(1);
             moving_arrow.setTouch(true);
             if (!(item instanceof Arrow)) {
-                gameItemManager.getGameItems().add(1, new Arrow(3, screenWidth, screenHeight));
+                String wind;
+                gameItemManager.getGameItems().add(1, new Arrow(4, screenWidth, screenHeight));
+                if (Math.random() < 0.5) {
+                    wind = "-";
+                } else {
+                    wind = "+";
+                }
+                gameItemManager.getGameItems().get(1).setWindSpeed(wind);
             }
         }
+
 
         if (gameItemManager.getLives() == 0) {
             StudentFacade s = manager.getCurrentStudent();

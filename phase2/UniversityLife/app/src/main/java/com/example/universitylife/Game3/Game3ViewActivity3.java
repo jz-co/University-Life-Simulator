@@ -30,7 +30,7 @@ import com.example.universitylife.Student.StudentFacade;
  * A view of the level 3 game.
  */
 
-public class Lvl3GameViewActivity2 extends Activity implements SurfaceHolder.Callback {
+public class Game3ViewActivity3 extends Activity implements SurfaceHolder.Callback {
     /**
      * A game surface view
      */
@@ -126,11 +126,10 @@ public class Lvl3GameViewActivity2 extends Activity implements SurfaceHolder.Cal
 
     public void nextLevel(View view) {
         Intent intent;
-        intent = new Intent(this, Lvl3GameViewActivity3.class);
+        intent = new Intent(this, Game3ViewActivity4.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }
-
 
 
 
@@ -144,15 +143,15 @@ public class Lvl3GameViewActivity2 extends Activity implements SurfaceHolder.Cal
         gameItemManager = new Game3ContentsFactory(screenWidth, screenHeight);
 
         // add an arrow to the game
-        Arrow arrow = new Arrow(2, screenWidth, screenHeight);
+        Arrow arrow = new Arrow(3, screenWidth, screenHeight);
         gameItemManager.createGameItems(arrow);
 
         // add a bow to the game
-        Bow bow = new Bow(2, screenWidth, screenHeight);
+        Bow bow = new Bow(3, screenWidth, screenHeight);
         gameItemManager.createGameItems(bow);
 
         // add a wheel to the game
-        Wheel wheel = new Wheel(2, screenWidth, screenHeight);
+        Wheel wheel = new Wheel(3, screenWidth, screenHeight);
         gameItemManager.createGameItems(wheel);
 
 
@@ -224,7 +223,7 @@ public class Lvl3GameViewActivity2 extends Activity implements SurfaceHolder.Cal
             GameContents item = gameItemManager.getGameItems().get(1);
             moving_arrow.setTouch(true);
             if (!(item instanceof Arrow)) {
-                gameItemManager.getGameItems().add(1, new Arrow(2, screenWidth, screenHeight));
+                gameItemManager.getGameItems().add(1, new Arrow(3, screenWidth, screenHeight));
             }
         }
 

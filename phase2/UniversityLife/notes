@@ -953,3 +953,9 @@ Step 160 (Parinita)
 Code affected: Game1Lvl2Presenter, Game1Lvl3Presenter, Game1BonusLvlPresenter
 Changes: Modified getHint methods by subtracting 1 from the lower bound and adding 1 to the upper bound
 in case the random number becomes 0
+
+########
+Step 161 (Trisha)
+Code affected: All game 3 activities, Game3Presenter, MainThread
+Changes: changed class names, implemented ILevel3View methods, deleted unwanted classes
+and other minor modifications.

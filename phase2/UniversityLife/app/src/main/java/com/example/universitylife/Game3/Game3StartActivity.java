@@ -55,13 +55,13 @@ public class Game3StartActivity extends AppCompatActivity implements ILevel3.ILe
 
         username = (String) getIntent().getSerializableExtra("Username");
 
-        presenter = new Game3Presenter(this, new DataHandler(this), username);
+        presenter = new Game3Presenter(username);
         presenter.initDisplay(this);
     }
 
     public void startGame(View view) {
         Intent intent;
-        intent = new Intent(this, Game3Activity.class);
+        intent = new Intent(this, Game3ViewActivity1.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }
@@ -78,35 +78,13 @@ public class Game3StartActivity extends AppCompatActivity implements ILevel3.ILe
     }
 
     /**
-     * Displays the GPA
+     * Displays the Score
      *
-     * @param gpa achieved by student
+     * @param score achieved by student
      */
-    public void displayGPA(double gpa) {
-        final TextView Gpa = findViewById(R.id.textView6);
-        String gpaString = "GPA: " + gpa;
-        Gpa.setText(gpaString);
-    }
-
-    /**
-     * Displays the Health Points
-     *
-     * @param hp attained by student
-     */
-    public void displayHP(double hp) {
-        final TextView Hp = findViewById(R.id.textView8);
-        String hpaString = "Health Points: " + hp;
-        Hp.setText(hpaString);
-    }
-
-    /**
-     * Displays the Credit
-     *
-     * @param credit gained by student
-     */
-    public void displayCredit(int credit) {
-        final TextView Credit = findViewById(R.id.textView10);
-        String creditString = "Credit: " + credit;
-        Credit.setText(creditString);
+    public void displayScore(double score) {
+        final TextView scoreView = findViewById(R.id.textView6);
+        String gpaString = "SCORE: " + score;
+        scoreView.setText(gpaString);
     }
 }

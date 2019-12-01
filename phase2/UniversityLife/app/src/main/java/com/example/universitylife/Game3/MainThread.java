@@ -9,16 +9,16 @@ import android.view.SurfaceHolder;
 
 public class MainThread extends Thread {
     private SurfaceHolder surfaceHolder;
-    private Lvl3GameViewActivity1 gameView1;
-    private Lvl3GameViewActivity2 gameView2;
-    private Lvl3GameViewActivity3 gameView3;
-    private Lvl3GameViewActivity4 gameView4;
+    private Game3ViewActivity1 gameView1;
+    private Game3ViewActivity2 gameView2;
+    private Game3ViewActivity3 gameView3;
+    private Game3ViewActivity4 gameView4;
 
     private int level;
     private boolean running;
     private static Canvas canvas;
 
-    public MainThread(SurfaceHolder surfaceHolder, Lvl3GameViewActivity1 gameView) {
+    public MainThread(SurfaceHolder surfaceHolder, Game3ViewActivity1 gameView) {
         super();
         level = 1;
         this.surfaceHolder = surfaceHolder;
@@ -26,21 +26,21 @@ public class MainThread extends Thread {
 
     }
 
-    public MainThread(SurfaceHolder surfaceHolder, Lvl3GameViewActivity2 gameView) {
+    public MainThread(SurfaceHolder surfaceHolder, Game3ViewActivity2 gameView) {
         super();
         level = 2;
         this.surfaceHolder = surfaceHolder;
         this.gameView2 = gameView;
     }
 
-    public MainThread(SurfaceHolder surfaceHolder, Lvl3GameViewActivity3 gameView) {
+    public MainThread(SurfaceHolder surfaceHolder, Game3ViewActivity3 gameView) {
         super();
         level = 3;
         this.surfaceHolder = surfaceHolder;
         this.gameView3 = gameView;
     }
 
-    public MainThread(SurfaceHolder surfaceHolder, Lvl3GameViewActivity4 gameView) {
+    public MainThread(SurfaceHolder surfaceHolder, Game3ViewActivity4 gameView) {
         super();
         level = 4;
         this.surfaceHolder = surfaceHolder;
