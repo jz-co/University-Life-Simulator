@@ -18,14 +18,11 @@ class CustomizationPresenter {
     /**
      * Customize the student, then go to the next page.
      */
-    void setCustomizations(String customName, int picIndex, String lang) {
+    void setCustomizations(String customName, int picIndex) {
         if (customName.length() == 0) {
             customName = gameManager.getCurrentStudent().getUsername();
         }
-        if (lang.length() == 0) {
-            lang = "English";
-        }
-        customizationManager.customize(picIndex, customName, lang);
+        customizationManager.customize(picIndex, customName);
         gameManager.saveBeforeExit();
         view.navigateToProfile(gameManager.getCurrentUsername());
     }

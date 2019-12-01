@@ -7,10 +7,10 @@ class StudentBag {
     StudentBag(){
     }
 
-    StudentBag(int giftcards, int[] items){
-        this.giftcards = giftcards;
-        this.items = items;
-    }
+//    StudentBag(int giftcards, int[] items){
+//        this.giftcards = giftcards;
+//        this.items = items;
+//    }
 
     boolean hasGiftcards() {
         return giftcards > 0;

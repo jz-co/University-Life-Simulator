@@ -69,7 +69,7 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
      * Method executes when confirm button clicked.
      */
     public void onConfirmClick(View view) {
-        presenter.setCustomizations(customName.getText().toString(), currPicIndex, "English");
+        presenter.setCustomizations(customName.getText().toString(), currPicIndex);
     }
 
     /**

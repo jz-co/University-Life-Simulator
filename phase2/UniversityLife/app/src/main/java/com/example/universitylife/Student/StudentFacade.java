@@ -51,9 +51,6 @@ public class StudentFacade implements ILeaderboard.ILeaderboardStudent {
         preferences.setAppearance(appearance);
     }
 
-    public void setLanguage(String language) {
-        preferences.setLanguage(language);
-    }
 
     //GAME PERFORMANCE RELATED:
     public int getCredit(){

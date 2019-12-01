@@ -959,3 +959,8 @@ Step 161 (Trisha)
 Code affected: All game 3 activities, Game3Presenter, MainThread
 Changes: changed class names, implemented ILevel3View methods, deleted unwanted classes
 and other minor modifications.
+
+########
+Step 162 (Grace)
+Code Affected: Customization, student facade, student performance
+Changes: removed language customization.
