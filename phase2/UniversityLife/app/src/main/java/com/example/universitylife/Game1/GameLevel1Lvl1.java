@@ -10,17 +10,24 @@ import java.util.List;
 public class GameLevel1Lvl1 {
     private StudentFacade student;
     private int correctAnswers, incorrectAnswers;
-    private int clearingScore = 5;
+    private int clearingScore;
 
     private String question;
     private int correctAnswer;
     private List<String> operators = new ArrayList<>(Arrays.asList("+", "-", "*"));
+    private int numberBoundary;
 
     //initialize the game
     public GameLevel1Lvl1(StudentFacade student) {
         this.student = student;
         this.correctAnswers = 0;
         this.incorrectAnswers = 0;
+        setClearingScore(5);
+        setRandomNumberBoundary(10);
+    }
+
+    public void setRandomNumberBoundary(int num) {
+        this.numberBoundary = num;
     }
 
     /**
@@ -50,6 +57,7 @@ public class GameLevel1Lvl1 {
         return this.incorrectAnswers;
     }
 
+    public void setClearingScore(int clearScore){ this.clearingScore = clearScore;}
 
     /**
      * Creates a new question.
@@ -57,8 +65,8 @@ public class GameLevel1Lvl1 {
      * @return a new question.
      */
     public String createQuestion() {
-        int a = (int) (Math.random() * 100);
-        int b = (int) (Math.random() * 100);
+        int a = (int) (Math.random() * numberBoundary);
+        int b = (int) (Math.random() * numberBoundary);
 
         int randomNum = (int) (Math.random() * (operators.size() - 1));
         String operation = operators.get(randomNum);

@@ -819,3 +819,9 @@ Added intent in ProfileActivity and finished ProfilePresenter, which now allows 
 Step 140 (Parinita)
 Code Affected: Game1Lvl1Presenter, Game1Lvl1Activity, GameLevel1Lvl1
 Changes: Modified imports and a method levelPass in GameLevel1Lvl1. Preparation to import code into the files.
+
+#######
+Step 141 (Parinita)
+Code Affected: GameLevel1Lvl1, GameLevel1Lvl2, activity_main_lvl1_lvl1
+Changes: Added setClearingScore and setRandomNumberBoundary to GameLevel1Lvl1 and made GameLevel1Lvl2
+inherit GameLevel1Lvl1. Changed file name of the first game activity in layout folder.

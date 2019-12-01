@@ -42,7 +42,7 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
         // Set No Title
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        setContentView(R.layout.activity_first_game);
+        setContentView(R.layout.activity_main_lvl1_lvl1);
 
         this.username = (String) getIntent().getSerializableExtra("Username");
 
