@@ -832,11 +832,79 @@ Code Affected: Game1Lvl1Presenter, Game1Lvl1Activity, GameLevel1Lvl1, activity_m
 Changes: Added displayScore in Game1Lvl1Activity, modified evaluateAnswer in Game1Lvl1Presenter, added updateScore in GameLevel1Lvl1,
 modified the xml for game1.
 
+#######
+Step 143 (Koby)
+Code Affected: Game2 Package
+Changes: Add boughtUmbrella variable so that we can track whether this user has an umbrella in the
+bag or not.
 
 #######
-(Jenny)
+Step 144 (Parinita)
+Code Affected: Game1Lvl1Presenter, GameLevel1Lvl1, GameLevel1Lvl3
+Changes: Modified updateScore method and added calculateLevelGpaScore method in GameLevel1Lvl1.
+Modified minor statement calls in Game1Lvl1Presenter.
+Added calculateScore in GameLevel1Lvl3 to account for negative marking scheme.
+
+#######
+Step 145 (Parinita)
+Code Affected: Game1Lvl2Presenter, Game1Lvl1Activity, activity_main_lvl1_lvl2, activity_main_lvl1_lvl3
+Changes: Added all methods to Game1Lvl2Presenter, removed override statements in Game1Lvl1Activity and
+added two new xml files for page 2 and 3 of the game.
+
+#######
+Step 146 (Parinita)
+Code Affected: Game1Lvl1 and 2 activity and presenter, ILevel1
+Changes: Modified goToNextLevel in ILevel1 and reflected those changes amongst Game1Lvl1 and 2
+activity and presenter methods.
+
+#######
+Step 147 (Parinita)
+Code Affected: Game1Lvl1 and 2 activity and XML
+Changes: Implemented rest of the interface methods in Game1Lvl2 activity. Modified the XML of game 1 lvl2
+
+#######
+Step 148 (Trisha)
+Code Affected: Game 3 Package
+Changes: All game view classes were changed to game view activity classes and modified other classes
+to adjust to these changes. Added a game_3_layout for the game 3 activity.
+
+#######
+Step 149 (Parinita)
+Code Affected: Game1 Package
+Changes: Renamed files.
+
+#######
+Step 150 (Parinita)
+Code Affected: ILevel1, Level1, Lvl1Presenter, Lvl2Activity and Presenter, Lvl1Lvl2 XML
+Changes: ILevel1: created ILevel1View 2 and added methods displayHint and resetHintDisplay
+Level1: renamed the variables for storing the number of correct and incorrect answers and changed the getter
+methods accordingly.
+Lvl1Presenter: Modified evaluateAnswer  based on variable changes in Level1.
+Lvl2Activity: added availHint, displayHint and resetHintDisplay to accomodate the calculator
+Lvl2Presenter: added getHint to get appropriate Hint
+XML: added calculator button
+
+
+#######
+Step 151 (Parinita)
+Code Affected: Level2 Activity, Presenter and game file in GAME1 Package
+Changes: Level2: added hasCalculator method to verify if a student has a calculator or not
+Lvl2Presenter: modified getHint to check whether the student has calculator or not
+Lvl2Activity: added javadoc and rearranged method bodies.
+
+#######
+Step 152 (Parinita)
+Code Affected: Level3 Activity, Presenter and misc files in GAME1 Package
+Changes: Added method bodies to Lvl3 Presenter and Activity. Made minor import statement changes in Level3.
+Created new files for the bonus level.
+
+#######
+Step 153 (Jenny)
 Changes: Added new class BonusItem, which represents the different items that are purchasable from
 the bookstore.
 Added ListView to BookStoreActivity and accordingly added a custom list adapter called BookStoreListAdapater.
 Added BonusItemBuilder which builds a list of all bonusItems that can be displayed and bought from the Bookstore.
 Added BonusIcons class that contains image resources for the bonuses.
+
+Improvement: greater flexibility in terms of adding more bonuses in future -- we can simply add
+new bonuses to the builder class, and BookStoreActivity will still be able to display them.

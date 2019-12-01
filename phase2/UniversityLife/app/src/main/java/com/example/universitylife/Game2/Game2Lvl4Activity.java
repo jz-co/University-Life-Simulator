@@ -49,7 +49,7 @@ public class Game2Lvl4Activity extends AppCompatActivity implements ILevel2.ILev
         whatyoushouldnotdo = findViewById(R.id.thingsYouShouldNotDo_3);
         umbrella = findViewById(R.id.umbrella_4);
         killingObject = findViewById(R.id.killingObject_2);
-        this.game2Presenter = new Game2Lvl4Presenter(this, new DataHandler(this), username);
+        this.game2Presenter = new Game2Lvl4Presenter(this, username);
         initiateImageView();
         resultBox = findViewById(R.id.resultBox_4);
         red.setVisibility(INVISIBLE);

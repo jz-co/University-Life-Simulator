@@ -43,4 +43,8 @@ public class GameLevel2Lvl3 extends GameLevel2Lvl2 {
         presenter.updateViewPosById(item.getFrontEndImageID());
         return result;
     }
+
+    public void levelClear(){
+        this.getStudent().registerLevelResults(2, 3, this.getScore());
+    }
 }

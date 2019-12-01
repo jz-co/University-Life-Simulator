@@ -4,16 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Game1.Lvl1Activity">
-
-    <!-- Start Page Views -->
-
-
-    <!-- Game Page Views -->
-
+    tools:context=".Game1.Lvl2Activity"
+    tools:ignore="ExtraText">
 
     <Button
-        android:id="@+id/startLv1"
+        android:id="@+id/startLvl2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="152dp"
@@ -40,6 +35,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="284dp"
+        android:text="Click the calculator to receive a hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/countdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,20 +57,20 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/question"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/totalScoreLvl1"
-        app:layout_constraintVertical_bias="0.168" />
+        app:layout_constraintTop_toBottomOf="@id/totalScoreLvl2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/level1"
+        android:id="@+id/level2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="15dp"
-        android:text="Level 1"
+        android:text="Level 2"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/correct"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@+id/instructions" />
 
     <Button
-        android:id="@+id/enterLv1"
+        android:id="@+id/enterLvl2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="evaluateAnswer"
@@ -119,9 +126,9 @@
         android:textColor="@color/colorAccent"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.631"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/level1" />
+        app:layout_constraintTop_toBottomOf="@+id/level2" />
 
     <TextView
         android:id="@+id/incorrect"
@@ -138,10 +145,10 @@
         app:layout_constraintHorizontal_bias="0.722"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/correct"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.086" />
 
     <TextView
-        android:id="@+id/totalScoreLvl1"
+        android:id="@+id/totalScoreLvl2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
@@ -155,10 +162,10 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/incorrect"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.375" />
 
     <ImageView
-        android:id="@+id/pauseLvl1"
+        android:id="@+id/pauseLvl2"
         android:layout_width="58dp"
         android:layout_height="40dp"
         android:layout_gravity="center_vertical"
@@ -172,7 +179,7 @@
 
 
     <Button
-        android:id="@+id/nextLevelLvl1"
+        android:id="@+id/nextLevelLvl2"
         android:layout_width="144dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -187,7 +194,7 @@
         app:layout_constraintVertical_bias="0.628" />
 
     <TextView
-        android:id="@+id/resultLvl1"
+        android:id="@+id/resultLvl2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="112dp"
@@ -214,17 +221,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/incorrect" />
 
-
-    <!-- <SurfaceView
-        android:id="@+id/surfaceView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="132dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/calculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="36dp"
+        android:text="Calculator!"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" /> -->
+        app:layout_constraintTop_toBottomOf="@+id/Name"
+
+        android:onClick="availHint"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

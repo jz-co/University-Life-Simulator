@@ -2,7 +2,6 @@ package com.example.universitylife.LevelSelector;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,9 +9,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.universitylife.Game1.Game1Lvl1Activity;
-import com.example.universitylife.Game1.Game1Lvl2Activity;
-import com.example.universitylife.Game1.Game1Lvl3Activity;
+import com.example.universitylife.Game1.Lvl1Activity;
+import com.example.universitylife.Game1.Lvl2Activity;
+import com.example.universitylife.Game1.Lvl3Activity;
 import com.example.universitylife.R;
 
 public class Game1LevelSelectorActivity extends AppCompatActivity implements ILevelSelector.ILevelSelectorView {
@@ -84,7 +83,7 @@ public class Game1LevelSelectorActivity extends AppCompatActivity implements ILe
      */
     @Override
     public void navigateToLevel1() {
-        Intent intent = new Intent(this, Game1Lvl1Activity.class);
+        Intent intent = new Intent(this, Lvl1Activity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }
@@ -95,7 +94,7 @@ public class Game1LevelSelectorActivity extends AppCompatActivity implements ILe
      */
     @Override
     public void navigateToLevel2() {
-        Intent intent = new Intent(this, Game1Lvl2Activity.class);
+        Intent intent = new Intent(this, Lvl2Activity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }
@@ -105,7 +104,7 @@ public class Game1LevelSelectorActivity extends AppCompatActivity implements ILe
      */
     @Override
     public void navigateToLevel3() {
-        Intent intent = new Intent(this, Game1Lvl3Activity.class);
+        Intent intent = new Intent(this, Lvl3Activity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }
