@@ -891,3 +891,9 @@ Code Affected: Level2 Activity, Presenter and game file in GAME1 Package
 Changes: Level2: added hasCalculator method to verify if a student has a calculator or not
 Lvl2Presenter: modified getHint to check whether the student has calculator or not
 Lvl2Activity: added javadoc and rearranged method bodies.
+
+#######
+Step 152 (Parinita)
+Code Affected: Level3 Activity, Presenter and misc files in GAME1 Package
+Changes: Added method bodies to Lvl3 Presenter and Activity. Made minor import statement changes in Level3.
+Created new files for the bonus level.

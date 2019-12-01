@@ -15,6 +15,6 @@ public class Level3 extends Level2 {
      * @return total score after accounting for negative marking
      */
     public int calculateScore() {
-        return getCorrectAnswers() - getIncorrectAnswers();
+        return getNumCorrectAnswers() - getNumIncorrectAnswers();
     }
 }

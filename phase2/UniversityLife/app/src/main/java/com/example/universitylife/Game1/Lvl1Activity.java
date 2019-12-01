@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
 
-public class Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1View {
+public class Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1View1 {
 
     private Lvl1Presenter level1Presenter;
     private TextView questionTV, correctTV, incorrectTV, scoreTV,resultTV;
@@ -44,7 +44,6 @@ public class Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         setContentView(R.layout.activity_main_lvl1_lvl1);
 
         this.username = (String) getIntent().getSerializableExtra("Username");
-
         this.level1Presenter = new Lvl1Presenter(this, username);
 
         this.questionTV = findViewById(R.id.question);
@@ -219,7 +218,7 @@ public class Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
      *
      * @param name name of the player
      */
-    @Override
+    //@Override
     public void displayName(String name) {
         TextView tv_name = findViewById(R.id.Name);
         tv_name.setText(name);
