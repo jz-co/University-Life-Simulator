@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
 
-public class Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1View1 {
+public class Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1ViewLvl1 {
 
     private Lvl1Presenter level1Presenter;
     private TextView questionTV, correctTV, incorrectTV, scoreTV,resultTV;
@@ -229,7 +229,7 @@ public class Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
      */
     @SuppressLint("SetTextI18n")
     public void endGame() {
-        this.resultTV.setText("Score:" + Integer.toString(level1Presenter.getCorrectScore()));
+        this.resultTV.setText("Score:" + Integer.toString(level1Presenter.getFinalScore()));
         this.resultTV.setVisibility(View.VISIBLE);
         this.nextLevel.setVisibility(View.VISIBLE);
 

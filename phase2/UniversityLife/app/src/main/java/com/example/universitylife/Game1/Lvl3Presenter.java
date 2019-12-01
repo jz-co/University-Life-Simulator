@@ -5,12 +5,12 @@ import com.example.universitylife.LevelPresenter;
 import java.util.logging.Level;
 
 public class Lvl3Presenter extends LevelPresenter {
-    private ILevel1.ILevel1View2 view;
+    private ILevel1.ILevel1ViewLvl23 view;
     private Level3 gameLevel;
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
 
-    public Lvl3Presenter(ILevel1.ILevel1View2 view, String username){
+    public Lvl3Presenter(ILevel1.ILevel1ViewLvl23 view, String username){
         super(username);
         this.view = view;
         this.gameLevel = new Level3(gameManager.getCurrentStudent());
@@ -35,14 +35,13 @@ public class Lvl3Presenter extends LevelPresenter {
     }
 
     /**
-     * Gets the number of questions correctly answered from the game level
+     * Gets the final score from the game level
      *
-     * @return an integer referring to the number of correct answers
+     * @return an integer referring to final score
      */
-    public int getCorrectScore() {
-        return this.gameLevel.getNumCorrectAnswers();
+    public int getFinalScore() {
+        return this.gameLevel.getTotalScore();
     }
-
     /**
      * Asks the view to display the new question
      */

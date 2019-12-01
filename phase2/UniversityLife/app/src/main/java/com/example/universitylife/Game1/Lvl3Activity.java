@@ -19,7 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
 
-public class Lvl3Activity extends AppCompatActivity implements ILevel1.ILevel1View2 {
+public class Lvl3Activity extends AppCompatActivity implements ILevel1.ILevel1ViewLvl23 {
     private Lvl3Presenter level3Presenter;
 
     private TextView questionTV, correctTV, incorrectTV, scoreTV, resultTV, instructionsTV, hintTV;
@@ -280,7 +280,7 @@ public class Lvl3Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
      */
     @SuppressLint("SetTextI18n")
     public void endGame() {
-        this.resultTV.setText("Score:" + Integer.toString(level3Presenter.getCorrectScore()));
+        this.resultTV.setText("Score:" + Integer.toString(level3Presenter.getFinalScore()));
         this.resultTV.setVisibility(View.VISIBLE);
         this.nextLevel.setVisibility(View.VISIBLE);
 

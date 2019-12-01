@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="284dp"
-        android:text="Get 8 questions right within 60 seconds to pass the game!. \n
+        android:text="Get 10 questions right within 60 seconds to pass the game!. \n
                         Remember incorrect answers deduct 1 mark from the total score. \n Use the calculator if you need hints!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.594"

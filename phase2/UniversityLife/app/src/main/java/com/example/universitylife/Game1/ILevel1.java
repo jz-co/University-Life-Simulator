@@ -3,8 +3,8 @@ package com.example.universitylife.Game1;
 import com.example.universitylife.ILevel;
 
 public interface ILevel1 extends ILevel {
-    interface ILevel1View1 extends ILevelView{
-        void goToNextLevel();
+    interface ILevel1View extends ILevelView{
+
 
         void displayCorrectScore(int score);
         void displayIncorrectScore(int score);
@@ -17,7 +17,18 @@ public interface ILevel1 extends ILevel {
 
         void navigateToResults(String displayMessage, int score);
     }
-    interface ILevel1View2 extends ILevel1View1{
+    interface ILevel1ViewLvl1 extends ILevel1View{
+        void goToNextLevel();
+
+    }
+
+    interface ILevel1ViewLvl23 extends ILevel1View{
+        void goToNextLevel();
+        void displayHint(int lowerBound, int upperBound);
+        void resetHintDisplay();
+    }
+
+    interface ILevel1ViewBonusLvl extends ILevel1View{
         void displayHint(int lowerBound, int upperBound);
         void resetHintDisplay();
     }

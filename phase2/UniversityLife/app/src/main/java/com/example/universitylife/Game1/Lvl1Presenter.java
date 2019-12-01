@@ -3,12 +3,12 @@ package com.example.universitylife.Game1;
 import com.example.universitylife.LevelPresenter;
 
 public class Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel1Presenter {
-    private ILevel1.ILevel1View1 view;
+    private ILevel1.ILevel1ViewLvl1 view;
     private Level1 gameLevel;
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
 
-    public Lvl1Presenter(ILevel1.ILevel1View1 view, String username) {
+    public Lvl1Presenter(ILevel1.ILevel1ViewLvl1 view, String username) {
         super(username);
         this.view = view;
         this.gameLevel = new Level1(gameManager.getCurrentStudent());
@@ -33,12 +33,12 @@ public class Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel1Pres
     }
 
     /**
-     * Gets the number of questions correctly answered from the game level
+     * Gets the final score from the game level
      *
-     * @return an integer referring to the number of correct answers
+     * @return an integer referring to final score
      */
-    public int getCorrectScore() {
-        return this.gameLevel.getNumCorrectAnswers();
+    public int getFinalScore() {
+        return this.gameLevel.getTotalScore();
     }
 
     /**
