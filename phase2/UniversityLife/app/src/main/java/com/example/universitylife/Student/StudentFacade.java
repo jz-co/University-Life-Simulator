@@ -115,5 +115,13 @@ public class StudentFacade {
         return bag.hasGiftcards();
     }
 
+    public int getItem(int game) {
+        return bag.getItem(game);
+    }
+
+    public void useItem(int game) {
+        bag.useItem(game);
+    }
+
 
 }
