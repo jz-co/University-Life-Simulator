@@ -65,6 +65,16 @@ public class Game3LevelSelectorActivity extends AppCompatActivity implements ILe
                 presenter.validateLevel(3);
             }
         });
+
+        Button bonusButton = findViewById(R.id.bonus_level_btn);
+        bonusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.validateBonus();
+            }
+        });
+
+
     }
 
     /**
@@ -99,6 +109,11 @@ public class Game3LevelSelectorActivity extends AppCompatActivity implements ILe
     @Override
     public void navigateToLevel3() {
         navigateTo(Lvl3GameViewActivity3.class);
+    }
+
+    @Override
+    public void navigateToBonus() {
+        navigateTo(); // TODO
     }
 
     private void navigateTo(Class nextActivity) {

@@ -7,6 +7,7 @@ interface ILevelSelector {
         void navigateToLevel1();
         void navigateToLevel2();
         void navigateToLevel3();
+        void navigateToBonus();
     }
 
 }

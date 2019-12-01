@@ -45,4 +45,8 @@ class LevelSelectorPresenter {
         return Double.toString(gameManager.getGpa());
     }
 
+    void validateBonus() {
+        // TODO:
+    }
+
 }
