@@ -1,0 +1,24 @@
+This app is a UofT Student Life Simulator.
+
+Here the three games represent taking 3 courses at UofT. Each game includes 3 levels with a bonus
+4th level that represent the assignments required to pass the course/game. The scores calculated for
+the first two assignments/levels in the games represent 1.0 GPA point each and the last level
+three represents 2.0 GPA points. These GPA points total to give the GPA attained on the entire
+course/game. The overall GPA of the student player is the average of the GPA attained in each of the
+courses. The bookstore provides the student players with boosters to help improve their performance
+on their courses/games. The app result page shows the graduation of the student with their final GPA.
+The leaderboard shows the top 5 ranking student players of this Student Life Simulator.
+
+FireBase
+
+Game 1:
+
+Game 2:
+
+Game 3: Archery Club
+The players are required to hit the targets with the given arrow. Each assignment has a different
+challenge involved. Level 1 is most basic level wherein the target shifts in a row with varying
+speed. Level 2 involves the target moving in different horizontal levels. Level 3 has the target
+move diagonally on the screen. The bonus Level 4 has a changing windspeed resulting in the arrow
+shifting vertically. The booster for this game is a special arrow that increases the score by 2
+points every time it hits the target.
