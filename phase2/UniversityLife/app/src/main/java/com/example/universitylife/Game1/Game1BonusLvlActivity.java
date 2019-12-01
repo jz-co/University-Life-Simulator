@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.universitylife.DataHandler.DataHandler;
+import com.example.universitylife.LevelSelector.Game1LevelSelectorActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
 
@@ -23,7 +24,7 @@ public class Game1BonusLvlActivity extends AppCompatActivity implements ILevel1.
     private Game1BonusLvlPresenter game1BonusLvlPresenter;
     private TextView questionTV, correctTV, incorrectTV, scoreTV, resultTV, instructionsTV, hintTV;
     private EditText answerTV;
-    private Button start, nextLevel, enter;
+    private Button start, mainPage, enter;
     private ImageView pause;
 
     private String username;
@@ -49,19 +50,19 @@ public class Game1BonusLvlActivity extends AppCompatActivity implements ILevel1.
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);
         this.incorrectTV = findViewById(R.id.incorrect);
-        this.scoreTV = findViewById(R.id.totalScoreLvl2);
+        this.scoreTV = findViewById(R.id.totalScoreBonusLvl);
 
         this.answerTV = findViewById(R.id.answer);
-        this.resultTV = findViewById(R.id.resultLvl2);
+        this.resultTV = findViewById(R.id.resultBonusLvl);
 
         this.instructionsTV = findViewById(R.id.instructions);
         this.hintTV = findViewById(R.id.hint);
 
-        this.start = findViewById(R.id.startLvl2);
-        this.enter = findViewById(R.id.enterLvl2);
-        this.nextLevel = findViewById(R.id.nextLevelLvl2);
+        this.start = findViewById(R.id.startBonusLvl);
+        this.enter = findViewById(R.id.enterBonusLvl);
+        this.mainPage = findViewById(R.id.mainPage);
 
-        this.pause = findViewById(R.id.pauseLvl2);
+        this.pause = findViewById(R.id.pauseBonusLvl);
 
         //set the game screen features invisible
         this.questionTV.setVisibility(View.INVISIBLE);
@@ -85,7 +86,7 @@ public class Game1BonusLvlActivity extends AppCompatActivity implements ILevel1.
 
         //make game screen features visible
         this.start.setVisibility(View.INVISIBLE);
-        this.nextLevel.setVisibility(View.INVISIBLE);
+        this.mainPage.setVisibility(View.INVISIBLE);
         this.instructionsTV.setVisibility(View.INVISIBLE);
 
         this.hintTV.setVisibility(View.VISIBLE);
@@ -264,12 +265,21 @@ public class Game1BonusLvlActivity extends AppCompatActivity implements ILevel1.
     public void endGame() {
         this.resultTV.setText("Score:" + Integer.toString(game1BonusLvlPresenter.getFinalScore()));
         this.resultTV.setVisibility(View.VISIBLE);
-        this.nextLevel.setVisibility(View.VISIBLE);
+        this.mainPage.setVisibility(View.VISIBLE);
 
         //set the question, answer views and the enter button invisible
         this.questionTV.setVisibility(View.INVISIBLE);
         this.answerTV.setVisibility(View.INVISIBLE);
         this.enter.setVisibility(View.INVISIBLE);
+    }
+
+    /**
+     * Calls Level 2 Start page
+     */
+    public void goToMainPage(View view) {
+        Intent intent = new Intent(this, Game1LevelSelectorActivity.class);
+        intent.putExtra("Username", this.username);
+        startActivity(intent);
     }
 
 }
