@@ -9,10 +9,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.universitylife.Game3.Lvl3GameViewActivity1;
-import com.example.universitylife.Game3.Lvl3GameViewActivity2;
-import com.example.universitylife.Game3.Lvl3GameViewActivity3;
-import com.example.universitylife.Game3.Lvl3GameViewActivity4;
+
+import com.example.universitylife.Game3.Game3ViewActivity1;
+import com.example.universitylife.Game3.Game3ViewActivity2;
+import com.example.universitylife.Game3.Game3ViewActivity3;
+import com.example.universitylife.Game3.Game3ViewActivity4;
 import com.example.universitylife.R;
 
 public class Game3LevelSelectorActivity extends AppCompatActivity implements ILevelSelector.ILevelSelectorView {
@@ -92,7 +93,7 @@ public class Game3LevelSelectorActivity extends AppCompatActivity implements ILe
      */
     @Override
     public void navigateToLevel1() {
-        navigateTo(Lvl3GameViewActivity1.class);
+        navigateTo(Game3ViewActivity1.class);
     }
 
 
@@ -101,7 +102,7 @@ public class Game3LevelSelectorActivity extends AppCompatActivity implements ILe
      */
     @Override
     public void navigateToLevel2() {
-        navigateTo(Lvl3GameViewActivity2.class);
+        navigateTo(Game3ViewActivity2.class);
     }
 
     /**
@@ -109,12 +110,12 @@ public class Game3LevelSelectorActivity extends AppCompatActivity implements ILe
      */
     @Override
     public void navigateToLevel3() {
-        navigateTo(Lvl3GameViewActivity3.class);
+        navigateTo(Game3ViewActivity3.class);
     }
 
     @Override
     public void navigateToBonus() {
-        navigateTo(Lvl3GameViewActivity4.class);
+        navigateTo(Game3ViewActivity4.class);
     }
 
     private void navigateTo(Class nextActivity) {
