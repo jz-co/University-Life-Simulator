@@ -50,19 +50,19 @@ public class Game1Lvl3Activity extends AppCompatActivity implements ILevel1.ILev
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);
         this.incorrectTV = findViewById(R.id.incorrect);
-        this.scoreTV = findViewById(R.id.totalScoreLvl2);
+        this.scoreTV = findViewById(R.id.totalScoreLvl3);
 
         this.answerTV = findViewById(R.id.answer);
-        this.resultTV = findViewById(R.id.resultLvl2);
+        this.resultTV = findViewById(R.id.resultLvl3);
 
         this.instructionsTV = findViewById(R.id.instructions);
         this.hintTV = findViewById(R.id.hint);
 
-        this.start = findViewById(R.id.startLvl2);
-        this.enter = findViewById(R.id.enterLvl2);
-        this.nextLevel = findViewById(R.id.nextLevelLvl2);
+        this.start = findViewById(R.id.startLvl3);
+        this.enter = findViewById(R.id.enterLvl3);
+        this.nextLevel = findViewById(R.id.nextLevelLvl3);
 
-        this.pause = findViewById(R.id.pauseLvl2);
+        this.pause = findViewById(R.id.pauseLvl3);
 
         //set the game screen features invisible
         this.questionTV.setVisibility(View.INVISIBLE);
