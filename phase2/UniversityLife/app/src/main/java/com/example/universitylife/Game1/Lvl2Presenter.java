@@ -1,6 +1,7 @@
 package com.example.universitylife.Game1;
 
 import com.example.universitylife.LevelPresenter;
+import com.example.universitylife.Student.StudentFacade;
 
 public class Lvl2Presenter extends LevelPresenter {
     private ILevel1.ILevel1View2 view;
@@ -112,10 +113,18 @@ public class Lvl2Presenter extends LevelPresenter {
         }
     }
 
+    /**
+     * Checks if the student has a calculator and if yes, display the hint on the screen.
+     */
     public void getHint(){
-        int correctAnswer = gameLevel.getCorrectAnswer();
-        int lowerBound = correctAnswer - (int) (Math.random() * 6);
-        int upperBound = correctAnswer + (int) (Math.random() * 6);
-        view.displayHint(lowerBound, upperBound);
+        //need to first check if the student has a calculator.
+        if (gameLevel.hasCalculator()) {
+            int correctAnswer = gameLevel.getCorrectAnswer();
+            int lowerBound = correctAnswer - (int) (Math.random() * 6);
+            int upperBound = correctAnswer + (int) (Math.random() * 6);
+            view.displayHint(lowerBound, upperBound);
+        } else{
+            view.displayWarning("Sorry, you don't have any calculators in your bag");
+        }
     }
 }

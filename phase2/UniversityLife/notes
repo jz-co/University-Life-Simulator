@@ -883,3 +883,11 @@ Lvl1Presenter: Modified evaluateAnswer  based on variable changes in Level1.
 Lvl2Activity: added availHint, displayHint and resetHintDisplay to accomodate the calculator
 Lvl2Presenter: added getHint to get appropriate Hint
 XML: added calculator button
+
+
+#######
+Step 151 (Parinita)
+Code Affected: Level2 Activity, Presenter and game file in GAME1 Package
+Changes: Level2: added hasCalculator method to verify if a student has a calculator or not
+Lvl2Presenter: modified getHint to check whether the student has calculator or not
+Lvl2Activity: added javadoc and rearranged method bodies.

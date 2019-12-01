@@ -30,7 +30,7 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
     private CountDownTimer countDownTimer;
     private boolean running;
 
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Set fullscreen
@@ -99,6 +99,15 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
     }
 
     /**
+     * Method called when the Next Level button is clicked on the screen.
+     *
+     * @param view the view that this method is called from.
+     */
+    public void onClickNextLevel(View view) {
+        level2Presenter.validateLevel3();
+    }
+
+    /**
      * Calls Level 3 Start page
      */
     public void goToNextLevel() {
@@ -116,6 +125,7 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
+    //TODO NEED A JAVADOC
     @Override
     public void navigateToResults(String displayMessage, int score) {
         Intent intent = new Intent(this, Game1ResultActivity.class);
@@ -175,6 +185,17 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
     }
 
     /**
+     * Sets the name of the player on the screen
+     *
+     * @param name name of the player
+     */
+    @Override
+    public void displayName(String name) {
+        TextView tv_name = findViewById(R.id.Name);
+        tv_name.setText(name);
+    }
+
+    /**
      * Displays the score for correct answers on the screen
      *
      * @param score the number of questions the student has correctly answered.
@@ -192,6 +213,15 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
     @SuppressLint("SetTextI18n")
     public void displayIncorrectScore(int score) {
         this.incorrectTV.setText("Incorrect: " + score);
+    }
+
+    /**
+     * Displays the student's score on the screen in this level.
+     *
+     * @param score the score to display
+     */
+    public void displayScore(double score) {
+        this.scoreTV.setText("Score: " + score);
     }
 
     /**
@@ -217,16 +247,30 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         }
     }
 
+    /**
+     * Method called when the Calculator! button is clicked on the screen
+     *
+     * @param view the view that calls this method
+     */
+    public void availHint(View view) {
+        level2Presenter.getHint();
+    }
 
     /**
-     * Sets the name of the player on the screen
+     * Displays the range in which the correct answer lies in.
      *
-     * @param name name of the player
+     * @param lowerBound the lower bound of the range
+     * @param upperBound the upper bound of the range
      */
-    @Override
-    public void displayName(String name) {
-        TextView tv_name = findViewById(R.id.Name);
-        tv_name.setText(name);
+    public void displayHint(int lowerBound, int upperBound) {
+        this.hintTV.setText("The answer lies in between " + lowerBound + " and " + upperBound + " inclusive.");
+    }
+
+    /**
+     * Resets the hint display textview on the screen.
+     */
+    public void resetHintDisplay() {
+        this.hintTV.setText("Click the calculator to receive a hint");
     }
 
     /**
@@ -242,28 +286,5 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         this.questionTV.setVisibility(View.INVISIBLE);
         this.answerTV.setVisibility(View.INVISIBLE);
         this.enter.setVisibility(View.INVISIBLE);
-    }
-
-    /**
-     * Method called when the Next Level button is clicked on the screen.
-     *
-     * @param view the view that this method is called from.
-     */
-    public void onClickNextLevel(View view) {
-        level2Presenter.validateLevel3();
-    }
-
-    public void displayScore(double score){
-        this.scoreTV.setText("Score: " + score);
-    }
-
-    public void availHint(View view){level2Presenter.getHint();}
-
-    public void displayHint(int lowerBound, int upperBound){
-        this.hintTV.setText("The answer lies in between " + lowerBound +" and " +upperBound);
-    }
-
-    public void resetHintDisplay(){
-        this.hintTV.setText("Click the calculator to receive a hint");
     }
 }
