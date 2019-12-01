@@ -22,7 +22,7 @@ import com.example.universitylife.Result.Game1ResultActivity;
 public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1View {
 
     private Game1Lvl1Presenter level1Presenter;
-    private TextView questionTV, correctTV, incorrectTV, hpTV, creditTV, gpaTV, resultTV;
+    private TextView questionTV, correctTV, incorrectTV, scoreTV, hpTV, creditTV, gpaTV, resultTV;
     private EditText answerTV;
     private Button start, nextLevel, enter;
     private ImageView pause;
@@ -51,6 +51,7 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);
         this.incorrectTV = findViewById(R.id.incorrect);
+        this.scoreTV = findViewById(R.id.totalScore);
 
         this.creditTV = findViewById(R.id.creditLvl1);
         this.gpaTV = findViewById(R.id.gpaLvl1);
@@ -287,7 +288,8 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
         level1Presenter.validateLevel2();
     }
 
+
     public void displayScore(double score){
-        System.out.println("1");
+        this.scoreTV.setText("Score: " + score);
     }
 }

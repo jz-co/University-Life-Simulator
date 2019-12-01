@@ -53,7 +53,8 @@
         app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/incorrect" />
+        app:layout_constraintTop_toBottomOf="@id/totalScore"
+        app:layout_constraintVertical_bias="0.168" />
 
     <TextView
         android:id="@+id/level1"
@@ -156,7 +157,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
-        android:layout_marginTop="112dp"
         android:layout_marginEnd="272dp"
         android:layout_marginBottom="13dp"
         android:text="Incorrect: 0"
@@ -164,8 +164,27 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/countdown"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.722"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/correct"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/totalScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="98dp"
+        android:text="Score: 0"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/incorrect"
+        app:layout_constraintVertical_bias="0.26" />
 
     <ImageView
         android:id="@+id/pauseLvl1"

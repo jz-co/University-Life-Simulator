@@ -65,6 +65,8 @@ public class Game1Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel
             }
             view.displayCorrectScore(gameLevel.getCorrectAnswers());
             view.displayIncorrectScore(gameLevel.getIncorrectAnswers());
+            gameLevel.updateScore();
+            view.displayScore(gameLevel.getTotalScore());
             newQuestion();
         } catch (NumberFormatException e) {
             view.displayWarning("Invalid!");

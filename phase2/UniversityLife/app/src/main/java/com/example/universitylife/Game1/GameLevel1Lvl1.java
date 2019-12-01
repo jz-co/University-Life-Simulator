@@ -9,7 +9,7 @@ import java.util.List;
 
 public class GameLevel1Lvl1 {
     private StudentFacade student;
-    private int correctAnswers, incorrectAnswers;
+    private int correctAnswers, incorrectAnswers, totalScore;
     private int clearingScore;
 
     private String question;
@@ -57,7 +57,13 @@ public class GameLevel1Lvl1 {
         return this.incorrectAnswers;
     }
 
+    public int getTotalScore(){return this.totalScore;}
+
     public void setClearingScore(int clearScore){ this.clearingScore = clearScore;}
+
+    public void updateScore(){
+        this.totalScore = this.correctAnswers;
+    }
 
     /**
      * Creates a new question.
