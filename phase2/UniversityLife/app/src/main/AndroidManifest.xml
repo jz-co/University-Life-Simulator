@@ -29,7 +29,11 @@
         <activity android:name=".CourseSelector.CourseSelectorActivity" />
         <activity android:name=".Customization.CustomizationActivity" />
         <activity android:name=".Login.MainActivity" />
-        <activity android:name=".Game3.Game3StartActivity">
+        <activity android:name=".Game3.Game3StartActivity"/>
+        <activity android:name=".Game3.Game3ViewActivity1"/>
+        <activity android:name=".Game3.Game3ViewActivity2"/>
+        <activity android:name=".Game3.Game3ViewActivity3"/>
+        <activity android:name=".Game3.Game3ViewActivity4"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

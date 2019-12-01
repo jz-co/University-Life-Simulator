@@ -969,3 +969,8 @@ Changes: removed language customization.
 Step 163 (Jenny)
 Changes: Added getAppearance() method to ILeaderboard Student interface that needs to be implemented by the Student facade.
 Added methods in LeaderboardListAdapter and LeaderboardActivity to allow us to display the image of top students in the leaderboard.
+
+########
+Step 164 (Trisha)
+Code affected: AndroidManifest.xml
+Added game 3 activities to the manifest.
