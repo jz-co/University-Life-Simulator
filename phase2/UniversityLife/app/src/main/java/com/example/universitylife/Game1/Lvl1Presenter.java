@@ -3,12 +3,12 @@ package com.example.universitylife.Game1;
 import com.example.universitylife.LevelPresenter;
 
 public class Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel1Presenter {
-    private ILevel1.ILevel1View view;
+    private ILevel1.ILevel1View1 view;
     private Level1 gameLevel;
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
 
-    public Lvl1Presenter(ILevel1.ILevel1View view, String username) {
+    public Lvl1Presenter(ILevel1.ILevel1View1 view, String username) {
         super(username);
         this.view = view;
         this.gameLevel = new Level1(gameManager.getCurrentStudent());
@@ -38,7 +38,7 @@ public class Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel1Pres
      * @return an integer referring to the number of correct answers
      */
     public int getCorrectScore() {
-        return this.gameLevel.getCorrectAnswers();
+        return this.gameLevel.getNumCorrectAnswers();
     }
 
     /**
@@ -62,9 +62,9 @@ public class Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel1Pres
             if (!correct) {
                 view.displayWarning("Wrong Answer!");
             }
-            view.displayCorrectScore(gameLevel.getCorrectAnswers());
-            view.displayIncorrectScore(gameLevel.getIncorrectAnswers());
-            gameLevel.updateScore(gameLevel.getCorrectAnswers());
+            view.displayCorrectScore(gameLevel.getNumCorrectAnswers());
+            view.displayIncorrectScore(gameLevel.getNumIncorrectAnswers());
+            gameLevel.updateScore(gameLevel.getNumCorrectAnswers());
             view.displayScore(gameLevel.getTotalScore());
             newQuestion();
         } catch (NumberFormatException e) {
@@ -78,7 +78,7 @@ public class Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel1Pres
      */
     public void levelComplete() {
         int clearingScore = gameLevel.getClearingScore();
-        if (gameLevel.getCorrectAnswers() < clearingScore) {
+        if (gameLevel.getNumCorrectAnswers() < clearingScore) {
             view.displayWarning("Play again to unlock the next level!");
         } else {
             view.displayWarning("Congratulations, you have cleared this level!");

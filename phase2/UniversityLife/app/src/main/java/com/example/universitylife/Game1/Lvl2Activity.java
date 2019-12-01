@@ -18,10 +18,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
 
-public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1View {
+public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1View2 {
     private Lvl2Presenter level2Presenter;
 
-    private TextView questionTV, correctTV, incorrectTV, scoreTV, resultTV;
+    private TextView questionTV, correctTV, incorrectTV, scoreTV, resultTV, instructionsTV, hintTV;
     private EditText answerTV;
     private Button start, nextLevel, enter;
     private ImageView pause;
@@ -53,6 +53,9 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         this.answerTV = findViewById(R.id.answer);
         this.resultTV = findViewById(R.id.resultLvl2);
 
+        this.instructionsTV = findViewById(R.id.instructions);
+        this.hintTV = findViewById(R.id.hint);
+
         this.start = findViewById(R.id.startLvl2);
         this.enter = findViewById(R.id.enterLvl2);
         this.nextLevel = findViewById(R.id.nextLevelLvl2);
@@ -67,6 +70,7 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         this.resultTV.setVisibility(View.INVISIBLE);
         this.enter.setVisibility(View.INVISIBLE);
         this.pause.setVisibility(View.INVISIBLE);
+        this.hintTV.setVisibility(View.INVISIBLE);
 
         level2Presenter.initDisplay(this);
     }
@@ -81,6 +85,9 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         //make game screen features visible
         this.start.setVisibility(View.INVISIBLE);
         this.nextLevel.setVisibility(View.INVISIBLE);
+        this.instructionsTV.setVisibility(View.INVISIBLE);
+
+        this.hintTV.setVisibility(View.VISIBLE);
         this.questionTV.setVisibility(View.VISIBLE);
         this.correctTV.setVisibility(View.VISIBLE);
         this.incorrectTV.setVisibility(View.VISIBLE);
@@ -250,4 +257,13 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         this.scoreTV.setText("Score: " + score);
     }
 
+    public void availHint(View view){level2Presenter.getHint();}
+
+    public void displayHint(int lowerBound, int upperBound){
+        this.hintTV.setText("The answer lies in between " + lowerBound +" and " +upperBound);
+    }
+
+    public void resetHintDisplay(){
+        this.hintTV.setText("Click the calculator to receive a hint");
+    }
 }

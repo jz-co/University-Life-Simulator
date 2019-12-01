@@ -3,12 +3,12 @@ package com.example.universitylife.Game1;
 import com.example.universitylife.LevelPresenter;
 
 public class Lvl2Presenter extends LevelPresenter {
-    private ILevel1.ILevel1View view;
+    private ILevel1.ILevel1View2 view;
     private Level2 gameLevel;
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
 
-    public Lvl2Presenter(ILevel1.ILevel1View view, String username){
+    public Lvl2Presenter(ILevel1.ILevel1View2 view, String username){
         super(username);
         this.view = view;
         this.gameLevel = new Level2(gameManager.getCurrentStudent());
@@ -38,7 +38,7 @@ public class Lvl2Presenter extends LevelPresenter {
      * @return an integer referring to the number of correct answers
      */
     public int getCorrectScore() {
-        return this.gameLevel.getCorrectAnswers();
+        return this.gameLevel.getNumCorrectAnswers();
     }
 
     /**
@@ -62,10 +62,11 @@ public class Lvl2Presenter extends LevelPresenter {
             if (!correct) {
                 view.displayWarning("Wrong Answer!");
             }
-            view.displayCorrectScore(gameLevel.getCorrectAnswers());
-            view.displayIncorrectScore(gameLevel.getIncorrectAnswers());
-            gameLevel.updateScore(gameLevel.getCorrectAnswers());
+            view.displayCorrectScore(gameLevel.getNumCorrectAnswers());
+            view.displayIncorrectScore(gameLevel.getNumIncorrectAnswers());
+            gameLevel.updateScore(gameLevel.getNumCorrectAnswers());
             view.displayScore(gameLevel.getTotalScore());
+            view.resetHintDisplay();
             newQuestion();
         } catch (NumberFormatException e) {
             view.displayWarning("Invalid!");
@@ -78,7 +79,7 @@ public class Lvl2Presenter extends LevelPresenter {
      */
     public void levelComplete() {
         int clearingScore = gameLevel.getClearingScore();
-        if (gameLevel.getCorrectAnswers() < clearingScore) {
+        if (gameLevel.getNumCorrectAnswers() < clearingScore) {
             view.displayWarning("Play again to unlock the next level!");
         } else {
             view.displayWarning("Congratulations, you have cleared this level!");
@@ -109,5 +110,12 @@ public class Lvl2Presenter extends LevelPresenter {
         } else {
             view.displayWarning("Sorry, the next level has not been unlocked");
         }
+    }
+
+    public void getHint(){
+        int correctAnswer = gameLevel.getCorrectAnswer();
+        int lowerBound = correctAnswer - (int) (Math.random() * 6);
+        int upperBound = correctAnswer + (int) (Math.random() * 6);
+        view.displayHint(lowerBound, upperBound);
     }
 }

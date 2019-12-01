@@ -872,3 +872,14 @@ to adjust to these changes. Added a game_3_layout for the game 3 activity.
 Step 149 (Parinita)
 Code Affected: Game1 Package
 Changes: Renamed files.
+
+#######
+Step 150 (Parinita)
+Code Affected: ILevel1, Level1, Lvl1Presenter, Lvl2Activity and Presenter, Lvl1Lvl2 XML
+Changes: ILevel1: created ILevel1View 2 and added methods displayHint and resetHintDisplay
+Level1: renamed the variables for storing the number of correct and incorrect answers and changed the getter
+methods accordingly.
+Lvl1Presenter: Modified evaluateAnswer  based on variable changes in Level1.
+Lvl2Activity: added availHint, displayHint and resetHintDisplay to accomodate the calculator
+Lvl2Presenter: added getHint to get appropriate Hint
+XML: added calculator button

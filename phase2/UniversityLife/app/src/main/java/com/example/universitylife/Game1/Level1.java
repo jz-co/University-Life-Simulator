@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Level1 {
     private StudentFacade student;
-    private int correctAnswers, incorrectAnswers, totalScore;
+    private int numCorrectAnswers, numIncorrectAnswers, totalScore;
     private int clearingScore;
 
     private String question;
@@ -20,8 +20,8 @@ public class Level1 {
     //initialize the game
     public Level1(StudentFacade student) {
         this.student = student;
-        this.correctAnswers = 0;
-        this.incorrectAnswers = 0;
+        this.numCorrectAnswers = 0;
+        this.numIncorrectAnswers = 0;
         setClearingScore(5);
         setRandomNumberBoundary(10);
     }
@@ -39,13 +39,15 @@ public class Level1 {
         return this.student;
     }
 
+    public int getCorrectAnswer(){return this.correctAnswer;}
+
     /**
      * Getter for the number of questions correctly answered by the student.
      *
      * @return number of correct answers.
      */
-    public int getCorrectAnswers() {
-        return this.correctAnswers;
+    public int getNumCorrectAnswers() {
+        return this.numCorrectAnswers;
     }
 
     /**
@@ -53,8 +55,8 @@ public class Level1 {
      *
      * @return number of incorrect answers
      */
-    public int getIncorrectAnswers() {
-        return this.incorrectAnswers;
+    public int getNumIncorrectAnswers() {
+        return this.numIncorrectAnswers;
     }
 
 
@@ -109,13 +111,13 @@ public class Level1 {
         switch (operation) {
 
             case "+":
-                correctAnswer = a + b;
+                this.correctAnswer = a + b;
                 break;
             case "-":
-                correctAnswer = a - b;
+                this.correctAnswer = a - b;
                 break;
             case "*":
-                correctAnswer = a * b;
+                this.correctAnswer = a * b;
                 break;
         }
 
@@ -131,12 +133,12 @@ public class Level1 {
      * @return a boolean determining if the answer is correct or not.
      */
     public boolean evaluateAnswer(int answer) {
-        if (answer == correctAnswer) {
-            correctAnswers++;
+        if (answer == this.correctAnswer) {
+            this.numCorrectAnswers++;
         } else {
-            incorrectAnswers++;
+            this.numIncorrectAnswers++;
         }
-        return answer == correctAnswer;
+        return answer == this.correctAnswer;
     }
 
 
@@ -149,10 +151,10 @@ public class Level1 {
      */
     public double calculateLevelGpaScore(int factor) {
         double points;
-        if (correctAnswers >= clearingScore) {
+        if (numCorrectAnswers >= clearingScore) {
             points = factor;
         } else {
-            points = (correctAnswers / clearingScore) * factor;
+            points = (numCorrectAnswers / clearingScore) * factor;
         }
         return points;
     }
