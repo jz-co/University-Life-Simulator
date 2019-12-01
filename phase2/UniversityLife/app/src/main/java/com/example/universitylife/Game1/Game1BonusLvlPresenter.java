@@ -2,7 +2,7 @@ package com.example.universitylife.Game1;
 
 import com.example.universitylife.LevelPresenter;
 
-public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.ILevel1Presenter{
+public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.ILevel1PresenterCalculator{
     private ILevel1.ILevel1ViewBonusLvl view;
     private Game1BonusLevel gameLevel;
     private long secondsRemaining;

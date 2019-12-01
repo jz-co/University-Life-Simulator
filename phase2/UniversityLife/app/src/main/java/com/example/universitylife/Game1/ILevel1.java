@@ -41,4 +41,8 @@ public interface ILevel1 extends ILevel {
         void levelComplete();
         void tick(long millisUntilFinished);
     }
+
+    interface ILevel1PresenterCalculator extends ILevel1Presenter{
+        void getHint();
+    }
 }

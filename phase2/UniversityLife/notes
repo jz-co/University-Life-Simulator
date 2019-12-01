@@ -937,3 +937,8 @@ Added methods to get the gpa for a course in GameManager.
 Step 157 (Jenny)
 Added navigate to Bonus level methods in LevelSelector... Activities.
 
+########
+Step158(Parinita)
+Code affected: ILevel1,Game1Lvl2Presenter,Game1Lvl3Presenter,Game1BonusLvlPresenter
+Changes: Added an interface called ILevel1PresenterCalculator that extends ILevel1Presenter that
+has the additional method to allow for levels that allow calculators.
