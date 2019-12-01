@@ -18,7 +18,7 @@ public class GameLevel2Lvl2 extends GameLevel2Lvl1{
      * be reduced
      */
     public void setUmbrellaOpen(){
-      // student.getItems()[1] -=1;
+        this.getStudent().useItem(2);
         umbrellaOpen = true;
     }
 

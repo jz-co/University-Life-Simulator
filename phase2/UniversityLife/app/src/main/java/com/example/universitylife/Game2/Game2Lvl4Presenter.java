@@ -19,7 +19,7 @@ public class Game2Lvl4Presenter extends LevelPresenter implements ILevel2.ILevel
     private boolean nextLevelUnlocked;
     private boolean boughtUmbrella = false;
 
-    Game2Lvl4Presenter(ILevel2.ILevel2View view, IData dataHandler, String username){
+    Game2Lvl4Presenter(ILevel2.ILevel2View view, String username){
         super(username);
         this.view = view;
         this.gameManager = new GameManager(username);
@@ -42,7 +42,7 @@ public class Game2Lvl4Presenter extends LevelPresenter implements ILevel2.ILevel
         fallingObjects.add(killingObject);
         Basket basket = new Basket(R.id.character_4, 0, basketInt);
         StudentFacade student = this.gameManager.getCurrentStudent();
-        // boughtUmbrella = student.getItems(2) > 0;
+        boughtUmbrella = student.getItem(2) > 0;
         this.gameLevel = new GameLevel2Lvl4(student, basket, frameWidth, frameHeight, fallingObjects, this);
     }
     @Override

@@ -8,4 +8,8 @@ import java.util.ArrayList;
      GameLevel2Lvl4(StudentFacade student, Basket basket, int FrameWidth, int FrameHeight, ArrayList<FallingObject> fallingObjects, ILevel2.ILevel2PresenterLvl3 presenter) {
         super(student, basket, FrameWidth, FrameHeight, fallingObjects, presenter);
     }
+
+     public void levelClear(){
+         this.getStudent().registerLevelResults(2, 4, this.getScore());
+     }
 }

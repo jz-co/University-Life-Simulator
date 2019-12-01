@@ -42,7 +42,7 @@ public class Game2Lvl2Presenter extends LevelPresenter implements ILevel2.ILevel
         fallingObjects.add(whatYouShouldDo);
         Basket basket = new Basket(R.id.character_2, 0, basketInt);
         StudentFacade student = this.gameManager.getCurrentStudent();
-        // boughtUmbrella = student.getItems(2) > 0;
+        boughtUmbrella = student.getItem(2) > 0;
         this.gameLevel = new GameLevel2Lvl2(student, basket, frameWidth, frameHeight, fallingObjects, this);
     }
 

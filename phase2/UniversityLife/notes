@@ -831,3 +831,9 @@ Step 142 (Parinita)
 Code Affected: Game1Lvl1Presenter, Game1Lvl1Activity, GameLevel1Lvl1, activity_main_lvl1_lvl1
 Changes: Added displayScore in Game1Lvl1Activity, modified evaluateAnswer in Game1Lvl1Presenter, added updateScore in GameLevel1Lvl1,
 modified the xml for game1.
+
+#######
+Step 143 (Koby)
+Code Affected: Game2 Package
+Changes: Add boughtUmbrella variable so that we can track whether this user has an umbrella in the
+bag or not.
