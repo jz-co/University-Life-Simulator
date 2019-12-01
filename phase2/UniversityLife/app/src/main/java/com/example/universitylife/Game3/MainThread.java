@@ -3,24 +3,22 @@ package com.example.universitylife.Game3;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
-import com.example.universitylife.Game3.Lvl3GameView;
-
 /**
  * Referenced https://www.androidauthority.com/android-game-java-785331/
  */
 
 public class MainThread extends Thread {
     private SurfaceHolder surfaceHolder;
-    private Lvl3GameView gameView1;
-    private Lvl3GameView2 gameView2;
-    private Lvl3GameView3 gameView3;
-    private Lvl3GameView4 gameView4;
+    private Lvl3GameViewActivity1 gameView1;
+    private Lvl3GameViewActivity2 gameView2;
+    private Lvl3GameViewActivity3 gameView3;
+    private Lvl3GameViewActivity4 gameView4;
 
     private int level;
     private boolean running;
     private static Canvas canvas;
 
-    public MainThread(SurfaceHolder surfaceHolder, Lvl3GameView gameView) {
+    public MainThread(SurfaceHolder surfaceHolder, Lvl3GameViewActivity1 gameView) {
         super();
         level = 1;
         this.surfaceHolder = surfaceHolder;
@@ -28,21 +26,21 @@ public class MainThread extends Thread {
 
     }
 
-    public MainThread(SurfaceHolder surfaceHolder, Lvl3GameView2 gameView) {
+    public MainThread(SurfaceHolder surfaceHolder, Lvl3GameViewActivity2 gameView) {
         super();
         level = 2;
         this.surfaceHolder = surfaceHolder;
         this.gameView2 = gameView;
     }
 
-    public MainThread(SurfaceHolder surfaceHolder, Lvl3GameView3 gameView) {
+    public MainThread(SurfaceHolder surfaceHolder, Lvl3GameViewActivity3 gameView) {
         super();
         level = 3;
         this.surfaceHolder = surfaceHolder;
         this.gameView3 = gameView;
     }
 
-    public MainThread(SurfaceHolder surfaceHolder, Lvl3GameView4 gameView) {
+    public MainThread(SurfaceHolder surfaceHolder, Lvl3GameViewActivity4 gameView) {
         super();
         level = 4;
         this.surfaceHolder = surfaceHolder;

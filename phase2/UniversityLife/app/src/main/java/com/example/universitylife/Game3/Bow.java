@@ -12,8 +12,8 @@ public class Bow extends GameContents {
      * @param width of game grid
      * @param height of game grid
      */
-    public Bow(ILevel3.ILevel3GameView view, int width, int height) {
-        super(view, width, height);
+    public Bow(int level, int width, int height) {
+        super(level, width, height);
         super.setX(21 * (width) / 100);
         super.setY(81 * (height) / 100);
     }

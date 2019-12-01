@@ -22,8 +22,8 @@ public class Arrow extends GameContents implements TouchEvent {
      * @param width of game grid
      * @param height of game grid
      */
-    public Arrow(ILevel3.ILevel3GameView view, int width, int height) {
-        super(view, width, height);
+    public Arrow(int level, int width, int height) {
+        super(level, width, height);
         super.setX(width - 570);
         super.setY(height - 550);
         touch = false;

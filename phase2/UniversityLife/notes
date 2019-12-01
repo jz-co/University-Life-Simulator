@@ -862,3 +862,9 @@ activity and presenter methods.
 Step 147 (Parinita)
 Code Affected: Game1Lvl1 and 2 activity and XML
 Changes: Implemented rest of the interface methods in Game1Lvl2 activity. Modified the XML of game 1 lvl2
+
+#######
+Step 148 (Trisha)
+Code Affected: Game 3 Package
+Changes: All game view classes were changed to game view activity classes and modified other classes
+to adjust to these changes. Added a game_3_layout for the game 3 activity.

@@ -40,23 +40,14 @@ public abstract class GameContents {
     /**
      * Constructs a game object.
      *
-     * @param view of game
+     * @param level of game
      * @param gridWidth of game grid
      * @param gridHeight of game grid
      */
-    GameContents(ILevel3.ILevel3GameView view, int gridWidth, int gridHeight) {
+    GameContents(int level, int gridWidth, int gridHeight) {
         this.gridHeight = gridHeight;
         this.gridWidth = gridWidth;
-        this.view = view;
-        if (view instanceof Lvl3GameView) {
-            level = 1;
-        } else if (view instanceof Lvl3GameView2) {
-            level = 2;
-        } else if (view instanceof Lvl3GameView3) {
-            level = 3;
-        } else {
-            level = 4;
-        }
+        this.level = level;
     }
 
     /**

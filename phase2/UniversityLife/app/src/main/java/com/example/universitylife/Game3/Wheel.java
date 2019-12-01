@@ -38,8 +38,8 @@ public class Wheel extends GameContents {
      * @param width of game grid
      * @param height of game grid
      */
-    public Wheel(ILevel3.ILevel3GameView view, int width, int height) {
-        super(view, width, height);
+    public Wheel(int level, int width, int height) {
+        super(level, width, height);
         super.setX((25 * width) / 100);
         super.setY((15 * height) / 100);
         this.width = view.getWheelWidth();
