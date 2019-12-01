@@ -159,7 +159,7 @@ public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callba
         Wheel wheel = new Wheel(1, screenWidth, screenHeight);
         gameItemManager.createGameItems(wheel);
 
-
+        student.useItem(3);
         thread.setRunning(true);
         thread.start();
     }
@@ -205,12 +205,15 @@ public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callba
         String score = "High Score: " + (gameItemManager.getScore());
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
-        paint.setTextSize(70);
+        paint.setTextSize(25);
         paint.setFakeBoldText(true);
-        canvas.drawText(score, screenWidth - 500, 100, paint);
+        canvas.drawText(score, 100, 100, paint);
 
         String life = "Lives: " + (gameItemManager.getLives());
-        canvas.drawText(life, 100, 100, paint);
+        canvas.drawText(life, 100, 200, paint);
+
+        String rules = "Hit the target to earn score, else missing the target results in reduction of lives. Here, target changes position";
+        canvas.drawText(rules, screenWidth - 600, 100, paint);
 
     }
 
