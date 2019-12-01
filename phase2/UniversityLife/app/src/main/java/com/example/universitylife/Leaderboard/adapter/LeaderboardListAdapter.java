@@ -7,16 +7,16 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.universitylife.Leaderboard.ILeaderboard;
 import com.example.universitylife.R;
-import com.example.universitylife.Student.StudentFacade;
 
 import java.util.List;
 
 public class LeaderboardListAdapter extends BaseAdapter {
     private Context context;
-    private List<StudentFacade> topFiveStudents;
+    private List<ILeaderboard.ILeaderboardStudent> topFiveStudents;
 
-    public LeaderboardListAdapter(Context context, List<StudentFacade> topFiveStudents) {
+    public LeaderboardListAdapter(Context context, List<ILeaderboard.ILeaderboardStudent> topFiveStudents) {
         this.context = context;
         this.topFiveStudents = topFiveStudents;
     }
@@ -44,7 +44,7 @@ public class LeaderboardListAdapter extends BaseAdapter {
         }
 
         // get current item to be displayed
-        StudentFacade currStudent = (StudentFacade) getItem(rank);
+        ILeaderboard.ILeaderboardStudent currStudent = (ILeaderboard.ILeaderboardStudent) getItem(rank);
 
         // get the TextView for the ranking, username and gpa
         TextView textViewRanking = (TextView) scoreView.findViewById(R.id.ranking);

@@ -1,6 +1,8 @@
 package com.example.universitylife.Student;
 
-public class StudentFacade {
+import com.example.universitylife.Leaderboard.ILeaderboard;
+
+public class StudentFacade implements ILeaderboard.ILeaderboardStudent {
     private StudentAccount account;
     private StudentPreferences preferences;
     private StudentPerformance performance;

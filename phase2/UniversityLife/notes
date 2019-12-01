@@ -914,3 +914,9 @@ Step 153 (Parinita)
 Code Affected: ILevel1 and all files in GAME1 Package, activity_main_lvl1_bonus
 Changes: Changed the view interface to better accomodate the needs of each individual level. Added a new activity_main_lvl1_bonus.xml
 for the bonus level
+
+#########
+Step 154 (Grace)
+Code affected: LeaderboardListAdapter, StudentFacade, ILeaderboard
+Changes: made StudentFacade implement ILeaderboardStudent so that LeaderboardListAdapter doesn't
+use StudentFacade directly
