@@ -22,7 +22,7 @@ import com.example.universitylife.Result.Game1ResultActivity;
 public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1View {
 
     private Game1Lvl1Presenter level1Presenter;
-    private TextView questionTV, correctTV, incorrectTV, scoreTV, hpTV, creditTV, gpaTV, resultTV;
+    private TextView questionTV, correctTV, incorrectTV, scoreTV,resultTV;
     private EditText answerTV;
     private Button start, nextLevel, enter;
     private ImageView pause;
@@ -51,11 +51,7 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);
         this.incorrectTV = findViewById(R.id.incorrect);
-        this.scoreTV = findViewById(R.id.totalScore);
-
-        this.creditTV = findViewById(R.id.creditLvl1);
-        this.gpaTV = findViewById(R.id.gpaLvl1);
-        this.hpTV = findViewById(R.id.textView14);
+        this.scoreTV = findViewById(R.id.totalScoreLvl1);
 
         this.answerTV = findViewById(R.id.answer);
         this.resultTV = findViewById(R.id.resultLvl1);
@@ -231,40 +227,6 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
     }
 
     /**
-     * Sets the GPA of the player on the screen
-     *
-     * @param gpa GPA of the player
-     */
-    @SuppressLint("SetTextI18n")
-    //@Override
-    public void displayGPA(double gpa) {
-        this.gpaTV.setText("GPA: " + gpa);
-    }
-
-    /**
-     * Displays the HP of the player on the screen
-     *
-     * @param hp HP of the player
-     */
-    //@Override
-    public void displayHP(double hp) {
-        String hpString = "HP: " + hp;
-        this.hpTV.setText(hpString);
-    }
-
-    /**
-     * Displays the number of credits of the player on the screen
-     *
-     * @param credit the credits of the player
-     */
-    @SuppressLint("SetTextI18n")
-    //@Override
-    public void displayCredit(int credit) {
-        this.creditTV.setText("credit: " + credit);
-
-    }
-
-    /**
      * Displays the final score at the end of the game.
      */
     @SuppressLint("SetTextI18n")
@@ -288,7 +250,11 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
         level1Presenter.validateLevel2();
     }
 
-
+    /**
+     * Displays the total score of the player in this level
+     *
+     * @param score the score of the player.
+     */
     public void displayScore(double score){
         this.scoreTV.setText("Score: " + score);
     }

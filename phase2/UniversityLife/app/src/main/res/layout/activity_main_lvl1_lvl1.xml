@@ -53,7 +53,7 @@
         app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/totalScore"
+        app:layout_constraintTop_toBottomOf="@id/totalScoreLvl1"
         app:layout_constraintVertical_bias="0.168" />
 
     <TextView
@@ -68,35 +68,6 @@
         app:layout_constraintBottom_toTopOf="@+id/correct"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/creditLvl1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="64dp"
-        android:gravity="top"
-        android:text="Credits"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/incorrect"
-        app:layout_constraintTop_toBottomOf="@+id/gpaLvl1" />
-
-    <TextView
-        android:id="@+id/gpaLvl1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="179dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="82dp"
-        android:text="GPA"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/correct"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <EditText
         android:id="@+id/answer"
@@ -170,7 +141,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/totalScore"
+        android:id="@+id/totalScoreLvl1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
@@ -235,33 +206,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="3dp"
         android:layout_marginEnd="53dp"
         android:layout_marginBottom="125dp"
-        android:text="TextView"
+        android:text="Name:"
         app:layout_constraintBottom_toTopOf="@+id/question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/incorrect"
-        app:layout_constraintTop_toBottomOf="@+id/creditLvl1"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="171dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="92dp"
-        android:layout_marginBottom="10dp"
-        android:text="HP"
-        android:textColor="#009688"
-        app:layout_constraintBottom_toTopOf="@+id/gpaLvl1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
-        app:layout_constraintStart_toEndOf="@+id/level1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintStart_toEndOf="@+id/incorrect" />
 
 
     <!-- <SurfaceView

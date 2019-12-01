@@ -856,3 +856,9 @@ Step 146 (Parinita)
 Code Affected: Game1Lvl1 and 2 activity and presenter, ILevel1
 Changes: Modified goToNextLevel in ILevel1 and reflected those changes amongst Game1Lvl1 and 2
 activity and presenter methods.
+
+
+#######
+Step 147 (Parinita)
+Code Affected: Game1Lvl1 and 2 activity and XML
+Changes: Implemented rest of the interface methods in Game1Lvl2 activity. Modified the XML of game 1 lvl2
