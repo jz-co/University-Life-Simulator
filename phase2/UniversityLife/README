@@ -17,7 +17,18 @@ the game when they look at the leaderboard. However, throughout the coding proce
 firebase does not support arrays directly. Therefore, we created a StudentData class to handler the
 data as well.
 
-Game 1:
+Game 1: Math Mania
+The player is required to answer math questions in lightning rounds. Each round lasts 60 seconds and
+the player is required to get a set number of points to pass each level. The difficulty of the levels
+varies as the player progresses through the levels. Level 1 is the introductory math course and the player
+is required to get 5 points to continue to the next game; the range of numbers possible is from 1-10.
+In Level 2, the player is required to get 5 points but the range of numbers is from 1-25. In Level 3,
+the player is required to get 8 points and the range of numbers is from 1-50; although this time there
+is negtive marking for incorrect answers. In the Bonus Level, users can play an easier version of the
+game to gain "giftcards" that can be used to purchase booster items in the BookStore. In this game,
+the booster item is a Calculator, which gives the player a small range in which the answer lies. If
+the player has enough calculators, they can use them in Level2, Level3 and the Bonus Level if they are
+stuck.
 
 Game 2:
 The players are required to catch stuff that are falling from the sky. Each level differs from each
