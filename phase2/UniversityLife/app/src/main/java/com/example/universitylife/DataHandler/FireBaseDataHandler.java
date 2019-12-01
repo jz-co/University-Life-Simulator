@@ -18,6 +18,8 @@ import java.util.ArrayList;
 public class FireBaseDataHandler implements IData {
     private DatabaseReference studentDatabase;
     private String nameOfTable = "students";
+    private ArrayList<StudentData> students = new ArrayList<>();
+    private StudentData studentData;
 
     public FireBaseDataHandler() {
         studentDatabase = FirebaseDatabase.getInstance().getReference(nameOfTable);
@@ -36,8 +38,7 @@ public class FireBaseDataHandler implements IData {
      *
      * @return ArrayList<Student>
      */
-    private ArrayList<StudentData> getStudentsList() {
-        final ArrayList<StudentData> students = new ArrayList<>();
+    private void getStudentsList() {
         studentDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -55,7 +56,6 @@ public class FireBaseDataHandler implements IData {
 
             }
         });
-        return students;
     }
 
 
@@ -73,14 +73,20 @@ public class FireBaseDataHandler implements IData {
      * @param userName the username of the user
      * @return a student with the corresponding username
      */
-    public StudentData getStudentByUserName(final String userName) {
-        ArrayList<StudentData> students = getStudentsList();
-        for (StudentData s : students) {
-            if (s.getUsername().equals(userName)){
-                return s;
-            }
-        }
+    public StudentData getStudentByUserName(String userName) {
+        getStudentsList();
+//        if (students.isEmpty()){
+//            System.out.println("no element");
+//        }
+//        for (StudentData s : students) {
+//            System.out.println(s.getUsername());
+//            if (s.getUsername().equals(userName)){
+//                System.out.println(s.getUsername());
+//                return s;
+//            }
+//        }
         return null;
+    }
     }
 
 

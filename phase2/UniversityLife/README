@@ -10,10 +10,27 @@ on their courses/games. The app result page shows the graduation of the student 
 The leaderboard shows the top 5 ranking student players of this Student Life Simulator.
 
 FireBase
+We are using the real time database in FireBase to store players' datas including their username,
+password, theirs scores at different games and customization details. The reason why we decided to
+use Firebase instead of a local database is to allow players to see how different players perform in
+the game when they look at the leaderboard. However, throughout the coding process, we found out that
+firebase does not support arrays directly. Therefore, we created a StudentData class to handler the
+data as well.
 
 Game 1:
 
 Game 2:
+The players are required to catch stuff that are falling from the sky. Each level differs from each
+other. Level 1 is the easiest level, which students will be catching grades, and there will be no
+points reduction. Level 2 requires user to actions that you should do in university, avoid actions
+that you should not do and catching grades along side. Catching an action that you should not do in
+university will reduce your points. Level 3 has a killing object apart from all other objects mentioned.
+Catching a killing object ends the game immediately. Level 4 contains all obejcts in Level 3, but
+everything falls at a faster speed.
+Players can buy an umbrella in the bookstore to reduce the difficulty of the game. It blocks
+point reduction if you caught an action that you should not do in university. It is only available to
+Level 2 beyond. For each game, the player can only use once for 10 second. Please be noted that the
+umbrella will be gone if you pause and resume the game.
 
 Game 3: Archery Club
 The players are required to hit the targets with the given arrow. Each assignment has a different
