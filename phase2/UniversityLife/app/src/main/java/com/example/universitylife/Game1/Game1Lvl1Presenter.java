@@ -106,7 +106,7 @@ public class Game1Lvl1Presenter extends LevelPresenter implements ILevel1.ILevel
      */
     public void validateLevel2() {
         if (nextLevelUnlocked) {
-            view.goToLevel2();
+            view.goToNextLevel();
         } else {
             view.displayWarning("Sorry, the next level has not been unlocked");
         }

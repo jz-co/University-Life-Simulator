@@ -102,8 +102,8 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
     /**
      * Calls Level 2 Start page
      */
-    public void goToLevel2() {
-        Intent intent = new Intent(this, Game2Lvl1Activity.class);
+    public void goToNextLevel() {
+        Intent intent = new Intent(this, Game1Lvl2Activity.class);
         intent.putExtra("Username", this.username);
         startActivity(intent);
     }

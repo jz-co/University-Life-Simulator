@@ -850,3 +850,9 @@ Step 145 (Parinita)
 Code Affected: Game1Lvl2Presenter, Game1Lvl1Activity, activity_main_lvl1_lvl2, activity_main_lvl1_lvl3
 Changes: Added all methods to Game1Lvl2Presenter, removed override statements in Game1Lvl1Activity and
 added two new xml files for page 2 and 3 of the game.
+
+#######
+Step 146 (Parinita)
+Code Affected: Game1Lvl1 and 2 activity and presenter, ILevel1
+Changes: Modified goToNextLevel in ILevel1 and reflected those changes amongst Game1Lvl1 and 2
+activity and presenter methods.

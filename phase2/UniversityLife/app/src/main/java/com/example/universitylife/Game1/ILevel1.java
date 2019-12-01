@@ -4,7 +4,7 @@ import com.example.universitylife.ILevel;
 
 public interface ILevel1 extends ILevel {
     interface ILevel1View extends ILevelView{
-        void goToLevel2();
+        void goToNextLevel();
 
         void displayCorrectScore(int score);
         void displayIncorrectScore(int score);

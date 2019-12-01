@@ -105,7 +105,7 @@ public class Game1Lvl2Presenter extends LevelPresenter {
      */
     public void validateLevel3() {
         if (nextLevelUnlocked) {
-            view.goToLevel3();
+            view.goToNextLevel();
         } else {
             view.displayWarning("Sorry, the next level has not been unlocked");
         }
