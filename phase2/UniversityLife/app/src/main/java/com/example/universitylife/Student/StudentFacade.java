@@ -14,15 +14,15 @@ public class StudentFacade implements ILeaderboard.ILeaderboardStudent {
         performance = new StudentPerformance();
         bag = new StudentBag();
     }
-
-    // This may not be necessary.
-    StudentFacade(StudentAccount account, StudentPreferences preferences,
-                  StudentPerformance performance, StudentBag bag){
-        this.account = account;
-        this.preferences = preferences;
-        this.performance = performance;
-        this.bag = bag;
-    }
+//
+//    // This may not be necessary.
+//    StudentFacade(StudentAccount account, StudentPreferences preferences,
+//                  StudentPerformance performance, StudentBag bag){
+//        this.account = account;
+//        this.preferences = preferences;
+//        this.performance = performance;
+//        this.bag = bag;
+//    }
 
     //ACCOUNT RELATED:
     public boolean passwordMatches(String password) {
@@ -60,8 +60,13 @@ public class StudentFacade implements ILeaderboard.ILeaderboardStudent {
         return performance.getCredit();
     }
 
+    @Override
     public double getGpa(){
         return performance.getGpa();
+    }
+
+    public double getGameTotal(int game) {
+        return performance.calculateGameTotal(game);
     }
 
     public boolean canGraduate() {

@@ -71,7 +71,7 @@ class StudentPerformance {
      * @param game index of the game (>=1)
      * @return total score for this game
      */
-    private double calculateGameTotal(int game) {
+    double calculateGameTotal(int game) {
         double sum = 0;
         for (double s: scores[game-1]){
             sum += s;
@@ -148,4 +148,6 @@ class StudentPerformance {
     boolean gameIsCompleted(int game) {
         return highestLevelOf(game) >= numberOfLevels - numberOfBonusLevels;
     }
+
+
 }

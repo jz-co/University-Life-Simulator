@@ -928,3 +928,7 @@ Changes: renamed files to reflect Game1
 ILevel1: Added interface methods to ILevel1Presenter
 All Presenters: Implemented the ILevel1Presenter interface
 Bonus gameLevel: levelPass() modified to reflect giftcard earnings
+
+########
+Step 156(Grace)
+Added methods to get the gpa for a course in GameManager.

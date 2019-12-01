@@ -79,4 +79,8 @@ public class GameManager {
     public double getGpa() {
         return currentStudent.getGpa();
     }
+
+    public double getCourseGpa(int course) {
+        return currentStudent.getGameTotal(course);
+    }
 }
