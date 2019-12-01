@@ -37,7 +37,7 @@ public class Game1LevelSelectorActivity extends AppCompatActivity implements ILe
         presenter = new LevelSelectorPresenter(this, GAME_TAG, username);
 
         courseName.setText(GAME_NAME);
-        currGPA.setText(presenter.getCurrGPA());
+        currGPA.setText(presenter.getCurrGPA(1));
 
         configureLevelButtons();
 

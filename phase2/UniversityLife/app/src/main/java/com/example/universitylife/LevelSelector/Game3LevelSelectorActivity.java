@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.universitylife.Game3.Lvl3GameViewActivity1;
 import com.example.universitylife.Game3.Lvl3GameViewActivity2;
 import com.example.universitylife.Game3.Lvl3GameViewActivity3;
+import com.example.universitylife.Game3.Lvl3GameViewActivity4;
 import com.example.universitylife.R;
 
 public class Game3LevelSelectorActivity extends AppCompatActivity implements ILevelSelector.ILevelSelectorView {
@@ -35,7 +36,7 @@ public class Game3LevelSelectorActivity extends AppCompatActivity implements ILe
         presenter = new LevelSelectorPresenter(this, GAME_TAG, username);
 
         courseName.setText(GAME_NAME);
-        currGPA.setText(presenter.getCurrGPA());
+        currGPA.setText(presenter.getCurrGPA(3));
 
         configureLevelButtons();
     }
@@ -113,7 +114,7 @@ public class Game3LevelSelectorActivity extends AppCompatActivity implements ILe
 
     @Override
     public void navigateToBonus() {
-        navigateTo(); // TODO
+        navigateTo(Lvl3GameViewActivity4.class);
     }
 
     private void navigateTo(Class nextActivity) {

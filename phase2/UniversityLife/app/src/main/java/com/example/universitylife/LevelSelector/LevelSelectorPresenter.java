@@ -40,13 +40,17 @@ class LevelSelectorPresenter {
         }
     }
 
-    String getCurrGPA() {
-        // TODO:
-        return
+    String getCurrGPA(int course) {
+        return String.valueOf(gameManager.getCourseGpa(course));
     }
 
     void validateBonus() {
-        // TODO:
+        if (gameManager.getHighestLevel(game) >= 1) {
+            view.navigateToBonus();
+        } else {
+            String LOCKED_WARNING = "Sorry, access denied!";
+            view.displayWarning(LOCKED_WARNING);
+        }
     }
 
 }
