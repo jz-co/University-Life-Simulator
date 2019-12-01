@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Game3.Game3StartActivity"/>
+        <activity android:name=".Game3.Game3ViewActivity1"/>
+        <activity android:name=".Game3.Game3ViewActivity2"/>
+        <activity android:name=".Game3.Game3ViewActivity3"/>
+        <activity android:name=".Game3.Game3ViewActivity4"/>
         <activity android:name=".Bookstore.BookStoreActivity"></activity>
         <activity android:name=".Leaderboard.LeaderboardActivity" />
         <activity android:name=".Result.Game3ResultActivity" />
@@ -28,12 +33,7 @@
         <activity android:name=".Game1.Game1Lvl1Activity" />
         <activity android:name=".CourseSelector.CourseSelectorActivity" />
         <activity android:name=".Customization.CustomizationActivity" />
-        <activity android:name=".Login.MainActivity" />
-        <activity android:name=".Game3.Game3StartActivity"/>
-        <activity android:name=".Game3.Game3ViewActivity1"/>
-        <activity android:name=".Game3.Game3ViewActivity2"/>
-        <activity android:name=".Game3.Game3ViewActivity3"/>
-        <activity android:name=".Game3.Game3ViewActivity4">
+        <activity android:name=".Login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
