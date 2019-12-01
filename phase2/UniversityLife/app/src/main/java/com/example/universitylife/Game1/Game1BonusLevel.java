@@ -6,6 +6,7 @@ public class Game1BonusLevel extends Game1Level3 {
     public Game1BonusLevel(StudentFacade student) {
         super(student);
         setClearingScore(10);
+        setRandomNumberBoundary(5);
     }
 
     @Override
