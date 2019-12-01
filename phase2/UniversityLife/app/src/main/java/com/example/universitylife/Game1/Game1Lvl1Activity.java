@@ -236,7 +236,7 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
      * @param gpa GPA of the player
      */
     @SuppressLint("SetTextI18n")
-    @Override
+    //@Override
     public void displayGPA(double gpa) {
         this.gpaTV.setText("GPA: " + gpa);
     }
@@ -246,7 +246,7 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
      *
      * @param hp HP of the player
      */
-    @Override
+    //@Override
     public void displayHP(double hp) {
         String hpString = "HP: " + hp;
         this.hpTV.setText(hpString);
@@ -258,7 +258,7 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
      * @param credit the credits of the player
      */
     @SuppressLint("SetTextI18n")
-    @Override
+    //@Override
     public void displayCredit(int credit) {
         this.creditTV.setText("credit: " + credit);
 
