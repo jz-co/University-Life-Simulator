@@ -82,9 +82,7 @@ public class Game2LevelSelectorActivity extends AppCompatActivity implements ILe
      */
     @Override
     public void navigateToLevel1() {
-        Intent intent = new Intent(this, Game2Lvl1Activity.class);
-        intent.putExtra("Username", username);
-        startActivity(intent);
+        navigateTo(Game2Lvl1Activity.class);
     }
 
 
@@ -93,9 +91,7 @@ public class Game2LevelSelectorActivity extends AppCompatActivity implements ILe
      */
     @Override
     public void navigateToLevel2() {
-        Intent intent = new Intent(this, Game2Lvl2Activity.class);
-        intent.putExtra("Username", username);
-        startActivity(intent);
+        navigateTo(Game2Lvl2Activity.class);
     }
 
     /**
@@ -103,9 +99,7 @@ public class Game2LevelSelectorActivity extends AppCompatActivity implements ILe
      */
     @Override
     public void navigateToLevel3() {
-        Intent intent = new Intent(this, Game2Lvl3Activity.class);
-        intent.putExtra("Username", username);
-        startActivity(intent);
+        navigateTo(Game2Lvl3Activity.class);
     }
 
     private void navigateTo(Class nextActivity) {
