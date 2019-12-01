@@ -1,5 +1,6 @@
 package com.example.universitylife.Game1;
 
+import com.example.universitylife.IData;
 import com.example.universitylife.LevelPresenter;
 
 public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.ILevel1PresenterCalculator {
@@ -7,8 +8,8 @@ public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.IL
     private Game1BonusLevel gameLevel;
     private long secondsRemaining;
 
-    public Game1BonusLvlPresenter(ILevel1.ILevel1ViewBonusLvl view, String username) {
-        super(username);
+    public Game1BonusLvlPresenter(ILevel1.ILevel1ViewBonusLvl view, String username, IData dataHandler) {
+        super(username, dataHandler);
         this.view = view;
         this.gameLevel = new Game1BonusLevel(gameManager.getCurrentStudent());
     }

@@ -1,5 +1,7 @@
 package com.example.universitylife.Profile;
 
+import com.example.universitylife.DataHandler.DataHandler;
+import com.example.universitylife.IData;
 import com.example.universitylife.Profile.IProfile.*;
 import com.example.universitylife.GameManager;
 import com.example.universitylife.Student.StudentFacade;
@@ -13,10 +15,10 @@ public class ProfilePresenter implements IProfilePresenter {
     /**
      * Constructor for ProfilePresenter.
      */
-    ProfilePresenter(IProfileView view, String username) {
+    ProfilePresenter(IProfileView view, String username, IData dataHandler) {
 
         this.view = view;
-        gameManager = new GameManager(username);
+        gameManager = new GameManager(username, dataHandler);
         student = gameManager.getCurrentStudent();
     }
 

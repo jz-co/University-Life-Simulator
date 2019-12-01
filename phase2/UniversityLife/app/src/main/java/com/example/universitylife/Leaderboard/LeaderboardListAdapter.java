@@ -50,12 +50,12 @@ public class LeaderboardListAdapter extends BaseAdapter {
         TextView textViewRanking = scoreView.findViewById(R.id.ranking);
         TextView textViewUsername = scoreView.findViewById(R.id.username);
         TextView textViewGPA = scoreView.findViewById(R.id.gpa);
-        ImageView userImage = scoreView.findViewById(R.id.user_image);
+        //ImageView userImage = scoreView.findViewById(R.id.user_image);
 
         textViewRanking.setText(String.valueOf(rank));
         textViewUsername.setText(currStudent.getUsername());
         textViewGPA.setText(String.valueOf(currStudent.getGpa()));
-        userImage.setImageResource(context.getIconIdentifier(currStudent.getAppearance()));
+        //userImage.setImageResource(context.getIconIdentifier(currStudent.getAppearance()));
 
         return scoreView;
     }

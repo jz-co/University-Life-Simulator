@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.GameManager;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
@@ -96,7 +97,7 @@ public class Game3ViewActivity2 extends Activity implements SurfaceHolder.Callba
 
         surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
         surfaceHolder = surfaceView.getHolder();
-        this.manager = new GameManager(username);
+        this.manager = new GameManager(username, new DataHandler(this));
 
 
         surfaceHolder.addCallback(this);

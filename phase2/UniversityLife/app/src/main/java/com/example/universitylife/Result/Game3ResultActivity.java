@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.universitylife.CourseSelector.CourseSelectorActivity;
+import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.LevelSelector.Game3LevelSelectorActivity;
 import com.example.universitylife.R;
 
@@ -30,7 +31,7 @@ public class Game3ResultActivity extends AppCompatActivity {
 
         username = (String) getIntent().getSerializableExtra("Username");
 
-        ResultPresenter presenter = new ResultPresenter(GAME_TAG, username);
+        ResultPresenter presenter = new ResultPresenter(GAME_TAG, username, new DataHandler(this));
 
         gradeView.setText(presenter.getFinalGPA());
         levelView.setText(GAME_NAME);

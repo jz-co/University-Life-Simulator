@@ -42,7 +42,7 @@ public class CustomizationActivity extends AppCompatActivity implements ICustomi
         //
         String username = (String) getIntent().getSerializableExtra("Username");
 
-        presenter = new CustomizationPresenter(this, username);
+        presenter = new CustomizationPresenter(this, username, new DataHandler(this));
 
         customName = findViewById(R.id.customNameText);
         characterIconView = findViewById(R.id.characterIconView);

@@ -6,8 +6,8 @@ import com.example.universitylife.Student.StudentFacade;
 public abstract class LevelPresenter {
     protected GameManager gameManager;
 
-    protected LevelPresenter(String username) {
-        this.gameManager = new GameManager(username);
+    protected LevelPresenter(String username, IData dataHandler) {
+        this.gameManager = new GameManager(username, dataHandler);
     }
 
 

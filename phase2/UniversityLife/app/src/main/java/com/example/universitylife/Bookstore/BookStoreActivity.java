@@ -11,6 +11,7 @@ import com.example.universitylife.BonusIcons;
 import com.example.universitylife.Bookstore.BookStoreListAdapter;
 import com.example.universitylife.Bookstore.BookstorePresenter;
 import com.example.universitylife.Bookstore.IBookstore;
+import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.R;
 
 public class BookStoreActivity extends AppCompatActivity implements IBookstore.IBookstoreView {
@@ -31,7 +32,7 @@ public class BookStoreActivity extends AppCompatActivity implements IBookstore.I
         messageView = findViewById(R.id.messageView);
 
         String username = (String) getIntent().getSerializableExtra("Username");
-        presenter = new BookstorePresenter(this, username);
+        presenter = new BookstorePresenter(this, username, new DataHandler(this));
 
         bonusIcons = new BonusIcons(this);
 

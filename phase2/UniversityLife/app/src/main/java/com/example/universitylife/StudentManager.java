@@ -10,13 +10,18 @@ public class StudentManager {
     /**
      * Data handler, used to save and load student data.
      */
-    private FireBaseDataHandler dataHandler;
+    //private FireBaseDataHandler dataHandler;
+
+    private IData dataHandler;
 
 
-    StudentManager() {
-        this.dataHandler = new FireBaseDataHandler();
+//    StudentManager() {
+//        this.dataHandler = new FireBaseDataHandler();
+//    }
+
+    StudentManager(IData dataHandler) {
+        this.dataHandler = dataHandler;
     }
-
     /**
      * Saves data for all students.
      */

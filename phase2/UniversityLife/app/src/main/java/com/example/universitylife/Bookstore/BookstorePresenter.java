@@ -10,9 +10,9 @@ class BookstorePresenter {
     private Bookstore store;
     private GameManager gameManager;
 
-    BookstorePresenter(IBookstore.IBookstoreView view, String username) {
+    BookstorePresenter(IBookstore.IBookstoreView view, String username, IData dataHandler) {
         this.view = view;
-        gameManager = new GameManager(username);
+        gameManager = new GameManager(username, dataHandler);
         store = new Bookstore(gameManager.getCurrentStudent());
     }
 

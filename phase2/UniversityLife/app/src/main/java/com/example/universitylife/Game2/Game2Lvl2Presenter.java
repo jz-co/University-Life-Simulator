@@ -21,10 +21,10 @@ public class Game2Lvl2Presenter extends LevelPresenter implements ILevel2.ILevel
     private boolean nextLevelUnlocked;
     private boolean boughtUmbrella = false;
 
-    public Game2Lvl2Presenter(ILevel2.ILevel2View view, String username) {
-        super(username);
+    public Game2Lvl2Presenter(ILevel2.ILevel2View view, String username, IData dataHandler) {
+        super(username, dataHandler);
         this.view = view;
-        this.gameManager = new GameManager(username);
+        this.gameManager = new GameManager(username, dataHandler);
         if (gameManager.getHighestLevel(2) > 2){
             nextLevelUnlocked = true;
         }

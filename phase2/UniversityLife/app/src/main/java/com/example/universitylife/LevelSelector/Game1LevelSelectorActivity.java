@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.Game1.Game1BonusLevel;
 import com.example.universitylife.Game1.Game1BonusLvlActivity;
 import com.example.universitylife.Game1.Game1Lvl1Activity;
@@ -34,7 +35,7 @@ public class Game1LevelSelectorActivity extends AppCompatActivity implements ILe
         TextView currGPA = findViewById(R.id.courseGPAView);
 
         username = (String) getIntent().getSerializableExtra("Username");
-        presenter = new LevelSelectorPresenter(this, GAME_TAG, username);
+        presenter = new LevelSelectorPresenter(this, GAME_TAG, username, new DataHandler(this));
 
         courseName.setText(GAME_NAME);
         currGPA.setText(presenter.getCurrGPA(1));

@@ -47,7 +47,7 @@ public class Game2Lvl2Activity extends AppCompatActivity implements ILevel2.ILev
         umbrella = findViewById(R.id.umbrella_2);
         whatyoushoulddo = findViewById(R.id.thingsYouShouldDo);
         whatyoushouldnotdo = findViewById(R.id.thingsYouShouldNotDo);
-        this.game2Presenter = new Game2Lvl2Presenter(this, username);
+        this.game2Presenter = new Game2Lvl2Presenter(this, username, new DataHandler(this));
         initiateImageView();
         resultBox = findViewById(R.id.resultBox_2);
         red.setVisibility(INVISIBLE);

@@ -1,15 +1,16 @@
 package com.example.universitylife.Login;
 
 import com.example.universitylife.GameManager;
+import com.example.universitylife.IData;
 
 public class LoginPresenter implements ILogin.ILoginPresenter {
     private ILogin.ILoginView view;
     private GameManager gameManager;
     private LogInManager logInManager;
 
-    LoginPresenter(ILogin.ILoginView view) {
+    LoginPresenter(ILogin.ILoginView view, IData dataHandler) {
         this.view = view;
-        this.gameManager = new GameManager();
+        this.gameManager = new GameManager(dataHandler);
         this.logInManager = new LogInManager(gameManager);
     }
 

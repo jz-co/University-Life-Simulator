@@ -1,6 +1,7 @@
 package com.example.universitylife.Result;
 
 import com.example.universitylife.GameManager;
+import com.example.universitylife.IData;
 
 class ResultPresenter {
 
@@ -8,8 +9,8 @@ class ResultPresenter {
     private String username;
     private GameManager gameManager;
 
-    ResultPresenter(int game, String username) {
-        gameManager = new GameManager(username);
+    ResultPresenter(int game, String username, IData dataHandler) {
+        gameManager = new GameManager(username, dataHandler);
         this.game = game;
     }
 

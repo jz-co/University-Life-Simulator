@@ -7,9 +7,9 @@ public class CourseSelectorPresenter {
     private ICourseSelector.ICourseSelectorView view;
     private GameManager gameManager;
 
-    CourseSelectorPresenter(ICourseSelector.ICourseSelectorView view, String username) {
+    CourseSelectorPresenter(ICourseSelector.ICourseSelectorView view, String username, IData dataHandler) {
         this.view = view;
-        gameManager = new GameManager(username);
+        gameManager = new GameManager(username, dataHandler);
     }
 
     int getPicIndex() {

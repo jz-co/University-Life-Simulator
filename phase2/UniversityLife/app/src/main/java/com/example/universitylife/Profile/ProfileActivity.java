@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.universitylife.Bookstore.BookStoreActivity;
 import com.example.universitylife.CourseSelector.CourseSelectorActivity;
+import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.Leaderboard.LeaderboardActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.CharacterIcons;
@@ -47,7 +48,7 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
         TextView moneyView = findViewById(R.id.moneyView);
         ImageView userIcon = findViewById(R.id.characterIconView);
 
-        presenter = new ProfilePresenter(this, username);
+        presenter = new ProfilePresenter(this, username, new DataHandler(this));
         nameView.setText(presenter.getName());
         gpaView.setText(presenter.getGPA());
         creditsView.setText(presenter.getCredits());

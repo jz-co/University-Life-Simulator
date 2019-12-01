@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
 
@@ -44,7 +45,7 @@ public class Game1Lvl3Activity extends AppCompatActivity implements ILevel1.ILev
         setContentView(R.layout.activity_main_lvl1_lvl3);
 
         this.username = (String) getIntent().getSerializableExtra("Username");
-        this.level3Presenter = new Game1Lvl3Presenter(this, username);
+        this.level3Presenter = new Game1Lvl3Presenter(this, username, new DataHandler(this));
 
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);

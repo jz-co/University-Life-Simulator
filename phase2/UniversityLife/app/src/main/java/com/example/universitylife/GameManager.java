@@ -18,8 +18,8 @@ public class GameManager {
      * This constructor is used before the user logged in.
      *
      */
-    public GameManager() {
-        studentManager = new StudentManager();
+    public GameManager(IData dataHandler) {
+        studentManager = new StudentManager(dataHandler);
     }
 
     /**
@@ -27,8 +27,8 @@ public class GameManager {
      *
      * @param username    the username of the current player.
      */
-    public GameManager(String username) {
-        studentManager = new StudentManager();
+    public GameManager(String username, IData dataHandler) {
+        studentManager = new StudentManager(dataHandler);
         currentStudent = studentManager.getStudentByUsername(username);
     }
 

@@ -995,3 +995,7 @@ to interact with the firebase data handler.
 Step 167 (Grace)
 Code Affected: StudentData, StudentPerformance, IData, DataHandler package
 Change: modified DataHandler to save and load StudentData instead of studentFacade.
+
+########
+Step 168 (Grace)
+ABORT! Firebase is not working. We're switching back to SQL.

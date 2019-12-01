@@ -1,7 +1,9 @@
 package com.example.universitylife.Leaderboard;
 
+import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.DataHandler.RankingHandler;
 import com.example.universitylife.GameManager;
+import com.example.universitylife.IData;
 
 import java.util.List;
 
@@ -9,8 +11,8 @@ class LeaderboardPresenter implements ILeaderboard.ILeaderboardPresenter {
     private GameManager gameManager;
     private List<ILeaderboard.ILeaderboardStudent> leaderBoardList;
 
-    LeaderboardPresenter(String username) {
-        this.gameManager = new GameManager(username);
+    LeaderboardPresenter(String username, IData dataHandler) {
+        this.gameManager = new GameManager(username, dataHandler);
         RankingHandler rankingHandler = new RankingHandler();
         this.leaderBoardList = rankingHandler.getTop5gpaStudent();
 

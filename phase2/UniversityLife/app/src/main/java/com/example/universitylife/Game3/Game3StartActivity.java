@@ -55,7 +55,7 @@ public class Game3StartActivity extends AppCompatActivity implements ILevel3.ILe
 
         username = (String) getIntent().getSerializableExtra("Username");
 
-        presenter = new Game3Presenter(username);
+        presenter = new Game3Presenter(username, new DataHandler(this));
         presenter.initDisplay(this);
     }
 

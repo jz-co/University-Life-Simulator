@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.universitylife.CourseSelector.ICourseSelector.*;
+import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.LevelSelector.Game1LevelSelectorActivity;
 import com.example.universitylife.LevelSelector.Game2LevelSelectorActivity;
 import com.example.universitylife.LevelSelector.Game3LevelSelectorActivity;
@@ -39,7 +40,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
         username = (String) getIntent().getSerializableExtra("Username");
 
         // Create an instance of the CourseSelectorPresenter
-        presenter = new CourseSelectorPresenter(this, username);
+        presenter = new CourseSelectorPresenter(this, username, new DataHandler(this));
 
 
     }

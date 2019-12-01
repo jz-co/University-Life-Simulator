@@ -1,5 +1,6 @@
 package com.example.universitylife.Game1;
 
+import com.example.universitylife.IData;
 import com.example.universitylife.LevelPresenter;
 
 public class Game1Lvl3Presenter extends LevelPresenter implements ILevel1.ILevel1PresenterCalculator {
@@ -8,8 +9,8 @@ public class Game1Lvl3Presenter extends LevelPresenter implements ILevel1.ILevel
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
 
-    public Game1Lvl3Presenter(ILevel1.ILevel1ViewLvl23 view, String username) {
-        super(username);
+    public Game1Lvl3Presenter(ILevel1.ILevel1ViewLvl23 view, String username, IData dataHandler) {
+        super(username, dataHandler);
         this.view = view;
         this.gameLevel = new Game1Level3(gameManager.getCurrentStudent());
         if (gameManager.getHighestLevel(1) > 3) {
