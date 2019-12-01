@@ -107,4 +107,10 @@ public class Game2LevelSelectorActivity extends AppCompatActivity implements ILe
         intent.putExtra("Username", username);
         startActivity(intent);
     }
+
+    private void navigateTo(Class nextActivity) {
+        Intent intent = new Intent(this, nextActivity);
+        intent.putExtra("Username", username);
+        startActivity(intent);
+    }
 }
