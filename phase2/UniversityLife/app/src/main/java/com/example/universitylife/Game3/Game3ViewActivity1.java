@@ -129,6 +129,10 @@ public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callba
     }
 
     public void nextLevel(View view) {
+        if (gameItemManager.getScore() >= 10) {
+            StudentFacade s = manager.getCurrentStudent();
+            s.registerLevelResults(3, 1, gameItemManager.getScore());
+        }
         Intent intent;
         intent = new Intent(this, Game3ViewActivity2.class);
         intent.putExtra("Username", username);
@@ -235,11 +239,6 @@ public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callba
             if (!(item instanceof Arrow)) {
                 gameItemManager.getGameItems().add(1, new Arrow(1, screenWidth, screenHeight));
             }
-        }
-
-        if (gameItemManager.getScore() >= 10) {
-            StudentFacade s = manager.getCurrentStudent();
-            s.registerLevelResults(3, 1, gameItemManager.getScore());
         }
 
         if (gameItemManager.getLives() == 0) {

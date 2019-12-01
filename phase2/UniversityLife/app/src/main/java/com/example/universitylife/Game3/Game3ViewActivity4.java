@@ -239,7 +239,6 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
             s.registerLevelResults(3, 4, gameItemManager.getScore());
         }
 
-
         if (gameItemManager.getLives() == 0) {
             Intent intent = new Intent(context, Game3ResultActivity.class);
             intent.putExtra("Completion", "You have successfully completed level 3");
