@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class BonusItemsBuilder {
-    private ArrayList<BonusItem> masterList;
+    private ArrayList<BonusItem> masterList = new ArrayList<BonusItem>();
 
     void buildBonusItemsList() {
 
