@@ -41,8 +41,8 @@ class LevelSelectorPresenter {
     }
 
     String getCurrGPA() {
-        //TODO: cumulative GPA or..? (GPA for this course ONLY, not all courses)
-        return Double.toString(gameManager.getGpa());
+        // TODO:
+        return
     }
 
     void validateBonus() {

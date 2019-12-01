@@ -18,8 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
 
-public class BonusLvlActivity extends AppCompatActivity implements ILevel1.ILevel1ViewBonusLvl{
-    private BonusLvlPresenter bonusLvlPresenter;
+public class Game1BonusLvlActivity extends AppCompatActivity implements ILevel1.ILevel1ViewBonusLvl{
+    private Game1BonusLvlPresenter game1BonusLvlPresenter;
     private TextView questionTV, correctTV, incorrectTV, scoreTV, resultTV, instructionsTV, hintTV;
     private EditText answerTV;
     private Button start, nextLevel, enter;
@@ -43,7 +43,7 @@ public class BonusLvlActivity extends AppCompatActivity implements ILevel1.ILeve
         setContentView(R.layout.activity_main_lvl1_lvl3);
 
         this.username = (String) getIntent().getSerializableExtra("Username");
-        this.bonusLvlPresenter = new BonusLvlPresenter(this, username);
+        this.game1BonusLvlPresenter = new Game1BonusLvlPresenter(this, username);
 
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);
@@ -72,7 +72,7 @@ public class BonusLvlActivity extends AppCompatActivity implements ILevel1.ILeve
         this.pause.setVisibility(View.INVISIBLE);
         this.hintTV.setVisibility(View.INVISIBLE);
 
-        bonusLvlPresenter.initDisplay(this);
+        game1BonusLvlPresenter.initDisplay(this);
     }
 
     /**
@@ -95,7 +95,7 @@ public class BonusLvlActivity extends AppCompatActivity implements ILevel1.ILeve
         this.enter.setVisibility(View.VISIBLE);
         this.pause.setVisibility(View.VISIBLE);
 
-        this.bonusLvlPresenter.startGame();
+        this.game1BonusLvlPresenter.startGame();
     }
 
     /**
@@ -126,7 +126,7 @@ public class BonusLvlActivity extends AppCompatActivity implements ILevel1.ILeve
      */
     public void pauseOrResumeGame(View view) {
         if (pauseGame) {
-            bonusLvlPresenter.resumeGame();
+            game1BonusLvlPresenter.resumeGame();
         } else {
             countDownTimer.cancel();
         }
@@ -142,13 +142,13 @@ public class BonusLvlActivity extends AppCompatActivity implements ILevel1.ILeve
         countDownTimer = new CountDownTimer(totalTime, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                bonusLvlPresenter.tick(millisUntilFinished);
+                game1BonusLvlPresenter.tick(millisUntilFinished);
                 running = true;
             }
 
             @Override
             public void onFinish() {
-                bonusLvlPresenter.levelComplete();
+                game1BonusLvlPresenter.levelComplete();
                 running = false;
             }
 
@@ -226,7 +226,7 @@ public class BonusLvlActivity extends AppCompatActivity implements ILevel1.ILeve
         if (running) {
             String answerReceived = this.answerTV.getText().toString();
             this.answerTV.getText().clear();
-            bonusLvlPresenter.evaluateAnswer(answerReceived);
+            game1BonusLvlPresenter.evaluateAnswer(answerReceived);
         }
     }
 
@@ -236,7 +236,7 @@ public class BonusLvlActivity extends AppCompatActivity implements ILevel1.ILeve
      * @param view the view that calls this method
      */
     public void availHint(View view) {
-        bonusLvlPresenter.getHint();
+        game1BonusLvlPresenter.getHint();
     }
 
     /**
@@ -261,7 +261,7 @@ public class BonusLvlActivity extends AppCompatActivity implements ILevel1.ILeve
      */
     @SuppressLint("SetTextI18n")
     public void endGame() {
-        this.resultTV.setText("Score:" + Integer.toString(bonusLvlPresenter.getFinalScore()));
+        this.resultTV.setText("Score:" + Integer.toString(game1BonusLvlPresenter.getFinalScore()));
         this.resultTV.setVisibility(View.VISIBLE);
         this.nextLevel.setVisibility(View.VISIBLE);
 

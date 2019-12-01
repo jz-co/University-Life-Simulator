@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Game1.Lvl1Activity">
+    tools:context=".Game1.Game1Lvl1Activity">
 
     <!-- Start Page Views -->
 

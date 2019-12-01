@@ -18,13 +18,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
 
-public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1ViewLvl23 {
-    private Lvl2Presenter level2Presenter;
+public class Game1Lvl3Activity extends AppCompatActivity implements ILevel1.ILevel1ViewLvl23 {
+    private Game1Lvl3Presenter level3Presenter;
 
     private TextView questionTV, correctTV, incorrectTV, scoreTV, resultTV, instructionsTV, hintTV;
     private EditText answerTV;
     private Button start, nextLevel, enter;
     private ImageView pause;
+
     private String username;
     private boolean pauseGame = false;
     private CountDownTimer countDownTimer;
@@ -40,10 +41,10 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         // Set No Title
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        setContentView(R.layout.activity_main_lvl1_lvl2);
+        setContentView(R.layout.activity_main_lvl1_lvl3);
 
         this.username = (String) getIntent().getSerializableExtra("Username");
-        this.level2Presenter = new Lvl2Presenter(this, username);
+        this.level3Presenter = new Game1Lvl3Presenter(this, username);
 
         this.questionTV = findViewById(R.id.question);
         this.correctTV = findViewById(R.id.correct);
@@ -72,7 +73,7 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         this.pause.setVisibility(View.INVISIBLE);
         this.hintTV.setVisibility(View.INVISIBLE);
 
-        level2Presenter.initDisplay(this);
+        level3Presenter.initDisplay(this);
     }
 
     /**
@@ -95,7 +96,7 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         this.enter.setVisibility(View.VISIBLE);
         this.pause.setVisibility(View.VISIBLE);
 
-        this.level2Presenter.startGame();
+        this.level3Presenter.startGame();
     }
 
     /**
@@ -104,14 +105,14 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
      * @param view the view that this method is called from.
      */
     public void onClickNextLevel(View view) {
-        level2Presenter.validateLevel3();
+        level3Presenter.validateBonusLevel();
     }
 
     /**
-     * Calls Level 3 Start page
+     * Calls Bonus Start page
      */
     public void goToNextLevel() {
-        Intent intent = new Intent(this, Lvl3Activity.class);
+        Intent intent = new Intent(this, Game1BonusLvlActivity.class);
         intent.putExtra("Username", this.username);
         startActivity(intent);
     }
@@ -143,7 +144,7 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
      */
     public void pauseOrResumeGame(View view) {
         if (pauseGame) {
-            level2Presenter.resumeGame();
+            level3Presenter.resumeGame();
         } else {
             countDownTimer.cancel();
         }
@@ -159,13 +160,13 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         countDownTimer = new CountDownTimer(totalTime, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                level2Presenter.tick(millisUntilFinished);
+                level3Presenter.tick(millisUntilFinished);
                 running = true;
             }
 
             @Override
             public void onFinish() {
-                level2Presenter.levelComplete();
+                level3Presenter.levelComplete();
                 running = false;
             }
 
@@ -243,7 +244,7 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
         if (running) {
             String answerReceived = this.answerTV.getText().toString();
             this.answerTV.getText().clear();
-            level2Presenter.evaluateAnswer(answerReceived);
+            level3Presenter.evaluateAnswer(answerReceived);
         }
     }
 
@@ -253,7 +254,7 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
      * @param view the view that calls this method
      */
     public void availHint(View view) {
-        level2Presenter.getHint();
+        level3Presenter.getHint();
     }
 
     /**
@@ -278,7 +279,7 @@ public class Lvl2Activity extends AppCompatActivity implements ILevel1.ILevel1Vi
      */
     @SuppressLint("SetTextI18n")
     public void endGame() {
-        this.resultTV.setText("Score:" + Integer.toString(level2Presenter.getFinalScore()));
+        this.resultTV.setText("Score:" + Integer.toString(level3Presenter.getFinalScore()));
         this.resultTV.setVisibility(View.VISIBLE);
         this.nextLevel.setVisibility(View.VISIBLE);
 

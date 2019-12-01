@@ -2,15 +2,19 @@ package com.example.universitylife.Game1;
 
 import com.example.universitylife.LevelPresenter;
 
-public class BonusLvlPresenter extends LevelPresenter {
-    private ILevel1.ILevel1ViewBonusLvl view;
-    private BonusLevel gameLevel;
+public class Game1Lvl3Presenter extends LevelPresenter implements ILevel1.ILevel1Presenter{
+    private ILevel1.ILevel1ViewLvl23 view;
+    private Game1Level3 gameLevel;
     private long secondsRemaining;
+    private boolean nextLevelUnlocked = false;
 
-    public BonusLvlPresenter(ILevel1.ILevel1ViewBonusLvl view, String username){
+    public Game1Lvl3Presenter(ILevel1.ILevel1ViewLvl23 view, String username){
         super(username);
         this.view = view;
-        this.gameLevel = new BonusLevel(gameManager.getCurrentStudent());
+        this.gameLevel = new Game1Level3(gameManager.getCurrentStudent());
+        if (gameManager.getHighestLevel(1) > 3){
+            nextLevelUnlocked = true;
+        }
     }
 
     /**
@@ -20,6 +24,7 @@ public class BonusLvlPresenter extends LevelPresenter {
         this.view.startTimer(60000);
         newQuestion();
     }
+
     /**
      * Resumes the game and timer
      */
@@ -35,11 +40,10 @@ public class BonusLvlPresenter extends LevelPresenter {
     public int getFinalScore() {
         return this.gameLevel.getTotalScore();
     }
-
     /**
      * Asks the view to display the new question
      */
-    private void newQuestion() {
+    public void newQuestion() {
         this.view.displayQuestion(gameLevel.createQuestion());
     }
 
@@ -78,7 +82,7 @@ public class BonusLvlPresenter extends LevelPresenter {
             view.displayWarning("Play again to unlock the next level!");
         } else {
             view.displayWarning("Congratulations, you have cleared this level!");
-            //nextLevelUnlocked = true;
+            nextLevelUnlocked = true;
             gameLevel.levelPass();
         }
         gameManager.saveBeforeExit();
@@ -94,6 +98,18 @@ public class BonusLvlPresenter extends LevelPresenter {
     public void tick(long millisUntilFinished) {
         secondsRemaining = millisUntilFinished / 1000;
         view.setSecondsRemaining(secondsRemaining);
+    }
+
+    //TODO
+    /**
+     * Check if the Bonus Level is unlocked or not. If unlocked, go to Bonus Level. Else, display a warning.
+     */
+    public void validateBonusLevel() {
+        if (nextLevelUnlocked) {
+            view.goToNextLevel();
+        } else {
+            view.displayWarning("Sorry, the bonus level has not been unlocked");
+        }
     }
 
     /**

@@ -87,7 +87,7 @@ public class Game3LevelSelectorActivity extends AppCompatActivity implements ILe
     }
 
     /**
-     * Starts Game3 Level1 Activity
+     * Starts Game3 Game1Level1 Activity
      */
     @Override
     public void navigateToLevel1() {
@@ -96,7 +96,7 @@ public class Game3LevelSelectorActivity extends AppCompatActivity implements ILe
 
 
     /**
-     * Starts Game3 Level2 Activity
+     * Starts Game3 Game1Level2 Activity
      */
     @Override
     public void navigateToLevel2() {
@@ -104,7 +104,7 @@ public class Game3LevelSelectorActivity extends AppCompatActivity implements ILe
     }
 
     /**
-     * Starts Game3 Level3 Activity
+     * Starts Game3 Game1Level3 Activity
      */
     @Override
     public void navigateToLevel3() {

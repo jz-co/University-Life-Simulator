@@ -9,9 +9,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.universitylife.Game1.Lvl1Activity;
-import com.example.universitylife.Game1.Lvl2Activity;
-import com.example.universitylife.Game1.Lvl3Activity;
+import com.example.universitylife.Game1.Game1BonusLevel;
+import com.example.universitylife.Game1.Game1BonusLvlActivity;
+import com.example.universitylife.Game1.Game1Lvl1Activity;
+import com.example.universitylife.Game1.Game1Lvl2Activity;
+import com.example.universitylife.Game1.Game1Lvl3Activity;
 import com.example.universitylife.R;
 
 public class Game1LevelSelectorActivity extends AppCompatActivity implements ILevelSelector.ILevelSelectorView {
@@ -87,33 +89,33 @@ public class Game1LevelSelectorActivity extends AppCompatActivity implements ILe
     }
 
     /**
-     * Starts Game1 Level1 Activity
+     * Starts Game1 Game1Level1 Activity
      */
     @Override
     public void navigateToLevel1() {
-        navigateTo(Lvl1Activity.class);
+        navigateTo(Game1Lvl1Activity.class);
     }
 
 
     /**
-     * Starts Game1 Level2 Activity
+     * Starts Game1 Game1Level2 Activity
      */
     @Override
     public void navigateToLevel2() {
-        navigateTo(Lvl2Activity.class);
+        navigateTo(Game1Lvl2Activity.class);
     }
 
     /**
-     * Starts Game1 Level3 Activity
+     * Starts Game1 Game1Level3 Activity
      */
     @Override
     public void navigateToLevel3() {
-        navigateTo(Lvl3Activity.class);
+        navigateTo(Game1Lvl3Activity.class);
     }
 
     @Override
     public void navigateToBonus() {
-        navigateTo(); // TODO
+        navigateTo(Game1BonusLvlActivity.class);
     }
 
     private void navigateTo(Class nextActivity) {
