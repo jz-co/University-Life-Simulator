@@ -6,19 +6,22 @@ public class Game1Level2 extends Game1Level1 {
     //private boolean hasCalculator;
 
 
-    public Game1Level2(StudentFacade student){
+    public Game1Level2(StudentFacade student) {
         super(student);
         setRandomNumberBoundary(25);
     }
 
     /**
      * Determines if a student has a calculator in their bag
+     *
      * @return a boolean of whether the student has a calculator or not
      */
-    public boolean hasCalculator(){
-        if (getStudent().getItem(1)>0){
+    public boolean hasCalculator() {
+        if (getStudent().getItem(1) > 0) {
             getStudent().useItem(1);
             return true;
-        } else {return false;}
+        } else {
+            return false;
+        }
     }
 }

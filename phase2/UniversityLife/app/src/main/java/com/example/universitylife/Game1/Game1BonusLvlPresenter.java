@@ -2,12 +2,12 @@ package com.example.universitylife.Game1;
 
 import com.example.universitylife.LevelPresenter;
 
-public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.ILevel1PresenterCalculator{
+public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.ILevel1PresenterCalculator {
     private ILevel1.ILevel1ViewBonusLvl view;
     private Game1BonusLevel gameLevel;
     private long secondsRemaining;
 
-    public Game1BonusLvlPresenter(ILevel1.ILevel1ViewBonusLvl view, String username){
+    public Game1BonusLvlPresenter(ILevel1.ILevel1ViewBonusLvl view, String username) {
         super(username);
         this.view = view;
         this.gameLevel = new Game1BonusLevel(gameManager.getCurrentStudent());
@@ -20,6 +20,7 @@ public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.IL
         this.view.startTimer(60000);
         newQuestion();
     }
+
     /**
      * Resumes the game and timer
      */
@@ -99,14 +100,14 @@ public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.IL
     /**
      * Checks if the student has a calculator and if yes, display the hint on the screen.
      */
-    public void getHint(){
+    public void getHint() {
         //need to first check if the student has a calculator.
         if (gameLevel.hasCalculator()) {
             int correctAnswer = gameLevel.getCorrectAnswer();
             int lowerBound = correctAnswer - (int) (Math.random() * 6);
             int upperBound = correctAnswer + (int) (Math.random() * 6);
             view.displayHint(lowerBound, upperBound);
-        } else{
+        } else {
             view.displayWarning("Sorry, you don't have any calculators in your bag");
         }
     }

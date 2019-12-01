@@ -21,7 +21,7 @@ import com.example.universitylife.Result.Game1ResultActivity;
 public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILevel1ViewLvl1 {
 
     private Game1Lvl1Presenter level1Presenter;
-    private TextView questionTV, correctTV, incorrectTV, scoreTV,resultTV;
+    private TextView questionTV, correctTV, incorrectTV, scoreTV, resultTV;
     private EditText answerTV;
     private Button start, nextLevel, enter;
     private ImageView pause;
@@ -253,7 +253,7 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
      *
      * @param score the score of the player.
      */
-    public void displayScore(double score){
+    public void displayScore(double score) {
         this.scoreTV.setText("Score: " + score);
     }
 }

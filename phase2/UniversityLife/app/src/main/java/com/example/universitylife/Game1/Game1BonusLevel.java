@@ -3,7 +3,7 @@ package com.example.universitylife.Game1;
 import com.example.universitylife.Student.StudentFacade;
 
 public class Game1BonusLevel extends Game1Level3 {
-    public Game1BonusLevel(StudentFacade student){
+    public Game1BonusLevel(StudentFacade student) {
         super(student);
         setClearingScore(10);
     }

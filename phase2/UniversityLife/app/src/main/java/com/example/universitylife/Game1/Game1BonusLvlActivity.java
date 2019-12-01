@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
 
-public class Game1BonusLvlActivity extends AppCompatActivity implements ILevel1.ILevel1ViewBonusLvl{
+public class Game1BonusLvlActivity extends AppCompatActivity implements ILevel1.ILevel1ViewBonusLvl {
     private Game1BonusLvlPresenter game1BonusLvlPresenter;
     private TextView questionTV, correctTV, incorrectTV, scoreTV, resultTV, instructionsTV, hintTV;
     private EditText answerTV;

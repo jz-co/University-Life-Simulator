@@ -8,11 +8,11 @@ public class Game1Lvl2Presenter extends LevelPresenter implements ILevel1.ILevel
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
 
-    public Game1Lvl2Presenter(ILevel1.ILevel1ViewLvl23 view, String username){
+    public Game1Lvl2Presenter(ILevel1.ILevel1ViewLvl23 view, String username) {
         super(username);
         this.view = view;
         this.gameLevel = new Game1Level2(gameManager.getCurrentStudent());
-        if (gameManager.getHighestLevel(1) > 2){
+        if (gameManager.getHighestLevel(1) > 2) {
             nextLevelUnlocked = true;
         }
     }
@@ -115,14 +115,14 @@ public class Game1Lvl2Presenter extends LevelPresenter implements ILevel1.ILevel
     /**
      * Checks if the student has a calculator and if yes, display the hint on the screen.
      */
-    public void getHint(){
+    public void getHint() {
         //need to first check if the student has a calculator.
         if (gameLevel.hasCalculator()) {
             int correctAnswer = gameLevel.getCorrectAnswer();
             int lowerBound = correctAnswer - (int) (Math.random() * 6);
             int upperBound = correctAnswer + (int) (Math.random() * 6);
             view.displayHint(lowerBound, upperBound);
-        } else{
+        } else {
             view.displayWarning("Sorry, you don't have any calculators in your bag");
         }
     }

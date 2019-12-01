@@ -2,17 +2,17 @@ package com.example.universitylife.Game1;
 
 import com.example.universitylife.LevelPresenter;
 
-public class Game1Lvl3Presenter extends LevelPresenter implements ILevel1.ILevel1PresenterCalculator{
+public class Game1Lvl3Presenter extends LevelPresenter implements ILevel1.ILevel1PresenterCalculator {
     private ILevel1.ILevel1ViewLvl23 view;
     private Game1Level3 gameLevel;
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
 
-    public Game1Lvl3Presenter(ILevel1.ILevel1ViewLvl23 view, String username){
+    public Game1Lvl3Presenter(ILevel1.ILevel1ViewLvl23 view, String username) {
         super(username);
         this.view = view;
         this.gameLevel = new Game1Level3(gameManager.getCurrentStudent());
-        if (gameManager.getHighestLevel(1) > 3){
+        if (gameManager.getHighestLevel(1) > 3) {
             nextLevelUnlocked = true;
         }
     }
@@ -40,6 +40,7 @@ public class Game1Lvl3Presenter extends LevelPresenter implements ILevel1.ILevel
     public int getFinalScore() {
         return this.gameLevel.getTotalScore();
     }
+
     /**
      * Asks the view to display the new question
      */
@@ -101,6 +102,7 @@ public class Game1Lvl3Presenter extends LevelPresenter implements ILevel1.ILevel
     }
 
     //TODO
+
     /**
      * Check if the Bonus Level is unlocked or not. If unlocked, go to Bonus Level. Else, display a warning.
      */
@@ -115,14 +117,14 @@ public class Game1Lvl3Presenter extends LevelPresenter implements ILevel1.ILevel
     /**
      * Checks if the student has a calculator and if yes, display the hint on the screen.
      */
-    public void getHint(){
+    public void getHint() {
         //need to first check if the student has a calculator.
         if (gameLevel.hasCalculator()) {
             int correctAnswer = gameLevel.getCorrectAnswer();
             int lowerBound = correctAnswer - (int) (Math.random() * 6);
             int upperBound = correctAnswer + (int) (Math.random() * 6);
             view.displayHint(lowerBound, upperBound);
-        } else{
+        } else {
             view.displayWarning("Sorry, you don't have any calculators in your bag");
         }
     }
