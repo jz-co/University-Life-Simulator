@@ -18,6 +18,7 @@ import com.example.universitylife.Game1.Game1Lvl3Activity;
 import com.example.universitylife.Profile.ProfileActivity;
 import com.example.universitylife.Profile.ProfilePresenter;
 import com.example.universitylife.R;
+import com.example.universitylife.Result.Game1ResultActivity;
 
 public class Game1LevelSelectorActivity extends AppCompatActivity implements ILevelSelector.ILevelSelectorView {
 
@@ -43,6 +44,7 @@ public class Game1LevelSelectorActivity extends AppCompatActivity implements ILe
         currGPA.setText(presenter.getCurrGPA(1));
 
         configureLevelButtons();
+        configureCompletionButton();
 
     }
 
@@ -89,6 +91,17 @@ public class Game1LevelSelectorActivity extends AppCompatActivity implements ILe
         });
     }
 
+    private void configureCompletionButton() {
+        Button completionButton = findViewById(R.id.complete_btn);
+
+        completionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.validateCompletion();
+            }
+        });
+    }
+
 
     /**
      * Display "message" as a toast.
@@ -127,6 +140,11 @@ public class Game1LevelSelectorActivity extends AppCompatActivity implements ILe
     @Override
     public void navigateToBonus() {
         navigateTo(Game1BonusLvlActivity.class);
+    }
+
+    @Override
+    public void navigateToEnd() {
+        navigateTo(Game1ResultActivity.class);
     }
 
     private void navigateTo(Class nextActivity) {

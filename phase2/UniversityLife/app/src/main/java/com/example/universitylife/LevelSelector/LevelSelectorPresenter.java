@@ -52,4 +52,11 @@ class LevelSelectorPresenter {
         }
     }
 
+    void validateCompletion() {
+        if (gameManager.getHighestLevel(game) > 3) {
+            view.navigateToEnd();
+        } else {
+            view.displayWarning("You have not completed all levels yet!");
+        }
+    }
 }

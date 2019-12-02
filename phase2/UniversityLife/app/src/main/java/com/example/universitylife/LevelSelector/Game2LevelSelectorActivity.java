@@ -16,6 +16,7 @@ import com.example.universitylife.Game2.Game2Lvl2Activity;
 import com.example.universitylife.Game2.Game2Lvl3Activity;
 import com.example.universitylife.Game2.Game2Lvl4Activity;
 import com.example.universitylife.R;
+import com.example.universitylife.Result.Game2ResultActivity;
 
 public class Game2LevelSelectorActivity extends AppCompatActivity implements ILevelSelector.ILevelSelectorView {
 
@@ -42,6 +43,7 @@ public class Game2LevelSelectorActivity extends AppCompatActivity implements ILe
         currGPA.setText(presenter.getCurrGPA(2));
 
         configureLevelButtons();
+        configureCompletionButton();
     }
 
     private void configureLevelButtons() {
@@ -85,6 +87,8 @@ public class Game2LevelSelectorActivity extends AppCompatActivity implements ILe
                 navigateTo(CourseSelectorActivity.class);
             }
         });
+
+
     }
 
     /**
@@ -124,6 +128,23 @@ public class Game2LevelSelectorActivity extends AppCompatActivity implements ILe
     @Override
     public void navigateToBonus() {
         navigateTo(Game2Lvl4Activity.class);
+    }
+
+
+    private void configureCompletionButton() {
+        Button completionButton = findViewById(R.id.complete_btn);
+
+        completionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.validateCompletion();
+            }
+        });
+    }
+
+    @Override
+    public void navigateToEnd() {
+        navigateTo(Game2ResultActivity.class);
     }
 
     /**
