@@ -232,6 +232,7 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
         if (gameItemManager.getScore() >= 10) {
             StudentFacade s = manager.getCurrentStudent();
             s.registerLevelResults(3, 4, gameItemManager.getScore());
+            manager.saveBeforeExit();
         }
 
         return true;

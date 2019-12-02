@@ -181,10 +181,10 @@
         android:text="Next Level"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.628" />
+        app:layout_constraintVertical_bias="0.576" />
 
     <TextView
         android:id="@+id/resultLvl1"
@@ -213,6 +213,21 @@
         app:layout_constraintHorizontal_bias="0.647"
         app:layout_constraintStart_toEndOf="@+id/incorrect" />
 
+
+    <Button
+        android:id="@+id/mainPage"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/holo_blue_bright"
+        android:onClick="goToMainPage"
+        android:text="Main Page"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.666" />
 
     <!-- <SurfaceView
         android:id="@+id/surfaceView"
