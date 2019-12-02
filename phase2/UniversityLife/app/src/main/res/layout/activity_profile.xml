@@ -196,7 +196,7 @@
 
     <Button
         android:id="@+id/graduateButton"
-        android:layout_width="109"
+        android:layout_width="109dp"
         android:layout_height="54dp"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="58dp"
