@@ -20,10 +20,7 @@ class BookstorePresenter {
         gameManager.saveBeforeExit();
     }
 
-    /**
-     * Validate if the bonus item with bonusIdNum can be purchased by the user or not, and
-     * processed the purchase if possible.
-     */
+
     void validateBonusPurchase(int bonusIdNum) {
         if (store.studentHasGiftcards()) {
             store.buyItem(bonusIdNum);

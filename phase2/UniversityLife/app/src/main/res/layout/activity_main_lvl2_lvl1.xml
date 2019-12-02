@@ -16,14 +16,14 @@
 
         <TextView
             android:id="@+id/score"
-            android:layout_width="152dp"
+            android:layout_width="167dp"
             android:layout_height="60dp"
             android:text="Score:"
             android:textSize="15sp" />
 
         <TextView
             android:id="@+id/secondRemaining"
-            android:layout_width="167dp"
+            android:layout_width="142dp"
             android:layout_height="60dp"
             android:text="Secs Left:"
             android:textSize="13sp" />
@@ -73,6 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:background="#FFFFFF"
             android:orientation="vertical">
 
             <TextView
@@ -82,11 +83,19 @@
                 android:text="Catching Ball Game"
                 android:textAlignment="center"
                 android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Level 1"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
             <TextView
                 android:id="@+id/userName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/highest_score"
@@ -107,7 +116,7 @@
                 android:id="@+id/rules"
                 android:layout_width="match_parent"
                 android:layout_height="85dp"
-                android:text="Rules: \n red ball: + 1 point \n blue ball: + 2 points \n yellow ball: -2 points"
+                android:text="Rules: \n red A: + 4 point \n blue B: + 3 points \n yellow D: + 1 points"
                 android:textAlignment="center"
                 android:textColor="#0C0808"
                 android:textSize="15sp" />

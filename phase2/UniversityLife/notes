@@ -1013,5 +1013,5 @@ Step 171 (Grace)
 Refactored level 1
 
 ########
-Step 172 (Parinita)
-Modified XMLs for Game 1 for better design look
+Step 172 (Grace)
+Refactored leaderboard. Separated RankingHandler from DataHandler (single responsibility)

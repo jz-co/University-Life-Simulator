@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="284dp"
-        android:text=" \n Get 5 points within 60 seconds to pass the level! \n                     Correct answer: + 1 point"
+        android:text="Get 5 questions right within 60 seconds to pass the game!. \n"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -40,7 +40,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="284dp"
         android:text="Click the calculator to receive a hint"
-        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -58,11 +57,11 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/question"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/totalScoreLvl2"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/level2"
@@ -115,7 +114,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.262" />
+        app:layout_constraintVertical_bias="0.29" />
 
     <TextView
         android:id="@+id/correct"
@@ -127,7 +126,7 @@
         android:textColor="@color/colorAccent"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/level2" />
 
@@ -143,7 +142,7 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/countdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.722"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/correct"
         app:layout_constraintVertical_bias="0.086" />
@@ -159,11 +158,11 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/question"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/incorrect"
-        app:layout_constraintVertical_bias="0.174" />
+        app:layout_constraintVertical_bias="0.375" />
 
     <ImageView
         android:id="@+id/pauseLvl2"
@@ -213,26 +212,26 @@
         android:id="@+id/Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="160dp"
         android:layout_marginEnd="53dp"
-        android:layout_marginBottom="144dp"
+        android:layout_marginBottom="125dp"
         android:text="Name:"
         app:layout_constraintBottom_toTopOf="@+id/question"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.634"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/incorrect" />
 
     <Button
         android:id="@+id/calculator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="44dp"
-        android:onClick="availHint"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="36dp"
         android:text="Calculator!"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Name"
 
-        app:layout_constraintTop_toBottomOf="@+id/Name" />
+        android:onClick="availHint"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
