@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.universitylife.DataHandler.DataHandler;
+import com.example.universitylife.LevelSelector.Game1LevelSelectorActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.Result.Game1ResultActivity;
 
@@ -256,5 +257,14 @@ public class Game1Lvl1Activity extends AppCompatActivity implements ILevel1.ILev
      */
     public void displayScore(double score) {
         this.scoreTV.setText("Score: " + score);
+    }
+
+    /**
+     * Calls Level Selector Page for Game 1
+     */
+    public void goToMainPage(View view) {
+        Intent intent = new Intent(this, Game1LevelSelectorActivity.class);
+        intent.putExtra("Username", this.username);
+        startActivity(intent);
     }
 }

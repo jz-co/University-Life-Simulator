@@ -1,5 +1,7 @@
 package com.example.universitylife.Game1;
 
+import android.view.View;
+
 import com.example.universitylife.ILevel;
 
 public interface ILevel1 extends ILevel {
@@ -21,6 +23,8 @@ public interface ILevel1 extends ILevel {
         void displayWarning(String message);
 
         void navigateToResults(String displayMessage, int score);
+
+        void goToMainPage(View view);
     }
 
     interface ILevel1ViewLvl1 extends ILevel1View {
