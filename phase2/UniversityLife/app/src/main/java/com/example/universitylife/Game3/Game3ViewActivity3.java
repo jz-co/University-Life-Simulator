@@ -248,7 +248,7 @@ public class Game3ViewActivity3 extends Activity implements SurfaceHolder.Callba
                 score = 2;
             }
             s.registerLevelResults(3, 3, score);
-
+            manager.saveBeforeExit();
             Button next = (Button) findViewById(R.id.button);
             next.setOnClickListener(new View.OnClickListener() {
                 @Override
