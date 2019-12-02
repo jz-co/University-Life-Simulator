@@ -45,6 +45,9 @@ public class BookStoreActivity extends AppCompatActivity implements IBookstore.I
     }
 
 
+    /**
+     * Displays the list of bonuses that cna be purchased.
+     */
     private void displayBonusList() {
         bonusListView = (ListView) findViewById(R.id.bonus_item_list);
         BookStoreListAdapter adapter = new BookStoreListAdapter(this, presenter.getBonusItemsList());
@@ -52,25 +55,44 @@ public class BookStoreActivity extends AppCompatActivity implements IBookstore.I
         bonusListView.setAdapter(adapter);
     }
 
+    /**
+     * Executes when exit button is clicked.
+     */
     public void onExitClick(View view) {
         presenter.save();
         finish();
     }
 
+    /**
+     * Displays message <message> on screen.
+     * @param message: message to be displayed
+     */
     @Override
     public void displayWarning(String message) {
         messageView.setText(message);
     }
 
+    /**
+     * Displays new giftcard amount on screen.
+     * @param newAmount: new amount to be displayed.
+     */
     @Override
-    public void updateGiftcardDisplay(int newAmount) {
+    public void updateGiftCardDisplay(int newAmount) {
         moneyDisplay.setText(String.valueOf(newAmount));
     }
 
+    /**
+     * Returns this activity's presenter.
+     */
     BookstorePresenter getPresenter() {
         return presenter;
     }
 
+    /**
+     * Returns the unique pic Identifier for an image resource corresponding to the bonus's id.
+     * @param id id number corresponding to the image who's pic identifier is wanted
+     * @return pic identifier number
+     */
     int getPicIdentifier(int id) {
         return bonusIcons.getIconIdentifierByIndex(id);
     }
