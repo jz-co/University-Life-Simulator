@@ -52,12 +52,12 @@ public class Game3ViewActivity3 extends Activity implements SurfaceHolder.Callba
     /**
      * The width of the screen.
      */
-    int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
+    int screenWidth;
 
     /**
      * The height of the screen.
      */
-    int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
+    int screenHeight;
 
     /**
      * GameManager instance.
@@ -74,12 +74,12 @@ public class Game3ViewActivity3 extends Activity implements SurfaceHolder.Callba
      */
     Context context;
 
-    private MainThread thread;
+    private MainThread3 thread;
 
-    private Bitmap wheelImage = BitmapFactory.decodeResource(getResources(), R.drawable.circle);
+    private Bitmap wheelImage;
     private Bitmap arrowImage;
-    private Bitmap bowImage = BitmapFactory.decodeResource(getResources(), R.drawable.bow);
-    private Bitmap background = BitmapFactory.decodeResource(getResources(), R.drawable.game3_background);
+    private Bitmap bowImage;
+    private Bitmap background;
     private boolean isDoubleArrow = false;
 
     /**
@@ -97,23 +97,25 @@ public class Game3ViewActivity3 extends Activity implements SurfaceHolder.Callba
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.game_3_layout);
 
+        this.context = this.getApplicationContext();
+
         surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
         surfaceHolder = surfaceView.getHolder();
-        this.manager = new GameManager(username, new DataHandler(this));
+        this.username = (String) getIntent().getSerializableExtra("Username");
+        this.manager = new GameManager(username, new DataHandler(this.context));
+
+        screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
+        screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
+
+        wheelImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.circle);
+        arrowImage =  BitmapFactory.decodeResource(context.getResources(), R.drawable.arrow);
+        bowImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.bow);
+        background = BitmapFactory.decodeResource(context.getResources(), R.drawable.game3_background);
 
 
         surfaceHolder.addCallback(this);
-        thread = new MainThread(surfaceHolder, this);
+        thread = new MainThread3(surfaceHolder, this);
 
-        this.context = this.getApplicationContext();
-
-        Button back = (Button) findViewById(R.id.button5);
-        back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(context, Game3LevelSelectorActivity.class);
-                startActivity(intent);
-            }
-        });
 
         Button next = (Button) findViewById(R.id.button);
         next.setOnClickListener(new View.OnClickListener() {
@@ -211,12 +213,10 @@ public class Game3ViewActivity3 extends Activity implements SurfaceHolder.Callba
         String score = "High Score: " + (gameItemManager.getScore());
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
-        paint.setTextSize(25);
+        paint.setTextSize(75);
         paint.setFakeBoldText(true);
         canvas.drawText(score, 100, 100, paint);
 
-        String life = "Lives: " + (gameItemManager.getLives());
-        canvas.drawText(life, 100, 200, paint);
 
         String rules = "Hit the target to earn score, else missing the target results in reduction of lives. Here, target changes in size as well as moves diagonally";
         canvas.drawText(rules, screenWidth - 600, 100, paint);
@@ -241,7 +241,7 @@ public class Game3ViewActivity3 extends Activity implements SurfaceHolder.Callba
             }
         }
 
-        if (gameItemManager.getScore() >= 10) {
+        if (gameItemManager.getScore() >= 5) {
             StudentFacade s = manager.getCurrentStudent();
             s.registerLevelResults(3, 3, gameItemManager.getScore());
 
@@ -252,12 +252,6 @@ public class Game3ViewActivity3 extends Activity implements SurfaceHolder.Callba
                     nextLevel(v);
                 }
             });
-
-            if (gameItemManager.getLives() == 0) {
-                Intent intent = new Intent(context, Game3LevelSelectorActivity.class);
-                startActivity(intent);
-
-            }
         }
 
 

@@ -30,7 +30,7 @@
         android:id="@+id/level1Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="250dp"
         android:text="Level 1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,13 +50,14 @@
         android:id="@+id/courseGPAView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.621"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/courseNameView"
-        tools:text="Current Course Grade" />
+        tools:text="CurrGrade" />
 
     <Button
         android:id="@+id/back_btn"
@@ -77,5 +78,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/level3button" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="10dp"
+        android:text="Course Grade:"
+        app:layout_constraintEnd_toStartOf="@+id/courseGPAView"
+        app:layout_constraintTop_toTopOf="@+id/courseGPAView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
