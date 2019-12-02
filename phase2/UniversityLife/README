@@ -9,14 +9,6 @@ courses. The bookstore provides the student players with boosters to help improv
 on their courses/games. The app result page shows the graduation of the student with their final GPA.
 The leaderboard shows the top 5 ranking student players of this Student Life Simulator.
 
-FireBase
-We are using the real time database in FireBase to store players' datas including their username,
-password, theirs scores at different games and customization details. The reason why we decided to
-use Firebase instead of a local database is to allow players to see how different players perform in
-the game when they look at the leaderboard. However, throughout the coding process, we found out that
-firebase does not support arrays directly. Therefore, we created a StudentData class to handler the
-data as well.
-
 Game 1: Math Mania
 The player is required to answer math questions in lightning rounds. Each round lasts 60 seconds and
 the player is required to get a set number of points to pass each level. The difficulty of the levels
