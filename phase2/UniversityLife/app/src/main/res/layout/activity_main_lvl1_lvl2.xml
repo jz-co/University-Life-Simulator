@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="152dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="84dp"
         android:maxLines="1"
         android:onClick="startGame"
         android:text="Start"
@@ -27,7 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="284dp"
-        android:text="Get 5 questions right within 60 seconds to pass the game!. \n"
+        android:text="\n        Get 5 points within 60 seconds to pass the level! \n Incorrect answer: - 1 point           Correct answer: + 1 point\n
+                    Use the calculator if you need hints!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -40,8 +41,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="284dp"
         android:text="Click the calculator to receive a hint"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,11 +59,11 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/question"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/totalScoreLvl2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.122" />
 
     <TextView
         android:id="@+id/level2"
@@ -114,7 +116,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29" />
+        app:layout_constraintVertical_bias="0.246" />
 
     <TextView
         android:id="@+id/correct"
@@ -126,7 +128,7 @@
         android:textColor="@color/colorAccent"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.263"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/level2" />
 
@@ -142,7 +144,7 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/countdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.722"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/correct"
         app:layout_constraintVertical_bias="0.086" />
@@ -158,11 +160,11 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/question"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintHorizontal_bias="0.064"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/incorrect"
-        app:layout_constraintVertical_bias="0.375" />
+        app:layout_constraintVertical_bias="0.164" />
 
     <ImageView
         android:id="@+id/pauseLvl2"
@@ -212,13 +214,12 @@
         android:id="@+id/Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
         android:layout_marginEnd="53dp"
-        android:layout_marginBottom="125dp"
+        android:layout_marginBottom="136dp"
         android:text="Name:"
         app:layout_constraintBottom_toTopOf="@+id/question"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.699"
         app:layout_constraintStart_toEndOf="@+id/incorrect" />
 
     <Button
@@ -227,11 +228,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="36dp"
+        android:onClick="availHint"
         android:text="Calculator!"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Name"
 
-        android:onClick="availHint"/>
+        app:layout_constraintTop_toBottomOf="@+id/Name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
