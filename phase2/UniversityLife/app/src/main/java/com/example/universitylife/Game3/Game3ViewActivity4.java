@@ -200,8 +200,9 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
         String windSpeed = "WindSpeed: " + (arrow.getWindSpeed());
         canvas.drawText(windSpeed, 100, 300, paint);
 
-        String rules = "Hit the target to earn score, else missing the target results in reduction of lives. Here, wind-speed offsets the arrow direction.";
-        canvas.drawText(rules, screenWidth - 600, 100, paint);
+        paint.setTextSize(40);
+        canvas.drawText("Hit the target to earn score, else missing the target", screenWidth - 1000, 200, paint);
+        canvas.drawText("Here, arrow has wind-speed", screenWidth - 1000, 250, paint);
     }
 
     /**
@@ -229,10 +230,13 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
             }
         }
 
-        if (gameItemManager.getScore() >= 10) {
+        if (gameItemManager.getScore() >= 5) {
             StudentFacade s = manager.getCurrentStudent();
             s.registerLevelResults(3, 4, gameItemManager.getScore());
             manager.saveBeforeExit();
+            Intent intent;
+            intent = new Intent(this, Game3LevelSelectorActivity.class);
+            startActivity(intent);
         }
 
         return true;

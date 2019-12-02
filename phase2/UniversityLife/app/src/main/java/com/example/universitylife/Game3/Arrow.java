@@ -18,7 +18,6 @@ public class Arrow extends GameContents implements TouchEvent {
     /**
      * Constructs an arrow.
      *
-     * @param view of game
      * @param width of game grid
      * @param height of game grid
      */
