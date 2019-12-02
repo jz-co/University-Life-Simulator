@@ -14,8 +14,7 @@ class ResultPresenter {
         this.game = game;
     }
 
-    String getFinalGPA() {
-        // TODO: Ensure this returns the final/most recent GPA of this course/game
-        return Double.toString(gameManager.getGpa());
+    String getFinalGPA(int course) {
+        return Double.toString(gameManager.getCourseGpa(course));
     }
 }

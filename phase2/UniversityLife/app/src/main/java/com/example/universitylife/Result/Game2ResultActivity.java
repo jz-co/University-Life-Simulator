@@ -34,7 +34,7 @@ public class Game2ResultActivity extends AppCompatActivity {
 
         ResultPresenter presenter = new ResultPresenter(GAME_TAG, username, new DataHandler(this));
 
-        gradeView.setText(presenter.getFinalGPA());
+        gradeView.setText(presenter.getFinalGPA(2));
         levelView.setText(GAME_NAME);
         configureReturnButton();
         configureReplayButton();
