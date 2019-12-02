@@ -6,15 +6,11 @@ public interface ILeaderboard {
 
     interface ILeaderboardPresenter {
         List<ILeaderboard.ILeaderboardStudent> getLeaderBoardList();
-
     }
 
     interface ILeaderboardStudent {
-
         String getUsername();
-
         double getGpa();
-
         int getAppearance();
     }
 }

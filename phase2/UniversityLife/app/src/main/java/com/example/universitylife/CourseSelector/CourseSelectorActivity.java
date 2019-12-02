@@ -9,7 +9,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.example.universitylife.CourseSelector.ICourseSelector.*;
 import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.LevelSelector.Game1LevelSelectorActivity;
 import com.example.universitylife.LevelSelector.Game2LevelSelectorActivity;
@@ -17,7 +16,7 @@ import com.example.universitylife.LevelSelector.Game3LevelSelectorActivity;
 import com.example.universitylife.R;
 
 
-public class CourseSelectorActivity extends AppCompatActivity implements ICourseSelectorView {
+public class CourseSelectorActivity extends AppCompatActivity {
 
     private CourseSelectorPresenter presenter;
     private String username;
@@ -59,7 +58,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
     }
 
     /**
-     * Navigate to Level 1 activity for user with "username".
+     * Navigate to Course 1 activity for user with "username".
      */
     public void navigateToCourse1(View view) {
         Intent intent = new Intent(this, Game1LevelSelectorActivity.class);
@@ -68,7 +67,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
     }
 
     /**
-     * Navigate to Level 2 activity for user with "username".
+     * Navigate to Course 2 activity for user with "username".
      */
     public void navigateToCourse2(View view) {
         Intent intent = new Intent(this, Game2LevelSelectorActivity.class);
@@ -77,7 +76,7 @@ public class CourseSelectorActivity extends AppCompatActivity implements ICourse
     }
 
     /**
-     * Navigate to Level 3 activity for user with "username".
+     * Navigate to Course 3 activity for user with "username".
      */
     public void navigateToCourse3(View view) {
         Intent intent = new Intent(this, Game3LevelSelectorActivity.class);

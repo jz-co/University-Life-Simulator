@@ -42,20 +42,20 @@ public class LeaderboardListAdapter extends BaseAdapter {
         if (scoreView == null) {
             scoreView = LayoutInflater.from(context).inflate(R.layout.leaderboard_list_row_layout, parent, false);
         }
-
-        // get current item to be displayed
+        
+        // get current student to be displayed in leaderboard
         ILeaderboard.ILeaderboardStudent currStudent = (ILeaderboard.ILeaderboardStudent) getItem(rank);
 
         // get the TextView for the ranking, username and gpa,
         TextView textViewRanking = scoreView.findViewById(R.id.ranking);
         TextView textViewUsername = scoreView.findViewById(R.id.username);
         TextView textViewGPA = scoreView.findViewById(R.id.gpa);
-        //ImageView userImage = scoreView.findViewById(R.id.user_image);
+        ImageView userImage = scoreView.findViewById(R.id.user_image);
 
         textViewRanking.setText(String.valueOf(rank));
         textViewUsername.setText(currStudent.getUsername());
         textViewGPA.setText(String.valueOf(currStudent.getGpa()));
-        //userImage.setImageResource(context.getIconIdentifier(currStudent.getAppearance()));
+        userImage.setImageResource(context.getIconIdentifier(currStudent.getAppearance()));
 
         return scoreView;
     }

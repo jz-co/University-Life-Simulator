@@ -6,6 +6,9 @@ import java.util.List;
 class BonusItemsBuilder {
     private ArrayList<BonusItem> masterList = new ArrayList<>();
 
+    /**
+     * Builds a list of all bonus items included in this game.
+     */
     void buildBonusItemsList() {
 
         masterList.add(buildFirstBonus());
@@ -13,6 +16,9 @@ class BonusItemsBuilder {
         masterList.add(buildThirdBonus());
     }
 
+    /**
+     * Returns a list of all bonus items included in this game.
+     */
     List<BonusItem> getBonusItemsList() {
         return masterList;
     }
