@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * https://www.youtube.com/watch?v=pXn9s-2YsIw
  */
 
-public class DataHandler extends SQLiteOpenHelper implements IData, IRanking {
+public class DataHandler extends SQLiteOpenHelper implements IData {
 
     private static final int DATABASE_VERSION = 5;
     private static final String DATABASE_NAME = "studentData";
@@ -144,25 +144,6 @@ public class DataHandler extends SQLiteOpenHelper implements IData, IRanking {
         values.put(COLUMN_GIFTCARDS, Integer.toString(student.getGiftcards()));
         values.put(COLUMN_ITEMS, student.getItems());
         values.put(COLUMN_GPA, student.getGpa());
-    }
-
-    public ArrayList<StudentData> getTopFive(){
-        int count = 0;
-        ArrayList<StudentData> students = new ArrayList<>();
-        String selectQuery = "SELECT  * FROM " + TABLE_STUDENTS + " ORDER BY " +
-                COLUMN_GPA + " DESC";
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                StudentData student = getThisStudent(cursor);
-                count += 1;
-                students.add(student);
-            } while (cursor.moveToNext());
-        }
-        return new ArrayList(students.subList(0, 4));
     }
 
 }
