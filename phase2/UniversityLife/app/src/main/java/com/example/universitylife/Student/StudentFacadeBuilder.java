@@ -32,18 +32,6 @@ public class StudentFacadeBuilder {
         bag = new StudentBag(giftcards, items);
     }
 
-    /**
-     * Return a student facade for a NEW user.
-     * Precondition: student account has been built.
-     *
-     * @return the student facade
-     */
-    public StudentFacade getNewFacade() {
-        StudentPerformance emptyPerformance = new StudentPerformance();
-        StudentPreferences defaultPreferences = new StudentPreferences();
-        StudentBag emptyBag = new StudentBag();
-        return new StudentFacade(account, defaultPreferences, emptyPerformance, emptyBag);
-    }
 
     /**
      * Return the student facade for an EXISTING user.

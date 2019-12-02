@@ -209,7 +209,8 @@ public class Game3ViewActivity2 extends Activity implements SurfaceHolder.Callba
 
         paint.setTextSize(40);
         canvas.drawText("Hit the target to earn score, else missing the target", screenWidth - 1000, 200, paint);
-        canvas.drawText("Here, target changes rows- CLICK ON NEXT LEVEL after 5 points", screenWidth - 1000, 250, paint);
+        canvas.drawText("Here, target changes rows", screenWidth - 1000, 250, paint);
+        canvas.drawText("CLICK ON NEXT LEVEL after 5 points", screenWidth - 1000, 300, paint);
 
     }
 
