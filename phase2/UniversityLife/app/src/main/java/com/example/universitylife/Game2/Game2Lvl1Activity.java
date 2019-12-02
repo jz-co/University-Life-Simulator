@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.universitylife.DataHandler.DataHandler;
+import com.example.universitylife.LevelSelector.Game2LevelSelectorActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.CharacterIcons;
 
@@ -269,6 +270,12 @@ public class Game2Lvl1Activity extends AppCompatActivity implements ILevel2.ILev
     public void stopTimer() {
         timer.cancel();
         countDownTimer.cancel();
+    }
+
+    public void back(View view){
+        Intent intent = new Intent(this, Game2LevelSelectorActivity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
     }
 
 }

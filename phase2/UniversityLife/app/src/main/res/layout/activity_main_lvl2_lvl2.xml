@@ -159,6 +159,15 @@ will reduce 2 points."
                 android:onClick="proceedNext"
                 android:text="NextLevel" />
 
+            <Button
+                android:id="@+id/back1"
+                android:layout_width="161dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="#FFDD76"
+                android:onClick="back"
+                android:text="Back To Level Selector" />
+
 
         </LinearLayout>
     </FrameLayout>
