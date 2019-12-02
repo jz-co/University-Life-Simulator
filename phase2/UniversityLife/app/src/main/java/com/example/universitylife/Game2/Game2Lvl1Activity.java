@@ -17,7 +17,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.universitylife.DataHandler.DataHandler;
-import com.example.universitylife.Game3.Game3StartActivity;
 import com.example.universitylife.R;
 import com.example.universitylife.CharacterIcons;
 
