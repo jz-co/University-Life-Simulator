@@ -15,7 +15,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
     private int frameWidth = 1000;
     private int frameHeight = 1500;
     private int basketInt = 1455;
-    private int clearingScore = 40;
+    private int clearingScore = 30;
     private boolean nextLevelUnlocked;
     private boolean boughtUmbrella = false;
 
