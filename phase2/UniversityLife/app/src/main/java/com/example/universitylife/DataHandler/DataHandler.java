@@ -21,7 +21,7 @@ public class DataHandler extends SQLiteOpenHelper implements IData, IRanking {
 
     private static final int DATABASE_VERSION = 5;
     private static final String DATABASE_NAME = "studentData";
-    private static final String TABLE_STUDENTS = "students";
+    static final String TABLE_STUDENTS = "students";
 
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";
@@ -33,7 +33,7 @@ public class DataHandler extends SQLiteOpenHelper implements IData, IRanking {
     private static final String COLUMN_HIGHESTLEVELS = "highestLevels";
     private static final String COLUMN_GIFTCARDS = "giftcards";
     private static final String COLUMN_ITEMS = "items";
-    private static final String COLUMN_GPA = "gpa";
+    static final String COLUMN_GPA = "gpa";
 
     public DataHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -106,7 +106,7 @@ public class DataHandler extends SQLiteOpenHelper implements IData, IRanking {
     /**
      * Helper method to build a student from data.
      */
-    private StudentData getThisStudent(Cursor cursor) {
+    StudentData getThisStudent(Cursor cursor) {
         String username = cursor.getString(1);
         String password = cursor.getString(2);
         String appearance = cursor.getString(3);

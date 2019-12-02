@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class Game1Level1 {
+class Game1Level1 {
     StudentFacade student;
     private int numCorrectAnswers, numIncorrectAnswers, totalScore;
     private int clearingScore;
@@ -18,7 +18,7 @@ public class Game1Level1 {
     private int numberBoundary;
 
     //initialize the game
-    public Game1Level1(StudentFacade student) {
+    Game1Level1(StudentFacade student) {
         this.student = student;
         this.numCorrectAnswers = 0;
         this.numIncorrectAnswers = 0;
@@ -32,7 +32,7 @@ public class Game1Level1 {
      * @param num the upper number boundary of the possible range. This value is excluded from the
      *            range.
      */
-    public void setRandomNumberBoundary(int num) {
+    void setRandomNumberBoundary(int num) {
         this.numberBoundary = num;
     }
 
@@ -41,7 +41,7 @@ public class Game1Level1 {
      *
      * @return the student stored in this level.
      */
-    public StudentFacade getStudent() {
+    StudentFacade getStudent() {
         return this.student;
     }
 
@@ -50,7 +50,7 @@ public class Game1Level1 {
      *
      * @return value of the correct answer to the question.
      */
-    public int getCorrectAnswer() {
+    int getCorrectAnswer() {
         return this.correctAnswer;
     }
 
@@ -59,7 +59,7 @@ public class Game1Level1 {
      *
      * @return number of correct answers.
      */
-    public int getNumCorrectAnswers() {
+    int getNumCorrectAnswers() {
         return this.numCorrectAnswers;
     }
 
@@ -68,7 +68,7 @@ public class Game1Level1 {
      *
      * @return number of incorrect answers
      */
-    public int getNumIncorrectAnswers() {
+    int getNumIncorrectAnswers() {
         return this.numIncorrectAnswers;
     }
 
@@ -78,7 +78,7 @@ public class Game1Level1 {
      *
      * @return an int representing the clearing score of the game.
      */
-    public int getClearingScore() {
+    int getClearingScore() {
         return clearingScore;
     }
 
@@ -87,7 +87,7 @@ public class Game1Level1 {
      *
      * @return number of incorrect answers
      */
-    public void setClearingScore(int clearScore) {
+    void setClearingScore(int clearScore) {
         this.clearingScore = clearScore;
     }
 
@@ -96,7 +96,7 @@ public class Game1Level1 {
      *
      * @return total score of the student
      */
-    public int getTotalScore() {
+    int getTotalScore() {
         return this.totalScore;
     }
 
@@ -105,7 +105,7 @@ public class Game1Level1 {
      *
      * @param score the new score to update the instance attribute with.
      */
-    public void updateScore(int score) {
+    void updateScore(int score) {
         this.totalScore = score;
     }
 
@@ -114,7 +114,7 @@ public class Game1Level1 {
      *
      * @return a new question.
      */
-    public String createQuestion() {
+    String createQuestion() {
         int a = (int) (Math.random() * numberBoundary);
         int b = (int) (Math.random() * numberBoundary);
 
@@ -145,7 +145,7 @@ public class Game1Level1 {
      * @param answer the input answer.
      * @return a boolean determining if the answer is correct or not.
      */
-    public boolean evaluateAnswer(int answer) {
+    boolean evaluateAnswer(int answer) {
         if (answer == this.correctAnswer) {
             this.numCorrectAnswers++;
         } else {
@@ -162,7 +162,7 @@ public class Game1Level1 {
      *               1.0 and for Level 3, it is out of 2.0.
      * @return a double representing the total GPA score earned for this level
      */
-    public double calculateLevelGpaScore(int factor) {
+    double calculateLevelGpaScore(int factor) {
         double points;
         if (numCorrectAnswers >= clearingScore) {
             points = factor;

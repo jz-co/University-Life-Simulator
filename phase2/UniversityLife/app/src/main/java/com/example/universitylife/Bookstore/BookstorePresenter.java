@@ -20,10 +20,7 @@ class BookstorePresenter {
         gameManager.saveBeforeExit();
     }
 
-    /**
-     *
-     * @param bonusIdNum
-     */
+
     void validateBonusPurchase(int bonusIdNum) {
         if (store.studentHasGiftcards()) {
             store.buyItem(bonusIdNum);

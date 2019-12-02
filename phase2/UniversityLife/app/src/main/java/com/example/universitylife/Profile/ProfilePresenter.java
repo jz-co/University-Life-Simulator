@@ -44,11 +44,13 @@ public class ProfilePresenter implements IProfilePresenter {
 
     @Override
     public void validateGraduation() {
-        if (student.canGraduate()) {
-            view.navigateToEnd();
-        } else {
-            view.displayErrorMessage("Sorry, you have not earned enough credits!");
-        }
+        //TODO: remove
+//        if (student.canGraduate()) {
+//            view.navigateToEnd();
+//        } else {
+//            view.displayErrorMessage("Sorry, you have not earned enough credits!");
+//        }
+        view.navigateToEnd();
     }
 
     int getPicIndex() {

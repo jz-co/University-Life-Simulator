@@ -3,12 +3,12 @@ package com.example.universitylife.Game1;
 import com.example.universitylife.IData;
 import com.example.universitylife.LevelPresenter;
 
-public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.ILevel1PresenterCalculator {
+class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.ILevel1PresenterCalculator {
     private ILevel1.ILevel1ViewBonusLvl view;
     private Game1BonusLevel gameLevel;
     private long secondsRemaining;
 
-    public Game1BonusLvlPresenter(ILevel1.ILevel1ViewBonusLvl view, String username, IData dataHandler) {
+    Game1BonusLvlPresenter(ILevel1.ILevel1ViewBonusLvl view, String username, IData dataHandler) {
         super(username, dataHandler);
         this.view = view;
         this.gameLevel = new Game1BonusLevel(gameManager.getCurrentStudent());
@@ -17,6 +17,7 @@ public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.IL
     /**
      * Starts the math game
      */
+    @Override
     public void startGame() {
         this.view.startTimer(60000);
         newQuestion();
@@ -25,6 +26,7 @@ public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.IL
     /**
      * Resumes the game and timer
      */
+    @Override
     public void resumeGame() {
         view.startTimer(secondsRemaining * 1000);
     }
@@ -34,6 +36,7 @@ public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.IL
      *
      * @return an integer referring to final score
      */
+    @Override
     public int getFinalScore() {
         return this.gameLevel.getTotalScore();
     }
@@ -41,6 +44,7 @@ public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.IL
     /**
      * Asks the view to display the new question
      */
+    @Override
     public void newQuestion() {
         this.view.displayQuestion(gameLevel.createQuestion());
     }
@@ -74,6 +78,7 @@ public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.IL
      * Checks if the user has successfully completed the level or not. If successful, unlock the
      * next level.
      */
+    @Override
     public void levelComplete() {
         int clearingScore = gameLevel.getClearingScore();
         if (gameLevel.getNumCorrectAnswers() < clearingScore) {
@@ -93,6 +98,7 @@ public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.IL
      *
      * @param millisUntilFinished number of milliseconds left in the game.
      */
+    @Override
     public void tick(long millisUntilFinished) {
         secondsRemaining = millisUntilFinished / 1000;
         view.setSecondsRemaining(secondsRemaining);
@@ -101,6 +107,7 @@ public class Game1BonusLvlPresenter extends LevelPresenter implements ILevel1.IL
     /**
      * Checks if the student has a calculator and if yes, display the hint on the screen.
      */
+    @Override
     public void getHint() {
         //need to first check if the student has a calculator.
         if (gameLevel.hasCalculator()) {

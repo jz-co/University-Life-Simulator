@@ -12,7 +12,7 @@ import com.example.universitylife.R;
 
 import java.util.List;
 
-public class BookStoreListAdapter extends BaseAdapter {
+class BookStoreListAdapter extends BaseAdapter {
     private BookStoreActivity context;
     private List<BonusItem> bonusItemsList;
     private BookstorePresenter presenter;
@@ -51,11 +51,11 @@ public class BookStoreListAdapter extends BaseAdapter {
         final BonusItem currBonus = (BonusItem) getItem(id);
 
         // get the TextView for displaying the bonus name and description
-        TextView bonusTextView = (TextView) view.findViewById(R.id.bonus_text);
+        TextView bonusTextView = view.findViewById(R.id.bonus_text);
 
-        ImageView bonusImageView = (ImageView) view.findViewById(R.id.bonus_image);
+        ImageView bonusImageView = view.findViewById(R.id.bonus_image);
 
-        Button buyButton = (Button) view.findViewById(R.id.buy_btn);
+        Button buyButton = view.findViewById(R.id.buy_btn);
         buyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
