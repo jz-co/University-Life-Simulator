@@ -8,7 +8,7 @@
     android:background="#225083">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="342dp"
+        android:layout_width="318dp"
         android:layout_height="454dp"
         android:layout_marginTop="76dp"
         android:background="#FFFFFF"
@@ -24,7 +24,8 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="52dp"
+            android:fontFamily="sans-serif-light"
             android:text="Select a course to attend ..."
             android:textColor="#225083"
             android:textSize="24sp"
@@ -35,53 +36,91 @@
 
         <Button
             android:id="@+id/levelButton1"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="64dp"
+            android:layout_width="149dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/white_round_button"
             android:onClick="navigateToCourse1"
             android:text="Course 1"
-            android:textColor="#9C27B0"
+            android:textColor="#223D6C"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.29"
+            app:layout_constraintStart_toEndOf="@+id/imageView8"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <Button
             android:id="@+id/levelButton2"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="149dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/white_round_button"
             android:onClick="navigateToCourse2"
             android:text="Course 2"
-            android:textColor="#9C27B0"
+            android:textColor="#223D6C"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.29"
+            app:layout_constraintStart_toEndOf="@+id/imageView9"
             app:layout_constraintTop_toBottomOf="@+id/levelButton1" />
 
         <Button
             android:id="@+id/levelButton3"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="32dp"
+            android:layout_width="149dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/white_round_button"
             android:onClick="navigateToCourse3"
             android:text="Course 3"
-            android:textColor="#9C27B0"
+            android:textColor="#223D6C"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/levelButton2" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="91dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:srcCompat="@drawable/calicon" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="91dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="44dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8"
+            app:srcCompat="@drawable/catchicon" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="91dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9"
+            app:srcCompat="@drawable/archicon" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="106dp"
+        android:layout_height="57dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:background="#225083"
         android:onClick="onBackClick"
         android:text="back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="#225083"
         android:textColor="#FFFFFF"
-        style="?android:attr/borderlessButtonStyle"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
