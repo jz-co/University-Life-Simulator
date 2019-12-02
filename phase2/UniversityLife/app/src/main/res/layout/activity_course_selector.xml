@@ -43,6 +43,7 @@
             android:textColor="#1B3D70"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <Button
@@ -55,6 +56,7 @@
             android:textColor="#1B3D70"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/levelButton1" />
 
         <Button
@@ -67,6 +69,7 @@
             android:textColor="#1B3D70"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/levelButton2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
