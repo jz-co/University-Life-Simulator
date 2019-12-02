@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.universitylife.CharacterIcons;
 import com.example.universitylife.DataHandler.DataHandler;
+import com.example.universitylife.LevelSelector.Game2LevelSelectorActivity;
 import com.example.universitylife.R;
 
 import java.util.Timer;
@@ -305,5 +306,11 @@ public class Game2Lvl2Activity extends AppCompatActivity implements ILevel2.ILev
             displayMessage("You don't have an umbrella");
         }
     }
+    public void back(View view){
+        Intent intent = new Intent(this, Game2LevelSelectorActivity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
+    }
+
 
 }
