@@ -25,6 +25,12 @@ public interface ILevel1 extends ILevel {
         void navigateToResults(String displayMessage, int score);
 
         void goToMainPage(View view);
+
+        void startGame(View view);
+
+        void pauseOrResumeGame(View view);
+
+        void evaluateAnswer(View view);
     }
 
     interface ILevel1ViewLvl1 extends ILevel1View {

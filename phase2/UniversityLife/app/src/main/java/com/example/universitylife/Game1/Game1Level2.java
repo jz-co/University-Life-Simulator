@@ -27,6 +27,6 @@ public class Game1Level2 extends Game1Level1 {
 
     public void levelPass() {
         double points = calculateLevelGpaScore(1);
-        student.registerLevelResults(1, 2, points);
+        getStudent().registerLevelResults(1, 2, points);
     }
 }
