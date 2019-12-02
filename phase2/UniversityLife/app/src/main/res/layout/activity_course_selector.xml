@@ -36,41 +36,75 @@
         <Button
             android:id="@+id/levelButton1"
             android:layout_width="150dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="50dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="44dp"
+            android:background="@drawable/white_round_button"
             android:onClick="navigateToCourse1"
             android:text="@string/game1_name"
             android:textColor="#1B3D70"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <Button
             android:id="@+id/levelButton2"
             android:layout_width="150dp"
-            android:layout_height="65dp"
-            android:layout_marginTop="32dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="44dp"
+            android:background="@drawable/white_round_button"
             android:onClick="navigateToCourse2"
             android:text="@string/game2_name"
             android:textColor="#1B3D70"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/levelButton1" />
 
         <Button
             android:id="@+id/levelButton3"
             android:layout_width="150dp"
-            android:layout_height="65dp"
-            android:layout_marginTop="32dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="44dp"
+            android:background="@drawable/white_round_button"
             android:onClick="navigateToCourse3"
             android:text="@string/game3_name"
             android:textColor="#1B3D70"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/levelButton2" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="82dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="52dp"
+            app:layout_constraintEnd_toStartOf="@+id/levelButton1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:srcCompat="@drawable/calicon" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="83dp"
+            android:layout_height="78dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/levelButton2"
+            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:srcCompat="@drawable/catchicon" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="73dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toStartOf="@+id/levelButton3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:srcCompat="@drawable/archicon" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
