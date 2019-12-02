@@ -5,6 +5,10 @@
     <string name="signup_button">Sign Up</string>
     <string name="password_hint">Password</string>
     <string name="username_hint">Username</string>
+    <string name="game1_name">Math Mania</string>
+    <string name="game2_name">Catching Good Habits</string>
+    <string name="game3_name">Extreme Archery</string>
+
 
 
     <string name="customization_message">Customize Your Character</string>
