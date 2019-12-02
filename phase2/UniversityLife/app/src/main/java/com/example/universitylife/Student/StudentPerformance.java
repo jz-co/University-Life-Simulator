@@ -92,7 +92,7 @@ class StudentPerformance {
             }
             this.gpa = tempGpa / credit;
         }
-        gpa = Math.round(gpa);
+        gpa = Math.round(10 * gpa) / 10;
     }
 
     private void updateCredit() {
