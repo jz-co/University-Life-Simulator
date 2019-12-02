@@ -52,12 +52,12 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
     /**
      * The width of the screen.
      */
-    int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
+    int screenWidth;
 
     /**
      * The height of the screen.
      */
-    int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
+    int screenHeight;
 
     /**
      * GameManager instance.
@@ -74,12 +74,12 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
      */
     Context context;
 
-    private MainThread thread;
+    private MainThread4 thread;
 
-    private Bitmap wheelImage = BitmapFactory.decodeResource(getResources(), R.drawable.circle);
+    private Bitmap wheelImage;
     private Bitmap arrowImage;
-    private Bitmap bowImage = BitmapFactory.decodeResource(getResources(), R.drawable.bow);
-    private Bitmap background = BitmapFactory.decodeResource(getResources(), R.drawable.game3_background);
+    private Bitmap bowImage;
+    private Bitmap background;
     private boolean isDoubleArrow = false;
 
     /**
@@ -97,23 +97,24 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.game_3_layout);
 
-        surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
-        surfaceHolder = surfaceView.getHolder();
-        this.manager = new GameManager(username, new DataHandler(this));
-
-
-        surfaceHolder.addCallback(this);
-        thread = new MainThread(surfaceHolder, this);
-
         this.context = this.getApplicationContext();
 
-        Button back = (Button) findViewById(R.id.button5);
-        back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(context, Game3LevelSelectorActivity.class);
-                startActivity(intent);
-            }
-        });
+        surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
+        surfaceHolder = surfaceView.getHolder();
+        this.username = (String) getIntent().getSerializableExtra("Username");
+        this.manager = new GameManager(username, new DataHandler(this.context));
+
+        screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
+        screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
+
+        wheelImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.circle);
+        arrowImage =  BitmapFactory.decodeResource(context.getResources(), R.drawable.arrow);
+        bowImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.bow);
+        background = BitmapFactory.decodeResource(context.getResources(), R.drawable.game3_background);
+
+        surfaceHolder.addCallback(this);
+        thread = new MainThread4(surfaceHolder, this);
+
         Button next = (Button) findViewById(R.id.button);
         next.setVisibility(View.INVISIBLE);
 
@@ -191,12 +192,9 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
         String score = "High Score: " + (gameItemManager.getScore());
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
-        paint.setTextSize(25);
+        paint.setTextSize(75);
         paint.setFakeBoldText(true);
         canvas.drawText(score, 100, 100, paint);
-
-        String life = "Lives: " + (gameItemManager.getLives());
-        canvas.drawText(life, 100, 200, paint);
 
         GameContents arrow = gameItemManager.getGameItems().get(0);
         String windSpeed = "WindSpeed: " + (arrow.getWindSpeed());
@@ -234,12 +232,6 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
         if (gameItemManager.getScore() >= 10) {
             StudentFacade s = manager.getCurrentStudent();
             s.registerLevelResults(3, 4, gameItemManager.getScore());
-
-            if (gameItemManager.getLives() == 0) {
-                Intent intent = new Intent(context, Game3LevelSelectorActivity.class);
-                startActivity(intent);
-
-            }
         }
 
         return true;
