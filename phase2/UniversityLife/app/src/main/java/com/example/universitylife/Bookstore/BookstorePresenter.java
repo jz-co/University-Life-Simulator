@@ -21,8 +21,8 @@ class BookstorePresenter {
     }
 
     /**
-     *
-     * @param bonusIdNum
+     * Validate if the bonus item with bonusIdNum can be purchased by the user or not, and
+     * processed the purchase if possible.
      */
     void validateBonusPurchase(int bonusIdNum) {
         if (store.studentHasGiftcards()) {
