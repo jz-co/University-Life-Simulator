@@ -274,7 +274,7 @@ public class Game1BonusLvlActivity extends AppCompatActivity implements ILevel1.
     }
 
     /**
-     * Calls Level 2 Start page
+     * Calls Level Selector Page for Game 1
      */
     public void goToMainPage(View view) {
         Intent intent = new Intent(this, Game1LevelSelectorActivity.class);
