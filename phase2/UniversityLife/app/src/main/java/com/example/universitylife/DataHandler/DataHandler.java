@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * https://www.youtube.com/watch?v=pXn9s-2YsIw
  */
 
-public class DataHandler extends SQLiteOpenHelper implements IData {
+public class DataHandler extends SQLiteOpenHelper implements IData, IRanking {
 
     private static final int DATABASE_VERSION = 5;
     private static final String DATABASE_NAME = "studentData";

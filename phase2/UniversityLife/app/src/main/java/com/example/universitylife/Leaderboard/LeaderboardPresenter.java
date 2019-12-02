@@ -4,18 +4,21 @@ import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.DataHandler.RankingHandler;
 import com.example.universitylife.GameManager;
 import com.example.universitylife.IData;
+import com.example.universitylife.Student.StudentData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 class LeaderboardPresenter implements ILeaderboard.ILeaderboardPresenter {
     private GameManager gameManager;
-    private List<ILeaderboard.ILeaderboardStudent> leaderBoardList;
+    private List<ILeaderboard.ILeaderboardStudent> leaderBoardList = new ArrayList<>();
 
-    LeaderboardPresenter(String username, IData dataHandler) {
+    LeaderboardPresenter(String username, DataHandler dataHandler) {
         this.gameManager = new GameManager(username, dataHandler);
-        RankingHandler rankingHandler = new RankingHandler();
-        this.leaderBoardList = rankingHandler.getTop5gpaStudent();
-
+        List<StudentData> temp = dataHandler.getTopFive();
+        for (StudentData d : temp) {
+            leaderBoardList.add(d.dataToStudent());
+        }
 
 //        leaderboardList = leaderboard.getTop5();
 //        displayRankingInfo();
