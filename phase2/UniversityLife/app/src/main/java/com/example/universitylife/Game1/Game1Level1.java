@@ -168,6 +168,9 @@ public class Game1Level1 {
             points = factor;
         } else {
             points = (numCorrectAnswers / clearingScore) * factor;
+            if (points > 1) {
+                points = 1;
+            }
         }
         return points;
     }
