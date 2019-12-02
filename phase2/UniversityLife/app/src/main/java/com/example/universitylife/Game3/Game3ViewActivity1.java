@@ -207,8 +207,9 @@ public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callba
         paint.setFakeBoldText(true);
         canvas.drawText(score, 100, 100, paint);
 
-        String rules = "Hit the target to earn score, else missing the target results in reduction of lives. Here, target changes position";
-        canvas.drawText(rules, screenWidth - 600, 250, paint);
+        paint.setTextSize(40);
+        canvas.drawText("Hit the target to earn score, else missing the target", screenWidth - 1000, 200, paint);
+        canvas.drawText("Here, target changes position", screenWidth - 1000, 250, paint);
 
     }
 
