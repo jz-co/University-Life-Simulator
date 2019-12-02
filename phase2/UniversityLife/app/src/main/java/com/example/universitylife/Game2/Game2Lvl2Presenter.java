@@ -17,7 +17,7 @@ public class Game2Lvl2Presenter extends LevelPresenter implements ILevel2.ILevel
     private int frameWidth = 1000;
     private int frameHeight = 1500;
     private int basketInt = 1455;
-    private int clearingScore = 40;
+    private int clearingScore = 30;
     private boolean nextLevelUnlocked;
     private boolean boughtUmbrella = false;
 
@@ -39,7 +39,7 @@ public class Game2Lvl2Presenter extends LevelPresenter implements ILevel2.ILevel
         fallingObjects.add(blueObject);
         fallingObjects.add(yellowObject);
         fallingObjects.add(whatYouShouldDo);
-        fallingObjects.add(whatYouShouldDo);
+        fallingObjects.add(whatYouShouldNotdo);
         Basket basket = new Basket(R.id.character_2, 0, basketInt);
         StudentFacade student = this.gameManager.getCurrentStudent();
         boughtUmbrella = student.getItem(2) > 0;

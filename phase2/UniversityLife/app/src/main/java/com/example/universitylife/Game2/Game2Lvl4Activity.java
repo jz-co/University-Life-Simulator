@@ -41,7 +41,7 @@ public class Game2Lvl4Activity extends AppCompatActivity implements ILevel2.ILev
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_lvl2_lvl4);
-        username = (String) getIntent().getSerializableExtra("UserName");
+        username = (String) getIntent().getSerializableExtra("Username");
         red = findViewById(R.id.red_4);
         blue = findViewById(R.id.blue_4);
         yellow = findViewById(R.id.yellow_4);
@@ -50,6 +50,7 @@ public class Game2Lvl4Activity extends AppCompatActivity implements ILevel2.ILev
         umbrella = findViewById(R.id.umbrella_4);
         killingObject = findViewById(R.id.killingObject_2);
         this.game2Presenter = new Game2Lvl4Presenter(this, username, new DataHandler(this));
+        characterIcons = new CharacterIcons(this);
         initiateImageView();
         resultBox = findViewById(R.id.resultBox_4);
         red.setVisibility(INVISIBLE);
@@ -60,6 +61,7 @@ public class Game2Lvl4Activity extends AppCompatActivity implements ILevel2.ILev
         killingObject.setVisibility(INVISIBLE);
         game2Presenter.initDisplay(this);
         this.handler = new Handler();
+
     }
 
     private void initiateImageView() {
@@ -70,7 +72,8 @@ public class Game2Lvl4Activity extends AppCompatActivity implements ILevel2.ILev
         whatyoushoulddo.setImageResource(game2Presenter.getWhatYouShouldDoAppearance());
         killingObject.setImageResource(game2Presenter.getKillingAppearance());
         ImageView basket = findViewById(R.id.character_4);
-        basket.setImageResource(game2Presenter.getBasketAppearence());
+        int id = characterIcons.getIconByIndex(game2Presenter.getBasketAppearence());
+        basket.setImageResource(id);
     }
 
     @Override
@@ -256,7 +259,7 @@ public class Game2Lvl4Activity extends AppCompatActivity implements ILevel2.ILev
                     public void onFinish() {
                         timer.cancel();
                         timer = null;
-                        quitGame();
+                        game2Presenter.quitGame();
                     }
 
                 }.start();

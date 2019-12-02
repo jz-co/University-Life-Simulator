@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.universitylife.IData;
 import com.example.universitylife.Student.StudentData;
 
+import java.util.ArrayList;
+
 /**
  * inspired by
  * Android SQLite - Very basic SQLite Contact App
@@ -143,6 +145,25 @@ public class DataHandler extends SQLiteOpenHelper implements IData {
         values.put(COLUMN_GIFTCARDS, Integer.toString(student.getGiftcards()));
         values.put(COLUMN_ITEMS, student.getItems());
         values.put(COLUMN_GPA, student.getGpa());
+    }
+
+    public ArrayList<StudentData> getTopFive(){
+        int count = 0;
+        ArrayList<StudentData> students = new ArrayList<>();
+        String selectQuery = "SELECT  * FROM " + TABLE_STUDENTS + " ORDER BY " +
+                COLUMN_GPA + " DESC";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                StudentData student = getThisStudent(cursor);
+                count += 1;
+                students.add(student);
+            } while (cursor.moveToNext());
+        }
+        return new ArrayList(students.subList(0, 4));
     }
 
 }

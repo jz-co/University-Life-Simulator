@@ -1,5 +1,6 @@
 package com.example.universitylife.DataHandler;
 
+import android.content.Context;
 import android.renderscript.Sampler;
 import android.service.notification.NotificationListenerService;
 
@@ -17,43 +18,14 @@ import java.util.ArrayList;
 
 public class RankingHandler {
 
-    private FireBaseDataHandler fireBaseDataHandler;
-    private ArrayList<ILeaderboard.ILeaderboardStudent> topFive = new ArrayList<>();
+    private DataHandler dataHandler;
 
-    public RankingHandler() {
-        this.fireBaseDataHandler = new FireBaseDataHandler();
+    public RankingHandler(Context context){
+        this.dataHandler = new DataHandler(context);
     }
+//
+//    public ArrayList<StudentData> getTopFive(){
+//        String query = "Select * FROM " + TABLE_STUDENTS + " WHERE " + COLUMN_USERNAME + " = " + "userName";
+//    }
 
-    /** get top five gpa
-     *
-     * @return ArrayList<Student> student
-     */
-    public ArrayList<ILeaderboard.ILeaderboardStudent> getTop5gpaStudent() {
-        Query query = FirebaseDatabase.getInstance().getReference().child(fireBaseDataHandler.getNameOfTable()).orderByChild("gpa").limitToLast(5);
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
-                    StudentData student = postSnapshot.getValue(StudentData.class);
-                    topFive.add(student.dataToStudent());
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        return reverseTopFive();
-    }
-
-    private ArrayList<ILeaderboard.ILeaderboardStudent> reverseTopFive() {
-        ArrayList<ILeaderboard.ILeaderboardStudent> reversedList = new ArrayList<>();
-        for (int i = topFive.size() - 1 ; i >= 0; i--){
-            reversedList.add(topFive.get(i));
-        }
-        return reversedList;
-    }
 }

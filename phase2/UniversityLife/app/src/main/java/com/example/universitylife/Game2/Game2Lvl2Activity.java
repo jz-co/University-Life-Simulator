@@ -40,7 +40,7 @@ public class Game2Lvl2Activity extends AppCompatActivity implements ILevel2.ILev
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_lvl2_lvl2);
-        username = (String) getIntent().getSerializableExtra("UserName");
+        username = (String) getIntent().getSerializableExtra("Username");
         red = findViewById(R.id.red_2);
         blue = findViewById(R.id.blue_2);
         yellow = findViewById(R.id.yellow_2);
@@ -48,6 +48,7 @@ public class Game2Lvl2Activity extends AppCompatActivity implements ILevel2.ILev
         whatyoushoulddo = findViewById(R.id.thingsYouShouldDo);
         whatyoushouldnotdo = findViewById(R.id.thingsYouShouldNotDo);
         this.game2Presenter = new Game2Lvl2Presenter(this, username, new DataHandler(this));
+        characterIcons = new CharacterIcons(this);
         initiateImageView();
         resultBox = findViewById(R.id.resultBox_2);
         red.setVisibility(INVISIBLE);
@@ -66,7 +67,8 @@ public class Game2Lvl2Activity extends AppCompatActivity implements ILevel2.ILev
         whatyoushouldnotdo.setImageResource(game2Presenter.getWhatYouShouldNotDoAppearance());
         whatyoushoulddo.setImageResource(game2Presenter.getWhatYouShouldDoAppearance());
         ImageView basket = findViewById(R.id.character_2);
-        basket.setImageResource(game2Presenter.getBasketAppearence());
+        int id = characterIcons.getIconByIndex(game2Presenter.getBasketAppearence());
+        basket.setImageResource(id);
     }
 
     @Override
@@ -192,6 +194,8 @@ public class Game2Lvl2Activity extends AppCompatActivity implements ILevel2.ILev
                     @Override
                     public void run() {
                         game2Presenter.play();
+                        whatyoushoulddo.setImageResource(game2Presenter.getWhatYouShouldDoAppearance());
+                        whatyoushouldnotdo.setImageResource(game2Presenter.getWhatYouShouldNotDoAppearance());
                     }
                 });
             }
@@ -231,6 +235,8 @@ public class Game2Lvl2Activity extends AppCompatActivity implements ILevel2.ILev
                             @Override
                             public void run() {
                                 game2Presenter.play();
+                                whatyoushoulddo.setImageResource(game2Presenter.getWhatYouShouldDoAppearance());
+                                whatyoushouldnotdo.setImageResource(game2Presenter.getWhatYouShouldNotDoAppearance());
                             }
                         });
                     }
@@ -247,7 +253,7 @@ public class Game2Lvl2Activity extends AppCompatActivity implements ILevel2.ILev
                     public void onFinish() {
                         timer.cancel();
                         timer = null;
-                        quitGame();
+                        game2Presenter.quitGame();
                     }
 
                 }.start();

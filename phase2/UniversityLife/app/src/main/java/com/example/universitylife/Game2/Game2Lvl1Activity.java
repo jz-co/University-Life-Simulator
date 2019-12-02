@@ -81,7 +81,6 @@ public class Game2Lvl1Activity extends AppCompatActivity implements ILevel2.ILev
 
     @Override
     public void goToNextLevel() {
-        // proceed to the next level in game 2
         Intent intent = new Intent(this, Game2Lvl2Activity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
@@ -240,7 +239,7 @@ public class Game2Lvl1Activity extends AppCompatActivity implements ILevel2.ILev
                     public void onFinish() {
                         timer.cancel();
                         timer = null;
-                        quitGame();
+                        game2Presenter.quitGame();
                     }
 
                 }.start();
