@@ -5,81 +5,146 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Profile.ProfileActivity"
-    android:background="@drawable/gradient2">
+    android:background="#FFFFFF">
+
 
     <ImageView
         android:id="@+id/characterIconView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="300dp"
+        android:layout_width="155dp"
+        android:layout_height="143dp"
+        android:layout_marginTop="48dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars[14]" />
 
-    <TextView
-        android:id="@+id/nameView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Name"
-        android:textSize="24sp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="318dp"
+        android:layout_height="300dp"
+        android:background="#225083"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/characterIconView" />
+        app:layout_constraintTop_toBottomOf="@+id/characterIconView"
+        app:layout_constraintVertical_bias="0.099">
 
-    <TextView
-        android:id="@+id/gpaView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:background="@android:drawable/editbox_background"
-        android:backgroundTint="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="GPA" />
+        <TextView
+            android:id="@+id/nameView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Name"
+            android:textColor="#FCFCFC"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/gpaView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="96dp"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameView"
+            tools:text="GPA" />
+
+        <TextView
+            android:id="@+id/creditsView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:backgroundTint="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.649"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gpaView"
+            tools:text="Credits" />
+
+        <TextView
+            android:id="@+id/moneyView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@android:drawable/editbox_background_normal"
+            android:backgroundTint="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.654"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/creditsView"
+            tools:text="Money" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="36dp"
+            android:fontFamily="sans-serif-light"
+            android:text="GPA:"
+            android:textColor="#FCFCFC"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/gpaView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameView" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Credits:"
+            android:textColor="#FCFCFC"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/creditsView"
+            app:layout_constraintTop_toTopOf="@+id/creditsView" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Giftcards:"
+            android:textColor="#FCFCFC"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/moneyView"
+            app:layout_constraintTop_toTopOf="@+id/moneyView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <Button
         android:id="@+id/customizeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="297dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="124dp"
         android:onClick="onClickCustomize"
         android:text="Customize"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/creditsView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@android:drawable/editbox_background_normal"
-        android:backgroundTint="#FFFFFF"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gpaView"
-        tools:text="Credits" />
-
-    <TextView
-        android:id="@+id/moneyView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@android:drawable/editbox_background_normal"
-        android:backgroundTint="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/creditsView"
-        tools:text="Money" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.562" />
 
     <Button
         android:id="@+id/logOutButton"
@@ -135,37 +200,5 @@
         app:layout_constraintEnd_toStartOf="@+id/logOutButton"
         app:layout_constraintStart_toEndOf="@+id/customizeButton" />
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="GPA:"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/gpaView"
-        app:layout_constraintTop_toTopOf="@+id/gpaView" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="Credits:"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/creditsView"
-        app:layout_constraintTop_toTopOf="@+id/creditsView" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="Giftcards:"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/moneyView"
-        app:layout_constraintTop_toTopOf="@+id/moneyView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
