@@ -64,8 +64,6 @@ public class BookStoreListAdapter extends BaseAdapter {
         });
 
         // Set the display on text views and image view
-
-
         String text = currBonus.getName() + ": " + currBonus.getDescription();
         bonusTextView.setText(text);
 

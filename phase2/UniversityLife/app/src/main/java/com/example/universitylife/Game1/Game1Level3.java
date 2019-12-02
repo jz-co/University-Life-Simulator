@@ -17,4 +17,9 @@ public class Game1Level3 extends Game1Level2 {
     public int calculateScore() {
         return getNumCorrectAnswers() - getNumIncorrectAnswers();
     }
+
+    public void levelPass() {
+        double points = calculateLevelGpaScore(2);
+        student.registerLevelResults(1, 3, points);
+    }
 }

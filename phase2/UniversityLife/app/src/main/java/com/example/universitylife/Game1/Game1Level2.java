@@ -24,4 +24,9 @@ public class Game1Level2 extends Game1Level1 {
             return false;
         }
     }
+
+    public void levelPass() {
+        double points = calculateLevelGpaScore(1);
+        student.registerLevelResults(1, 2, points);
+    }
 }

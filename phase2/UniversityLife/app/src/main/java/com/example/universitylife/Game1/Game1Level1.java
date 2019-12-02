@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public class Game1Level1 {
-    private StudentFacade student;
+    StudentFacade student;
     private int numCorrectAnswers, numIncorrectAnswers, totalScore;
     private int clearingScore;
 
@@ -181,9 +181,6 @@ public class Game1Level1 {
     public void levelPass() {
         double points = calculateLevelGpaScore(1);
         student.registerLevelResults(1, 1, points);
-        //if (student.getCurrentLevel() <= 1) {
-        //    student.incrementLevel();
-        //}
     }
 
 }
