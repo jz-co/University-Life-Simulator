@@ -52,18 +52,6 @@ class StudentPerformance {
         }
     }
 
-//    /**
-//     * Register the results of a bonus level.
-//     *
-//     * @param game  index of the game
-//     * @param level index of the level
-//     */
-//    void registerLevelResults(int game, int level) {
-//        if (highestLevelOf(game) <= level) {
-//            unlockNextLevel(game);
-//        }
-//    }
-
 
     /**
      * Calculate the total score for a game.
