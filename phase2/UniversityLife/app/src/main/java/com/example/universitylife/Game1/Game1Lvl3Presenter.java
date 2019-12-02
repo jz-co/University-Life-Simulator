@@ -3,13 +3,13 @@ package com.example.universitylife.Game1;
 import com.example.universitylife.IData;
 import com.example.universitylife.LevelPresenter;
 
-public class Game1Lvl3Presenter extends LevelPresenter implements ILevel1.ILevel1PresenterCalculator {
+class Game1Lvl3Presenter extends LevelPresenter implements ILevel1.ILevel1PresenterCalculator {
     private ILevel1.ILevel1ViewLvl23 view;
     private Game1Level3 gameLevel;
     private long secondsRemaining;
     private boolean nextLevelUnlocked = false;
 
-    public Game1Lvl3Presenter(ILevel1.ILevel1ViewLvl23 view, String username, IData dataHandler) {
+    Game1Lvl3Presenter(ILevel1.ILevel1ViewLvl23 view, String username, IData dataHandler) {
         super(username, dataHandler);
         this.view = view;
         this.gameLevel = new Game1Level3(gameManager.getCurrentStudent());
@@ -102,17 +102,12 @@ public class Game1Lvl3Presenter extends LevelPresenter implements ILevel1.ILevel
         view.setSecondsRemaining(secondsRemaining);
     }
 
-    //TODO
 
     /**
      * Check if the Bonus Level is unlocked or not. If unlocked, go to Bonus Level. Else, display a warning.
      */
-    public void validateBonusLevel() {
-        if (nextLevelUnlocked) {
+    void validateBonusLevel() {
             view.goToNextLevel();
-        } else {
-            view.displayWarning("Sorry, the bonus level has not been unlocked");
-        }
     }
 
     /**

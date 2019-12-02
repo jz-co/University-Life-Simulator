@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.universitylife.DataHandler.DataHandler;
-import com.example.universitylife.Game1.Game1BonusLevel;
 import com.example.universitylife.Game1.Game1BonusLvlActivity;
 import com.example.universitylife.Game1.Game1Lvl1Activity;
 import com.example.universitylife.Game1.Game1Lvl2Activity;
