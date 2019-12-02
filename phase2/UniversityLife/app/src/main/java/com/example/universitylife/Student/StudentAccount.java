@@ -18,6 +18,6 @@ class StudentAccount {
     }
 
     String getPassword() {
-        return username;
+        return password;
     }
 }
