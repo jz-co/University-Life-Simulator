@@ -9,11 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.universitylife.CourseSelector.CourseSelectorActivity;
 import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.Game1.Game1BonusLvlActivity;
 import com.example.universitylife.Game1.Game1Lvl1Activity;
 import com.example.universitylife.Game1.Game1Lvl2Activity;
 import com.example.universitylife.Game1.Game1Lvl3Activity;
+import com.example.universitylife.Profile.ProfileActivity;
+import com.example.universitylife.Profile.ProfilePresenter;
 import com.example.universitylife.R;
 
 public class Game1LevelSelectorActivity extends AppCompatActivity implements ILevelSelector.ILevelSelectorView {
@@ -81,7 +84,7 @@ public class Game1LevelSelectorActivity extends AppCompatActivity implements ILe
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                navigateTo(CourseSelectorActivity.class);
             }
         });
     }

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.universitylife.CourseSelector.CourseSelectorActivity;
 import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.Game2.Game2Lvl1Activity;
 import com.example.universitylife.Game2.Game2Lvl2Activity;
@@ -81,7 +82,7 @@ public class Game2LevelSelectorActivity extends AppCompatActivity implements ILe
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                navigateTo(CourseSelectorActivity.class);
             }
         });
     }

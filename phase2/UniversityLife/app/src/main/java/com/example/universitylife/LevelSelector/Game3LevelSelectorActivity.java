@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.universitylife.CourseSelector.CourseSelectorActivity;
 import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.Game3.Game3ViewActivity1;
 import com.example.universitylife.Game3.Game3ViewActivity2;
@@ -81,7 +82,7 @@ public class Game3LevelSelectorActivity extends AppCompatActivity implements ILe
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                navigateTo(CourseSelectorActivity.class);
             }
         });
 

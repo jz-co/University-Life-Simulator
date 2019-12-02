@@ -13,6 +13,7 @@ import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.LevelSelector.Game1LevelSelectorActivity;
 import com.example.universitylife.LevelSelector.Game2LevelSelectorActivity;
 import com.example.universitylife.LevelSelector.Game3LevelSelectorActivity;
+import com.example.universitylife.Profile.ProfileActivity;
 import com.example.universitylife.R;
 
 
@@ -45,7 +46,9 @@ public class CourseSelectorActivity extends AppCompatActivity {
     }
 
     public void onBackClick(View view) {
-        finish();
+        Intent intent = new Intent(this, ProfileActivity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
     }
 
 
