@@ -49,7 +49,6 @@ public class ProfilePresenter implements IProfilePresenter {
         } else {
             view.displayErrorMessage("Sorry, you have not earned enough credits!");
         }
-        view.navigateToEnd();
     }
 
     int getPicIndex() {
