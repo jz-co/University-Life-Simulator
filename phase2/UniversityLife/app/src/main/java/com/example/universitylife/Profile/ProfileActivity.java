@@ -27,6 +27,8 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
 
     private ProfilePresenter presenter;
 
+    private TextView moneyView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +47,7 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
         TextView nameView = findViewById(R.id.nameView);
         TextView gpaView = findViewById(R.id.gpaView);
         TextView creditsView = findViewById(R.id.creditsView);
-        TextView moneyView = findViewById(R.id.moneyView);
+        moneyView = findViewById(R.id.moneyView);
         ImageView userIcon = findViewById(R.id.characterIconView);
 
         presenter = new ProfilePresenter(this, username, new DataHandler(this));
@@ -58,6 +60,12 @@ public class ProfileActivity extends AppCompatActivity implements IProfile.IProf
         int picIdentifier = icons.getIconByIndex(presenter.getPicIndex());
         userIcon.setImageResource(picIdentifier);
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        moneyView.setText(presenter.getMoney());
     }
 
     public void onClickCustomize(View view) {
