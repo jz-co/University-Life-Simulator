@@ -36,11 +36,11 @@
         <Button
             android:id="@+id/levelButton1"
             android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="64dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="50dp"
             android:onClick="navigateToCourse1"
-            android:text="Course 1"
-            android:textColor="#9C27B0"
+            android:text="@string/game1_name"
+            android:textColor="#1B3D70"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
@@ -50,11 +50,11 @@
         <Button
             android:id="@+id/levelButton2"
             android:layout_width="150dp"
-            android:layout_height="60dp"
+            android:layout_height="65dp"
             android:layout_marginTop="32dp"
             android:onClick="navigateToCourse2"
-            android:text="Course 2"
-            android:textColor="#9C27B0"
+            android:text="@string/game2_name"
+            android:textColor="#1B3D70"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
@@ -64,11 +64,11 @@
         <Button
             android:id="@+id/levelButton3"
             android:layout_width="150dp"
-            android:layout_height="60dp"
+            android:layout_height="65dp"
             android:layout_marginTop="32dp"
             android:onClick="navigateToCourse3"
-            android:text="Course 3"
-            android:textColor="#9C27B0"
+            android:text="@string/game3_name"
+            android:textColor="#1B3D70"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
@@ -78,16 +78,17 @@
 
     <Button
         android:id="@+id/backButton"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:background="#1B3D70"
         android:onClick="onBackClick"
         android:text="<back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="#225083"
         android:textColor="#FFFFFF"
-        style="?android:attr/borderlessButtonStyle"/>
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
