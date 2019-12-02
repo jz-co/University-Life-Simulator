@@ -1,9 +1,8 @@
 package com.example.universitylife;
 
-import com.example.universitylife.DataHandler.FireBaseDataHandler;
+import com.example.universitylife.DataHandler.IData;
 import com.example.universitylife.Student.StudentData;
 import com.example.universitylife.Student.StudentFacade;
-import com.example.universitylife.Student.StudentFacadeBuilder;
 
 public class StudentManager {
 

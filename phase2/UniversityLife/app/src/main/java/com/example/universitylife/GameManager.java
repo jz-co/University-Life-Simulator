@@ -1,6 +1,7 @@
 package com.example.universitylife;
 
 
+import com.example.universitylife.DataHandler.IData;
 import com.example.universitylife.Student.StudentFacade;
 
 public class GameManager {

@@ -1,7 +1,7 @@
 package com.example.universitylife.Result;
 
 import com.example.universitylife.GameManager;
-import com.example.universitylife.IData;
+import com.example.universitylife.DataHandler.IData;
 
 class ResultPresenter {
 

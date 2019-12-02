@@ -1,8 +1,7 @@
 package com.example.universitylife.LevelSelector;
 
-import com.example.universitylife.DataHandler.DataHandler;
 import com.example.universitylife.GameManager;
-import com.example.universitylife.IData;
+import com.example.universitylife.DataHandler.IData;
 
 class LevelSelectorPresenter {
 

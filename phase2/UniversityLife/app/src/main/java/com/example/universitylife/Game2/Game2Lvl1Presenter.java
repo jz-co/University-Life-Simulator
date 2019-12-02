@@ -1,6 +1,6 @@
 package com.example.universitylife.Game2;
 
-import com.example.universitylife.IData;
+import com.example.universitylife.DataHandler.IData;
 import com.example.universitylife.GameManager;
 import com.example.universitylife.LevelPresenter;
 import com.example.universitylife.R;

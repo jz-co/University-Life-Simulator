@@ -1,4 +1,4 @@
-package com.example.universitylife;
+package com.example.universitylife.DataHandler;
 
 
 import com.example.universitylife.Student.StudentData;

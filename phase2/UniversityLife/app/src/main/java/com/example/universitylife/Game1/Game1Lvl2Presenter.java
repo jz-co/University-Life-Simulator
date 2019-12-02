@@ -1,6 +1,6 @@
 package com.example.universitylife.Game1;
 
-import com.example.universitylife.IData;
+import com.example.universitylife.DataHandler.IData;
 import com.example.universitylife.LevelPresenter;
 
 class Game1Lvl2Presenter extends LevelPresenter implements ILevel1.ILevel1PresenterCalculator {

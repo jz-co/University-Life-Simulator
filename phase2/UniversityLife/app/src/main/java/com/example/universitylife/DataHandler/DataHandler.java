@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.universitylife.IData;
 import com.example.universitylife.Student.StudentData;
 
 import java.util.ArrayList;

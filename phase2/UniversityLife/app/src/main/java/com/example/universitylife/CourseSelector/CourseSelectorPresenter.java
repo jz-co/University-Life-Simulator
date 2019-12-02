@@ -1,6 +1,6 @@
 package com.example.universitylife.CourseSelector;
 
-import com.example.universitylife.IData;
+import com.example.universitylife.DataHandler.IData;
 import com.example.universitylife.GameManager;
 
 class CourseSelectorPresenter {

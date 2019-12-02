@@ -1,7 +1,7 @@
 package com.example.universitylife.Login;
 
 import com.example.universitylife.GameManager;
-import com.example.universitylife.IData;
+import com.example.universitylife.DataHandler.IData;
 
 public class LoginPresenter implements ILogin.ILoginPresenter {
     private ILogin.ILoginView view;

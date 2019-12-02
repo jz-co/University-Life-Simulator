@@ -1,7 +1,7 @@
 package com.example.universitylife.Bookstore;
 
 import com.example.universitylife.GameManager;
-import com.example.universitylife.IData;
+import com.example.universitylife.DataHandler.IData;
 
 import java.util.List;
 

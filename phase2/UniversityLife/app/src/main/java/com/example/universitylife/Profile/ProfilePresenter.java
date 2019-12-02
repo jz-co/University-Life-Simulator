@@ -1,7 +1,6 @@
 package com.example.universitylife.Profile;
 
-import com.example.universitylife.DataHandler.DataHandler;
-import com.example.universitylife.IData;
+import com.example.universitylife.DataHandler.IData;
 import com.example.universitylife.Profile.IProfile.*;
 import com.example.universitylife.GameManager;
 import com.example.universitylife.Student.StudentFacade;
