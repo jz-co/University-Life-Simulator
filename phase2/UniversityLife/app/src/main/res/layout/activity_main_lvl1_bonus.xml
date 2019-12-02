@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="284dp"
         android:text="\n        Get 10 points within 60 seconds to pass the level! \n Incorrect answer: - 1 point           Correct answer: + 1 point\n
-                    Use the calculator if you need hints!"
+                    Use the calculator if you need hints!\n                     Pass 10 points and earn 5 giftCards! \n             Earn additional giftCards for every point after!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintLeft_toLeftOf="parent"
