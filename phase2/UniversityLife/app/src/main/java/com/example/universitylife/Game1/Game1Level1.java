@@ -8,7 +8,7 @@ import java.util.List;
 
 
 class Game1Level1 {
-    StudentFacade student;
+    private StudentFacade student;
     private int numCorrectAnswers, numIncorrectAnswers, totalScore;
     private int clearingScore;
 
