@@ -35,12 +35,18 @@ public class LeaderboardActivity extends AppCompatActivity {
         displayLeaderBoard();
     }
 
+    /**
+     * Displays on screen the contents of the leaderboard.
+     */
     private void displayLeaderBoard() {
         listView = findViewById(R.id.leaderboard_list);
         adapter = new LeaderboardListAdapter(this, presenter);
         listView.setAdapter(adapter);
     }
 
+    /**
+     * Displays the contents of the current user.
+     */
     private void displayCurrentUserInfo() {
         TextView textViewCurrName = findViewById(R.id.textViewCurrUsername);
         TextView textViewCurrGPA = findViewById(R.id.textViewCurrGPA);
@@ -52,10 +58,16 @@ public class LeaderboardActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Executes when back button clicked.
+     */
     public void onClickBack(View view) {
         finish();
     }
 
+    /**
+     * Returns the image identifier
+     */
     int getIconIdentifier(int index) {
         return characterIcons.getIconByIndex(index);
     }

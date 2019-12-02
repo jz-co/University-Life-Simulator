@@ -218,8 +218,9 @@ public class Game3ViewActivity3 extends Activity implements SurfaceHolder.Callba
         canvas.drawText(score, 100, 100, paint);
 
 
-        String rules = "Hit the target to earn score, else missing the target results in reduction of lives. Here, target changes in size as well as moves diagonally";
-        canvas.drawText(rules, screenWidth - 600, 100, paint);
+        paint.setTextSize(40);
+        canvas.drawText("Hit the target to earn score, else missing the target", screenWidth - 1000, 200, paint);
+        canvas.drawText("Here, target moves horizontally", screenWidth - 1000, 250, paint);
 
     }
 

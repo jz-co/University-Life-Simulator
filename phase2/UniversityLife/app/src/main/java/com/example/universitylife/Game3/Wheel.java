@@ -42,8 +42,8 @@ public class Wheel extends GameContents {
         super(level, width, height);
         super.setX((25 * width) / 100);
         super.setY((15 * height) / 100);
-        this.width = 114;
-        this.height = 115;
+        this.width = 250;
+        this.height = 250;
         setDirection();
     }
 
@@ -53,7 +53,7 @@ public class Wheel extends GameContents {
      * @return width of the wheel
      */
     public int getWidth() {
-        return 114;
+        return width;
     }
 
     private void setDirection() {
@@ -70,7 +70,7 @@ public class Wheel extends GameContents {
      * @return height of the wheel
      */
     public int getHeight() {
-        return 115;
+        return height;
     }
 
     /**
