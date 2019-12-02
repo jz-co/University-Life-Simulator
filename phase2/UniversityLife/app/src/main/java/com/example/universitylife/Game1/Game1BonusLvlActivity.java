@@ -42,7 +42,7 @@ public class Game1BonusLvlActivity extends AppCompatActivity implements ILevel1.
         // Set No Title
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        setContentView(R.layout.activity_main_lvl1_lvl3);
+        setContentView(R.layout.activity_main_lvl1_bonus);
 
         this.username = (String) getIntent().getSerializableExtra("Username");
         this.game1BonusLvlPresenter = new Game1BonusLvlPresenter(this, username, new DataHandler(this));
