@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 class BonusItemsBuilder {
-    private ArrayList<BonusItem> masterList = new ArrayList<BonusItem>();
+    private ArrayList<BonusItem> masterList = new ArrayList<>();
 
     void buildBonusItemsList() {
 
         masterList.add(buildFirstBonus());
         masterList.add(buildSecondBonus());
-//        masterList.add(buildThirdBonus());
+        masterList.add(buildThirdBonus());
     }
 
     List<BonusItem> getBonusItemsList() {
@@ -20,7 +20,7 @@ class BonusItemsBuilder {
     private BonusItem buildFirstBonus() {
         int id = 1;
         String name = "Calculator";
-        String description = "Gives hints for quicker answers in Math Mania!";
+        String description = "Gives hints for quicker answers in Math Mania";
         return new BonusItem(id, name, description);
 
     }
@@ -35,8 +35,8 @@ class BonusItemsBuilder {
 
     private BonusItem buildThirdBonus() {
         int id = 3;
-        String name = "Arrow Bonus";
-        String description = "Insert Description";
+        String name = "Super Arrow";
+        String description = "Earn twice the points when you hit the target in Extreme Archery";
         return new BonusItem(id, name, description);
 
     }

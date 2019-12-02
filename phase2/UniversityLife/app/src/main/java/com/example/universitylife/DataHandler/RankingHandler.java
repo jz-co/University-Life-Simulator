@@ -1,6 +1,8 @@
 package com.example.universitylife.DataHandler;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.renderscript.Sampler;
 import android.service.notification.NotificationListenerService;
 
@@ -16,16 +18,29 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class RankingHandler {
+public class RankingHandler extends DataHandler implements IRanking {
 
-    private DataHandler dataHandler;
 
     public RankingHandler(Context context){
-        this.dataHandler = new DataHandler(context);
+        super(context);
     }
-//
-//    public ArrayList<StudentData> getTopFive(){
-//        String query = "Select * FROM " + TABLE_STUDENTS + " WHERE " + COLUMN_USERNAME + " = " + "userName";
-//    }
 
+    public ArrayList<StudentData> getTopFive() {
+        int count = 0;
+        ArrayList<StudentData> students = new ArrayList<>();
+        String selectQuery = "SELECT  * FROM " + TABLE_STUDENTS + " ORDER BY " +
+                COLUMN_GPA + " DESC";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                StudentData student = getThisStudent(cursor);
+                count += 1;
+                students.add(student);
+            } while (cursor.moveToNext() && count <= 5);
+        }
+        return new ArrayList(students.subList(0, 4));
+    }
 }

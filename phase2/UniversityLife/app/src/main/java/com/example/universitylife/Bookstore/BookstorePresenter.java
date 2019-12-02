@@ -20,19 +20,26 @@ class BookstorePresenter {
         gameManager.saveBeforeExit();
     }
 
+
     void validateBonusPurchase(int bonusIdNum) {
         if (store.studentHasGiftcards()) {
             store.buyItem(bonusIdNum);
         } else {
             view.displayWarning("You do not have enough giftcards for this purchase!");
         }
-        view.updateGiftcardDisplay(store.getStudentGiftcards());
+        view.updateGiftCardDisplay(store.getStudentGiftcards());
     }
 
+    /**
+     * Returns the number of gift cards the user currently has.
+     */
     int getStudentGiftcards() {
         return store.getStudentGiftcards();
     }
 
+    /**
+     * Returns a list of bonuses that is available in the bookstore.
+     */
     List<BonusItem> getBonusItemsList() {
         return store.getBonusItemList();
     }

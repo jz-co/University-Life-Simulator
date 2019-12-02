@@ -1007,3 +1007,11 @@ Changed layout, added a back button and connected to level selector.
 ########
 Step 170 (Trisha)
 Changed game_3_layout.
+
+########
+Step 171 (Grace)
+Refactored level 1
+
+########
+Step 172 (Grace)
+Refactored leaderboard. Separated RankingHandler from DataHandler (single responsibility)

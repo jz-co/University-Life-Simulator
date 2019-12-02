@@ -46,7 +46,7 @@ public class StudentManager {
 
 
     /**
-     * Return the Model.StudentOld with the given username.
+     * Return the student with the given username.
      *
      * @param username The username we are looking for.
      * @return The student with the given username.

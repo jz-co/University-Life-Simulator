@@ -13,7 +13,7 @@ public class BonusIcons {
     }
 
     private void populateBonusIcons(AppCompatActivity activity) {
-        ArrayList<String> iconNames = new ArrayList<String>(Arrays.asList("@drawable/calculator", "@drawable/umbrella"
+        ArrayList<String> iconNames = new ArrayList<String>(Arrays.asList("@drawable/calculator", "@drawable/umbrella", "@drawable/superarrow"
         ));
 
         for (String iconName : iconNames) {

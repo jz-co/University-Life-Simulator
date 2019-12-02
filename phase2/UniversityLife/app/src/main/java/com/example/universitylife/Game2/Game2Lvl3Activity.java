@@ -76,7 +76,7 @@ public class Game2Lvl3Activity extends AppCompatActivity implements ILevel2.ILev
 
     @Override
     public void goToNextLevel() {
-        Intent intent = new Intent(this, Game2Lvl3Activity.class);
+        Intent intent = new Intent(this, Game2Lvl4Activity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }
@@ -167,7 +167,7 @@ public class Game2Lvl3Activity extends AppCompatActivity implements ILevel2.ILev
      */
     public void move_right(View view) {
         game2Presenter.move_right();
-        updateViewPosById(R.id.character_2);
+        updateViewPosById(R.id.character_3);
     }
 
     /**
@@ -177,7 +177,7 @@ public class Game2Lvl3Activity extends AppCompatActivity implements ILevel2.ILev
      */
     public void move_left(View view) {
         game2Presenter.move_left();
-        updateViewPosById(R.id.character_2);
+        updateViewPosById(R.id.character_3);
     }
 
     /**

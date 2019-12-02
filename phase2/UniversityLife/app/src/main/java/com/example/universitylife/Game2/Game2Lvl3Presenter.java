@@ -38,7 +38,7 @@ public class Game2Lvl3Presenter extends LevelPresenter implements ILevel2.ILevel
         fallingObjects.add(blueObject);
         fallingObjects.add(yellowObject);
         fallingObjects.add(whatYouShouldDo);
-        fallingObjects.add(whatYouShouldDo);
+        fallingObjects.add(whatYouShouldNotdo);
         fallingObjects.add(killingObject);
         Basket basket = new Basket(R.id.character_3, 0, basketInt);
         StudentFacade student = this.gameManager.getCurrentStudent();
