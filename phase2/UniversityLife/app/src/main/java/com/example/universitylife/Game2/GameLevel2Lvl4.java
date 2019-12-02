@@ -10,6 +10,14 @@ import java.util.ArrayList;
     }
 
      public void levelClear(){
-         this.getStudent().registerLevelResults(2, 4, this.getScore());
+         int score_final;
+         if (this.getScore() > 30){
+             score_final = 1;
+         }else if(this.getScore() < 60){
+             score_final = 2;
+         }else{
+             score_final = 3;
+         }
+         this.getStudent().registerLevelResults(2, 4, score_final);
      }
 }

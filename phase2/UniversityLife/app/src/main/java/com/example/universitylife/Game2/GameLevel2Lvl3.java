@@ -45,6 +45,12 @@ public class GameLevel2Lvl3 extends GameLevel2Lvl2 {
     }
 
     public void levelClear(){
-        this.getStudent().registerLevelResults(2, 3, this.getScore());
+        double score_final;
+        if (this.getScore() > 100){
+            score_final = 1;
+        }else {
+            score_final = this.getScore()/100;
+        }
+        this.getStudent().registerLevelResults(2, 3, score_final);
     }
 }

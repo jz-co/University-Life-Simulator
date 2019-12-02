@@ -90,7 +90,13 @@ public class GameLevel2Lvl1 {
     }
 
     public void levelClear(){
-        student.registerLevelResults(2, 1, score);
+        double score_final;
+        if (score > 100){
+            score_final = 1;
+        }else {
+            score_final = score/100;
+        }
+        student.registerLevelResults(2, 1, score_final);
     }
 
 
