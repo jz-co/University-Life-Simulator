@@ -24,7 +24,7 @@ public class ProfilePresenter implements IProfilePresenter {
 
     @Override
     public String getName() {
-        return student.getName();
+        return gameManager.getCurrentUsername();
     }
 
     @Override
