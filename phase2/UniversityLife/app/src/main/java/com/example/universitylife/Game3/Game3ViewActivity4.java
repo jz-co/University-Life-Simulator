@@ -198,11 +198,11 @@ public class Game3ViewActivity4 extends Activity implements SurfaceHolder.Callba
 
         GameContents arrow = gameItemManager.getGameItems().get(0);
         String windSpeed = "WindSpeed: " + (arrow.getWindSpeed());
-        canvas.drawText(windSpeed, 100, 300, paint);
+        canvas.drawText(windSpeed, 100, 200, paint);
 
         paint.setTextSize(40);
-        canvas.drawText("Hit the target to earn score, else missing the target", screenWidth - 1000, 200, paint);
-        canvas.drawText("Here, arrow has wind-speed", screenWidth - 1000, 250, paint);
+        canvas.drawText("Hit the target to earn score, else missing the target", screenWidth - 1000, 250, paint);
+        canvas.drawText("Here, arrow has wind-speed", screenWidth - 1000, 300, paint);
     }
 
     /**
