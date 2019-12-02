@@ -240,10 +240,14 @@ public class Game3ViewActivity3 extends Activity implements SurfaceHolder.Callba
                 gameItemManager.getGameItems().add(1, new Arrow(3, screenWidth, screenHeight));
             }
         }
-
-        if (gameItemManager.getScore() >= 5) {
+        double score = gameItemManager.getScore();
+        if (score >= 5) {
             StudentFacade s = manager.getCurrentStudent();
-            s.registerLevelResults(3, 3, gameItemManager.getScore());
+            score = score / 5;
+            if (score > 2) {
+                score = 2;
+            }
+            s.registerLevelResults(3, 3, score);
 
             Button next = (Button) findViewById(R.id.button);
             next.setOnClickListener(new View.OnClickListener() {
