@@ -49,7 +49,7 @@ public class BookStoreActivity extends AppCompatActivity implements IBookstore.I
      * Displays the list of bonuses that cna be purchased.
      */
     private void displayBonusList() {
-        bonusListView = (ListView) findViewById(R.id.bonus_item_list);
+        bonusListView = findViewById(R.id.bonus_item_list);
         BookStoreListAdapter adapter = new BookStoreListAdapter(this, presenter.getBonusItemsList());
         adapter.setViewPresenter(this.presenter);
         bonusListView.setAdapter(adapter);

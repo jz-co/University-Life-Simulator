@@ -61,6 +61,13 @@ public class GameLevel2Lvl2 extends GameLevel2Lvl1{
         return result;
     }
 
+    public void play() {
+        int element = (int) (Math.random() * this.getFallingObjects().size());
+        this.setScore(this.getScore() + this.game(element));
+        // setting the score in the frontend
+        presenter.setScore();
+    }
+
 
     public void levelClear(){
         double score_final;
