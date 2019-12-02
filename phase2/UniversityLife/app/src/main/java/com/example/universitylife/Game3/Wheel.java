@@ -34,7 +34,7 @@ public class Wheel extends GameContents {
     /**
      * Constructs a wheel object.
      *
-     * @param view of game
+     * @param level of game grid
      * @param width of game grid
      * @param height of game grid
      */
@@ -42,8 +42,8 @@ public class Wheel extends GameContents {
         super(level, width, height);
         super.setX((25 * width) / 100);
         super.setY((15 * height) / 100);
-        this.width = view.getWheelWidth();
-        this.height = view.getWheelHeight();
+        this.width = 114;
+        this.height = 115;
         setDirection();
     }
 
@@ -53,7 +53,7 @@ public class Wheel extends GameContents {
      * @return width of the wheel
      */
     public int getWidth() {
-        return view.getWheelWidth();
+        return 114;
     }
 
     private void setDirection() {
@@ -70,7 +70,7 @@ public class Wheel extends GameContents {
      * @return height of the wheel
      */
     public int getHeight() {
-        return view.getWheelHeight();
+        return 115;
     }
 
     /**

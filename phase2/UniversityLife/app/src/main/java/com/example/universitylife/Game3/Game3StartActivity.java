@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.universitylife.DataHandler.DataHandler;
+import com.example.universitylife.LevelSelector.Game3LevelSelectorActivity;
 import com.example.universitylife.R;
 
 /**
@@ -61,7 +62,7 @@ public class Game3StartActivity extends AppCompatActivity implements ILevel3.ILe
 
     public void startGame(View view) {
         Intent intent;
-        intent = new Intent(this, Game3ViewActivity1.class);
+        intent = new Intent(this, Game3LevelSelectorActivity.class);
         intent.putExtra("Username", username);
         startActivity(intent);
     }

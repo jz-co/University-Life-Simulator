@@ -53,12 +53,14 @@ public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callba
     /**
      * The width of the screen.
      */
-    int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
+    int screenWidth;
+//    int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
 
     /**
      * The height of the screen.
      */
-    int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
+    int screenHeight;
+//    int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
 
     /**
      * GameManager instance.
@@ -75,13 +77,15 @@ public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callba
      */
     Context context;
 
-    private MainThread thread;
+    private MainThread1 thread;
 
-    private Bitmap wheelImage = BitmapFactory.decodeResource(getResources(), R.drawable.circle);
+    private Bitmap wheelImage;
     private Bitmap arrowImage;
-    private Bitmap bowImage = BitmapFactory.decodeResource(getResources(), R.drawable.bow);
-    private Bitmap background = BitmapFactory.decodeResource(getResources(), R.drawable.game3_background);
+    private Bitmap bowImage;
+    private Bitmap background;
+
     private boolean isDoubleArrow = false;
+
     /**
      * Creates the level 3 surface view.
      */
@@ -92,28 +96,30 @@ public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callba
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-
         // Set No Title
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.game_3_layout);
 
-        surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
-        surfaceHolder = surfaceView.getHolder();
-        this.manager = new GameManager(username, new DataHandler(this));
-
-
-        surfaceHolder.addCallback(this);
-        thread = new MainThread(surfaceHolder, this);
 
         this.context = this.getApplicationContext();
 
-        Button back = (Button) findViewById(R.id.button5);
-        back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(context, Game3LevelSelectorActivity.class);
-                startActivity(intent);
-            }
-        });
+        surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
+        surfaceHolder = surfaceView.getHolder();
+        this.username = (String) getIntent().getSerializableExtra("Username");
+        this.manager = new GameManager(username, new DataHandler(this.context));
+
+
+        surfaceHolder.addCallback(this);
+        thread = new MainThread1(surfaceHolder, this);
+
+        screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
+        screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
+
+        wheelImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.circle);
+        arrowImage =  BitmapFactory.decodeResource(context.getResources(), R.drawable.arrow);
+        bowImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.bow);
+        background = BitmapFactory.decodeResource(context.getResources(), R.drawable.game3_background);
 
     }
 
@@ -139,8 +145,9 @@ public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callba
 
         // add an arrow to the game
         Arrow arrow = new Arrow(1, screenWidth, screenHeight);
-        gameItemManager.createGameItems(arrow);
         setArrowImage();
+        gameItemManager.createGameItems(arrow);
+
 
         // add a bow to the game
         Bow bow = new Bow(1, screenWidth, screenHeight);
@@ -196,15 +203,12 @@ public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callba
         String score = "High Score: " + (gameItemManager.getScore());
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
-        paint.setTextSize(25);
+        paint.setTextSize(75);
         paint.setFakeBoldText(true);
         canvas.drawText(score, 100, 100, paint);
 
-        String life = "Lives: " + (gameItemManager.getLives());
-        canvas.drawText(life, 100, 200, paint);
-
         String rules = "Hit the target to earn score, else missing the target results in reduction of lives. Here, target changes position";
-        canvas.drawText(rules, screenWidth - 600, 100, paint);
+        canvas.drawText(rules, screenWidth - 600, 250, paint);
 
     }
 
@@ -226,7 +230,7 @@ public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callba
             }
         }
 
-        if (gameItemManager.getScore() >= 10) {
+        if (gameItemManager.getScore() >= 3) {
             StudentFacade s = manager.getCurrentStudent();
             s.registerLevelResults(3, 1, gameItemManager.getScore());
 
@@ -237,12 +241,6 @@ public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callba
                     nextLevel(v);
                 }
             });
-
-            if (gameItemManager.getLives() == 0) {
-                Intent intent = new Intent(context, Game3LevelSelectorActivity.class);
-                startActivity(intent);
-
-            }
         }
 
 
@@ -251,9 +249,9 @@ public class Game3ViewActivity1 extends Activity implements SurfaceHolder.Callba
 
     public void setArrowImage() {
         if (isDoubleArrow) {
-            arrowImage = BitmapFactory.decodeResource(getResources(), R.drawable.double_arrow);
+            arrowImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.double_arrow);
         } else {
-            arrowImage = BitmapFactory.decodeResource(getResources(), R.drawable.arrow);
+            arrowImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.arrow);
         }
     }
 
