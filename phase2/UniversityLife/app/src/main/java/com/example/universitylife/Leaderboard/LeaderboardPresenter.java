@@ -20,39 +20,8 @@ class LeaderboardPresenter implements ILeaderboard.ILeaderboardPresenter {
             leaderBoardList.add(d.dataToStudent());
         }
 
-//        leaderboardList = leaderboard.getTop5();
-//        displayRankingInfo();
-//        view.displayUserInfo(leaderboard.getOnScreenAppearance(),
-//                leaderboard.getOnScreenName(), leaderboard.getOnScreenGpa());
     }
-//
-//    private void displayRankingInfo(){
-//        for (int i=0; i<5; i++){
-//            view.displayAvatar(i, leaderboard.getAppearanceOf(i));
-//            view.displayName(i, leaderboard.getNameOf(i));
-//            view.displayGpa(i, leaderboard.getGpaOf(i));
-//        }
-//    }
 
-//    int displayAvatar(int i) {
-//        return leaderboard.getAppearanceOf(i);
-//    }
-//
-//    String currentUserName() {
-//        return leaderboard.getOnScreenName();
-//    }
-//
-//    String leaderBoardName(int i) {
-//        return leaderboard.getNameOf(i);
-//    }
-//
-//    double currentGPA() {
-//        return leaderboard.getOnScreenGpa();
-//    }
-//
-//    int currentAvatar() {
-//        return leaderboard.getOnScreenAppearance();
-//    }
     @Override
     public List<ILeaderboard.ILeaderboardStudent> getLeaderBoardList() {
         return leaderBoardList;
