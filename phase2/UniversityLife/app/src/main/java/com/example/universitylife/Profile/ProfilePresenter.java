@@ -44,6 +44,7 @@ public class ProfilePresenter implements IProfilePresenter {
 
     @Override
     public void validateGraduation() {
+        //TODO: remove
 //        if (student.canGraduate()) {
 //            view.navigateToEnd();
 //        } else {

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.universitylife.CharacterIcons;
 import com.example.universitylife.DataHandler.DataHandler;
+import com.example.universitylife.DataHandler.RankingHandler;
 import com.example.universitylife.R;
 
 public class LeaderboardActivity extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class LeaderboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_leaderboard_main);
 
         String username = (String) getIntent().getSerializableExtra("Username");
-        presenter = new LeaderboardPresenter(username, new DataHandler(this));
+        presenter = new LeaderboardPresenter(username, new RankingHandler(this));
 
         characterIcons = new CharacterIcons(this);
 

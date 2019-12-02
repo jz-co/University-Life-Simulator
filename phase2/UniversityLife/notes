@@ -1011,3 +1011,7 @@ Changed game_3_layout.
 ########
 Step 171 (Grace)
 Refactored level 1
+
+########
+Step 172 (Grace)
+Refactored leaderboard. Separated RankingHandler from DataHandler (single responsibility).
